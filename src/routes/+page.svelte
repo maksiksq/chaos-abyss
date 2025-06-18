@@ -1,8 +1,9 @@
 <script lang="ts">
     type Data = {
         title: string;
-        img: string;
-        imgAlt: string;
+        fig: string;
+        figcap?: string;
+        figalt: string;
         blurb: string;
         date: string;
         author: string;
@@ -11,8 +12,9 @@
 
     const data: Data = $state({
         title: 'a',
-        img: '',
-        imgAlt: '',
+        fig: '',
+        figcap: '',
+        figalt: '',
         blurb: '',
         date: '',
         author: '',
@@ -48,13 +50,17 @@
         </p>
 
         <figure>
-            <img alt="">
-            <figcaption>
-
-            </figcaption>
+            <img src="{data.fig}" alt="{data.figalt}">
+            <figcaption>{data.figcap}</figcaption>
         </figure>
     </article>
-    <section></section>
-    <section></section>
+    <section>
+        <h2></h2>
+        <p></p>
+    </section>
+    <section>
+        <h2></h2>
+        <p></p>
+    </section>
 </main>
 <footer></footer>
