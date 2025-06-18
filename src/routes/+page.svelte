@@ -1,6 +1,8 @@
 <script lang="ts">
     type Data = {
         title: string;
+        img: string;
+        imgAlt: string;
         blurb: string;
         date: string;
         author: string;
@@ -8,7 +10,9 @@
     }
 
     const data: Data = $state({
-        title: '',
+        title: 'a',
+        img: '',
+        imgAlt: '',
         blurb: '',
         date: '',
         author: '',
@@ -17,24 +21,39 @@
 </script>
 
 <header>
-    <ul>
-        <li>
-            <a href="#" aria-label="Home">
-                <img src="#" alt="logo">
-            </a>
-        </li>
-        <li>
-            <!-- search eventually -->
-        </li>
-        <li>
-            <a href="#">
-                About
-            </a>
-        </li>
-    </ul>
+    <nav>
+        <ul>
+            <li>
+                <a href="#" aria-label="Home">
+                    <img src="#" alt="logo">
+                </a>
+            </li>
+            <li>
+                <!-- search eventually -->
+            </li>
+            <li>
+                <a href="#">
+                    About
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
 <main>
-    <h1>{data.title}</h1>
+    <article>
+        <h1>{data.title}</h1>
+        <p>
+            <!-- TODO: parser -->
+            <time datetime="{data.date}"></time>
+        </p>
+
+        <figure>
+            <img alt="">
+            <figcaption>
+
+            </figcaption>
+        </figure>
+    </article>
     <section></section>
     <section></section>
 </main>
