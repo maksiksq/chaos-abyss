@@ -1,2 +1,21 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<header>
+    <ul>
+        <li>
+            <a href="#" aria-label="Home">
+                <img src="#" alt="logo">
+            </a>
+        </li>
+        <li>
+            <!-- search eventually -->
+        </li>
+        <li>
+            <a href="#">
+                About
+            </a>
+        </li>
+    </ul>
+</header>
+<main>
+    <section></section>
+</main>
+<footer></footer>
