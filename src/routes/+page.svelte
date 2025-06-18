@@ -1,3 +1,21 @@
+<script lang="ts">
+    type Data = {
+        title: string;
+        blurb: string;
+        date: string;
+        author: string;
+        pizzazz?: string;
+    }
+
+    const data: Data = $state({
+        title: '',
+        blurb: '',
+        date: '',
+        author: '',
+        pizzazz: '',
+    })
+</script>
+
 <header>
     <ul>
         <li>
@@ -16,6 +34,8 @@
     </ul>
 </header>
 <main>
+    <h1>{data.title}</h1>
+    <section></section>
     <section></section>
 </main>
 <footer></footer>
