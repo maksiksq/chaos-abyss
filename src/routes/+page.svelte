@@ -1,4 +1,11 @@
 <script lang="ts">
+    type ContentBlock =
+        | { type: 'heading'; level: string; content: string }
+        | { type: 'paragraph'; content: string }
+        | { type: 'image'; content: string; alt: string };
+
+    type SectionData = ContentBlock[][];
+
     type Data = {
         title: string;
         fig: string;
@@ -9,13 +16,9 @@
         author: string;
         pizzazz?: string;
 
-        content: [
-            {
-                subtitle?: string;
-                paragraph: string;
-            }
-        ]
+        sections: SectionData;
     }
+
 
     const data: Data = $state({
         title: 'a',
@@ -26,6 +29,14 @@
         date: '',
         author: '',
         pizzazz: '',
+
+        sections: [
+            [
+                {type: 'heading1', level: '1', content: 'Test'},
+                {type: 'paragraph', content: 'Testestest'},
+                {type: 'image', content: 'an src', alt: ''}
+            ]
+        ]
     })
 </script>
 
@@ -64,7 +75,7 @@
         {#each data.content as section}
             <section>
                 <h2>{section.subtitle}</h2>
-                <p>{section.paragraph}</p>
+                <p>@html {section.paragraph}</p>
             </section>
         {/each}
     </article>
