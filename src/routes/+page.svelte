@@ -3,10 +3,10 @@
 
     type ContentBlock =
         | { type: 'heading'; level: string; content: string }
-        | { type: 'paragraph'; content: string }
-        | { type: 'blockquote'; content: string }
-        | { type: 'codeblock'; content: string }
-        | { type: 'image'; content: string; alt: string };
+        | { type: 'paragraph'; text: string }
+        | { type: 'blockquote'; text: string }
+        | { type: 'codeblock'; text: string }
+        | { type: 'image'; text: string; alt: string };
 
     type SectionData = ContentBlock[][];
 
@@ -37,8 +37,8 @@
         sections: [
             [
                 {type: 'heading', level: '1', content: 'Test'},
-                {type: 'paragraph', content: 'Testestest'},
-                {type: 'image', content: 'an src', alt: ''}
+                {type: 'paragraph', text: 'Testestest'},
+                {type: 'image', text: 'an src', alt: ''}
             ]
         ]
     })
