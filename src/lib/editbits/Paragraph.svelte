@@ -2,4 +2,8 @@
     const { content } = $props();
 </script>
 
-<p>{content}</p>
+<p>{content.text}</p>
+
+<style>
+    /* TODO: paragraph style */
+</style>

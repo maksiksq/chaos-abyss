@@ -6,7 +6,7 @@
         | { type: 'paragraph'; text: string }
         | { type: 'blockquote'; text: string }
         | { type: 'codeblock'; text: string }
-        | { type: 'image'; text: string; alt: string };
+        | { type: 'image'; src: string; caption: string, alt: string };
 
     type SectionData = ContentBlock[][];
 
@@ -38,7 +38,7 @@
             [
                 {type: 'heading', level: '1', content: 'Test'},
                 {type: 'paragraph', text: 'Testestest'},
-                {type: 'image', text: 'an src', alt: ''}
+                {type: 'image', src: 'an src', caption: 'hello', alt: 'image'}
             ]
         ]
     })
