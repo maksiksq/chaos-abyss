@@ -1,4 +1,8 @@
 <script lang="ts">
+    import '../global.css';
+
+    //
+
     import Resolver from "$lib/components/Resolver.svelte";
 
     type ContentBlock =
@@ -110,12 +114,24 @@
 
 <style>
     header {
+        width: 100%;
+
+        border: 1px solid black;
+
+
         nav {
             ul {
                 list-style-type: none;
 
+                height: 4rem;
+
                 display: flex;
                 flex-direction: row;
+                align-items: center;
+
+                li {
+                    font-size: 1.1rem;
+                }
             }
         }
 

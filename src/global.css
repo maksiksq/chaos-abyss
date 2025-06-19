@@ -1,0 +1,17 @@
+/* GLOBALS */
+* {
+    font-family: Comfortaa, sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    overflow-x: hidden;
+    background-color: white;
+    color: rgba(230,230,230,1);
+}
+
+::selection {
+    background: rgba(138,2,181,1);
+}
