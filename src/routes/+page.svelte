@@ -69,15 +69,11 @@
 
 <header>
     <nav>
+        <a href="#" class="logo-link" aria-label="Home">
+            <img src="/img/logo.png" alt="logo">
+        </a>
+        <input class="search" type="text" placeholder="Search..."/>
         <ul>
-            <li>
-                <a href="#" aria-label="Home">
-                    <img src="/img/logo.png" alt="logo">
-                </a>
-            </li>
-            <li>
-                <input type="text" placeholder="Search..."/>
-            </li>
             <li>
                 <a href="#">
                     About
@@ -119,8 +115,31 @@
         border: 1px solid black;
 
 
-        nav {
-            ul {
+        & nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            & .logo-link {
+                margin-left: 1vw;
+                margin-right: 2vw;
+                height: 32px;
+
+                & img {
+                    height: 2rem;
+                }
+            }
+
+            & .search {
+                margin-right: 2vw;
+
+                padding: 8px;
+                border: 3px solid black;
+                border-radius: 10px;
+                width: 9vw;
+            }
+
+            & ul {
                 list-style-type: none;
 
                 height: 4rem;
@@ -129,12 +148,8 @@
                 flex-direction: row;
                 align-items: center;
 
-                li {
+                & li {
                     font-size: 1.1rem;
-
-                    img {
-                        height: 8rem;
-                    }
                 }
             }
         }
