@@ -40,14 +40,24 @@
                 {type: 'paragraph', text: 'Testestest'},
                 {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
                 {type: 'codeblock', text: 'im a code,yes'},
-                {type: 'image', src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg', caption: 'megumin hat', alt: 'megumin hat'}
+                {
+                    type: 'image',
+                    src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg',
+                    caption: 'megumin hat',
+                    alt: 'megumin hat'
+                }
             ],
             [
                 {type: 'heading', level: '1', content: 'Test'},
                 {type: 'paragraph', text: 'Testestest'},
                 {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
                 {type: 'codeblock', text: 'im a code,yes'},
-                {type: 'image', src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg', caption: 'megumin hat', alt: 'megumin hat'}
+                {
+                    type: 'image',
+                    src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg',
+                    caption: 'megumin hat',
+                    alt: 'megumin hat'
+                }
             ]
         ]
     })
@@ -62,7 +72,7 @@
                 </a>
             </li>
             <li>
-                <!-- search eventually -->
+                <input type="text" placeholder="Search..."/>
             </li>
             <li>
                 <a href="#">
@@ -88,10 +98,26 @@
         {#each data.sections as section}
             <section>
                 {#each section as contentBlock}
-                    <Resolver content={contentBlock} />
+                    <Resolver content={contentBlock}/>
                 {/each}
             </section>
         {/each}
     </article>
 </main>
-<footer></footer>
+<footer>
+    <p>© 2025 Maksiks. Some rights chewed, others stored in a jar.</p>
+</footer>
+
+<style>
+    header {
+        nav {
+            ul {
+                list-style-type: none;
+
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+    }
+</style>
