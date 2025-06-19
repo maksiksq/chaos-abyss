@@ -1,7 +1,11 @@
 <script lang="ts">
+    import Resolver from "$lib/components/Resolver.svelte";
+
     type ContentBlock =
         | { type: 'heading'; level: string; content: string }
         | { type: 'paragraph'; content: string }
+        | { type: 'blockquote'; content: string }
+        | { type: 'codeblock'; content: string }
         | { type: 'image'; content: string; alt: string };
 
     type SectionData = ContentBlock[][];
@@ -32,7 +36,7 @@
 
         sections: [
             [
-                {type: 'heading1', level: '1', content: 'Test'},
+                {type: 'heading', level: '1', content: 'Test'},
                 {type: 'paragraph', content: 'Testestest'},
                 {type: 'image', content: 'an src', alt: ''}
             ]
@@ -72,10 +76,11 @@
             <figcaption>{data.figcap}</figcaption>
         </figure>
 
-        {#each data.content as section}
+        {#each data.sections as section}
             <section>
-                <h2>{section.subtitle}</h2>
-                <p>@html {section.paragraph}</p>
+                {#each section as contentBlock}
+                    <Resolver content={contentBlock} />
+                {/each}
             </section>
         {/each}
     </article>
