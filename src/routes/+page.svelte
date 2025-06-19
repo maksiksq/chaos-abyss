@@ -38,7 +38,16 @@
             [
                 {type: 'heading', level: '1', content: 'Test'},
                 {type: 'paragraph', text: 'Testestest'},
-                {type: 'image', src: 'an src', caption: 'hello', alt: 'image'}
+                {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
+                {type: 'codeblock', text: 'im a code,yes'},
+                {type: 'image', src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg', caption: 'megumin hat', alt: 'megumin hat'}
+            ],
+            [
+                {type: 'heading', level: '1', content: 'Test'},
+                {type: 'paragraph', text: 'Testestest'},
+                {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
+                {type: 'codeblock', text: 'im a code,yes'},
+                {type: 'image', src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg', caption: 'megumin hat', alt: 'megumin hat'}
             ]
         ]
     })
