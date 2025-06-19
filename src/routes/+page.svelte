@@ -72,7 +72,7 @@
         <ul>
             <li>
                 <a href="#" aria-label="Home">
-                    <img src="#" alt="logo">
+                    <img src="/img/logo.png" alt="logo">
                 </a>
             </li>
             <li>
@@ -131,6 +131,10 @@
 
                 li {
                     font-size: 1.1rem;
+
+                    img {
+                        height: 8rem;
+                    }
                 }
             }
         }
