@@ -8,6 +8,13 @@
         date: string;
         author: string;
         pizzazz?: string;
+
+        content: [
+            {
+                subtitle?: string;
+                paragraph: string;
+            }
+        ]
     }
 
     const data: Data = $state({
@@ -53,14 +60,13 @@
             <img src="{data.fig}" alt="{data.figalt}">
             <figcaption>{data.figcap}</figcaption>
         </figure>
+
+        {#each data.content as section}
+            <section>
+                <h2>{section.subtitle}</h2>
+                <p>{section.paragraph}</p>
+            </section>
+        {/each}
     </article>
-    <section>
-        <h2></h2>
-        <p></p>
-    </section>
-    <section>
-        <h2></h2>
-        <p></p>
-    </section>
 </main>
 <footer></footer>
