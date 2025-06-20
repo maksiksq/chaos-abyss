@@ -67,10 +67,10 @@
         ]
     })
 
-    // don't forget meta tags
+    // don't forget meta tags or else
 </script>
 
-<ArticleHeader />
+<ArticleHeader/>
 <main>
     <article>
         <figure>
@@ -78,7 +78,7 @@
             <figcaption>{data.figcap}</figcaption>
         </figure>
 
-        <div class="metablock">
+        <header class="metablock">
             <h1>{data.title}</h1>
             <p>{data.blurb}</p>
             <p>
@@ -87,11 +87,7 @@
                 <time datetime="{data.date}"></time>
             </p>
             <p>{data.pizzazz}</p>
-        </div>
-
-
-
-
+        </header>
 
         {#each data.sections as section}
             <section>
@@ -103,18 +99,37 @@
     </article>
 </main>
 <footer>
+    <!-- Make these frickers random because of course -->
+    <!-- © 2025 Maksiks. Some rights stewed, others sautéed. -->
+    <!-- © 2025 Maksiks. All right neglected. It's a dangerous world out there. -->
+    <!-- © 2025 Maksiks. My rights are in my reserve. -->
+    <!-- © 2025 Maksiks. Reserved the rights to reserve rights. -->
+    <!-- © 2077 Maksiks. All rights teleported. -->
+    <!-- © 830 BC Maksiks. All rights salted. -->
     <p>© 2025 Maksiks. Some rights chewed, others stored in a jar.</p>
 </footer>
 
 <style>
     main {
         & article {
-            max-width: 664px;
+            max-width: 720px;
             width: 100%;
+            padding-top: clamp(1rem, 5vw, 3rem);
             margin: 0 auto;
+
+
             & figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
                 & img {
                     width: 100%;
+                }
+
+                & figcaption {
+                    align-self: flex-start;
                 }
             }
         }

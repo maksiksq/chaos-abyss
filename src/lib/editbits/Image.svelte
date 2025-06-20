@@ -12,4 +12,13 @@
 
 <style>
     /* TODO: image style */
+
+    figure {
+        width: 100%;
+        align-items: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 </style>
