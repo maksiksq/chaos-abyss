@@ -129,14 +129,19 @@
                     height: 2rem;
                 }
             }
-
+            
             & .search {
                 margin-right: 2vw;
 
                 padding: 8px;
-                border: 3px solid black;
-                border-radius: 10px;
+                background-color: #e1e1e1;
+                border: none;
+                border-radius: 32px;
                 width: 9vw;
+            }
+
+            ::placeholder {
+                color: black;
             }
 
             & ul {
