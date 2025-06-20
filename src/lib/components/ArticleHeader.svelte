@@ -44,12 +44,12 @@
                 width: 9vw;
             }
 
-            ::placeholder {
+            & .search::placeholder {
                 font-size: 1.1rem;
                 color: black;
             }
 
-            a {
+            & a {
                 font-size: 1.1rem;
             }
         }

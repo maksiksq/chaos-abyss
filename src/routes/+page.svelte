@@ -4,7 +4,6 @@
     //
 
     import Resolver from "$lib/components/Resolver.svelte";
-    import Header from "$lib/components/ArticleHeader.svelte";
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
 
     type ContentBlock =
@@ -32,13 +31,13 @@
 
     const data: Data = $state({
         title: 'a',
-        fig: '',
-        figcap: '',
-        figalt: '',
-        blurb: '',
-        date: '',
-        author: '',
-        pizzazz: '',
+        fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
+        figcap: 'non',
+        figalt: 'a really cool cat',
+        blurb: 'may the force be meow you',
+        date: '20.06.2025',
+        author: 'Meeeeeeeeeeee',
+        pizzazz: 'here is some pizzaz ',
 
         sections: [
             [
@@ -67,21 +66,32 @@
             ]
         ]
     })
+
+    // don't forget meta tags
 </script>
 
 <ArticleHeader />
 <main>
     <article>
-        <h1>{data.title}</h1>
-        <p>
-            <!-- TODO: parser -->
-            <time datetime="{data.date}"></time>
-        </p>
-
         <figure>
             <img src="{data.fig}" alt="{data.figalt}">
             <figcaption>{data.figcap}</figcaption>
         </figure>
+
+        <div class="metablock">
+            <h1>{data.title}</h1>
+            <p>{data.blurb}</p>
+            <p>
+                <!-- TODO: parser -->
+                <!-- date must be valid ISO date -->
+                <time datetime="{data.date}"></time>
+            </p>
+            <p>{data.pizzazz}</p>
+        </div>
+
+
+
+
 
         {#each data.sections as section}
             <section>
@@ -97,4 +107,16 @@
 </footer>
 
 <style>
+    main {
+        & article {
+            max-width: 664px;
+            width: 100%;
+            margin: 0 auto;
+            & figure {
+                & img {
+                    width: 100%;
+                }
+            }
+        }
+    }
 </style>
