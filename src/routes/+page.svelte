@@ -11,7 +11,9 @@
         | { type: 'paragraph'; text: string }
         | { type: 'blockquote'; text: string }
         | { type: 'codeblock'; text: string }
-        | { type: 'image'; src: string; caption: string, alt: string };
+        | { type: 'image'; src: string; caption: string, alt: string }
+        // TODO: for now arbitrary is just html, maybe i'll add something later if necessary
+        | { type: 'arbitrary'; html: string; };
 
     type SectionData = ContentBlock[][];
 
@@ -41,7 +43,7 @@
 
         sections: [
             [
-                {type: 'heading', level: '1', content: 'Test'},
+                {type: 'heading', level: '2', content: 'Test'},
                 {type: 'paragraph', text: 'Testestest'},
                 {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
                 {type: 'codeblock', text: 'im a code,yes'},
@@ -53,7 +55,7 @@
                 }
             ],
             [
-                {type: 'heading', level: '1', content: 'Test'},
+                {type: 'heading', level: '2', content: 'Test'},
                 {type: 'paragraph', text: 'Testestest'},
                 {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
                 {type: 'codeblock', text: 'im a code,yes'},
