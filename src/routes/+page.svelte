@@ -32,12 +32,12 @@
 
 
     const data: Data = $state({
-        title: 'a',
+        title: 'AN EXAMPLE ARTICLE ABOUT CATS',
         fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
         figcap: 'non',
         figalt: 'a really cool cat',
         blurb: 'may the force be meow you',
-        date: '20.06.2025',
+        date: '2025-06-20',
         author: 'Meeeeeeeeeeee',
         pizzazz: 'here is some pizzaz ',
 
@@ -69,6 +69,13 @@
         ]
     })
 
+    const dateObj = new Date(data.date);
+    const humanDate = dateObj.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+    });
+
     // don't forget meta tags or else
 </script>
 
@@ -84,9 +91,7 @@
             <h1>{data.title}</h1>
             <p>{data.blurb}</p>
             <p>
-                <!-- TODO: parser -->
-                <!-- date must be valid ISO date -->
-                <time datetime="{data.date}"></time>
+                <time datetime={data.date}>{humanDate}</time>
             </p>
             <p>{data.pizzazz}</p>
         </header>
@@ -118,6 +123,16 @@
             width: 100%;
             padding-top: clamp(1rem, 5vw, 3rem);
             margin: 0 auto;
+
+            & header {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                & h1 {
+                    text-transform: capitalize;
+                }
+            }
 
 
             & figure {
