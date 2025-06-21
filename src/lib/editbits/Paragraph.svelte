@@ -8,14 +8,30 @@
     const parsedText = md.render(content.text)
 </script>
 
-<p>{@html parsedText}</p>
+<p class="article-txt">{@html parsedText}</p>
 
 <style>
     /* TODO: paragraph style */
 
-    p {
-        :global {
-            table {
+    :global {
+        .article-txt {
+            & figure {
+                max-width: 100%;
+
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                & figcaption {
+                    /* cursed */
+                    & strong {
+                        font-weight: normal;
+                    }
+                }
+            }
+
+            & table {
                 width: 100%;
 
                 margin: 1vw 0 1vw 0;
@@ -29,11 +45,11 @@
                 border: 1px solid black;
             }
 
-            a {
+            & a {
                 text-decoration: underline;
                 cursor: pointer;
             }
-        }
 
+        }
     }
 </style>
