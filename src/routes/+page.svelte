@@ -147,7 +147,9 @@
                     & span {
                         padding: 5px;
                         background-color: #ffa7a7;
-                        display: inline;
+                        display: inline-block;
+                        font-size: 2.6rem;
+                        line-height: 2.9rem;
 
                         font-weight: bolder;
                         font-family: 'Karla', serif;
@@ -158,7 +160,8 @@
                     & span {
                         padding: 5px;
                         background-color: #ffa7a7;
-                        display: inline;
+                        display: inline-block;
+                        font-size: 1rem;
 
                         font-family: 'Anonymous Pro', serif;
                         font-weight: bold;
