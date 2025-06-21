@@ -1,10 +1,11 @@
 <script lang="ts">
     import markdownit from 'markdown-it';
+    import mditimgcap from 'markdown-it-image-caption';
 
     const {content} = $props();
 
-    const md = markdownit();
-    const parsedText = md.render(content.text, {})
+    const md = markdownit().use(mditimgcap);
+    const parsedText = md.render(content.text)
 </script>
 
 <p>{@html parsedText}</p>

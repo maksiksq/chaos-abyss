@@ -11,6 +11,9 @@ importers:
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
+      markdown-it-image-caption:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.5
@@ -865,6 +868,9 @@ packages:
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
+
+  markdown-it-image-caption@1.0.0:
+    resolution: {integrity: sha512-ynUqPVom55pue1RuOgfYzNJUJjAMAE6iqe6FrHW6x7KyZmDGIPluQMCMWzImmP6wUJgrDh+qyvg+IkawLGLZcQ==}
 
   markdown-it@14.1.0:
     resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
@@ -1916,6 +1922,8 @@ snapshots:
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  markdown-it-image-caption@1.0.0: {}
 
   markdown-it@14.1.0:
     dependencies:
