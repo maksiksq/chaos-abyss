@@ -4,7 +4,7 @@
             <img src="/img/logo.png" alt="logo">
         </a>
         <input class="search" type="text" placeholder="Search..."/>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <a class="about" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
             About
         </a>
     </nav>
@@ -50,8 +50,16 @@
             }
 
             & a {
+                cursor: pointer;
                 font-size: 1.1rem;
             }
+
+            & .about {
+                margin-left: auto;
+                padding-right: 3vw;
+            }
+
+
         }
 
     }

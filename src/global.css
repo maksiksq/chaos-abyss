@@ -16,6 +16,24 @@ body, html {
     color: rgb(4, 4, 4);
 }
 
+/* SELECTION */
 ::selection {
     background: rgba(138,2,181,1);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 0.65vw;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
