@@ -98,11 +98,11 @@
             <small class="blurb"><span>{data.blurb}</span></small>
             <footer>
                 <p>
-                    <time datetime={data.date}>{humanDate} ⁂&nbsp;</time>
+                    <time datetime={data.date}>{humanDate} ✦&nbsp;</time>
                 </p>
                 <address>
                     {wordCount}
-                    words written by
+                    words written by&nbsp;
                     <a rel="author" href={data.authorLink}>
                         {data.author}
                     </a>
@@ -174,21 +174,33 @@
                 & footer {
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
 
                     padding: 5px;
                     background-color: #fa8f8f;
+                    font-weight: bolder;
 
                     & p {
-
                         & time {
                             font-family: 'Anonymous Pro', serif;
-
                         }
                     }
 
                     & address {
-                        font-family: 'Anonymous Pro', serif;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: flex-end;
 
+                        font-family: 'Anonymous Pro', serif;
+                        font-style: normal;
+
+                        & a {
+                            cursor: pointer;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
                     }
                 }
             }
