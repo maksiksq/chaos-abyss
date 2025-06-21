@@ -16,12 +16,16 @@
     :global {
         .article-txt {
             & figure {
-                max-width: 100%;
+                margin: 20px 0 20px 0;
 
                 align-items: center;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+
+                & img {
+                    max-width: 100%;
+                }
 
                 & figcaption {
                     /* cursed */
