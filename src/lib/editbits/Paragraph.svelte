@@ -11,7 +11,19 @@
 
 <style>
     /* TODO: paragraph style */
-    pre {
-        text-wrap: wrap;
+
+    p {
+        :global table {
+            width: 100%;
+
+            margin: 1vw 0 1vw 0;
+            border-spacing: 0;
+
+            & td, tr, th {
+                padding: 10px;
+                border: 1px solid black;
+            }
+            border: 1px solid black;
+        }
     }
 </style>
