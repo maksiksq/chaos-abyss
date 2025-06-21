@@ -25,7 +25,7 @@
         blurb: string;
         date: string;
         author: string;
-        pizzazz?: string;
+        authorLink: string;
 
         sections: SectionData;
     }
@@ -39,7 +39,7 @@
         blurb: 'may the force be meow you',
         date: '2025-06-20',
         author: 'Meeeeeeeeeeee',
-        pizzazz: 'here is some pizzaz ',
+        authorLink: '#',
 
         sections: [
             [
@@ -76,6 +76,9 @@
         day: '2-digit'
     });
 
+    // TODO: word count
+    const wordCount = 0;
+
     // don't forget meta tags or else
 </script>
 
@@ -88,12 +91,21 @@
         </figure>
 
         <header class="metablock">
-            <h1>{data.title}</h1>
-            <p>{data.blurb}</p>
-            <p>
-                <time datetime={data.date}>{humanDate}</time>
-            </p>
-            <p>{data.pizzazz}</p>
+            <h1>
+                <span>{data.title}</span>
+            </h1>
+
+            <p class="blurb"><span>{data.blurb}</span></p>
+            <footer>
+                <p>
+                    <time datetime={data.date}>{humanDate}</time>
+                </p>
+                <address>
+                    <a rel="author" href={data.authorLink}>
+                        {data.author}
+                    </a>
+                </address>
+            </footer>
         </header>
 
         {#each data.sections as section}
@@ -131,6 +143,26 @@
 
                 & h1 {
                     text-transform: capitalize;
+
+                    & span {
+                        padding: 5px;
+                        background-color: #ffa7a7;
+                        display: inline;
+
+                        font-weight: bolder;
+                        font-family: 'Karla', serif;
+                    }
+                }
+
+                & .blurb {
+                    & span {
+                        padding: 5px;
+                        background-color: #ffa7a7;
+                        display: inline;
+
+                        font-family: 'Anonymous Pro', serif;
+                        font-weight: bold;
+                    }
                 }
             }
 
