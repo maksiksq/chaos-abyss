@@ -1,8 +1,13 @@
 <script lang="ts">
+    import markdownit from 'markdown-it';
+
     const { content } = $props();
+
+    const md = markdownit();
+    const parsedText = md.render(content.text, {})
 </script>
 
-<pre>{content.text}</pre>
+<p>{@html parsedText}</p>
 
 <style>
     /* TODO: paragraph style */
