@@ -139,6 +139,8 @@
             margin: 0 auto;
 
             & header {
+                padding-top: clamp(1rem, 2vw, 2rem);
+
                 width: 100%;
                 display: flex;
                 flex-direction: column;
