@@ -77,7 +77,7 @@
     });
 
     // TODO: word count
-    const wordCount = 0;
+    const wordCount = 4500;
 
     // don't forget meta tags or else
 </script>
@@ -95,12 +95,14 @@
                 <span>{data.title}</span>
             </h1>
 
-            <p class="blurb"><span>{data.blurb}</span></p>
+            <small class="blurb"><span>{data.blurb}</span></small>
             <footer>
                 <p>
-                    <time datetime={data.date}>{humanDate}</time>
+                    <time datetime={data.date}>{humanDate} ⁂&nbsp;</time>
                 </p>
                 <address>
+                    {wordCount}
+                    words written by
                     <a rel="author" href={data.authorLink}>
                         {data.author}
                     </a>
@@ -142,12 +144,13 @@
                 flex-direction: column;
 
                 & h1 {
-                    text-transform: capitalize;
-
                     & span {
-                        padding: 5px;
+                        text-transform: capitalize;
+                        padding: 5px 5px 0 5px;
                         background-color: #ffa7a7;
-                        display: inline-block;
+                        display: inline;
+                        box-decoration-break: clone;
+
                         font-size: 2.6rem;
                         line-height: 2.9rem;
 
@@ -161,10 +164,31 @@
                         padding: 5px;
                         background-color: #ffa7a7;
                         display: inline-block;
-                        font-size: 1rem;
+                        font-size: 1.3rem;
 
                         font-family: 'Anonymous Pro', serif;
-                        font-weight: bold;
+                        font-weight: bolder;
+                    }
+                }
+
+                & footer {
+                    display: flex;
+                    flex-direction: row;
+
+                    padding: 5px;
+                    background-color: #fa8f8f;
+
+                    & p {
+
+                        & time {
+                            font-family: 'Anonymous Pro', serif;
+
+                        }
+                    }
+
+                    & address {
+                        font-family: 'Anonymous Pro', serif;
+
                     }
                 }
             }
