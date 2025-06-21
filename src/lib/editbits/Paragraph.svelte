@@ -2,8 +2,11 @@
     const { content } = $props();
 </script>
 
-<p>{content.text}</p>
+<pre>{content.text}</pre>
 
 <style>
     /* TODO: paragraph style */
+    pre {
+        text-wrap: wrap;
+    }
 </style>
