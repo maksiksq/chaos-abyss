@@ -8,13 +8,15 @@
     const parsedText = md.render(content.text)
 </script>
 
-<p class="article-txt">{@html parsedText}</p>
+<p class="article-content">{@html parsedText}</p>
 
 <style>
     /* TODO: paragraph style */
 
     :global {
-        .article-txt {
+        .article-content {
+            margin: 20px 0 0 0;
+
             & figure {
                 margin: 20px 0 20px 0;
 

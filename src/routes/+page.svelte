@@ -34,7 +34,7 @@
     const data: Data = $state({
         title: 'AN EXAMPLE ARTICLE ABOUT CATS',
         fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
-        figcap: 'non',
+        // figcap: 'non',
         figalt: 'a really cool cat',
         blurb: 'may the force be meow you',
         date: '2025-06-20',
@@ -142,11 +142,11 @@
         & article {
             max-width: 720px;
             width: 100%;
-            padding-top: clamp(1rem, 5vw, 3rem);
+            padding-top: clamp(0.5rem, 1.2vw, 3rem);
             margin: 0 auto;
 
             & header {
-                padding-top: clamp(1rem, 2vw, 2rem);
+                padding-top: clamp(0.5rem, 1.2vw, 2rem);
 
                 width: 100%;
                 display: flex;
@@ -226,6 +226,9 @@
                 }
 
                 & figcaption {
+                    margin-top: 10px;
+                    color: #555555;
+                    font-style: italic;
                     align-self: flex-start;
                 }
             }
