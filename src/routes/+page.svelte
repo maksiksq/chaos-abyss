@@ -9,7 +9,7 @@
     type ContentBlock =
         | { type: 'heading'; level: string; content: string }
         | { type: 'paragraph'; text: string }
-        | { type: 'blockquote'; text: string }
+        | { type: 'blockquote'; text: string, author?: string, citeLink?: string, cite?: string }
         | { type: 'codeblock'; text: string }
         | { type: 'image'; src: string; caption: string, alt: string }
         // TODO: for now arbitrary is just html, maybe i'll add something later if necessary
@@ -43,35 +43,23 @@
 
         sections: [
             [
-                {type: 'heading', level: '2', content: 'Test'},
                 {type: 'paragraph', text: '*Bacon ipsum* \n dolor amet shoulder \n \n | First Header  | Second Header |\n' +
                         '| ------------- | ------------- |\n' +
                         '| Content Cell  | Content Cell  |\n' +
-                        '| Content Cell  | Content Cell  | shankle ham pancetta, pastrami pork belly tri-tip. Buffalo tongue tri-tip brisket, meatball short loin ball tip cow. Strip steak chislic spare ribs, chuck short loin turkey pig. Turkey brisket tongue burgdoggen cow ball tip. Cupim sausage corned beef pork chop flank prosciutto. Pork belly chislic porchetta tail filet mignon, ground round turducken corned beef swine.\n' +
+                        '| Content Cell  | Content Cell  |\n' + '\n'
+                         + 'shankle ham pancetta, pastrami pork belly tri-tip. Buffalo tongue tri-tip brisket, meatball short loin ball tip cow. Strip steak chislic spare ribs, chuck short loin turkey pig. Turkey brisket tongue burgdoggen cow ball tip. Cupim sausage corned beef pork chop flank prosciutto. Pork belly chislic porchetta tail filet mignon, ground round turducken corned beef swine.\n' +
+
                         '\n' +
                         'T-bone tenderloin [a](http://localhost:5173/) short loin, `chicken strip steak turkey` cow capicola shank chislic biltong ```buffalo boudin```. Drumstick salami ``tongue`` ball tip chicken tail. Shoulder meatball bacon chicken. Pancetta shoulder ground round corned beef rump andouille jowl, beef ribs hamburger turkey salami. Tri-tip turkey meatball meatloaf, beef boudin pork fatback sirloin ball tip strip steak pig salami. Pancetta andouille spare ribs sirloin. Pig pork chop doner, filet mignon bresaola pork belly beef rump bacon boudin pork.\n' +
                         '\n' +
                         "Kevin meatloaf doner, ![im a gnome](https://i.redd.it/ggfqw7m7vbzz.jpg 'cap') filet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol') doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round. Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."},
                 {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
                 {type: 'codeblock', text: 'im a code,yes'},
-                {
-                    type: 'image',
-                    src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg',
-                    caption: 'megumin hat',
-                    alt: 'megumin hat'
-                }
             ],
             [
-                {type: 'heading', level: '2', content: 'Test'},
                 {type: 'paragraph', text: 'Testestest'},
-                {type: 'blockquote', text: 'i\'m a blockhead or however that meme went'},
+                {type: 'blockquote', text: 'i\'m a blockhead or however that meme went lol', author: 'test', citeLink: '#', cite: 'testplace'},
                 {type: 'codeblock', text: 'im a code,yes'},
-                {
-                    type: 'image',
-                    src: 'https://i.etsystatic.com/20311401/r/il/0a6469/6114553330/il_570xN.6114553330_r74g.jpg',
-                    caption: 'megumin hat',
-                    alt: 'megumin hat'
-                }
             ]
         ]
     })

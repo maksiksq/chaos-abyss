@@ -1,8 +1,12 @@
 <script lang="ts">
-    const { content } = $props();
+    const {content} = $props();
 </script>
 
-<blockquote>{content.text}</blockquote>
+<div>
+    <blockquote cite={content.citeLink}>{content.text}</blockquote>
+    <p>{content.author}</p>
+    <cite>{content.cite}</cite>
+</div>
 
 <style>
     /* TODO: blockquote style */
