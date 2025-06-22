@@ -85,10 +85,12 @@
             float: right;
             text-transform: uppercase;
 
-            background: linear-gradient(0deg, var(--accent-color), var(--accent-color-deeper));
+            background: linear-gradient(135deg, color-mix(in oklab, var(--accent-color) 99%, black), color-mix(in oklab, var(--accent-color) 30%, black));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.2rem;
 
             & blockquote {
                 all: unset;
@@ -99,10 +101,12 @@
             max-width: 40%;
             margin: 0 !important;
 
-            background: linear-gradient(0deg, var(--accent-color), var(--accent-color-deeper));
+            background: linear-gradient(135deg, color-mix(in oklab, var(--accent-color) 99%, black), color-mix(in oklab, var(--accent-color) 30%, black));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.2rem;
 
             padding: 0 0 0 clamp(10px, 1.5vw, 35px);
             text-transform: uppercase;
