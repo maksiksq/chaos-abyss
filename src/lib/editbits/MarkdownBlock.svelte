@@ -2,7 +2,7 @@
     import markdownit from 'markdown-it';
     import mditimgcap from 'markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
-    import {onMount, tick} from "svelte";
+    import {onDestroy, onMount, tick} from "svelte";
 
     const {content} = $props();
 
@@ -15,23 +15,49 @@
         });
     const parsedText = md.render(content.text)
 
-    const makeBlockquoteFullHeight = () => {
-        const cQuote = document.getElementsByClassName('c-quote')[0] as HTMLElement;
-        console.log(cQuote);
-        const above = cQuote?.nextElementSibling;
+    let quotes: NodeListOf<HTMLQuoteElement>;
+    let quote: HTMLElement;
+    let below: HTMLElement;
+    let parentElem: HTMLElement;
 
-        if (above && cQuote) {
-            const height = above.getBoundingClientRect().height;
-            cQuote.style.height = height + 'px';
+    const makeBlockquoteFullHeight = () => {
+        if (below && quote) {
+            const height = below.getBoundingClientRect().height;
+            quote.style.height = height + 'px';
         }
     }
 
-    onMount(() => {
+    const goThroughQuotes = (quotes: NodeListOf<HTMLQuoteElement>) => {
+        quotes.forEach(currentQuote => {
+            quote = currentQuote;
+            below = quote?.nextElementSibling as HTMLElement;
+            parentElem = quote?.parentElement as HTMLElement;
 
+            if (parentElem.classList.contains('c-quote')) {
+                return;
+            }
 
-        tick().then(() => {
             makeBlockquoteFullHeight();
+
+            const observer = new ResizeObserver(makeBlockquoteFullHeight);
+            observer.observe(below);
         })
+    }
+
+    onMount(() => {
+        tick().then(() => {
+            // normal quotes
+            quotes = document.querySelectorAll('blockquote');
+            goThroughQuotes(quotes);
+
+            // cquotes
+            quotes = document.querySelectorAll('.c-quote');
+            goThroughQuotes(quotes);
+
+        })
+    })
+    onDestroy(() => {
+
     })
 </script>
 
@@ -40,6 +66,21 @@
 <style>
     :global {
         .c-quote {
+            max-width: 40%;
+            margin: 0 !important;
+            padding: 0 0 0 clamp(10px, 1.5vw, 35px);
+            float: right;
+            text-transform: uppercase;
+
+            blockquote {
+                all: unset;
+            }
+        }
+
+        blockquote {
+            max-width: 40%;
+            margin: 0 !important;
+            padding: 0 5px;
             float: right;
             text-transform: uppercase;
         }
@@ -62,6 +103,7 @@
 
                 & figcaption {
                     /* cursed */
+
                     & strong {
                         font-weight: normal;
                     }
