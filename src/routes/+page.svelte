@@ -176,7 +176,9 @@
                     align-items: center;
 
                     padding: 5px;
-                    background-color: color-mix(in oklab, var(--accent-color) 80%, black);
+                    /*background-color: yellow;*/
+                    background-color: color-mix(in hsl, var(--accent-color) 93%, black);
+                    /*background-color: var(--accent-color-deeper);*/
                     font-weight: bolder;
 
                     & p {
