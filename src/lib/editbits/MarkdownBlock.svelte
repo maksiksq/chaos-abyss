@@ -16,6 +16,7 @@
     :global {
         .article-content {
             margin: 20px 0 0 0;
+            line-height: 2;
 
             & figure {
                 margin: 20px 0 20px 0;
@@ -56,6 +57,13 @@
                 cursor: pointer;
             }
 
+            & code {
+                padding: 1px 6px;
+                font-family: "JetBrains Mono", monospace;
+                font-size: 0.9rem;
+                border-radius: 4px;
+                background-color: #e3e3e3;
+            }
         }
     }
 </style>
