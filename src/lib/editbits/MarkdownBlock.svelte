@@ -93,9 +93,14 @@
         blockquote {
             max-width: 40%;
             margin: 0 !important;
-            padding: 0 5px;
-            float: right;
+
+            padding: 0 0 0 clamp(10px, 1.5vw, 35px);
             text-transform: uppercase;
+
+            display: flex;
+            align-items: center;
+
+            float: right;
         }
 
         .article-content {
