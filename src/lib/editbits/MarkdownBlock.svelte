@@ -175,9 +175,12 @@
             }
 
             & pre {
-                background-color: #e3e3e3;
+                background-color: #fefcff;
                 line-height: 1.2rem;
                 letter-spacing: -0.022em;
+                /*border: 1px solid #dadada;*/
+                /*border: 1px solid #000000;*/
+                border: 1px solid #e3e3e3;
 
                 border-radius: 4px;
                 padding: 0 20px;
