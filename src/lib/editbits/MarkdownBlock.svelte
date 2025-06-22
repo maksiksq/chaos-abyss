@@ -10,22 +10,23 @@
     const {content} = $props();
 
     const md = markdownit({
-        highlight: function (str, lang) {
-            if (lang && hljs.getLanguage(lang)) {
-                try {
-                    return hljs.highlight(str, { language: lang }).value;
-                } catch (__) {}
-            }
+            highlight: function (str, lang) {
+                if (lang && hljs.getLanguage(lang)) {
+                    try {
+                        return hljs.highlight(str, {language: lang}).value;
+                    } catch (__) {
+                    }
+                }
 
-            return '';
-        }
+                return '';
+            }
         })
-        .use(mditimgcap)
-        .use(mdtattr, {
-            classNameContainer: 'c-quote',
-            classNameAttribution: 'c-quote__attribution',
-            removeMarker: true,
-        })
+            .use(mditimgcap)
+            .use(mdtattr, {
+                classNameContainer: 'c-quote',
+                classNameAttribution: 'c-quote__attribution',
+                removeMarker: true,
+            })
     ;
 
     const parsedText = md.render(content.text)
@@ -173,12 +174,25 @@
                 cursor: pointer;
             }
 
+            & pre {
+                background-color: #e3e3e3;
+                line-height: 1.2rem;
+                letter-spacing: -0.022em;
+
+                border-radius: 4px;
+                padding: 0 20px;
+            }
+
             & code {
+                & * {
+                    font-family: "JetBrains Mono", monospace;
+                }
+
                 padding: 1px 6px;
                 font-family: "JetBrains Mono", monospace;
-                font-size: 0.9rem;
+                font-weight: bold;
+                font-size: 0.87rem;
                 border-radius: 4px;
-                background-color: #e3e3e3;
             }
         }
     }
