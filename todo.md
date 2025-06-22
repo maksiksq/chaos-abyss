@@ -1,0 +1,17 @@
+- [x] : add time parser 
+- [ ] : style bits
+- [ ] : search
+- [ ] : home page
+- [ ] : add meta stuff like descs (a lib for this or Svelte has smth built in?)
+- [ ] : apply for google news
+- [ ] : maybe add arbitrary code to arbitrary
+- [ ] : make Arbitrary styles scoped
+- [ ] : make header capitalization optional
+- [ ] : word count
+- [ ] : make header colors an option
+- [ ] : figure out optimal seo tags
+- [x] : maybe make half width quotes properly
+- [ ] : make runnable code blocks myself, mabye???
+- [ ] : setting to change accent color in editor
+- [ ] : markdown-it codesandbox embed
+- [ ] : remove unnecessary highlight.js styles

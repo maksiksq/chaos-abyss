@@ -178,24 +178,30 @@
                 background-color: #fefcff;
                 line-height: 1.2rem;
                 letter-spacing: -0.022em;
-                /*border: 1px solid #dadada;*/
-                /*border: 1px solid #000000;*/
                 border: 1px solid #e3e3e3;
 
                 border-radius: 4px;
                 padding: 0 20px;
+
+                & code {
+                    & * {
+                        font-family: "JetBrains Mono", monospace;
+                    }
+
+                    padding: 1px 6px;
+                    font-family: "JetBrains Mono", monospace;
+                    font-weight: bold;
+                    font-size: 0.87rem;
+                    background: transparent;
+                }
             }
 
             & code {
-                & * {
-                    font-family: "JetBrains Mono", monospace;
-                }
-
-                padding: 1px 6px;
                 font-family: "JetBrains Mono", monospace;
-                font-weight: bold;
+                padding: 1px 6px;
                 font-size: 0.87rem;
                 border-radius: 4px;
+                background-color: #eaeaea;
             }
         }
     }
