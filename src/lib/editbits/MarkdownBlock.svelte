@@ -2,17 +2,32 @@
     import markdownit from 'markdown-it';
     import mditimgcap from 'markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
+
+    import hljs from 'highlight.js';
+
     import {onDestroy, onMount, tick} from "svelte";
 
     const {content} = $props();
 
-    const md = markdownit()
+    const md = markdownit({
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(str, { language: lang }).value;
+                } catch (__) {}
+            }
+
+            return '';
+        }
+        })
         .use(mditimgcap)
         .use(mdtattr, {
             classNameContainer: 'c-quote',
             classNameAttribution: 'c-quote__attribution',
             removeMarker: true,
-        });
+        })
+    ;
+
     const parsedText = md.render(content.text)
 
     let quotes: NodeListOf<HTMLQuoteElement>;
@@ -26,9 +41,6 @@
             quote.style.height = height + 'px';
         }
     }
-
-    const observerMap = new WeakMap();
-    const trackedQuotes = new Set();
 
     let observer: ResizeObserver;
 

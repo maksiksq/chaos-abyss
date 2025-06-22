@@ -14,6 +14,7 @@
 		"lint": "prettier --check . && eslint ."
 	},
 	"devDependencies": {
+		"@catppuccin/highlightjs": "^1.0.1",
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
 		"@sveltejs/adapter-auto": "^6.0.0",
@@ -39,6 +40,7 @@
 	},
 	"packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
 	"dependencies": {
+		"highlight.js": "^11.11.1",
 		"markdown-it": "^14.1.0",
 		"markdown-it-attribution": "^0.1.4",
 		"markdown-it-image-caption": "^1.0.0"
