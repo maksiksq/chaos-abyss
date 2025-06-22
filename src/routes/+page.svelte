@@ -1,10 +1,16 @@
 <script lang="ts">
     import '../global.css';
+    import greet from '@maksiks/test-npm-project';
+
+    onMount(() => {
+        console.log(greet('the blacksmith'));
+    })
 
     //
 
     import Resolver from "$lib/components/Resolver.svelte";
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
+    import {onMount} from "svelte";
 
     type ContentBlock =
         | { type: 'heading'; level: string; content: string }
@@ -114,6 +120,7 @@
         {/each}
     </article>
 </main>
+<!-- imagine a comment section here -->
 <footer>
     <!-- Make these frickers random because of course -->
     <!-- © 2025 Maksiks. Some rights stewed, others sautéed. -->

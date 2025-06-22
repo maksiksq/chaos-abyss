@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@maksiks/test-npm-project':
+        specifier: ^1.0.2
+        version: 1.0.2
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
@@ -311,6 +314,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@maksiks/test-npm-project@1.0.2':
+    resolution: {integrity: sha512-TlnlJf2reMnZXvrBscEsrUyamOgY3vdfHYLswJtijPdJz6U5QWSj6fHzQQ4Kkk/bbvnYnsCTWc99gcTFgEtUGg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1357,6 +1363,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@maksiks/test-npm-project@1.0.2': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
