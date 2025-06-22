@@ -1,9 +1,7 @@
 <script lang="ts">
-    const { content } = $props();
+    // in the future I'll likely make my own code blocks, but for now probably going to use Codesandbox
 </script>
 
-<code>{content.text}</code>
 
 <style>
-    /* TODO: code style */
 </style>

@@ -146,7 +146,7 @@
                     & span {
                         text-transform: capitalize;
                         padding: 5px 5px 0 5px;
-                        background-color: #ffa7a7;
+                        background-color: var(--accent-color);
                         display: inline;
                         box-decoration-break: clone;
 
@@ -161,7 +161,7 @@
                 & .blurb {
                     & span {
                         padding: 5px;
-                        background-color: #ffa7a7;
+                        background-color: var(--accent-color);
                         display: inline-block;
                         font-size: 1.3rem;
 
@@ -176,7 +176,7 @@
                     align-items: center;
 
                     padding: 5px;
-                    background-color: #fa8f8f;
+                    background-color: color-mix(in oklab, var(--accent-color) 80%, black);
                     font-weight: bolder;
 
                     & p {

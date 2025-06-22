@@ -85,7 +85,12 @@
             float: right;
             text-transform: uppercase;
 
-            blockquote {
+            background: linear-gradient(0deg, var(--accent-color), var(--accent-color-deeper));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            & blockquote {
                 all: unset;
             }
         }
@@ -93,6 +98,11 @@
         blockquote {
             max-width: 40%;
             margin: 0 !important;
+
+            background: linear-gradient(0deg, var(--accent-color), var(--accent-color-deeper));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
 
             padding: 0 0 0 clamp(10px, 1.5vw, 35px);
             text-transform: uppercase;

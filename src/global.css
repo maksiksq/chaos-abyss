@@ -1,6 +1,12 @@
-/* GLOBALS */
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Karla:ital,wght@0,200..800;1,200..800&family=Spinnaker&display=swap');
 
+/* VARIABLES */
+:root {
+    --accent-color: rgb(255, 167, 167);
+    --accent-color-deeper: rgb(250, 143, 143);
+}
+
+/* GLOBALS */
 * {
     font-family: 'Spinnaker', sans-serif;
 
@@ -20,6 +26,7 @@ body, html {
 
 /* SELECTION */
 ::selection {
+    color: white;
     background: rgba(138,2,181,1);
 }
 
