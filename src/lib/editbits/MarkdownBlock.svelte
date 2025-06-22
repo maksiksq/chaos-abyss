@@ -27,10 +27,19 @@
         }
     }
 
-    const goThroughQuotes = (quotes: NodeListOf<HTMLQuoteElement>) => {
+    const observerMap = new WeakMap();
+    const trackedQuotes = new Set();
+
+    let observer: ResizeObserver;
+
+    const observeQuotes = (quotes: NodeListOf<HTMLQuoteElement>) => {
         quotes.forEach(currentQuote => {
             quote = currentQuote;
             below = quote?.nextElementSibling as HTMLElement;
+            if (!below) {
+                console.warn("Maksiks: A blockquote is not supposed to exist without an element after it. Likely just move the '>' 1 line back.")
+                return;
+            }
             parentElem = quote?.parentElement as HTMLElement;
 
             if (parentElem.classList.contains('c-quote')) {
@@ -39,25 +48,29 @@
 
             makeBlockquoteFullHeight();
 
-            const observer = new ResizeObserver(makeBlockquoteFullHeight);
+
             observer.observe(below);
         })
     }
 
     onMount(() => {
         tick().then(() => {
+            observer = new ResizeObserver(makeBlockquoteFullHeight)
+
             // normal quotes
             quotes = document.querySelectorAll('blockquote');
-            goThroughQuotes(quotes);
+            observeQuotes(quotes);
 
             // cquotes
             quotes = document.querySelectorAll('.c-quote');
-            goThroughQuotes(quotes);
-
+            observeQuotes(quotes);
         })
+
     })
     onDestroy(() => {
-
+        if (observer) {
+            observer.disconnect();
+        }
     })
 </script>
 
