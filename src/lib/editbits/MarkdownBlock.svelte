@@ -1,19 +1,49 @@
 <script lang="ts">
     import markdownit from 'markdown-it';
     import mditimgcap from 'markdown-it-image-caption';
+    import mdtattr from 'markdown-it-attribution';
+    import {onMount, tick} from "svelte";
 
     const {content} = $props();
 
-    const md = markdownit().use(mditimgcap);
+    const md = markdownit()
+        .use(mditimgcap)
+        .use(mdtattr, {
+            classNameContainer: 'c-quote',
+            classNameAttribution: 'c-quote__attribution',
+            removeMarker: true,
+        });
     const parsedText = md.render(content.text)
+
+    const makeBlockquoteFullHeight = () => {
+        const cQuote = document.getElementsByClassName('c-quote')[0] as HTMLElement;
+        console.log(cQuote);
+        const above = cQuote?.nextElementSibling;
+
+        if (above && cQuote) {
+            const height = above.getBoundingClientRect().height;
+            cQuote.style.height = height + 'px';
+        }
+    }
+
+    onMount(() => {
+
+
+        tick().then(() => {
+            makeBlockquoteFullHeight();
+        })
+    })
 </script>
 
 <p class="article-content">{@html parsedText}</p>
 
 <style>
-    /* TODO: paragraph style */
-
     :global {
+        .c-quote {
+            float: right;
+            text-transform: uppercase;
+        }
+
         .article-content {
             margin: 20px 0 0 0;
             line-height: 2;
