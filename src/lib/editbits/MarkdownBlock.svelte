@@ -2,7 +2,8 @@
     import markdownit from 'markdown-it';
     import mditimgcap from 'markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
-    import mdanchor from 'markdown-it-anchor';
+    import mdtanchor from 'markdown-it-anchor';
+    import mdtsanitizer from 'markdown-it-sanitizer';
 
     import hljs from 'highlight.js';
 
@@ -29,7 +30,8 @@
                 classNameAttribution: 'c-quote__attribution',
                 removeMarker: true,
             })
-        .use(mdanchor)
+        .use(mdtanchor)
+        .use(mdtsanitizer)
     ;
 
     const parsedText = md.render(content.text)
