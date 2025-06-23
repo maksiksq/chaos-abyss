@@ -2,6 +2,7 @@
     import markdownit from 'markdown-it';
     import mditimgcap from 'markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
+    import mdanchor from 'markdown-it-anchor';
 
     import hljs from 'highlight.js';
 
@@ -19,7 +20,8 @@
                 }
 
                 return '';
-            }
+            },
+            html: true,
         })
             .use(mditimgcap)
             .use(mdtattr, {
@@ -27,6 +29,7 @@
                 classNameAttribution: 'c-quote__attribution',
                 removeMarker: true,
             })
+        .use(mdanchor)
     ;
 
     const parsedText = md.render(content.text)

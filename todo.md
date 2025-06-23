@@ -15,3 +15,4 @@
 - [ ] : setting to change accent color in editor
 - [ ] : markdown-it codesandbox embed
 - [ ] : remove unnecessary highlight.js styles
+- [ ] : clean up whatever the hell is happening in page.svelte right now

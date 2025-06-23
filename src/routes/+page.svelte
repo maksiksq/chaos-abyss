@@ -3,7 +3,6 @@
 
     import Resolver from "$lib/components/Resolver.svelte";
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
-    import {onMount} from "svelte";
 
     type ContentBlock =
         | { type: 'heading'; level: string; content: string }
@@ -29,7 +28,6 @@
         sections: SectionData;
     }
 
-
     const data: Data = $state({
         title: 'AN EXAMPLE ARTICLE ABOUT CATS',
         fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
@@ -46,7 +44,7 @@
                         '| ------------- | ------------- |\n' +
                         '| Content Cell  | Content Cell  |\n' +
                         '| Content Cell  | Content Cell  |\n' + '\n'
-                         + 'shankle ham pancetta, pastrami pork belly tri-tip. Buffalo tongue tri-tip brisket, meatball short loin ball tip cow. Strip steak chislic spare ribs, chuck short loin turkey pig. Turkey brisket tongue burgdoggen cow ball tip. Cupim sausage corned beef pork chop flank prosciutto. Pork belly chislic porchetta tail filet mignon, ground round turducken corned beef swine.\n' +
+                         + 'shankle ham pancetta, pastrami pork belly <strong> tri-tip </strong>. Buffalo tongue tri-tip brisket, meatball short loin ball tip cow. Strip steak chislic spare ribs, chuck short loin turkey pig. Turkey brisket tongue burgdoggen cow ball tip. Cupim sausage corned beef pork chop flank prosciutto. Pork belly chislic porchetta tail filet mignon, ground round turducken corned beef swine.\n' +
 
                         '\n' +
                         'T-bone tenderloin [a](http://localhost:5173/) short loin, `chicken strip steak turkey` ' + '\n' +
