@@ -40,16 +40,18 @@
 
         sections: [
             [
-                {type: 'paragraph', text: '*Bacon ipsum* \n dolor amet shoulder \n \n | First Header  | Second Header |\n' +
+                {
+                    type: 'paragraph',
+                    text: '*Bacon ipsum* \n dolor amet shoulder \n \n | First Header  | Second Header |\n' +
                         '| ------------- | ------------- |\n' +
                         '| Content Cell  | Content Cell  |\n' +
                         '| Content Cell  | Content Cell  |\n' + '\n'
-                         + 'shankle ham pancetta, pastrami pork belly <strong> tri-tip </strong>. Buffalo tongue tri-tip brisket, meatball short loin ball tip cow. Strip steak chislic spare ribs, chuck short loin turkey pig. Turkey brisket tongue burgdoggen cow ball tip. Cupim sausage corned beef pork chop flank prosciutto. Pork belly chislic porchetta tail filet mignon, ground round turducken corned beef swine.\n' +
+                        + 'shankle ham pancetta, pastrami pork belly <strong> tri-tip </strong>. Buffalo tongue tri-tip brisket, meatball short loin ball tip cow. Strip steak chislic spare ribs, chuck short loin turkey pig. Turkey brisket tongue burgdoggen cow ball tip. Cupim sausage corned beef pork chop flank prosciutto. Pork belly chislic porchetta tail filet mignon, ground round turducken corned beef swine.\n' +
 
                         '\n' +
                         'T-bone tenderloin [a](http://localhost:5173/) short loin, `chicken strip steak turkey` ' + '\n' +
                         '> cow capicola shank chislic biltong' + '\n' + '> — someone at the cafeteria' + '\n' + '\n' +
-                                ' ```buffalo boudin```. Drumstick salami ``tongue`` ball tip chicken tail. Shoulder meatball bacon chicken. Pancetta shoulder ground round corned beef rump andouille jowl, beef ribs hamburger turkey salami. Tri-tip turkey meatball meatloaf, beef boudin pork fatback sirloin ball tip strip steak pig salami. Pancetta andouille spare ribs sirloin. Pig pork chop doner, filet mignon bresaola pork belly beef rump bacon boudin pork.\n' +
+                        ' ```buffalo boudin```. Drumstick salami ``tongue`` ball tip chicken tail. Shoulder meatball bacon chicken. Pancetta shoulder ground round corned beef rump andouille jowl, beef ribs hamburger turkey salami. Tri-tip turkey meatball meatloaf, beef boudin pork fatback sirloin ball tip strip steak pig salami. Pancetta andouille spare ribs sirloin. Pig pork chop doner, filet mignon bresaola pork belly beef rump bacon boudin pork.\n' +
                         '\n' +
                         "Kevin meatloaf doner," + '\n' + "`code block and stuf@font-face {\n" +
                         "  font-family: Chunkfive; src: url('Chunkfive.otf');\n" +
@@ -82,10 +84,12 @@
                         "\n" +
                         "\n" +
                         "The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.\n" +
-                        "\nfilet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol') doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round." + '\n' + '> ewtgdsgsdgsg' + '\n\n' + "Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."},
+                        "\nfilet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol') doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round." + '\n' + '> ewtgdsgsdgsg' + '\n\n' + "Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."
+                },
             ],
             [
-                {type: 'paragraph', text: `
+                {
+                    type: 'paragraph', text: `
 \`\`\`css
 
 @font-face {
@@ -93,7 +97,8 @@
 }
 
 \`\`\`
-`},
+`
+                },
             ]
         ]
     })
@@ -146,6 +151,41 @@
                 {/each}
             </section>
         {/each}
+
+        <div class="temp_blob">
+            <figure>
+                <img src="https://media.tenor.com/3s9rEbpRr5wAAAAM/niko-oneshot.gif" alt="test">
+                <figcaption>Yes</figcaption>
+            </figure>
+            <figure>
+                <img src="https://media.tenor.com/Bkn69q8NJG8AAAAM/crusader-darkest-dungeon.gif" alt="test">
+                <figcaption>These</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUycWViMXVpeDViYmwzb243YWFieHdnY2dlcWhxdG04eG40dTJlYmdhMCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mblLfjGT41ytq/source.gif"
+                     alt="test">
+                <figcaption>Are</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://media.tenor.com/_WZy7E7hoTcAAAAM/cat-smile.gif" alt="test">
+                <figcaption>Markdown</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycGRjdzY2ZmRiNjJxaGc2c3NuNWFibmxpa2gza2t3ZnVsODV5a3F4YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ynx1sj5Wz2atO/giphy-downsized.gif"
+                     alt="test">
+                <figcaption>Captions</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://gifdb.com/images/thumbnail/hollow-knight-498-x-410-gif-ljy79e8lx9r3mn03.gif"
+                     alt="test">
+                <figcaption>Pal</figcaption>
+            </figure>
+
+        </div>
     </article>
 </main>
 <!-- imagine a comment section here -->
@@ -161,9 +201,37 @@
 </footer>
 
 <style>
+    .temp_blob {
+        margin-top: 10vw;
+        margin-bottom: 10vw;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+        gap: 10px;
+
+        & figure {
+
+            & img {
+                width: 324px;
+                height: 324px;
+            }
+
+            & figcaption {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-style: normal;
+            }
+        }
+
+    }
+
     main {
         & article {
-            max-width: 720px;
+            max-width: 1000px;
             width: 100%;
             padding-top: clamp(0.5rem, 1.2vw, 3rem);
             margin: 0 auto;
