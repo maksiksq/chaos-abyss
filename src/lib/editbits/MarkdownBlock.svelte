@@ -1,6 +1,6 @@
 <script lang="ts">
     import markdownit from 'markdown-it';
-    import mditimgcap from 'markdown-it-image-caption';
+    import mditimgcap from '@maksiks/markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
     import mdtanchor from 'markdown-it-anchor';
 
@@ -10,6 +10,7 @@
 
     const {content} = $props();
 
+    // TODO: move to server side
     const md = markdownit({
             highlight: function (str, lang) {
                 if (lang && hljs.getLanguage(lang)) {
@@ -152,11 +153,6 @@
                 }
 
                 & figcaption {
-                    /* cursed */
-
-                    & strong {
-                        font-weight: normal;
-                    }
                 }
             }
 
