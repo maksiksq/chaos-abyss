@@ -151,9 +151,6 @@
                 & img {
                     max-width: 100%;
                 }
-
-                & figcaption {
-                }
             }
 
             & table {

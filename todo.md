@@ -1,4 +1,4 @@
-- [x] : add time parser 
+**- [x] : add time parser 
 - [ ] : style bits
 - [ ] : search
 - [ ] : home page
@@ -21,4 +21,4 @@
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
 client| editor preview -> client| render, whatever
-client| editor send -> server| render and sanitize, make route, send back -> client| renders @html
+client| editor send -> server| render and sanitize, make route, send back -> client| renders @html**
