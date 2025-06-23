@@ -3,7 +3,6 @@
     import mditimgcap from 'markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
     import mdtanchor from 'markdown-it-anchor';
-    import mdtsanitizer from 'markdown-it-sanitizer';
 
     import hljs from 'highlight.js';
 
@@ -19,10 +18,12 @@
                     } catch (__) {
                     }
                 }
-
+                
                 return '';
             },
             html: true,
+
+
         })
             .use(mditimgcap)
             .use(mdtattr, {
@@ -31,7 +32,6 @@
                 removeMarker: true,
             })
         .use(mdtanchor)
-        .use(mdtsanitizer)
     ;
 
     const parsedText = md.render(content.text)
