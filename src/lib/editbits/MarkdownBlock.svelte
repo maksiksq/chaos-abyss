@@ -18,7 +18,7 @@
                     } catch (__) {
                     }
                 }
-                
+
                 return '';
             },
             html: true,
