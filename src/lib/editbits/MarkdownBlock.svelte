@@ -1,6 +1,6 @@
 <script lang="ts">
     import markdownit from 'markdown-it';
-    import mditimgcap from '@maksiksq/markdown-it-image-caption';
+    import mditimgcap from '@maksiks/markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
     import mdtanchor from 'markdown-it-anchor';
 
@@ -27,10 +27,7 @@
 
         })
             .use(mditimgcap, {
-                imgClass: 'cool-img',
-                figureClass: 'cool-fig',
-                figcaptionClass: 'cool-figcap',
-                
+                allFigClasslist: 'cool-fig'
             })
             .use(mdtattr, {
                 classNameContainer: 'c-quote',
@@ -103,15 +100,18 @@
 <style>
     :global {
         .cool-fig {
-            background-color: yellow;
+            background-color: #f4f4f4;
         }
 
         .cool-img {
-            filter: brightness(999);
+            /*filter: blur(10px);*/
         }
 
         .cool-figcap {
-            color: red;
+            width: 100%;
+            text-align: center;
+            background-color: #f47d94;
+            color: #000000;
         }
 
         .c-quote {

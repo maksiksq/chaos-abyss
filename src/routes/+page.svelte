@@ -68,7 +68,31 @@
                         "  a[href^=http]::after {\n" +
                         "    content: attr(href)\n" +
                         "  }\n" +
-                        "}`" + '\n' + '\n' + "aa dsfsddddddddddddddddddddd dfsdf" + '\n' + '\n' + "```{.js} import whatever gfgf dfdf```" + '\n\n' + "fgdgdgd ![im a gnome](https://i.redd.it/ggfqw7m7vbzz.jpg 'Heeeey! Look at me, I&apos;m a caption!') Never gonna give you up\n" +
+                        "}`" + '\n' + '\n' + "aa dsfsddddddddddddddddddddd dfsdf" + '\n' + '\n' + "```{.js} import whatever gfgf dfdf```" + '\n\n' + "fgdgdgd ![im a gnome](https://i.redd.it/ggfqw7m7vbzz.jpg 'I&apos;m stylish now. What a stylish ruffian slayer.')" +
+                        "Darkness blacker than black and darker than dark,\n" +
+                        "I beseech thee, combine with my deep crimson.\n" +
+                        "The time of awakening cometh.\n" +
+                        "Justice, fallen upon the infallible boundary,\n" +
+                        "appear now as an intangible distortions!\n" +
+                        "I desire for my torrent of power a destructive force:\n" +
+                        "a destructive force without equal!\n" +
+                        "Return all creation to cinders,\n" +
+                        "and come frome the abyss!\n" +
+                        "Explosion!" +
+                        "Oh, blackness shrouded in light,\n" +
+                        "Frenzied blaze clad in night,\n" +
+                        "In the name of the crimson demons,\n" +
+                        "let the collapse of thine origin manifest.\n" +
+                        "Summon before me the root of thy power hidden within the lands\n" +
+                        "of the kingdom of demise!\n" +
+                        "Explosion!" +
+                        "Crimson-black blaze, king of myriad worlds,\n" +
+                        "though I promulgate the laws of nature,\n" +
+                        "I am the alias of destruction incarnate\n" +
+                        "in accordance with the principles of all creation.\n" +
+                        "Let the hammer of eternity descend unto me!\n" +
+                        "Explosion!\n" +
+                        "\n" +
                         "Never gonna let you down\n" +
                         "Never gonna run around and desert you\n" +
                         "Never gonna make you cry\n" +
@@ -84,7 +108,7 @@
                         "\n" +
                         "\n" +
                         "The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.\n" +
-                        "\nfilet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol') doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round." + '\n' + '> ewtgdsgsdgsg' + '\n\n' + "Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."
+                        "\nfilet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol | top | hi') ![smole](https://static.thenounproject.com/png/4778723-200.png 'not smol | | hey') ![smoleer](https://static.thenounproject.com/png/4778723-200.png 'not smolish') ![smol](https://static.thenounproject.com/png/4778723-200.png) ![smol](https://static.thenounproject.com/png/4778723-200.png ':::nocaption | whatever | also whatever')doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round." + '\n' + '> ewtgdsgsdgsg' + '\n\n' + "Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."
                 },
             ],
             [
@@ -154,7 +178,7 @@
 
         <div class="temp_blob">
             <figure>
-                <img src="https://media.tenor.com/3s9rEbpRr5wAAAAM/niko-oneshot.gif" alt="test">
+                <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_400/ncom/en_US/games/switch/r/rain-world-switch/description-image" alt="test">
                 <figcaption>Yes</figcaption>
             </figure>
             <figure>
@@ -224,6 +248,10 @@
                 align-items: center;
                 text-align: center;
                 font-style: normal;
+
+                font-weight: bold;
+                font-size: 2rem;
+                color: black;
             }
         }
 
