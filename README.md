@@ -1,3 +1,3 @@
 this is gonna be an app, just wait for it.
 
-(my favorite line ever)
+(my favourite line ever)

@@ -1,6 +1,6 @@
 <script lang="ts">
     import markdownit from 'markdown-it';
-    import mditimgcap from '@maksiksq/markdown-it-image-caption';
+    import mditimgcap from '@maksiks/markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
     import mdtanchor from 'markdown-it-anchor';
 
