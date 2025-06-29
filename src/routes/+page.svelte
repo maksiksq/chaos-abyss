@@ -144,9 +144,9 @@
             </footer>
         </header>
 
-        {#each data.sections as section}
+        {#each data.sections as section (section)}
             <section>
-                {#each section as contentBlock}
+                {#each section as contentBlock (contentBlock)}
                     <Resolver content={contentBlock}/>
                 {/each}
             </section>
