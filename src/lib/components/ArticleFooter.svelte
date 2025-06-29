@@ -47,6 +47,7 @@
 		'© 2025 Maksiks. My rights do not negotiate.',
 		'© 2025 Maksiks. All rights branded with my true name.',
 		'© 2025 Maksiks. Rights very caffeinated.',
+		'© 2025 Maksiks. Rights can be summoned.',
 	];
 
 	const rareCopyblurbs = [
@@ -54,7 +55,8 @@
 		'© 3:33 AM Maksiks. Rights sleep-deprived.',
 		'© ??? Maksiks. Rights exist out of bounds.',
 		'© 1993 Maksiks. Rights DOOMed.',
-		'© 1991 Maksiks. Rights collapsed.',
+		'© 1991 Maksiks. Rights discombobulated.',
+		'© 1720 Maksiks. Paper rights collapsed.',
 		'© 666 Maksiks. Rights protected by demons.',
 		'© 8-bit Maksiks. Rights chiptuned.',
 		'© 1492 Maksiks. Rights discovered accidentally.',
