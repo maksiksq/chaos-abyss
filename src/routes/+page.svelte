@@ -4,6 +4,7 @@
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import { text } from '@sveltejs/kit';
+    import ArticleFooter from '$lib/components/ArticleFooter.svelte';
 
     type ContentBlock = { text: string };
     type SectionData = ContentBlock[][];
@@ -153,16 +154,7 @@
     </article>
 </main>
 <!-- imagine a comment section here -->
-<footer>
-    <!-- Make these frickers random because of course -->
-    <!-- © 2025 Maksiks. Some rights stewed, others sautéed. -->
-    <!-- © 2025 Maksiks. All right neglected. It's a dangerous world out there. -->
-    <!-- © 2025 Maksiks. My rights are in my reserve. -->
-    <!-- © 2025 Maksiks. Reserved the rights to reserve rights. -->
-    <!-- © 2077 Maksiks. All rights teleported. -->
-    <!-- © 830 BC Maksiks. All rights salted. -->
-    <p>© 2025 Maksiks. Some rights chewed, others stored in a jar.</p>
-</footer>
+<ArticleFooter/>
 
 <style>
     main {
