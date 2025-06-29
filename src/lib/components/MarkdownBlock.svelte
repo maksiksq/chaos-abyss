@@ -27,12 +27,7 @@
 
 
         })
-            .use(mditimgcap, {
-                imgClass: 'cool-img',
-                figureClass: 'cool-fig',
-                figcaptionClass: 'cool-figcap',
-                
-            })
+            .use(mditimgcap)
             .use(mdtattr, {
                 classNameContainer: 'c-quote',
                 classNameAttribution: 'c-quote__attribution',
@@ -103,18 +98,6 @@
 
 <style>
     :global {
-        .cool-fig {
-            background-color: yellow;
-        }
-
-        .cool-img {
-            filter: brightness(999);
-        }
-
-        .cool-figcap {
-            color: red;
-        }
-
         .c-quote {
             max-width: 40%;
             margin: 0 !important;
