@@ -16,7 +16,8 @@
                 if (lang && hljs.getLanguage(lang)) {
                     try {
                         return hljs.highlight(str, {language: lang}).value;
-                    } catch (__) {
+											// eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    } catch (__) { //
                     }
                 }
 

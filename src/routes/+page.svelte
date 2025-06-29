@@ -1,18 +1,10 @@
 <script lang="ts">
     import '../global.css';
 
-    import Resolver from "$lib/components/Resolver.svelte";
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
+    import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
 
-    type ContentBlock =
-        | { type: 'heading'; level: string; content: string }
-        | { type: 'paragraph'; text: string }
-        | { type: 'blockquote'; text: string, author?: string, citeLink?: string, cite?: string }
-        | { type: 'codeblock'; text: string }
-        | { type: 'image'; src: string; caption: string, alt: string }
-        // TODO: for now arbitrary is just html, maybe i'll add something later if necessary
-        | { type: 'arbitrary'; html: string; };
-
+    type ContentBlock = { text: string };
     type SectionData = ContentBlock[][];
 
     type Data = {
@@ -41,7 +33,6 @@
         sections: [
             [
                 {
-                    type: 'paragraph',
                     text: '*Bacon ipsum* \n dolor amet shoulder \n \n | First Header  | Second Header |\n' +
                         '| ------------- | ------------- |\n' +
                         '| Content Cell  | Content Cell  |\n' +
@@ -89,7 +80,7 @@
             ],
             [
                 {
-                    type: 'paragraph', text: `
+                    text: `
 \`\`\`css
 
 @font-face {
@@ -147,7 +138,7 @@
         {#each data.sections as section (section)}
             <section>
                 {#each section as contentBlock (contentBlock)}
-                    <Resolver content={contentBlock}/>
+                    <MarkdownBlock content={contentBlock}/>
                 {/each}
             </section>
         {/each}
