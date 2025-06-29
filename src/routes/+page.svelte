@@ -3,6 +3,7 @@
 
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
+    import { text } from '@sveltejs/kit';
 
     type ContentBlock = { text: string };
     type SectionData = ContentBlock[][];
@@ -80,8 +81,15 @@
             ],
             [
                 {
-                    text: `
-\`\`\`css
+                    text: `\`d\`
+                    d
+                    i'm not a code
+                    hu
+                    huhu
+                    huhuuho
+
+
+\`\`\`
 
 @font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
@@ -90,7 +98,7 @@
 \`\`\`
 `
                 },
-            ]
+            ],
         ]
     })
 
