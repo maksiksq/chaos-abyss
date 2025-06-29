@@ -94,6 +94,8 @@
     })
 </script>
 
+<!-- no user submitted + it's sanitized, so whatever -->
+<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 <p class="article-content">{@html parsedText}</p>
 
 <style>
