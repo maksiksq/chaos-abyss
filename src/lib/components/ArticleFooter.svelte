@@ -88,7 +88,7 @@
 		'© 1889 Maksiks. All rights impressionistic.',
 		'© 33 AD Maksiks. Rights resurrected.',
 		'© 404 Maksiks. Rights not found.',
-		'© 401 Maksiks. Rights not for you.',
+		'© 401 Maksiks. No rights not for you.',
 		'© 144p Maksiks. Rights are a little blurry.',
 		'© 3025 Maksiks. All rights orbiting.',
 		'© 2072/2078 Maksiks. All rights glitched.',
