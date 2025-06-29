@@ -54,6 +54,23 @@
 		'© 2025 Maksiks. Rights sealed by Zonai magic. Do not disturb.',
 		'© 2025 Maksiks. Rights protected by Alma\'s hacker skills.',
 		'© 2025 Maksiks. You must complete all shrines before touching these rights.',
+		'© 2025 Maksiks. Niko tried to copy. Niko felt bad.',
+		'© 2025 Maksiks. Rights reserved. You feel like you’re going to have a bad time.',
+		'© 2025 Maksiks. The rights are filled with DETERMINATION.',
+		'© 2025 Maksiks. The rights got absorbed by a dog. Sorry.',
+		'© 2025 Maksiks. You swing, but the rights parry.',
+		'© 2025 Maksiks. All rights reserved. This blurb is modded.',
+		'© 2025 Maksiks. Rights enchanted with Protection IV.',
+		'© 2025 Maksiks. All rights claimed post-Moon Lord.',
+		'© 2025 Maksiks. All rights locked behind the 9999G donut.',
+		'© 2025 Maksiks. The rights are in another biome. And you forgot fuel.',
+		'© 2025 Maksiks. You tried to copy. The spirits are mildly perturbed.',
+		'© 2025 Maksiks. Pierre doesn’t sell these rights. But Joja might.',
+		'© 2025 Maksiks. You Died. The rights remain.',
+		'© 2025 Maksiks. One does not simply copy a Lord’s soul.',
+		'© 2025 Maksiks. All rights guarded by Cerberus. Pet at your own risk.',
+		'© 2025 Maksiks. Rights earned through death. And a lot of reruns.',
+
 	];
 
 	const rareCopyblurbs = [
