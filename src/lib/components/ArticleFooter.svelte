@@ -47,7 +47,13 @@
 		'© 2025 Maksiks. My rights do not negotiate.',
 		'© 2025 Maksiks. All rights branded with my true name.',
 		'© 2025 Maksiks. Rights very caffeinated.',
-		'© 2025 Maksiks. Rights can be summoned.',
+		'© 2025 Maksiks. All rights reserved under the secret 28th Amendment: Thou Shalt Not Copy Maksiks.',
+		'© 2025 Maksiks. To copy or not to copy? Nay, thou shalt not.',
+		'© 2025 Maksiks. Rights reserved, ye scurvy knave!',
+		'© 2025 Maksiks. None may claim the rights but the one foretold.',
+		'© 2025 Maksiks. Rights sealed by Zonai magic. Do not disturb.',
+		'© 2025 Maksiks. Rights protected by Alma\'s hacker skills.',
+		'© 2025 Maksiks. You must complete all shrines before touching these rights.',
 	];
 
 	const rareCopyblurbs = [
