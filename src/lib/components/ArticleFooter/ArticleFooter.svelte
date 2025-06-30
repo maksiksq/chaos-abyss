@@ -141,6 +141,7 @@
     footer {
         display: flex;
         flex-direction: row;
+        width: 100vw;
 
         & .hr {
             height: 90%;
@@ -160,6 +161,13 @@
                     & a {
                         cursor: pointer;
                     }
+
+                    &:hover {
+                        color: black;
+
+                        transition: all 0.1s;
+                        transform: scale(1.003);
+                    }
                 }
 
                 & .heading {
@@ -174,8 +182,7 @@
             cursor: pointer;
 
             &:hover {
-                opacity: 0.8;
-                transition: all 0.3s;
+                transition: all 0.1s;
                 transform: scale(1.003);
             }
         }
