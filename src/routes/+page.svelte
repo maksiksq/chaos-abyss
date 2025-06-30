@@ -1,18 +1,12 @@
 <script lang="ts">
     import '../global.css';
 
-    import Resolver from "$lib/components/Resolver.svelte";
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
+    import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
+    import { text } from '@sveltejs/kit';
+    import ArticleFooter from '$lib/components/ArticleFooter.svelte';
 
-    type ContentBlock =
-        | { type: 'heading'; level: string; content: string }
-        | { type: 'paragraph'; text: string }
-        | { type: 'blockquote'; text: string, author?: string, citeLink?: string, cite?: string }
-        | { type: 'codeblock'; text: string }
-        | { type: 'image'; src: string; caption: string, alt: string }
-        // TODO: for now arbitrary is just html, maybe i'll add something later if necessary
-        | { type: 'arbitrary'; html: string; };
-
+    type ContentBlock = { text: string };
     type SectionData = ContentBlock[][];
 
     type Data = {
@@ -41,7 +35,6 @@
         sections: [
             [
                 {
-                    type: 'paragraph',
                     text: '*Bacon ipsum* \n dolor amet shoulder \n \n | First Header  | Second Header |\n' +
                         '| ------------- | ------------- |\n' +
                         '| Content Cell  | Content Cell  |\n' +
@@ -68,31 +61,7 @@
                         "  a[href^=http]::after {\n" +
                         "    content: attr(href)\n" +
                         "  }\n" +
-                        "}`" + '\n' + '\n' + "aa dsfsddddddddddddddddddddd dfsdf" + '\n' + '\n' + "```{.js} import whatever gfgf dfdf```" + '\n\n' + "fgdgdgd ![im a gnome](https://i.redd.it/ggfqw7m7vbzz.jpg 'I&apos;m stylish now. What a stylish ruffian slayer.')" +
-                        "Darkness blacker than black and darker than dark,\n" +
-                        "I beseech thee, combine with my deep crimson.\n" +
-                        "The time of awakening cometh.\n" +
-                        "Justice, fallen upon the infallible boundary,\n" +
-                        "appear now as an intangible distortions!\n" +
-                        "I desire for my torrent of power a destructive force:\n" +
-                        "a destructive force without equal!\n" +
-                        "Return all creation to cinders,\n" +
-                        "and come frome the abyss!\n" +
-                        "Explosion!" +
-                        "Oh, blackness shrouded in light,\n" +
-                        "Frenzied blaze clad in night,\n" +
-                        "In the name of the crimson demons,\n" +
-                        "let the collapse of thine origin manifest.\n" +
-                        "Summon before me the root of thy power hidden within the lands\n" +
-                        "of the kingdom of demise!\n" +
-                        "Explosion!" +
-                        "Crimson-black blaze, king of myriad worlds,\n" +
-                        "though I promulgate the laws of nature,\n" +
-                        "I am the alias of destruction incarnate\n" +
-                        "in accordance with the principles of all creation.\n" +
-                        "Let the hammer of eternity descend unto me!\n" +
-                        "Explosion!\n" +
-                        "\n" +
+                        "}`" + '\n' + '\n' + "aa dsfsddddddddddddddddddddd dfsdf" + '\n' + '\n' + "```{.js} import whatever gfgf dfdf```" + '\n\n' + "fgdgdgd ![im a gnome](https://i.redd.it/ggfqw7m7vbzz.jpg 'Heeeey! Look at me, I&apos;m a caption!') Never gonna give you up\n" +
                         "Never gonna let you down\n" +
                         "Never gonna run around and desert you\n" +
                         "Never gonna make you cry\n" +
@@ -108,13 +77,20 @@
                         "\n" +
                         "\n" +
                         "The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.\n" +
-                        "\nfilet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol | top | hi') ![smole](https://static.thenounproject.com/png/4778723-200.png 'not smol | | hey') ![smoleer](https://static.thenounproject.com/png/4778723-200.png 'not smolish') ![smol](https://static.thenounproject.com/png/4778723-200.png) ![smol](https://static.thenounproject.com/png/4778723-200.png ':::nocaption | whatever | also whatever')doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round." + '\n' + '> ewtgdsgsdgsg' + '\n\n' + "Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."
+                        "\nfilet mignon ham hock buffalo ribeye cupim hamburger. Ham hock ![smol](https://static.thenounproject.com/png/4778723-200.png 'not smol') doner rump pancetta prosciutto chicken tongue shank ham cupim swine ball tip pig porchetta. Fatback jerky boudin, landjaeger shankle beef picanha salami. Porchetta short ribs pork jowl sausage kevin, pancetta bacon fatback chislic cupim capicola burgdoggen ground round." + '\n' + '> ewtgdsgsdgsg' + '\n\n' + "Porchetta swine pork chop pastrami shank doner jerky fatback. Brisket short loin tri-tip, ham tongue meatloaf filet mignon frankfurter bresaola cow ball tip flank doner."
                 },
             ],
             [
                 {
-                    type: 'paragraph', text: `
-\`\`\`css
+                    text: `\`d\`
+                    d
+                    i'm not a code
+                    hu
+                    huhu
+                    huhuuho
+
+
+\`\`\`
 
 @font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
@@ -123,7 +99,7 @@
 \`\`\`
 `
                 },
-            ]
+            ],
         ]
     })
 
@@ -168,95 +144,19 @@
             </footer>
         </header>
 
-        {#each data.sections as section}
+        {#each data.sections as section (section)}
             <section>
-                {#each section as contentBlock}
-                    <Resolver content={contentBlock}/>
+                {#each section as contentBlock (contentBlock)}
+                    <MarkdownBlock content={contentBlock}/>
                 {/each}
             </section>
         {/each}
-
-        <div class="temp_blob">
-            <figure>
-                <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_400/ncom/en_US/games/switch/r/rain-world-switch/description-image" alt="test">
-                <figcaption>Yes</figcaption>
-            </figure>
-            <figure>
-                <img src="https://media.tenor.com/Bkn69q8NJG8AAAAM/crusader-darkest-dungeon.gif" alt="test">
-                <figcaption>These</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUycWViMXVpeDViYmwzb243YWFieHdnY2dlcWhxdG04eG40dTJlYmdhMCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mblLfjGT41ytq/source.gif"
-                     alt="test">
-                <figcaption>Are</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://media.tenor.com/_WZy7E7hoTcAAAAM/cat-smile.gif" alt="test">
-                <figcaption>Markdown</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycGRjdzY2ZmRiNjJxaGc2c3NuNWFibmxpa2gza2t3ZnVsODV5a3F4YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ynx1sj5Wz2atO/giphy-downsized.gif"
-                     alt="test">
-                <figcaption>Captions</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://gifdb.com/images/thumbnail/hollow-knight-498-x-410-gif-ljy79e8lx9r3mn03.gif"
-                     alt="test">
-                <figcaption>Pal</figcaption>
-            </figure>
-
-        </div>
     </article>
 </main>
 <!-- imagine a comment section here -->
-<footer>
-    <!-- Make these frickers random because of course -->
-    <!-- © 2025 Maksiks. Some rights stewed, others sautéed. -->
-    <!-- © 2025 Maksiks. All right neglected. It's a dangerous world out there. -->
-    <!-- © 2025 Maksiks. My rights are in my reserve. -->
-    <!-- © 2025 Maksiks. Reserved the rights to reserve rights. -->
-    <!-- © 2077 Maksiks. All rights teleported. -->
-    <!-- © 830 BC Maksiks. All rights salted. -->
-    <p>© 2025 Maksiks. Some rights chewed, others stored in a jar.</p>
-</footer>
+<ArticleFooter/>
 
 <style>
-    .temp_blob {
-        margin-top: 10vw;
-        margin-bottom: 10vw;
-
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: auto;
-        gap: 10px;
-
-        & figure {
-
-            & img {
-                width: 324px;
-                height: 324px;
-            }
-
-            & figcaption {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                font-style: normal;
-
-                font-weight: bold;
-                font-size: 2rem;
-                color: black;
-            }
-        }
-
-    }
-
     main {
         & article {
             max-width: 1000px;

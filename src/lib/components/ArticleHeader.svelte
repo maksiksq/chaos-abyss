@@ -14,7 +14,7 @@
     header {
         width: 100%;
 
-        border: 1px solid black;
+        border-bottom: 1px solid black;
 
 
         & nav {
@@ -38,7 +38,7 @@
                 margin-right: 2vw;
 
                 padding: 12px 8px 8px 8px;
-                background-color: #e1e1e1;
+                background-color: #f5f5f5;
                 border: none;
                 border-radius: 32px;
                 width: 9vw;

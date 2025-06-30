@@ -16,7 +16,8 @@
                 if (lang && hljs.getLanguage(lang)) {
                     try {
                         return hljs.highlight(str, {language: lang}).value;
-                    } catch (__) {
+											// eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    } catch (__) { //
                     }
                 }
 
@@ -26,9 +27,7 @@
 
 
         })
-            .use(mditimgcap, {
-                allFigClasslist: 'cool-fig'
-            })
+            .use(mditimgcap)
             .use(mdtattr, {
                 classNameContainer: 'c-quote',
                 classNameAttribution: 'c-quote__attribution',
@@ -95,25 +94,12 @@
     })
 </script>
 
+<!-- no user submitted + it's sanitized, so whatever -->
+<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 <p class="article-content">{@html parsedText}</p>
 
 <style>
     :global {
-        .cool-fig {
-            background-color: #f4f4f4;
-        }
-
-        .cool-img {
-            /*filter: blur(10px);*/
-        }
-
-        .cool-figcap {
-            width: 100%;
-            text-align: center;
-            background-color: #f47d94;
-            color: #000000;
-        }
-
         .c-quote {
             max-width: 40%;
             margin: 0 !important;
