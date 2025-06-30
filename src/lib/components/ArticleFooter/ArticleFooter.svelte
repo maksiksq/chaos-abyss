@@ -127,14 +127,19 @@
 </script>
 
 <footer>
-    <ul class="links">
-        <ArticleFooterLinks/>
-    </ul>
-    <div class="hr"></div>
-    <ul class="socials">
-        <ArticleFooterSocials/>
-    </ul>
-    <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
+    <div class="footer-left">
+        <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+    </div>
+    <div class="footer-right">
+        <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
+        <ul class="links">
+            <ArticleFooterLinks/>
+        </ul>
+        <div class="hr"></div>
+        <ul class="socials">
+            <ArticleFooterSocials/>
+        </ul>
+    </div>
 </footer>
 
 <style>
@@ -149,29 +154,45 @@
             background-color: black;
         }
 
-        & ul {
-            list-style-type: none;
+        & .footer-left {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-            :global {
-                & .social, .link {
-                    color: #555555;
+            & img {
+                width: 20vw;
+                height: 20vw;
+            }
+        }
 
-                    & a {
-                        cursor: pointer;
+        .footer-right {
+            display: flex;
+            flex-direction: row;
+
+            & ul {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+
+                :global {
+                    & .social, .link {
+                        color: #555555;
+
+                        & a {
+                            cursor: pointer;
+                        }
+
+                        &:hover {
+                            color: black;
+
+                            transition: all 0.1s;
+                            transform: scale(1.003);
+                        }
                     }
 
-                    &:hover {
-                        color: black;
-
-                        transition: all 0.1s;
-                        transform: scale(1.003);
+                    & .heading {
+                        color: #000000;
                     }
-                }
-
-                & .heading {
-                    color: #000000;
                 }
             }
         }

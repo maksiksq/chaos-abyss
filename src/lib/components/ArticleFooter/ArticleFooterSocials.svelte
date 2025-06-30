@@ -33,7 +33,7 @@
 
 <style>
     .social {
-        display: flex;
+        display: grid;
         flex-direction: row;
         align-items: center;
 
@@ -42,8 +42,8 @@
             flex-direction: row;
             align-items: center;
             & svg {
-                width: 1.5rem;
-                height: 1.5rem;
+                width: 1.2rem;
+                height: 1.2rem;
                 fill: currentColor;
             }
         }
