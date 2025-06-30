@@ -68,7 +68,10 @@
 		'© {year} Maksiks. You Died. The rights remain.',
 		'© {year} Maksiks. One does not simply copy a Lord’s soul.',
 		'© {year} Maksiks. All rights guarded by Cerberus. Pet at your own risk.',
-		'© {year} Maksiks. Rights earned through death. And a lot of reruns.'
+		'© {year} Maksiks. Rights earned through death. And a lot of reruns.',
+		'© {year} Maksiks. Rights detonated with maximum chuunibyou.',
+		'© {year} Maksiks. Megumin cast Explosion on fair use.',
+		'© {year} Maksiks. Reincarnated into a copyright holder.',
 	];
 
 	const rareCopyblurbs = [
@@ -124,12 +127,17 @@
 </script>
 
 <footer>
-	<button class="copyright-blurb" onclick={copyblurbify} aria-label="Copyright label">{text}</button>
+	<button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
 </footer>
 
 <style>
-	button {
+	.copyright-blurb {
 		all: unset;
 		cursor: pointer;
+
+		&:hover {
+			opacity: 0.8;
+			transform: scale(1.01);
+		}
 	}
 </style>
