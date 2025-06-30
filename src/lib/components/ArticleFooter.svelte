@@ -38,7 +38,7 @@
 		'© {year} Maksiks. Rights reserved. See Appendix D for moral justification.',
 		'© {year} Maksiks. All rights reserved. Resistance is futile.',
 		'© {year} Maksiks. All rights reserved. Terms subject to hallucination.',
-		'© {year} Maksiks. Rights reserved pursuant to our recent blood pact',
+		'© {year} Maksiks. Rights reserved pursuant to our recent blood pact.',
 		'© {year} Maksiks. All rights mine. You merely witnessed them.',
 		'© {year} Maksiks. I claimed the rights, and the world bent accordingly.',
 		'© {year} Maksiks. The rights are bound to me. Irrevocably.',
@@ -62,12 +62,13 @@
 		'© {year} Maksiks. Rights enchanted with Protection IV.',
 		'© {year} Maksiks. All rights claimed post-Moon Lord.',
 		'© {year} Maksiks. All rights locked behind the 9999G donut.',
+		'© {year} Maksiks. Rights tomorrow.', // to the 1 person who gets it without looking at the order of these, this is gold.
 		'© {year} Maksiks. The rights are in another biome. And you forgot fuel.',
 		'© {year} Maksiks. You tried to copy. The spirits are mildly perturbed.',
 		'© {year} Maksiks. You Died. The rights remain.',
 		'© {year} Maksiks. One does not simply copy a Lord’s soul.',
 		'© {year} Maksiks. All rights guarded by Cerberus. Pet at your own risk.',
-		'© {year} Maksiks. Rights earned through death. And a lot of reruns.',
+		'© {year} Maksiks. Rights earned through death. And a lot of reruns.'
 	];
 
 	const rareCopyblurbs = [
@@ -100,10 +101,13 @@
 	let text: string = $state('');
 
 	const selectString = (): string => {
-		if (Math.floor(Math.random() * 4) < 3) {
-			return copyblurbs[Math.floor(Math.random() * copyblurbs.length)];
+		console.log('rights');
+		if (Math.floor(Math.random() * 5) !== 0) {
+			const right = copyblurbs[Math.floor(Math.random() * copyblurbs.length)];
+			return right!==text ? right : selectString();
 		} else {
-			return rareCopyblurbs[Math.floor(Math.random() * rareCopyblurbs.length)];
+			const right = rareCopyblurbs[Math.floor(Math.random() * rareCopyblurbs.length)];
+			return right!==text ? right : selectString();
 		}
 	}
 
