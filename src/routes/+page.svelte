@@ -113,7 +113,7 @@
     // TODO: word count
     const wordCount = 4500;
 
-    // don't forget meta tags or else
+    // don't forget meta-tags or else
 </script>
 
 <ArticleHeader/>
