@@ -128,7 +128,7 @@
 
 <footer>
     <div class="footer-left">
-        <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        <img class="gem" src="/img/gem_crop.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
     <div class="footer-right">
         <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
