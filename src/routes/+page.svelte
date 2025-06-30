@@ -4,7 +4,7 @@
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import { text } from '@sveltejs/kit';
-    import ArticleFooter from '$lib/components/ArticleFooter.svelte';
+    import ArticleFooter from '$lib/components/ArticleFooter/ArticleFooter.svelte';
 
     type ContentBlock = { text: string };
     type SectionData = ContentBlock[][];
