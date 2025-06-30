@@ -141,6 +141,7 @@
     footer {
         display: flex;
         flex-direction: row;
+
         & .hr {
             height: 90%;
             width: 1px;
@@ -155,6 +156,10 @@
             :global {
                 & .social, .link {
                     color: #555555;
+
+                    & a {
+                        cursor: pointer;
+                    }
                 }
 
                 & .heading {
@@ -170,6 +175,7 @@
 
             &:hover {
                 opacity: 0.8;
+                transition: all 0.3s;
                 transform: scale(1.003);
             }
         }
