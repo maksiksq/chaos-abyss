@@ -15,8 +15,9 @@
 - [ ] : setting to change accent color in editor
 - [ ] : markdown-it codesandbox embed
 - [ ] : remove unnecessary highlight.js styles
-- [ ] : clean up whatever the hell is happening in page.svelte right now
+- [x] : clean up whatever the hell is happening in page.svelte right now
 - [ ] : SERVER SIDE ONLY MARKDOWN RENDERING, SEND THE BAKED HTML ALREADY FROM THE STORAGE !!!!!
+- [ ] : make footer a bit more hitting
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

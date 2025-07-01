@@ -132,7 +132,7 @@
 <!--            experiment with gem size too, go all out -->
 <!--            and maybe shatter some pieces although that would kinda hurt some elegance from it -->
 <!--            maybe tentacles could use some improvement too -->
-        <img class="gem" src="/img/gem_crop.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        <img class="gem" src="/img/gem_y_fix.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
     <div class="footer-right">
         <div class="linkBloc">
@@ -154,7 +154,7 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-        height: 42vh;
+        height: 62vh;
         overflow: clip;
 
         margin-top: 4rem;
@@ -163,12 +163,12 @@
             width: 30%;
 
             display: flex;
+            justify-content: flex-start;
             align-items: center;
-            justify-content: center;
 
             & img {
-                width: 20vw;
-                height: 20vw;
+                margin-left: 7vw;
+                height: 100%;
             }
         }
 
@@ -188,18 +188,29 @@
                 align-items: center;
                 justify-content: center;
 
-                padding-right: 2vw;
+                height: 70%;
 
-                padding-bottom: 3rem;
+                padding-right: 4vw;
+                padding-top: clamp(0px, 3rem, 4rem);
+
+                /* rip future me trying to make this responsive */
+                &::after {
+                    content: "";
+                    display:  block;
+                    position: absolute;
+                    height: 25vh;
+                    width: 10px;
+                    border-left: 1px solid black;
+                    margin-top: 13.6vh;
+                }
+
 
                 & .links {
-                    border-right: 1px solid black;
-
-                    padding-right: 2rem;
+                    padding-right: 4rem;
                 }
 
                 & .socials {
-                    padding-left: 2rem;
+                    padding-left: 4rem;
                 }
 
                 & ul {
@@ -239,7 +250,7 @@
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                height: 100%;
+                height: 30%;
                 width: 70%;
 
                 & .copyright-blurb {
