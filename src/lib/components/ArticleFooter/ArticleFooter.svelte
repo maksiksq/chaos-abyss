@@ -143,7 +143,9 @@
                 <ArticleFooterSocials/>
             </ul>
         </div>
-        <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
+        <div class="copy-bloc">
+            <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
+        </div>
     </div>
 </footer>
 
@@ -152,6 +154,10 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
+        height: 42vh;
+        overflow: clip;
+
+        margin-top: 4rem;
 
         & .footer-left {
             width: 30%;
@@ -228,14 +234,25 @@
                 }
             }
 
-            & .copyright-blurb {
-                all: unset;
-                cursor: pointer;
-                padding-right: 2vw;
+            & .copy-bloc {
+                border-top: 1px solid black;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 100%;
+                width: 70%;
 
-                &:hover {
-                    transition: all 0.1s;
-                    transform: scale(1.003);
+                & .copyright-blurb {
+                    all: unset;
+                    height: 100%;
+
+                    cursor: pointer;
+                    padding-right: 2vw;
+
+                    &:hover {
+                        transition: all 0.1s;
+                        transform: scale(1.003);
+                    }
                 }
             }
         }
