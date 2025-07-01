@@ -3,8 +3,8 @@
 
     import ArticleHeader from "$lib/components/ArticleHeader.svelte";
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
-    import { text } from '@sveltejs/kit';
     import ArticleFooter from '$lib/components/ArticleFooter/ArticleFooter.svelte';
+    import ArticleEndblock from "$lib/components/ArticleFooter/ArticleEndblock.svelte";
 
     type ContentBlock = { text: string };
     type SectionData = ContentBlock[][];
@@ -155,6 +155,8 @@ a
                 {/each}
             </section>
         {/each}
+
+        <ArticleEndblock/>
     </article>
 </main>
 <!-- imagine a comment section here -->

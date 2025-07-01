@@ -18,7 +18,9 @@
 - [x] : clean up whatever the hell is happening in page.svelte right now
 - [ ] : SERVER SIDE ONLY MARKDOWN RENDERING, SEND THE BAKED HTML ALREADY FROM THE STORAGE !!!!!
 - [ ] : make footer a bit more hitting (sorta done)
-- [ ] : previous article/next article
+- [x] : previous article/next article
+- [ ] : style previous article/next article differently
+- [ ] : implement preivous/next with the backend
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
