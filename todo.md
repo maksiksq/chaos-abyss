@@ -1,10 +1,10 @@
 **- [x] : add time parser 
-- [ ] : style bits
+- [x] : style bits
 - [ ] : search
 - [ ] : home page
 - [ ] : add meta stuff like descs (a lib for this or Svelte has smth built in?)
 - [ ] : apply for google news
-- [ ] : maybe add arbitrary code to arbitrary
+- [x] : maybe add arbitrary code to arbitrary // done @html instead
 - [ ] : make Arbitrary styles scoped
 - [ ] : make header capitalization optional
 - [ ] : word count
@@ -17,7 +17,8 @@
 - [ ] : remove unnecessary highlight.js styles
 - [x] : clean up whatever the hell is happening in page.svelte right now
 - [ ] : SERVER SIDE ONLY MARKDOWN RENDERING, SEND THE BAKED HTML ALREADY FROM THE STORAGE !!!!!
-- [ ] : make footer a bit more hitting
+- [ ] : make footer a bit more hitting (sorta done)
+- [ ] : previous article/next article
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

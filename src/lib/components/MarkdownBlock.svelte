@@ -2,8 +2,9 @@
     import markdownit from 'markdown-it';
     import MarkdownIt from "markdown-it";
     import mditimgcap from '@maksiks/markdown-it-image-caption';
-    import mdtattr from 'markdown-it-attribution';
-    import mdtanchor from 'markdown-it-anchor';
+    import mditanchor from 'markdown-it-anchor';
+    import mditattr from 'markdown-it-attribution';
+    import mditsections from 'markdown-it-header-sections';
 
     import hljs from 'highlight.js';
 
@@ -39,12 +40,13 @@
             html: true,
         })
             .use(mditimgcap)
-            .use(mdtattr, {
+            .use(mditattr, {
                 classNameContainer: 'c-quote',
                 classNameAttribution: 'c-quote__attribution',
                 removeMarker: true,
             })
-            .use(mdtanchor)
+            .use(mditanchor)
+            .use(mditsections)
     ;
 
     const parsedText = md.render(content.text)
