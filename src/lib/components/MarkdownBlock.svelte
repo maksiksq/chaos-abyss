@@ -15,9 +15,6 @@
     // TODO: move to server side
     const md: MarkdownIt = markdownit({
             highlight: function (str, lang) {
-                console.log('[Highlight.js] lang =', lang);
-                console.log('Languages available:', hljs.listLanguages());
-
                 if (lang && hljs.getLanguage(lang)) {
                     try {
                         return '<pre><code class="hljs">' +
@@ -49,7 +46,7 @@
             .use(mditsections)
     ;
 
-    const parsedText = md.render(content.text)
+    const parsedText = md.render(content)
 
     $inspect(parsedText, {})
 
