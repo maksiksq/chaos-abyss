@@ -167,27 +167,33 @@
         }
 
         .footer-right {
+            border-right:  1px solid black;
+            margin-right:  1.5vw;
+
             width: 70%;
 
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: flex-end;
 
             .linkBloc {
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
+                padding-right: 2vw;
+
                 padding-bottom: 3rem;
 
                 & .links {
                     border-right: 1px solid black;
 
-                    padding-right: 1rem;
+                    padding-right: 2rem;
                 }
 
                 & .socials {
-                    padding-left: 1rem;
+                    padding-left: 2rem;
                 }
 
                 & ul {
@@ -197,6 +203,8 @@
 
                     :global {
                         & .social, .link {
+                            font-size: 1.2rem;
+                            padding-bottom: 0.6rem;
                             color: #555555;
 
                             & a {
@@ -212,6 +220,8 @@
                         }
 
                         & .heading {
+                            font-size: 1.7rem;
+                            padding-bottom: 0.9rem;
                             color: #000000;
                         }
                     }
@@ -221,7 +231,7 @@
             & .copyright-blurb {
                 all: unset;
                 cursor: pointer;
-                align-self: center;
+                padding-right: 2vw;
 
                 &:hover {
                     transition: all 0.1s;
