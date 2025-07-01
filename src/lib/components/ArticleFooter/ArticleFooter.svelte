@@ -128,17 +128,22 @@
 
 <footer>
     <div class="footer-left">
+<!--        tomorrow me, make it like looming, like feel like it takes up a big portion of the screen, maybe make only the right ~75% visible to imply a bigger size. Maybe add a bit more emotion/esperanza to it.-->
+<!--            experiment with gem size too, go all out -->
+<!--            and maybe shatter some pieces although that would kinda hurt some elegance from it -->
+<!--            maybe tentacles could use some improvement too -->
         <img class="gem" src="/img/gem_crop.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
     <div class="footer-right">
+        <div class="linkBloc">
+            <ul class="links">
+                <ArticleFooterLinks/>
+            </ul>
+            <ul class="socials">
+                <ArticleFooterSocials/>
+            </ul>
+        </div>
         <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
-        <ul class="links">
-            <ArticleFooterLinks/>
-        </ul>
-        <div class="hr"></div>
-        <ul class="socials">
-            <ArticleFooterSocials/>
-        </ul>
     </div>
 </footer>
 
@@ -148,13 +153,9 @@
         flex-direction: row;
         width: 100vw;
 
-        & .hr {
-            height: 90%;
-            width: 1px;
-            background-color: black;
-        }
-
         & .footer-left {
+            width: 30%;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -166,47 +167,69 @@
         }
 
         .footer-right {
+            width: 70%;
+
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            justify-content: center;
 
-            & ul {
-                list-style-type: none;
+            .linkBloc {
                 display: flex;
-                flex-direction: column;
+                align-items: center;
+                justify-content: center;
 
-                :global {
-                    & .social, .link {
-                        color: #555555;
+                padding-bottom: 3rem;
 
-                        & a {
-                            cursor: pointer;
+                & .links {
+                    border-right: 1px solid black;
+
+                    padding-right: 1rem;
+                }
+
+                & .socials {
+                    padding-left: 1rem;
+                }
+
+                & ul {
+                    list-style-type: none;
+                    display: flex;
+                    flex-direction: column;
+
+                    :global {
+                        & .social, .link {
+                            color: #555555;
+
+                            & a {
+                                cursor: pointer;
+                            }
+
+                            &:hover {
+                                color: black;
+
+                                transition: all 0.1s;
+                                transform: scale(1.003);
+                            }
                         }
 
-                        &:hover {
-                            color: black;
-
-                            transition: all 0.1s;
-                            transform: scale(1.003);
+                        & .heading {
+                            color: #000000;
                         }
                     }
+                }
+            }
 
-                    & .heading {
-                        color: #000000;
-                    }
+            & .copyright-blurb {
+                all: unset;
+                cursor: pointer;
+                align-self: center;
+
+                &:hover {
+                    transition: all 0.1s;
+                    transform: scale(1.003);
                 }
             }
         }
 
-
-        & .copyright-blurb {
-            all: unset;
-            cursor: pointer;
-
-            &:hover {
-                transition: all 0.1s;
-                transform: scale(1.003);
-            }
-        }
     }
 
 </style>
