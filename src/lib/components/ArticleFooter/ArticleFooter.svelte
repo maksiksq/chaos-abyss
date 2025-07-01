@@ -132,7 +132,7 @@
 <!--            experiment with gem size too, go all out -->
 <!--            and maybe shatter some pieces although that would kinda hurt some elegance from it -->
 <!--            maybe tentacles could use some improvement too -->
-        <img class="gem" src="/img/gem_y_fix.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        <img class="gem" src="/img/gem_here3.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
     <div class="footer-right">
         <div class="linkBloc">
@@ -154,20 +154,21 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-        height: 62vh;
+        height: 68vh;
         overflow: clip;
 
         margin-top: 4rem;
 
         & .footer-left {
-            width: 30%;
+            width: 40%;
 
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
 
+            margin-bottom: 3rem;
+
             & img {
-                margin-left: 7vw;
                 height: 100%;
             }
         }
@@ -251,7 +252,7 @@
                 justify-content: flex-end;
                 align-items: center;
                 height: 30%;
-                width: 70%;
+                width: 100%;
 
                 & .copyright-blurb {
                     all: unset;
