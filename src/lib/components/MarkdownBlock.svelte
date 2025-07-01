@@ -15,17 +15,16 @@
             highlight: function (str, lang) {
                 if (lang && hljs.getLanguage(lang)) {
                     try {
-                        return hljs.highlight(str, {language: lang}).value;
-											// eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    } catch (__) { //
+                        return '<pre><code class="hljs">' +
+                            hljs.highlight(str, {language: lang, ignoreIllegals: true}).value +
+                            '</code></pre>';
+                    } catch (__) {
                     }
                 }
 
-                return '';
+                return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
             },
             html: true,
-
-
         })
             .use(mditimgcap)
             .use(mdtattr, {
@@ -37,6 +36,8 @@
     ;
 
     const parsedText = md.render(content.text)
+
+    $inspect(parsedText, {})
 
     let quotes: NodeListOf<HTMLQuoteElement>;
     let quote: HTMLElement;
