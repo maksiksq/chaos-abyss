@@ -44,6 +44,7 @@
             & svg {
                 width: 1.2rem;
                 height: 1.2rem;
+                padding-right: 0.5rem;
                 fill: currentColor;
             }
         }
