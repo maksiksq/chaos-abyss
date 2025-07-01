@@ -19,7 +19,7 @@
         '© {year} Maksiks. Rights procedurally forgotten.',
         '© {year} Maksiks. All rights autosaved.',
         '© {year} Maksiks. Some rights stewed, others sautéed.',
-        "© {year} Maksiks. All right neglected. It's a dangerous world out there.",
+        "© {year} Maksiks. All rights neglected. It's a dangerous world out there.",
         '© {year} Maksiks. My rights are in my reserve.',
         '© {year} Maksiks. Rights acquired. Loot secured.',
         '© {year} Maksiks. Reserved the rights to reserve rights.',
