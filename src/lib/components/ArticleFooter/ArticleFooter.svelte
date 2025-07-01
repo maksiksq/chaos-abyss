@@ -154,7 +154,7 @@
 
 <style>
     footer {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         display: flex;
         flex-direction: row;
         width: 100vw;
@@ -174,6 +174,12 @@
 
             & img {
                 height: 100%;
+
+                &:hover {
+                    filter: blur(0.3px);
+                    transition: all 0.1s;
+                    transform: scale(1.003);
+                }
             }
         }
 
