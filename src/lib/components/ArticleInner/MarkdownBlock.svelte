@@ -48,8 +48,6 @@
 
     const parsedText = md.render(content)
 
-    $inspect(parsedText, {})
-
     let quotes: NodeListOf<HTMLQuoteElement>;
     let quote: HTMLElement;
     let below: HTMLElement;

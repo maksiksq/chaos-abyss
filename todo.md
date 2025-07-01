@@ -21,6 +21,7 @@
 - [x] : previous article/next article
 - [ ] : style previous article/next article differently
 - [ ] : implement preivous/next with the backend
+- [ ] : comments
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

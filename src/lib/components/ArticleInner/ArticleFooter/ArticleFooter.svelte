@@ -2,8 +2,8 @@
 
     // whatever legal meaning these even have this is All rights reserved just read the license lol
     import {onMount} from "svelte";
-    import ArticleFooterLinks from "$lib/components/ArticleFooter/ArticleFooterLinks.svelte";
-    import ArticleFooterSocials from "$lib/components/ArticleFooter/ArticleFooterSocials.svelte";
+    import ArticleFooterLinks from "$lib/components/ArticleInner/ArticleFooter/ArticleFooterLinks.svelte";
+    import ArticleFooterSocials from "$lib/components/ArticleInner/ArticleFooter/ArticleFooterSocials.svelte";
 
     const copyblurbs = [
         // evil
