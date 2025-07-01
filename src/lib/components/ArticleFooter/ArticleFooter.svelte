@@ -134,8 +134,11 @@
 <!--            maybe tentacles could use some improvement too -->
         <img class="gem" src="/img/gem_here3.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
+    <div class="footer-mid">
+        <p>Your attention nourishes the void.</p>
+    </div>
     <div class="footer-right">
-        <div class="linkBloc">
+        <div class="link-bloc">
             <ul class="links">
                 <ArticleFooterLinks/>
             </ul>
@@ -151,6 +154,7 @@
 
 <style>
     footer {
+        font-size: 1.2rem;
         display: flex;
         flex-direction: row;
         width: 100vw;
@@ -173,19 +177,36 @@
             }
         }
 
-        .footer-right {
+        & .footer-mid {
+            display: flex;
+            justify-content:  center;
+            align-items: center;
+            width: calc(20% - 1.5vw);
+
+            /* approximate, doesn't actually matter */
+            margin-bottom: calc(22.66vh - clamp(0px, 3rem, 4rem));
+
+            & p {
+                font-size: 1rem;
+                text-align: center;
+                font-family: 'Anonymous Pro', sans-serif;
+            }
+        }
+
+        & .footer-right {
             border-right:  1px solid black;
             margin-right:  1.5vw;
 
-            width: 70%;
+            width: 40%;
 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
 
-            .linkBloc {
+            & .link-bloc {
                 display: flex;
+                position: relative;
                 align-items: center;
                 justify-content: center;
 
@@ -202,9 +223,8 @@
                     height: 25vh;
                     width: 10px;
                     border-left: 1px solid black;
-                    margin-top: 13.6vh;
+                    bottom: 0;
                 }
-
 
                 & .links {
                     padding-right: 4rem;
@@ -252,7 +272,7 @@
                 justify-content: flex-end;
                 align-items: center;
                 height: 30%;
-                width: 100%;
+                width: 120%;
 
                 & .copyright-blurb {
                     all: unset;

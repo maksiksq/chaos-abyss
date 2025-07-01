@@ -185,7 +185,7 @@ a
                         line-height: 2.9rem;
 
                         font-weight: bolder;
-                        font-family: 'Karla', serif;
+                        font-family: 'Karla', sans-serif;
                     }
                 }
 
@@ -196,7 +196,7 @@ a
                         display: inline-block;
                         font-size: 1.3rem;
 
-                        font-family: 'Anonymous Pro', serif;
+                        font-family: 'Anonymous Pro', sans-serif;
                         font-weight: bolder;
                     }
                 }
@@ -212,7 +212,7 @@ a
 
                     & p {
                         & time {
-                            font-family: 'Anonymous Pro', serif;
+                            font-family: 'Anonymous Pro', sans-serif;
                         }
                     }
 
@@ -221,7 +221,7 @@ a
                         flex-direction: row;
                         align-items: flex-end;
 
-                        font-family: 'Anonymous Pro', serif;
+                        font-family: 'Anonymous Pro', sans-serif;
                         font-style: normal;
 
                         & a {
