@@ -1,5 +1,6 @@
 <script lang="ts">
     import markdownit from 'markdown-it';
+    import MarkdownIt from "markdown-it";
     import mditimgcap from '@maksiks/markdown-it-image-caption';
     import mdtattr from 'markdown-it-attribution';
     import mdtanchor from 'markdown-it-anchor';
@@ -11,8 +12,11 @@
     const {content} = $props();
 
     // TODO: move to server side
-    const md = markdownit({
+    const md: MarkdownIt = markdownit({
             highlight: function (str, lang) {
+                console.log('[Highlight.js] lang =', lang);
+                console.log('Languages available:', hljs.listLanguages());
+
                 if (lang && hljs.getLanguage(lang)) {
                     try {
                         return '<pre><code class="hljs">' +
@@ -20,6 +24,14 @@
                             '</code></pre>';
                     } catch (__) {
                     }
+                }
+
+                // auto language if not specified
+                try {
+                    return '<pre><code class="hljs">' +
+                        hljs.highlightAuto(str).value +
+                        '</code></pre>';
+                } catch (__) {
                 }
 
                 return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';

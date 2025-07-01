@@ -91,7 +91,7 @@
                     text: `aa
 
 a
-\`\`\`
+\`\`\`css
 @font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
 }
