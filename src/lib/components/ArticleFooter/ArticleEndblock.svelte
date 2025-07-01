@@ -1,6 +1,6 @@
 <script>
     const previous = $state('aaa');
-    const next = $state('bbb');
+    const next = $state('bbbbbbbbbbbbbb');
 
 </script>
 
@@ -36,7 +36,14 @@
 
         & .next-article {
             margin-top: clamp(10px, 2.5rem, 2.5rem);
+            display: flex;
             justify-content: flex-end;
+
+            & a {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
         }
     }
 </style>
