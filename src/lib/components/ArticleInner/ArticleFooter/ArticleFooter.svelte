@@ -74,6 +74,7 @@
         '© {year} Maksiks. Rights detonated with maximum chuunibyou.',
         '© {year} Maksiks. Megumin cast Explosion on fair use.',
         '© {year} Maksiks. Reincarnated into a copyright holder.',
+        '© {year} Maksiks. Roll a crit on every die of a 20d20 to get rights. Good luck.'
     ];
 
     const rareCopyblurbs = [
