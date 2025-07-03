@@ -133,7 +133,7 @@
 <!--            experiment with gem size too, go all out -->
 <!--            and maybe shatter some pieces although that would kinda hurt some elegance from it -->
 <!--            maybe tentacles could use some improvement too -->
-        <img class="gem" src="/img/gem_here3.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
     <div class="footer-mid">
         <p>Your attention nourishes the void.</p>
