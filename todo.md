@@ -1,6 +1,7 @@
-**- [x] : add time parser 
+- [x] : add time parser 
 - [x] : style bits
-- [ ] : editor !!!
+- [x] : basic editor !!!
+- [ ] : full editor
 - [ ] : search
 - [ ] : home page
 - [ ] : add meta stuff like descs (a lib for this or Svelte has smth built in?)

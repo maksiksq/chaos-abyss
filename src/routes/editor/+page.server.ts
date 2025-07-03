@@ -5,6 +5,7 @@ import hljs from "highlight.js";
 import mditimgcap from "@maksiks/markdown-it-image-caption";
 import mditanchor from "markdown-it-anchor";
 import {fail} from "@sveltejs/kit";
+import { readFileSync, writeFileSync } from 'fs';
 
 // no types, ide stop bugging me, no i will not feed you more types
 // @ts-ignore
@@ -13,8 +14,6 @@ import mditattr from "markdown-it-attribution";
 import mditsections from "markdown-it-header-sections";
 
 export const load = async () => {
-    const whatever = 'whatever';
-    return { whatever };
 }
 
 export const actions = {
@@ -63,6 +62,28 @@ export const actions = {
         ;
 
         const parsedHtml = md.render(article);
+
+        //
+
+        const data = JSON.parse(readFileSync('./src/routes/data.json', 'utf8'));
+
+        data.push(
+            {
+                slug: 'editormade',
+                title: 'THIS IS NOT THE ARTICLE YOU\'RE LOOKING FOR',
+                fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
+                figcap: 'non',
+                figalt: 'a really cool cat',
+                blurb: 'may the force be meow you',
+                date: '2025-06-20',
+                author: 'Meeeeeeeeeeee',
+                authorLink: '#',
+
+                content: parsedHtml,
+            }
+        );
+
+        writeFileSync('./src/routes/data.json', JSON.stringify(data, null, 2));
 
         return { success: true, article: parsedHtml };
     }
