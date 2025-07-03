@@ -5,10 +5,6 @@
 
     const {data} = $props();
 
-    if (!data.article) {
-        throw error(404, 'Article not found');
-    }
-
     const dateObj = new Date(data.article.date);
     const humanDate = dateObj.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -58,7 +54,6 @@
     </main>
     <!-- imagine a comment section here -->
 {/if}
-
 
 <style>
     main {

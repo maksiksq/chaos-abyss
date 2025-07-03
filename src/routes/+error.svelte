@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
     import '../global.css';
+    import { page } from '$app/state';
 </script>
 
 <main>
-    <h1>404</h1>
-    <small>Oh noie, something went very wrong</small>
+    <h1>{page.status}</h1>
+    <small>{page.error?.message}</small>
 </main>
 
 <style>
