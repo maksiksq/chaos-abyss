@@ -129,10 +129,6 @@
 
 <footer>
     <div class="footer-left">
-<!--        tomorrow me, make it like looming, like feel like it takes up a big portion of the screen, maybe make only the right ~75% visible to imply a bigger size. Maybe add a bit more emotion/esperanza to it.-->
-<!--            experiment with gem size too, go all out -->
-<!--            and maybe shatter some pieces although that would kinda hurt some elegance from it -->
-<!--            maybe tentacles could use some improvement too -->
         <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
     <div class="footer-mid">
