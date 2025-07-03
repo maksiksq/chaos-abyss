@@ -1,5 +1,6 @@
 **- [x] : add time parser 
 - [x] : style bits
+- [ ] : editor !!!
 - [ ] : search
 - [ ] : home page
 - [ ] : add meta stuff like descs (a lib for this or Svelte has smth built in?)
@@ -20,8 +21,9 @@
 - [ ] : make footer a bit more hitting (sorta done)
 - [x] : previous article/next article
 - [ ] : style previous article/next article differently
-- [ ] : implement preivous/next with the backend
+- [x] : implement preivous/next with the backend
 - [ ] : comments
+- [ ] : figure out if isp or no isp
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

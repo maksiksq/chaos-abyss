@@ -1,4 +1,4 @@
-import {articles} from '../data';
+import {articles} from '../../data';
 import {error} from "@sveltejs/kit";
 
 export const prerender = 'auto';

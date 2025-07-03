@@ -1,4 +1,4 @@
-import {articles} from './data';
+import {articles} from '../data.js';
 
 export const load = () => {
     return {

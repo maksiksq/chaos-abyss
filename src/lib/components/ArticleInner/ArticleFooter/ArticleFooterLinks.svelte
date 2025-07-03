@@ -2,15 +2,15 @@
     const links = [
         {
             text: 'Home',
-            link: '#',
+            link: '/',
         },
         {
             text: 'About',
-            link: '#',
+            link: '/about',
         },
         {
             text: 'Contact',
-            link: '#',
+            link: '/contact',
         }
     ]
 </script>

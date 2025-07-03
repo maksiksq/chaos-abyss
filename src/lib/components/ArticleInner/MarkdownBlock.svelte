@@ -46,7 +46,7 @@
             .use(mditsections)
     ;
 
-    const parsedText = md.render(content)
+    const parsedText = md.render(content);
 
     let quotes: NodeListOf<HTMLQuoteElement>;
     let quote: HTMLElement;
