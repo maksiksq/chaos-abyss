@@ -8,45 +8,14 @@
 
     import hljs from 'highlight.js';
 
+    // !!!!!!!!!!!!!!!!!
+    // The markdown is handled server side
+    // The this page only renders the html gotten from the server
+    // !!!!!!!!!!!!!!!!!
+
     import {onDestroy, onMount, tick} from "svelte";
 
     const {content} = $props();
-
-    // TODO: move to server side
-    const md: MarkdownIt = markdownit({
-            highlight: function (str, lang) {
-                if (lang && hljs.getLanguage(lang)) {
-                    try {
-                        return '<pre><code class="hljs">' +
-                            hljs.highlight(str, {language: lang, ignoreIllegals: true}).value +
-                            '</code></pre>';
-                    } catch (__) {
-                    }
-                }
-
-                // auto language if not specified
-                try {
-                    return '<pre><code class="hljs">' +
-                        hljs.highlightAuto(str).value +
-                        '</code></pre>';
-                } catch (__) {
-                }
-
-                return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
-            },
-            html: true,
-        })
-            .use(mditimgcap)
-            .use(mditattr, {
-                classNameContainer: 'c-quote',
-                classNameAttribution: 'c-quote__attribution',
-                removeMarker: true,
-            })
-            .use(mditanchor)
-            .use(mditsections)
-    ;
-
-    const parsedText = md.render(content);
 
     let quotes: NodeListOf<HTMLQuoteElement>;
     let quote: HTMLElement;
@@ -104,9 +73,7 @@
     })
 </script>
 
-<!-- no user submitted + it's sanitized, so whatever -->
-<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-<p class="article-content">{@html parsedText}</p>
+<p class="article-content">{@html content}</p>
 
 <style>
     :global {

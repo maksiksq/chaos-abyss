@@ -3,8 +3,13 @@ import MarkdownIt from "markdown-it";
 import markdownit from "markdown-it";
 import hljs from "highlight.js";
 import mditimgcap from "@maksiks/markdown-it-image-caption";
-import mditattr from "markdown-it-attribution";
 import mditanchor from "markdown-it-anchor";
+import {fail} from "@sveltejs/kit";
+
+// no types, ide stop bugging me, no i will not feed you more types
+// @ts-ignore
+import mditattr from "markdown-it-attribution";
+// @ts-ignore
 import mditsections from "markdown-it-header-sections";
 
 export const load = async () => {
@@ -15,7 +20,14 @@ export const load = async () => {
 export const actions = {
     newArticle: async ({ request }) => {
         const formData = await request.formData();
-        const article = formData.get('article');
+        const raw = formData.get('article');
+
+        if (!raw || typeof raw !== 'string') {
+            return fail(400, { raw, missing: true });
+        }
+
+        const article: string = raw;
+
 
         const md: MarkdownIt = markdownit({
                 highlight: function (str, lang) {
@@ -50,11 +62,8 @@ export const actions = {
                 .use(mditsections)
         ;
 
-        const parsedText = md.render(article);
+        const parsedHtml = md.render(article);
 
-        console.log('hi');
-        console.log(article);
-
-        return { success: true, article: parsedText };
+        return { success: true, article: parsedHtml };
     }
 } satisfies Actions;

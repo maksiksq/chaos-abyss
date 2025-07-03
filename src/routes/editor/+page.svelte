@@ -1,5 +1,6 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
+    import MarkdownBlock from "$lib/components/ArticleInner/MarkdownBlock.svelte";
 
     let { form, whatever } = $props();
 </script>
@@ -17,5 +18,5 @@
     <p>successfully delivered your thing that you just sent to the server back to you because why would you do this</p>
     <p>{whatever}</p>
 
-    <p>{@html form?.article}</p>
+    <MarkdownBlock content={form?.article} />
 {/if}
