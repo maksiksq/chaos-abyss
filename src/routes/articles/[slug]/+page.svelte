@@ -1,7 +1,6 @@
 <script lang="ts">
     import MarkdownBlock from '$lib/components/ArticleInner/MarkdownBlock.svelte';
     import ArticleEndblock from "$lib/components/ArticleInner/ArticleEndblock.svelte";
-    import {error} from "@sveltejs/kit";
 
     const {data} = $props();
 
@@ -49,7 +48,7 @@
             </header>
 
             <MarkdownBlock content={data.article.content}/>
-            <ArticleEndblock/>
+            <ArticleEndblock adjacent={data.adjacent}/>
         </article>
     </main>
     <!-- imagine a comment section here -->

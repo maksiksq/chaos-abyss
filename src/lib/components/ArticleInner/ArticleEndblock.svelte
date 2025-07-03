@@ -1,18 +1,20 @@
 <script>
-    const previous = $state('aaa');
-    const next = $state('bbbbbbbbbbbbbb');
+    const { adjacent } = $props();
 
+    const previous = adjacent.previous;
+    const next = adjacent.next;
+    $inspect(previous, next)
 </script>
 
 <footer class="endblock">
     <div class="previous-article">
-        <a href="#">&lt; Previous article <br>
-            <span>{previous}</span>
+        <a href="/articles/{previous.slug}">&lt; Previous article <br>
+            <span>{previous.title}</span>
         </a>
     </div>
     <div class="next-article">
-        <a href="#">Next article &gt;<br>
-            <span>{next}</span>
+        <a href="articles/{next.slug}">Next article &gt;<br>
+            <span>{next.title}</span>
         </a>
     </div>
 </footer>
