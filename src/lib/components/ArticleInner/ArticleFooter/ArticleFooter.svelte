@@ -171,6 +171,7 @@
 
             & img {
                 height: 100%;
+                user-select: none;
 
                 &:hover {
                     filter: blur(0.3px);

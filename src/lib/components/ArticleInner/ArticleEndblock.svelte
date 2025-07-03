@@ -9,7 +9,7 @@
 <footer class="endblock">
     <div class="previous-article">
         {#if previous.slug}
-            <a href="{previous.slug}">&lt; Previous article <br>
+            <a href="/articles/{previous.slug}">&lt; Previous article <br>
                 <span>{previous.title}</span>
             </a>
         {:else}
@@ -19,7 +19,7 @@
     </div>
     <div class="next-article">
         {#if next.slug}
-            <a href="{next.slug}">Next article &gt;<br>
+            <a href="/articles/{next.slug}">Next article &gt;<br>
                 <span>{next.title}</span>
             </a>
         {:else}

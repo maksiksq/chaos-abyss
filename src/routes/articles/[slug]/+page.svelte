@@ -3,6 +3,8 @@
     import ArticleEndblock from "$lib/components/ArticleInner/ArticleEndblock.svelte";
 
     const {data} = $props();
+    $inspect('hiya', data.article, 'hiya');
+    $inspect('hi', data.adjacent, 'hi');
 
     const dateObj = new Date(data.article.date);
     const humanDate = dateObj.toLocaleDateString('en-US', {
@@ -17,42 +19,44 @@
     // don't forget meta-tags or else
 </script>
 
-{#if data.article}
-    <main>
-        <article>
-            <figure>
-                <img src="{data.article.fig}" alt="{data.article.figalt}">
-                {#if (data.article.figcap)}
-                    <figcaption>{data.article.figcap}</figcaption>
-                {/if}
-            </figure>
+{#key data}
+    {#if data.article}
+        <main>
+            <article>
+                <figure>
+                    <img src="{data.article.fig}" alt="{data.article.figalt}">
+                    {#if (data.article.figcap)}
+                        <figcaption>{data.article.figcap}</figcaption>
+                    {/if}
+                </figure>
 
-            <header class="metablock">
-                <h1>
-                    <span>{data.article.title}</span>
-                </h1>
+                <header class="metablock">
+                    <h1>
+                        <span>{data.article.title}</span>
+                    </h1>
 
-                <small class="blurb"><span>{data.article.blurb}</span></small>
-                <footer>
-                    <p>
-                        <time datetime={data.article.date}>{humanDate} ✦&nbsp;</time>
-                    </p>
-                    <address>
-                        {wordCount}
-                        words written by&nbsp;
-                        <a rel="author" href={data.article.authorLink}>
-                            {data.article.author}
-                        </a>
-                    </address>
-                </footer>
-            </header>
+                    <small class="blurb"><span>{data.article.blurb}</span></small>
+                    <footer>
+                        <p>
+                            <time datetime={data.article.date}>{humanDate} ✦&nbsp;</time>
+                        </p>
+                        <address>
+                            {wordCount}
+                            words written by&nbsp;
+                            <a rel="author" href={data.article.authorLink}>
+                                {data.article.author}
+                            </a>
+                        </address>
+                    </footer>
+                </header>
 
-            <MarkdownBlock content={data.article.content}/>
-            <ArticleEndblock adjacent={data.adjacent}/>
-        </article>
-    </main>
-    <!-- imagine a comment section here -->
-{/if}
+                <MarkdownBlock content={data.article.content}/>
+                <ArticleEndblock adjacent={data.adjacent}/>
+            </article>
+        </main>
+        <!-- imagine a comment section here -->
+    {/if}
+{/key}
 
 <style>
     main {
