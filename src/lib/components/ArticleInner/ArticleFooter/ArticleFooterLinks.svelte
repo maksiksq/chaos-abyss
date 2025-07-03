@@ -20,7 +20,7 @@
 </li>
 {#each links as link}
     <li class={`link li-${link}`}>
-        <a href={link.link} target="_blank" rel="noopener noreferrer">
+        <a href={link.link}>
             {link.text}
         </a>
     </li>

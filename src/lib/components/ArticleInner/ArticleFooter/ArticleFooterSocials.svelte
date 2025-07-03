@@ -24,7 +24,7 @@
 {#each socials as social}
     <li class={`social so-${social}`}>
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-        <a href={social.link} target="_blank" rel="noopener noreferrer">
+        <a href={social.link}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d={social.icon}/></svg>
             {social.text}
         </a>
