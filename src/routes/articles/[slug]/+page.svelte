@@ -1,7 +1,5 @@
 <script lang="ts">
-    import ArticleHeader from "$lib/components/ArticleInner/ArticleHeader.svelte";
     import MarkdownBlock from '$lib/components/ArticleInner/MarkdownBlock.svelte';
-    import ArticleFooter from '$lib/components/ArticleInner/ArticleFooter/ArticleFooter.svelte';
     import ArticleEndblock from "$lib/components/ArticleInner/ArticleEndblock.svelte";
     import {error} from "@sveltejs/kit";
 
