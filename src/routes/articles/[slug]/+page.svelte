@@ -2,9 +2,7 @@
     import MarkdownBlock from '$lib/components/ArticleInner/MarkdownBlock.svelte';
     import ArticleEndblock from "$lib/components/ArticleInner/ArticleEndblock.svelte";
 
-    const {data} = $props();
-    $inspect('hiya', data.article, 'hiya');
-    $inspect('hi', data.adjacent, 'hi');
+    const { data } = $props();
 
     const dateObj = new Date(data.article.date);
     const humanDate = dateObj.toLocaleDateString('en-US', {

@@ -3,7 +3,6 @@ import {error} from "@sveltejs/kit";
 
 export const prerender = 'auto';
 
-
 export const load = ({params}) => {
     const i = articles.findIndex((article) => article.slug === params.slug);
 
