@@ -164,8 +164,4 @@
             }
         }
     }
-
-    /*
-    + article.css
-    */
 </style>

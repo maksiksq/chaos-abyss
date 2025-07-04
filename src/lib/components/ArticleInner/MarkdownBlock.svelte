@@ -111,6 +111,9 @@
             margin: 20px 0 0 0;
             line-height: 2;
 
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+
             & figure {
                 margin: 20px 0 20px 0;
 
@@ -190,8 +193,6 @@
 
                 & figcaption {
                     margin-top: 10px;
-                    color: #555555;
-                    font-style: italic;
                     align-self: flex-start;
                 }
             }
