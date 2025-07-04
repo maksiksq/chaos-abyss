@@ -1,7 +1,6 @@
 <script lang="ts">
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/ArticleInner/MarkdownBlock.svelte";
-    import MarkdownIt from "markdown-it";
     import {md} from "../shared";
 
     let {form} = $props();
@@ -25,7 +24,9 @@
     <form method="POST" action="?/newArticle" use:enhance>
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
-            <pre class="rendered">{@html parsedHtml}</pre>
+            <div class="rendered">
+                <MarkdownBlock content={parsedHtml} />
+            </div>
         </div>
         <div class="button-wrap">
             <button>Submit</button>
@@ -135,6 +136,9 @@
                     min-height: 100vh;
                     opacity: 0.9;
 
+                    max-width: 1000px;
+                    margin: 0 auto;
+
                     padding: 2rem;
                     border: #737373 1px solid;
                     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -160,4 +164,8 @@
             }
         }
     }
+
+    /*
+    + article.css
+    */
 </style>

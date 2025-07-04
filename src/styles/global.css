@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Karla:ital,wght@0,200..800;1,200..800&family=Spinnaker&display=swap');
-@import url('@catppuccin/highlightjs/css/catppuccin-latte.css');
+@import url('../../node_modules/@catppuccin/highlightjs/css/catppuccin-latte.css');
 
 /* VARIABLES */
 :root {
@@ -35,6 +35,11 @@ body, html {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bolder;
+    font-family: 'Karla', sans-serif;
 }
 
 /* SELECTION */

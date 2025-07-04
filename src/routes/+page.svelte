@@ -1,5 +1,5 @@
 <script lang="ts">
-    import '../global.css';
+    import '../styles/global.css';
     import {goto} from "$app/navigation";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];

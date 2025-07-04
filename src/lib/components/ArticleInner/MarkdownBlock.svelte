@@ -1,13 +1,4 @@
 <script lang="ts">
-    import markdownit from 'markdown-it';
-    import MarkdownIt from "markdown-it";
-    import mditimgcap from '@maksiks/markdown-it-image-caption';
-    import mditanchor from 'markdown-it-anchor';
-    import mditattr from 'markdown-it-attribution';
-    import mditsections from 'markdown-it-header-sections';
-
-    import hljs from 'highlight.js';
-
     // !!!!!!!!!!!!!!!!!
     // The markdown is handled server side
     // The this page only renders the html gotten from the server
@@ -73,7 +64,7 @@
     })
 </script>
 
-<p class="article-content">{@html content}</p>
+<pre class="article-content">{@html content}</pre>
 
 <style>
     :global {
@@ -133,6 +124,10 @@
                 }
             }
 
+            & img {
+                max-width: 100%;
+            }
+
             & table {
                 width: 100%;
 
@@ -180,6 +175,25 @@
                 font-size: 0.87rem;
                 border-radius: 4px;
                 background-color: #eaeaea;
+            }
+
+
+            & figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                & img {
+                    max-width: 100%;
+                }
+
+                & figcaption {
+                    margin-top: 10px;
+                    color: #555555;
+                    font-style: italic;
+                    align-self: flex-start;
+                }
             }
         }
     }

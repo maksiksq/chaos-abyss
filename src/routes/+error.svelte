@@ -1,5 +1,5 @@
 <script lang="ts">
-    import '../global.css';
+    import '../styles/global.css';
     import { page } from '$app/state';
 </script>
 

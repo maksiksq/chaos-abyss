@@ -132,25 +132,6 @@
                     }
                 }
             }
-
-
-            & figure {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                & img {
-                    max-width: 100%;
-                }
-
-                & figcaption {
-                    margin-top: 10px;
-                    color: #555555;
-                    font-style: italic;
-                    align-self: flex-start;
-                }
-            }
         }
     }
 </style>
