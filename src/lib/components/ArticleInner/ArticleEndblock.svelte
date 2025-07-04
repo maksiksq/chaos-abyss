@@ -3,7 +3,6 @@
 
     const previous = adjacent.previous;
     const next = adjacent.next;
-    $inspect(previous, next)
 </script>
 
 <footer class="endblock">
@@ -15,7 +14,6 @@
         {:else}
             <p>{previous.title}</p>
         {/if}
-
     </div>
     <div class="next-article">
         {#if next.slug}
