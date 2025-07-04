@@ -13,7 +13,14 @@
     }
 
     let text = $state('');
-    let parsedHtml = $derived(md.render(text));
+    $inspect(text);
+
+    const parsedHtml = $derived(md.render(text));
+    $inspect(parsedHtml);
+
+    const cleanedHtml = $derived(parsedHtml.replace(/\n{3,}/g, '\n\n'));
+    $inspect(cleanedHtml);
+
 </script>
 
 <div class="bg-white"></div>
@@ -25,7 +32,7 @@
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
             <div class="rendered">
-                <MarkdownBlock content={parsedHtml} />
+                <MarkdownBlock content={cleanedHtml} />
             </div>
         </div>
         <div class="button-wrap">
@@ -35,9 +42,7 @@
 </main>
 
 {#if form?.success}
-    <p>successfully delivered your thing that you just sent to the server back to you because why would you do this</p>
-
-    <MarkdownBlock content={form?.article}/>
+    <p>new article created</p>
 {/if}
 
 <style>
@@ -146,6 +151,7 @@
             }
 
             & .button-wrap {
+                padding-bottom: 9vh;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
@@ -155,6 +161,7 @@
 
                 & button {
                     all: unset;
+                    cursor: pointer;
                     background-color: white;
                     border: black 1px solid;
                     border-radius: 24px;

@@ -109,10 +109,13 @@
 
         .article-content {
             margin: 20px 0 0 0;
-            line-height: 2;
 
             overflow-wrap: break-word;
             white-space: pre-wrap;
+
+            p {
+                line-height: 2;
+            }
 
             & figure {
                 margin: 20px 0 20px 0;

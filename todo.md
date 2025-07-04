@@ -1,6 +1,7 @@
 - [x] : add time parser 
 - [x] : style bits
 - [x] : basic editor !!!
+- [ ] : add all options to editor (not just content)
 - [ ] : full editor
 - [ ] : search
 - [ ] : home page

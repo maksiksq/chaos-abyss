@@ -1,8 +1,7 @@
-import type { Actions } from './$types';
+import type {Actions} from './$types';
 import {fail} from "@sveltejs/kit";
-import { readFileSync, writeFileSync } from 'fs';
+import {readFileSync, writeFileSync} from 'fs';
 import {md} from "../shared";
-
 
 
 export const load = async () => {
@@ -17,17 +16,13 @@ export const actions = {
             return fail(400, { raw, missing: true });
         }
 
-        const article: string = raw;
-
-        const parsedHtml = md.render(article);
-
-        //
+        const parsedHtml = md.render(raw);
 
         const data = JSON.parse(readFileSync('./src/routes/data.json', 'utf8'));
 
         data.push(
             {
-                slug: 'editormade1',
+                slug: 'editormade3',
                 title: 'THIS IS NOT THE ARTICLE YOU\'RE LOOKING FOR',
                 fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
                 figcap: 'non',
