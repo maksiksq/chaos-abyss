@@ -1,4 +1,4 @@
-import {articles} from '../data.js';
+import {articles} from '../shared.ts';
 
 export const load = () => {
     return {

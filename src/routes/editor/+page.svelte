@@ -2,6 +2,7 @@
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/ArticleInner/MarkdownBlock.svelte";
     import MarkdownIt from "markdown-it";
+    import {md} from "../shared";
 
     let {form} = $props();
 
@@ -12,7 +13,8 @@
         textarea.style.height = textarea.scrollHeight + 'px';
     }
 
-    const md = MarkdownIt();
+    let text = $state('');
+    let parsedHtml = $derived(md.render(text));
 </script>
 
 <div class="bg-white"></div>
@@ -22,8 +24,8 @@
     <h1>No one’s watching. You’re safe here.</h1>
     <form method="POST" action="?/newArticle" use:enhance>
         <div class="write-bloc">
-            <textarea name="article" oninput={autoGrow}></textarea>
-            <div class="rendered">s</div>
+            <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
+            <pre class="rendered">{@html parsedHtml}</pre>
         </div>
         <div class="button-wrap">
             <button>Submit</button>
