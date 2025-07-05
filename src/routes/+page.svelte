@@ -58,17 +58,19 @@
         }
 
         if (body) {
-            body.style.overflow = '#hidden';
+            body.style.overflow = 'hidden';
         }
     })
 
     onDestroy(() => {
         if (document.documentElement) {
-            document.documentElement.style.overflow = 'visible';
+            document.documentElement.style.overflowX = 'hidden';
+            document.documentElement.style.overflowY = 'visible';
         }
 
         if (body) {
-            body.style.overflow = 'visible';
+            body.style.overflowX = 'hidden';
+            body.style.overflowY = 'visible';
         }
     })
 
@@ -95,7 +97,7 @@
         </div>
     </div>
     <div class="hero-wrap">
-        <img role="presentation" src="/img/handgemcast.webp" alt="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"/>
+        <img role="presentation" src="/img/handgemcast.gif" alt="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"/>
     </div>
 </main>
 
@@ -193,7 +195,7 @@
             display: flex;
             align-items: flex-end;
 
-            margin-left: 12rem;
+            margin-left: 14rem;
             height: 100%;
             aspect-ratio: 424 / 810;
             img {
