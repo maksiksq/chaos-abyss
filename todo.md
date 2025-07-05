@@ -29,6 +29,7 @@
 - [ ] : experiment with just layout and page for articles
 - [ ] : maybe autospace in md part of the editor to match article line height better?
 - [ ] : maybe revisit hand slightly
+- [ ] : remake anim in afterfx (nooo, pain)
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

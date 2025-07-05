@@ -97,6 +97,7 @@
         </div>
     </div>
     <div class="hero-wrap">
+<!--        dither is too bad-->
         <img role="presentation" src="/img/handgemcast.gif" alt="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"/>
     </div>
 </main>
@@ -200,7 +201,7 @@
             aspect-ratio: 424 / 810;
             img {
                 width: 100%;
-                height: calc(100% - 2rem);
+                height: 100%;
             }
         }
     }
