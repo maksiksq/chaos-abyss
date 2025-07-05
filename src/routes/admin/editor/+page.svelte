@@ -1,7 +1,7 @@
 <script lang="ts">
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
-    import {md} from "../shared";
+    import {md} from "../../shared";
     import {onDestroy, onMount} from "svelte";
 
     let {form} = $props();
@@ -96,7 +96,7 @@
         width: 100vw;
         height: 450px;
 
-        background: url("/img/editor-gradient.png") no-repeat;
+        background: url("/img/editor-gradient.webp") no-repeat;
         background-size: cover;
     }
 

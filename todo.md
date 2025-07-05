@@ -23,10 +23,11 @@
 - [ ] : make footer a bit more hitting (sorta done)
 - [x] : previous article/next article
 - [ ] : style previous article/next article differently
-- [x] : implement preivous/next with the backend
+- [x] : implement previous/next with the backend
 - [ ] : comments
 - [ ] : figure out if isp or no isp
 - [ ] : experiment with just layout and page for articles
+- [ ] : maybe autospace in md part of the editor to match article line height better?
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

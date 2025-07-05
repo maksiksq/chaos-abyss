@@ -1,7 +1,7 @@
-import type {Actions} from './$types';
+import type {Actions} from '../../../../.svelte-kit/types/src/routes';
 import {fail} from "@sveltejs/kit";
 import {readFileSync, writeFileSync} from 'fs';
-import {md} from "../shared";
+import {md} from "../../shared";
 
 
 export const load = async () => {

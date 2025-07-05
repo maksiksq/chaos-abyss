@@ -20,8 +20,7 @@
         if (e.key === cheatCode[codeIx]) {
             codeIx++;
             if (codeIx === cheatCode.length) {
-                console.log('time travel');
-                goto('editor');
+                goto('admin/editor');
                 codeIx = 0;
             }
         } else {
@@ -33,9 +32,28 @@
 <svelte:window on:keydown={handleTravelToEditor} />
 
 <Header/>
-<h1>Chaos <br>Abyss</h1>
+<main>
+    <h1>Deep Thoughts. <br>Clear Words. </h1>
 
-<a href="/articles">hi</a>
+        <a href="/articles">
+            h
+        </a>
+</main>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+    main {
+        display: flex;
+        align-items: center;
+
+        height: calc(100vh - 4rem);
+
+        & h1 {
+            /*idk which*/
+            /*font-family: 'Proza Libre', sans-serif;*/
+            font-family: 'Roboto Slab', sans-serif;
+            font-weight: normal;
+        }
+    }
 </style>
