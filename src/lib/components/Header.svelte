@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <header>
     <nav>
         <a href="/" class="logo-link" aria-label="Home">
@@ -13,9 +16,7 @@
 <style>
     header {
         width: 100%;
-
         border-bottom: 1px solid black;
-
 
         & nav {
             display: flex;
@@ -58,9 +59,6 @@
                 margin-left: auto;
                 padding-right: 3vw;
             }
-
-
         }
-
     }
 </style>

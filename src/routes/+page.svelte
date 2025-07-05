@@ -120,9 +120,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            width: 60%;
 
             & h1 {
-                font-size: 6rem;
+                font-size: 6.5rem;
                 line-height: 1.6;
 
                 & span {
@@ -200,11 +201,11 @@
             justify-content: center;
             align-items: flex-end;
 
+            width: 40%;
             height: 100%;
             aspect-ratio: 424 / 810;
             img {
-                width: 100%;
-                height: 100%;
+                height: 120%;
             }
         }
     }
