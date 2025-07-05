@@ -65,6 +65,9 @@
             </div>
         </div>
     </div>
+    <div class="hero-wrap">
+        <img role="presentation" src="/img/handgemcast.webp" alt="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"/>
+    </div>
 </main>
 
 <style>
@@ -73,8 +76,8 @@
 
     main {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        align-items: center;
 
         height: calc(100vh - 4rem);
 
@@ -84,13 +87,15 @@
             justify-content: center;
 
             & h1 {
-                /*idk which*/
-                /*font-family: 'Proza Libre', sans-serif;*/
-                font-family: 'Roboto Slab', sans-serif;
-                font-weight: normal;
-
                 font-size: 7.4rem;
                 line-height: 1.6;
+
+                & span {
+                    /*idk which*/
+                    /*font-family: 'Proza Libre', sans-serif;*/
+                    /*font-family: 'Roboto Slab', sans-serif;*/
+                    font-weight: normal;
+                }
 
                 .deep-thoughts {
                     color: #242525;
@@ -120,7 +125,6 @@
                     font-size: 1.2rem;
                     padding: 0.5rem 2.6rem;
                     border: solid black 3px;
-                    mix-blend-mode: difference;
                     box-shadow: 0 0 0 1px white;
                 }
 
@@ -148,6 +152,20 @@
 
                     transition: 0.2s all;
                 }
+            }
+        }
+
+        .hero-wrap {
+            align-self: flex-end;
+            display: flex;
+            align-items: flex-end;
+
+            margin-left: 12rem;
+            height: 100%;
+            aspect-ratio: 424 / 810;
+            img {
+                width: 100%;
+                height: calc(100% - 2rem);
             }
         }
     }
