@@ -1,10 +1,10 @@
 <script>
-    import ArticleHeader from "$lib/components/ArticleInner/ArticleHeader.svelte";
-    import ArticleFooter from "$lib/components/ArticleInner/ArticleFooter/ArticleFooter.svelte";
+    import Header from "$lib/components/Header.svelte";
+    import Footer from "$lib/components/ArticleFooter/Footer.svelte";
 
     let { children } = $props();
 </script>
 
-<ArticleHeader/>
+<Header/>
 {@render children()}
-<ArticleFooter/>
+<Footer/>

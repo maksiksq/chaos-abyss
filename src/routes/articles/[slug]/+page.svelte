@@ -1,6 +1,6 @@
 <script lang="ts">
-    import MarkdownBlock from '$lib/components/ArticleInner/MarkdownBlock.svelte';
-    import ArticleEndblock from "$lib/components/ArticleInner/ArticleEndblock.svelte";
+    import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
+    import ArticleEndblock from "./ArticleEndblock.svelte";
     import {onMount, tick} from "svelte";
 
     const { data } = $props();

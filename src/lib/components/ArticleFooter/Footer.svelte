@@ -2,8 +2,8 @@
 
     // whatever legal meaning these even have this is All rights reserved just read the license lol
     import {onMount} from "svelte";
-    import ArticleFooterLinks from "$lib/components/ArticleInner/ArticleFooter/ArticleFooterLinks.svelte";
-    import ArticleFooterSocials from "$lib/components/ArticleInner/ArticleFooter/ArticleFooterSocials.svelte";
+    import FooterLinks from "$lib/components/ArticleFooter/FooterLinks.svelte";
+    import FooterSocials from "$lib/components/ArticleFooter/FooterSocials.svelte";
 
     const copyblurbs = [
         // evil
@@ -137,10 +137,10 @@
     <div class="footer-right">
         <div class="link-bloc">
             <ul class="links">
-                <ArticleFooterLinks/>
+                <FooterLinks/>
             </ul>
             <ul class="socials">
-                <ArticleFooterSocials/>
+                <FooterSocials/>
             </ul>
         </div>
         <div class="copy-bloc">

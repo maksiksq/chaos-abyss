@@ -1,6 +1,6 @@
 <script lang="ts">
     import {enhance} from '$app/forms';
-    import MarkdownBlock from "$lib/components/ArticleInner/MarkdownBlock.svelte";
+    import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
     import {md} from "../shared";
     import {onDestroy, onMount} from "svelte";
 

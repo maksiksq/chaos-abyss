@@ -1,6 +1,7 @@
 <script lang="ts">
     import '../styles/global.css';
     import {goto} from "$app/navigation";
+    import Header from "$lib/components/Header.svelte";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
     let codeIx = 0;
@@ -31,7 +32,9 @@
 
 <svelte:window on:keydown={handleTravelToEditor} />
 
-<h1>i'm a slugging homepage nothing sus behind me</h1>
+<Header/>
+<h1>Chaos <br>Abyss</h1>
+
 <a href="/articles">hi</a>
 
 <style>
