@@ -8,7 +8,7 @@ type Article = {
     date: string;
     author: string;
     authorLink: string;
-
+    accent: string;
     content: string;
 };
 

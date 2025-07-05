@@ -2,11 +2,10 @@
 @import url('../../node_modules/@catppuccin/highlightjs/css/catppuccin-latte.css');
 
 /* VARIABLES */
-:root {
+body {
     --accent-color: rgb(255, 167, 167);
     --accent-color-deeper: rgb(250, 143, 143);
 }
-
 /* GLOBALS */
 * {
     font-family: 'Spinnaker', sans-serif;

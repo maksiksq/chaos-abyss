@@ -1,6 +1,7 @@
 <script lang="ts">
     import MarkdownBlock from '$lib/components/ArticleInner/MarkdownBlock.svelte';
     import ArticleEndblock from "$lib/components/ArticleInner/ArticleEndblock.svelte";
+    import {onMount} from "svelte";
 
     const { data } = $props();
 
@@ -14,8 +15,35 @@
     // TODO: word count
     const wordCount = 4500;
 
+    //
+
+    let body: HTMLBodyElement | undefined = $state();
+
+    onMount(() => {
+        const accent = data.article.accent;
+        const match = accent.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        if (!match) {
+            console.warn('Maksiks: Invalid accent, default will be used instead.')
+            return;
+        }
+        let [r, g, b] = match.slice(1).map(Number);
+
+        // won't reach 0 anyway but better be safe than sorry
+        r = Math.max(0, r-5);
+        g = Math.max(0, g-24);
+        b = Math.max(0, b-24);
+
+        const accentDeep = `rgb(${r}, ${g}, ${b})`;
+
+
+        body?.style.setProperty('--accent-color', accent);
+        body?.style.setProperty('--accent-color-deeper', accentDeep);
+    })
+
     // don't forget meta-tags or else
 </script>
+
+<svelte:body bind:this={body}/>
 
 {#key data}
     {#if data.article}

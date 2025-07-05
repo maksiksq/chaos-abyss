@@ -33,3 +33,6 @@
 
 <h1>i'm a slugging homepage nothing sus behind me</h1>
 <a href="/articles">hi</a>
+
+<style>
+</style>

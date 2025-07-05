@@ -2,10 +2,13 @@
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/ArticleInner/MarkdownBlock.svelte";
     import {md} from "../shared";
+    import {onDestroy, onMount} from "svelte";
 
     let {form} = $props();
 
-    const autoGrow = (e: InputEvent) => {
+    const autoGrow = (e: Event) => {
+        // weird types, idk how to manage this
+        // @ts-ignore
         const textarea = e.target as HTMLInputElement;
 
         textarea.style.height = 'auto';
@@ -13,15 +16,26 @@
     }
 
     let text = $state('');
-    $inspect(text);
 
     const parsedHtml = $derived(md.render(text));
-    $inspect(parsedHtml);
 
-    const cleanedHtml = $derived(parsedHtml.replace(/\n{3,}/g, '\n\n'));
-    $inspect(cleanedHtml);
+    // very lame that you can't do this in css in Svelte right now
+    let body: HTMLBodyElement | undefined = $state();
 
+    onMount(() => {
+        if (body) {
+            body.style.backgroundColor = '#232323';
+        }
+    })
+
+    onDestroy(() => {
+        if (body) {
+            body.style.backgroundColor = 'white';
+        }
+    })
 </script>
+
+<svelte:body bind:this={body}/>
 
 <div class="bg-white"></div>
 <div class="bg-img"></div>
@@ -30,9 +44,10 @@
     <h1>No one’s watching. You’re safe here.</h1>
     <form method="POST" action="?/newArticle" use:enhance>
         <div class="write-bloc">
+
             <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
             <div class="rendered">
-                <MarkdownBlock content={cleanedHtml} />
+                <MarkdownBlock content={parsedHtml}/>
             </div>
         </div>
         <div class="button-wrap">
@@ -41,17 +56,12 @@
     </form>
 </main>
 
+
 {#if form?.success}
     <p>new article created</p>
 {/if}
 
 <style>
-    :global {
-        body {
-            background: #232323;
-        }
-    }
-
     .bg-white {
         position: absolute;
         z-index: -1;

@@ -26,6 +26,7 @@
 - [x] : implement preivous/next with the backend
 - [ ] : comments
 - [ ] : figure out if isp or no isp
+- [ ] : experiment with just layout and page for articles
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
