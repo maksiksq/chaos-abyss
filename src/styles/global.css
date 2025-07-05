@@ -3,8 +3,8 @@
 
 /* VARIABLES */
 body {
-    --accent-color: rgb(255, 167, 167);
-    --accent-color-deeper: rgb(250, 143, 143);
+    --accent-color: hsl(0, 100%, 82.75%);
+    --accent-color-deeper: hsl(0, 91.45%, 77.06%);
 }
 /* GLOBALS */
 * {

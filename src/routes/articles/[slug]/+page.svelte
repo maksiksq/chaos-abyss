@@ -21,20 +21,20 @@
 
     onMount(() => {
         const accent = data.article.accent;
-        const match = accent.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        console.log(accent);
+        const match = accent.match(/^hsl\((\d+),\s*([\d.]+)%?,\s*([\d.]+)%?\)$/);
         if (!match) {
             console.warn('Maksiks: Invalid accent, default will be used instead.')
             return;
         }
-        let [r, g, b] = match.slice(1).map(Number);
+        let [h, s, l] = match.slice(1).map(Number);
 
-        // won't reach 0 anyway but better be safe than sorry
-        r = Math.max(0, r-5);
-        g = Math.max(0, g-24);
-        b = Math.max(0, b-24);
+        // won't reach 0 anyway but idk maybe I'm feeling spooky
+        h = Math.max(0, h);
+        s = Math.max(0, s-8.55);
+        l = Math.max(0, l-2.69);
 
-        const accentDeep = `rgb(${r}, ${g}, ${b})`;
-
+        const accentDeep = `rgb(${h}, ${s}%, ${l}%)`;
 
         body?.style.setProperty('--accent-color', accent);
         body?.style.setProperty('--accent-color-deeper', accentDeep);
