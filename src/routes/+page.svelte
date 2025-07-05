@@ -3,6 +3,7 @@
     import {goto} from "$app/navigation";
     import Header from "$lib/components/Header.svelte";
     import {onDestroy, onMount} from "svelte";
+    import {browser} from "$app/environment";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
     let codeIx = 0;
@@ -63,14 +64,16 @@
     })
 
     onDestroy(() => {
-        if (document.documentElement) {
-            document.documentElement.style.overflowX = 'hidden';
-            document.documentElement.style.overflowY = 'visible';
-        }
+        if (browser) {
+            if (document.documentElement) {
+                document.documentElement.style.overflowX = 'hidden';
+                document.documentElement.style.overflowY = 'visible';
+            }
 
-        if (body) {
-            body.style.overflowX = 'hidden';
-            body.style.overflowY = 'visible';
+            if (body) {
+                body.style.overflowX = 'hidden';
+                body.style.overflowY = 'visible';
+            }
         }
     })
 
@@ -194,9 +197,9 @@
         .hero-wrap {
             align-self: flex-end;
             display: flex;
+            justify-content: center;
             align-items: flex-end;
 
-            margin-left: 14rem;
             height: 100%;
             aspect-ratio: 424 / 810;
             img {
