@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <a href="/chaos-abyss/static" class="logo-link" aria-label="Home">
+        <a href="/" class="logo-link" aria-label="Home">
             <img src="/img/logo.png" alt="logo">
         </a>
         <input class="search" type="text" placeholder="Search..."/>

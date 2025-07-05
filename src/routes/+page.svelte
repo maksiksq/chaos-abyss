@@ -2,6 +2,7 @@
     import '../styles/global.css';
     import {goto} from "$app/navigation";
     import Header from "$lib/components/Header.svelte";
+    import {onDestroy, onMount} from "svelte";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
     let codeIx = 0;
@@ -48,8 +49,36 @@
         ctaButtonFake.style.marginTop = "3.3rem";
         ctaButtonFake.style.marginLeft = "0.4rem";
     }
+
+    let body: HTMLBodyElement | undefined = $state();
+
+    onMount(() => {
+        if (document.documentElement) {
+            document.documentElement.style.overflow = 'hidden';
+        }
+
+        if (body) {
+            body.style.overflow = '#hidden';
+        }
+    })
+
+    onDestroy(() => {
+        if (document.documentElement) {
+            document.documentElement.style.overflow = 'visible';
+        }
+
+        if (body) {
+            body.style.overflow = 'visible';
+        }
+    })
+
+
+    onDestroy(() => {
+
+    })
 </script>
 
+<svelte:body bind:this={body}/>
 <svelte:window on:keydown={handleTravelToEditor}/>
 
 <Header/>
@@ -87,7 +116,7 @@
             justify-content: center;
 
             & h1 {
-                font-size: 7.4rem;
+                font-size: 6rem;
                 line-height: 1.6;
 
                 & span {
@@ -95,20 +124,24 @@
                     /*font-family: 'Proza Libre', sans-serif;*/
                     /*font-family: 'Roboto Slab', sans-serif;*/
                     font-weight: normal;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
                 }
 
                 .deep-thoughts {
                     color: #242525;
+                    background: #FFA7A7;
                 }
 
                 .clear-words {
                     color: #1f2020;
+                    background: #FB8E8E;
                 }
             }
 
             & .cta-cont {
                 position: relative;
-                margin-left: 10px;
+                margin-left: 2.6rem;
                 margin-bottom: 6rem;
 
                 & .cta-button {
