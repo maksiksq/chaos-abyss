@@ -1,5 +1,9 @@
 <script lang="ts">
-    const links = [
+    import {onMount} from "svelte";
+
+    const { home = false } = $props();
+
+    let links = $state([
         {
             text: 'Home',
             link: '/',
@@ -12,7 +16,15 @@
             text: 'Contact',
             link: '/contact',
         }
-    ]
+    ]);
+
+    onMount(() => {
+        if (home) {
+            links = links.filter(e => e.text !== 'Home');
+        }
+    })
+
+
 </script>
 
 <li class="heading">

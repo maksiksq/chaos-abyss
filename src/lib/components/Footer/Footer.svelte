@@ -128,17 +128,21 @@
     })
 </script>
 
-<footer class="hand-holder">
+<footer class="{home ? 'hand-holder' : ''} ">
     <div class="footer-left">
-        <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        {#if !home}
+            <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        {/if}
     </div>
     <div class="footer-mid">
-        <p>Your attention nourishes the void.</p>
+        {#if !home}
+            <p>Your attention nourishes the void.</p>
+        {/if}
     </div>
     <div class="footer-right">
         <div class="link-bloc">
             <ul class="links">
-                <FooterLinks/>
+                <FooterLinks {home}/>
             </ul>
             <ul class="socials">
                 <FooterSocials/>
