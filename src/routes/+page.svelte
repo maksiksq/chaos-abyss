@@ -89,7 +89,7 @@
 <Header/>
 <main>
     <div class="head-wrap">
-        <h1><span class="deep-thoughts">Deep Thoughts. </span><br><span class="clear-words">Clear Words. </span></h1>
+        <h1><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h1>
         <div class="cta-cont">
             <a href="/articles" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut} onfocus={buttonAnimIn} onblur={buttonAnimOut}>
                 Step Inside
@@ -101,7 +101,7 @@
     </div>
     <div class="hero-wrap">
 <!--        dither is too bad-->
-        <img role="presentation" src="/img/handgemcast.gif" alt="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"/>
+        <video loop autoplay muted src="/img/gem-anim-final.webm" aria-label="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"></video>
     </div>
 </main>
 
@@ -204,7 +204,8 @@
             width: 40%;
             height: 100%;
             aspect-ratio: 424 / 810;
-            img {
+            transform: translateY(16px);
+            video {
                 height: 120%;
             }
         }
