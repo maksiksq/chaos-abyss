@@ -1,5 +1,5 @@
 <script lang="ts">
-    const { home = false } = $props();
+    const {home = false} = $props();
 
     // whatever legal meaning these even have this is All rights reserved just read the license lol
     import {onMount} from "svelte";
@@ -128,7 +128,7 @@
     })
 </script>
 
-<footer>
+<footer class="hand-holder">
     <div class="footer-left">
         <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
     </div>
@@ -151,15 +151,27 @@
 </footer>
 
 <style>
+    .hand-holder:after {
+        content: "";
+        position: absolute;
+        top: -3rem;
+        left: 70%;
+        width: 20%;
+        height: 1px;
+        background: #000000;
+    }
+
     footer {
         font-size: 1.1rem;
         display: flex;
         flex-direction: row;
         width: 100vw;
         height: 68vh;
-        overflow: clip;
+        overflow-x: clip;
+        overflow-y: visible;
 
         margin-top: 4rem;
+        position: relative;
 
         & .footer-left {
             width: 40%;
@@ -184,7 +196,7 @@
 
         & .footer-mid {
             display: flex;
-            justify-content:  center;
+            justify-content: center;
             align-items: center;
             width: calc(20% - 1.5vw);
 
@@ -199,8 +211,8 @@
         }
 
         & .footer-right {
-            border-right:  1px solid black;
-            margin-right:  1.5vw;
+            border-right: 1px solid black;
+            margin-right: 1.5vw;
 
             width: 40%;
 
@@ -221,9 +233,10 @@
                 padding-top: clamp(0px, 3rem, 4rem);
 
                 /* rip future me trying to make this responsive */
+
                 &::after {
                     content: "";
-                    display:  block;
+                    display: block;
                     position: absolute;
                     height: 25vh;
                     width: 10px;
