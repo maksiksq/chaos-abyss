@@ -1,9 +1,10 @@
 <script lang="ts">
+    const { home = false } = $props();
 
     // whatever legal meaning these even have this is All rights reserved just read the license lol
     import {onMount} from "svelte";
-    import FooterLinks from "$lib/components/ArticleFooter/FooterLinks.svelte";
-    import FooterSocials from "$lib/components/ArticleFooter/FooterSocials.svelte";
+    import FooterLinks from "$lib/components/Footer/FooterLinks.svelte";
+    import FooterSocials from "$lib/components/Footer/FooterSocials.svelte";
 
     const copyblurbs = [
         // evil

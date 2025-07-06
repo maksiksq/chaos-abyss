@@ -4,6 +4,7 @@
     import Header from "$lib/components/Header.svelte";
     import {onDestroy, onMount} from "svelte";
     import {browser} from "$app/environment";
+    import Footer from "$lib/components/Footer/Footer.svelte";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
     let codeIx = 0;
@@ -59,7 +60,8 @@
     <div class="head-wrap">
         <h1><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h1>
         <div class="cta-cont">
-            <a href="/articles" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut} onfocus={buttonAnimIn} onblur={buttonAnimOut}>
+            <a href="/articles" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut}
+               onfocus={buttonAnimIn} onblur={buttonAnimOut}>
                 Step Inside
             </a>
             <div class="cta-button-fake" bind:this={ctaButtonFake}>
@@ -68,16 +70,18 @@
         </div>
     </div>
     <div class="hero-wrap">
-        <video loop autoplay muted src="/img/gem-anim-final.webm" aria-label="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"></video>
+        <video loop autoplay muted src="/img/gem-anim-final.webm"
+               aria-label="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"></video>
     </div>
 </main>
+<Footer home={true}/>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
     :global {
-        html, body {
+        body {
             overflow-y: hidden;
         }
     }
@@ -98,7 +102,7 @@
 
             & h1 {
                 margin-top: 2rem;
-                font-size: 6.5rem;
+                font-size: 6rem;
                 line-height: 1.8;
 
                 & span {
@@ -114,17 +118,16 @@
 
                     &:hover {
                         transform: translate(0px, 10px);
-                        box-shadow:
-                                rgb(255, 116, 116) -1px 0 0,
-                                rgba(0, 0, 0, 1) 0 0 0;
+                        box-shadow: rgb(255, 116, 116) -1px 0 0,
+                        rgba(0, 0, 0, 1) 0 0 0;
                     }
                 }
 
                 & .deep-thoughts {
                     display: inline-block;
-                    line-height: 1.4;
+                    line-height: 1.2;
                     color: #242525;
-                    background:  linear-gradient(70deg, #826e8c, #FFA7A7) ;
+                    background: linear-gradient(70deg, #826e8c, #FFA7A7);
                     border: solid 1px black;
 
                     padding-bottom: 0.4rem;
@@ -134,9 +137,9 @@
 
                 & .clear-words {
                     display: inline-block;
-                    line-height: 1.4;
+                    line-height: 1.2;
                     color: #1f2020;
-                    background:  linear-gradient(70deg, #6c497e, #FB8E8E);
+                    background: linear-gradient(70deg, #6c497e, #FB8E8E);
                     box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
                     border: solid 1px black;
                 }
@@ -201,6 +204,7 @@
             height: 100%;
             aspect-ratio: 424 / 810;
             transform: translateY(16px);
+
             video {
                 height: 120%;
             }
