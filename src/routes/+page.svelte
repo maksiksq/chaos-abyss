@@ -129,7 +129,7 @@
                 & span {
                     /*idk which*/
                     /*font-family: 'Proza Libre', sans-serif;*/
-                    /*font-family: 'Roboto Slab', sans-serif;*/
+                    font-family: 'Roboto Slab', sans-serif;
                     font-weight: normal;
                     padding-left: 2rem;
                     padding-right: 2rem;
@@ -137,12 +137,14 @@
 
                 .deep-thoughts {
                     color: #242525;
-                    background: #FFA7A7;
+                    /*background: #FFA7A7;*/
+                    background:  linear-gradient(70deg, #826e8c, #FFA7A7) ;
                 }
 
                 .clear-words {
                     color: #1f2020;
-                    background: #FB8E8E;
+                    background:  linear-gradient(70deg, #6c497e, #FB8E8E) ;
+
                 }
             }
 
