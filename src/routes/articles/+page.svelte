@@ -30,12 +30,12 @@
             "name": "Dev Stuff",
             "summaries": [{
                 "title": "Svelte is cool",
-                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9LIHmk15RXVCqduQP_MZ4dzjZhqvvXJahw&s",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet theee cat",
                 "slug": "example"
             }, {
                 "title": "Svelte is the best thing ever",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/SuitDiamonds.svg/180px-SuitDiamonds.svg.png",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon thee developer",
                 "slug": "example"
             }]
@@ -44,12 +44,12 @@
             "name": "Japanese",
             "summaries": [{
                 "title": "How i found out about the word for Beans in Japanese.",
-                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9LIHmk15RXVCqduQP_MZ4dzjZhqvvXJahw&s",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet the cat",
                 "slug": "example"
             }, {
                 "title": "How i found out about the word for Wallpapers in Japanese.",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/SuitDiamonds.svg/180px-SuitDiamonds.svg.png",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon the developer",
                 "slug": "example"
             }]
@@ -58,12 +58,12 @@
             "name": "Games & Media",
             "summaries": [{
                 "title": "Hades is poggers",
-                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9LIHmk15RXVCqduQP_MZ4dzjZhqvvXJahw&s",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet theee cat",
                 "slug": "example"
             }, {
                 "title": "OneShot is also cool",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/SuitDiamonds.svg/180px-SuitDiamonds.svg.png",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon theeeeeee developer",
                 "slug": "example"
             }]
@@ -72,12 +72,12 @@
             "name": "Project Stash",
             "summaries": [{
                 "title": "Lirith is cool",
-                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9LIHmk15RXVCqduQP_MZ4dzjZhqvvXJahw&s",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet theee cat",
                 "slug": "example"
             }, {
                 "title": "Lirith is not yet a thing",
-                "img": "https://b-w-kitty-maksiksed.vercel.app/static/media/pic.4387a5b982e94311f550.png",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon thee developer",
                 "slug": "example"
             }]
@@ -86,12 +86,12 @@
             "name": "Miscellaneous",
             "summaries": [{
                 "title": "Hades is poggers",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/SuitDiamonds.svg/180px-SuitDiamonds.svg.png",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet theee cat",
                 "slug": "example"
             }, {
                 "title": "OneShot is also cool",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/SuitDiamonds.svg/180px-SuitDiamonds.svg.png",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon theeeeeee developer",
                 "slug": "example"
             }]
@@ -170,12 +170,10 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-auto-flow: dense;
-                grid-auto-rows: 10px;
                 gap: 1rem;
 
                 & .card {
-                    min-height: 1000px;
-
+                    height: 100vh;
                     * {
                         max-width: 100%;
                     }
