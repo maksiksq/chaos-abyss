@@ -63,7 +63,7 @@
 
 <style>
     :global {
-        html, body {
+        body {
             overflow-y: hidden;
         }
     }
