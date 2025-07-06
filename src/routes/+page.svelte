@@ -86,7 +86,7 @@
 <svelte:body bind:this={body}/>
 <svelte:window on:keydown={handleTravelToEditor}/>
 
-<Header/>
+<Header home={true}/>
 <main>
     <div class="head-wrap">
         <h1><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h1>
@@ -133,6 +133,8 @@
                     font-weight: normal;
                     padding-left: 2rem;
                     padding-right: 2rem;
+
+                    user-select: none;
                 }
 
                 .deep-thoughts {

@@ -1,5 +1,5 @@
 <script>
-    let home = $state(true);
+    let { home = false } = $props();
 </script>
 
 <header>
@@ -17,9 +17,8 @@
                 <line x1="142.375" y1="54.6877" x2="105.911" y2="160.586" stroke="black"/>
                 <line y1="-0.5" x2="57" y2="-0.5" transform="matrix(-0.642788 0.766044 0.766044 0.642788 348.641 38)" stroke="black"/>
             </svg>
-
         {/if}
-        <a class="about" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <a class="about" style="margin-left: {home ? 'unset' : 'auto'}" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
             About
         </a>
     </nav>
@@ -75,6 +74,7 @@
             & .about {
                 padding-left: 1.3rem;
                 padding-right: 3vw;
+                margin-left: auto;
             }
         }
     }
