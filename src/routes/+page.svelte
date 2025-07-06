@@ -141,12 +141,13 @@
                     color: #242525;
                     /*background: #FFA7A7;*/
                     background:  linear-gradient(70deg, #826e8c, #FFA7A7) ;
+                    border: solid 1px black;
                 }
 
                 .clear-words {
                     color: #1f2020;
-                    background:  linear-gradient(70deg, #6c497e, #FB8E8E) ;
-
+                    background:  linear-gradient(70deg, #6c497e, #FB8E8E);
+                    border: solid 1px black;
                 }
             }
 
@@ -168,7 +169,7 @@
                     width: 8rem;
                     font-size: 1.2rem;
                     padding: 0.5rem 2.6rem;
-                    border: solid black 3px;
+                    border: solid black 2px;
                     box-shadow: 0 0 0 1px white;
                 }
 
@@ -192,7 +193,7 @@
                     width: 8rem;
                     font-size: 1.2rem;
                     padding: 0.5rem 2.6rem;
-                    border: solid black 3px;
+                    border: solid black 2px;
 
                     transition: 0.2s all;
                 }
