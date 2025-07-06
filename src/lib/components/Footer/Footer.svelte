@@ -126,12 +126,40 @@
     onMount(() => {
         copyblurbify();
     })
+
+    let diamond: HTMLElement | undefined = $state();
+    const handleDiamondAnim = (e: MouseEvent): void => {
+        if (!diamond) return;
+        const diaX = diamond.getBoundingClientRect().left + window.scrollX;
+        const diaY = diamond.getBoundingClientRect().top + window.scrollY;
+
+        let shiftX = 0;
+        let shiftY = 0;
+        if (e.clientX > diaX) {
+            shiftX = e.clientX;
+        } else {
+            shiftX = -e.clientX;
+        }
+        if (e.clientY < diaY) {
+            shiftY = e.clientY;
+        } else {
+            shiftY = -e.clientY;
+        }
+        const x = 5 + shiftX/100;
+        const y = 5 + shiftY/50;
+        diamond.style.transform = `translate(${x}px, ${y}px)`;
+        console.log("hihhhh")
+    }
 </script>
+
+<svelte:window onmousemove={handleDiamondAnim} />
 
 <footer class="{home ? 'hand-holder' : ''} ">
     <div class="footer-left">
         {#if !home}
             <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+        {:else}
+            <img class="gem diamond" src="/img/diamond-sticks.svg" alt="A diamond" bind:this={diamond} />
         {/if}
     </div>
     <div class="footer-mid">
@@ -195,6 +223,11 @@
                     transition: all 0.1s;
                     transform: scale(1.003);
                 }
+            }
+
+            & .diamond {
+                width: 20rem;
+                transition: transform 1s ease-out;
             }
         }
 
