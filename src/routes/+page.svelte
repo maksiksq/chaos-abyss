@@ -97,8 +97,9 @@
             width: 60%;
 
             & h1 {
+                margin-top: 2rem;
                 font-size: 6.5rem;
-                line-height: 1.6;
+                line-height: 1.8;
 
                 & span {
                     /*idk which*/
@@ -107,28 +108,36 @@
                     font-weight: normal;
                     padding-left: 2rem;
                     padding-right: 2rem;
-
                     user-select: none;
-                }
-
-                & .deep-thoughts {
-                    color: #242525;
-                    cursor: pointer;
-                    background:  linear-gradient(70deg, #826e8c, #FFA7A7) ;
-                    border: solid 1px black;
-                    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
 
                     transition: all 0.2s;
+
                     &:hover {
-                        
+                        transform: translate(0px, 10px);
+                        box-shadow:
+                                rgb(255, 116, 116) -1px 0 0,
+                                rgba(0, 0, 0, 1) 0 0 0;
                     }
                 }
 
+                & .deep-thoughts {
+                    display: inline-block;
+                    line-height: 1.4;
+                    color: #242525;
+                    background:  linear-gradient(70deg, #826e8c, #FFA7A7) ;
+                    border: solid 1px black;
+
+                    padding-bottom: 0.4rem;
+                    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
+                }
+
+
                 & .clear-words {
+                    display: inline-block;
+                    line-height: 1.4;
                     color: #1f2020;
-                    cursor: pointer;
                     background:  linear-gradient(70deg, #6c497e, #FB8E8E);
-                    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+                    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
                     border: solid 1px black;
                 }
             }
