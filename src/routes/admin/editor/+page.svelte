@@ -62,6 +62,12 @@
 {/if}
 
 <style>
+    :global {
+        html, body {
+            overflow-y: hidden;
+        }
+    }
+
     .bg-white {
         position: absolute;
         z-index: -1;

@@ -50,40 +50,8 @@
         ctaButtonFake.style.marginTop = "3.3rem";
         ctaButtonFake.style.marginLeft = "0.4rem";
     }
-
-    let body: HTMLBodyElement | undefined = $state();
-
-    onMount(() => {
-        if (document.documentElement) {
-            document.documentElement.style.overflow = 'hidden';
-        }
-
-        if (body) {
-            body.style.overflow = 'hidden';
-        }
-    })
-
-    onDestroy(() => {
-        if (browser) {
-            if (document.documentElement) {
-                document.documentElement.style.overflowX = 'hidden';
-                document.documentElement.style.overflowY = 'visible';
-            }
-
-            if (body) {
-                body.style.overflowX = 'hidden';
-                body.style.overflowY = 'visible';
-            }
-        }
-    })
-
-
-    onDestroy(() => {
-
-    })
 </script>
 
-<svelte:body bind:this={body}/>
 <svelte:window on:keydown={handleTravelToEditor}/>
 
 <Header home={true}/>
@@ -100,7 +68,6 @@
         </div>
     </div>
     <div class="hero-wrap">
-<!--        dither is too bad-->
         <video loop autoplay muted src="/img/gem-anim-final.webm" aria-label="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"></video>
     </div>
 </main>
@@ -109,10 +76,17 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+    :global {
+        html, body {
+            overflow-y: hidden;
+        }
+    }
+
     main {
         display: flex;
         flex-direction: row;
         align-items: center;
+        overflow-y: visible;
 
         height: calc(100vh - 4rem);
 
@@ -137,16 +111,24 @@
                     user-select: none;
                 }
 
-                .deep-thoughts {
+                & .deep-thoughts {
                     color: #242525;
-                    /*background: #FFA7A7;*/
+                    cursor: pointer;
                     background:  linear-gradient(70deg, #826e8c, #FFA7A7) ;
                     border: solid 1px black;
+                    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
+
+                    transition: all 0.2s;
+                    &:hover {
+                        
+                    }
                 }
 
-                .clear-words {
+                & .clear-words {
                     color: #1f2020;
+                    cursor: pointer;
                     background:  linear-gradient(70deg, #6c497e, #FB8E8E);
+                    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
                     border: solid 1px black;
                 }
             }

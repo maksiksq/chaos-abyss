@@ -10,3 +10,11 @@
         <li><a href="/articles/{slug}">{title}</a></li>
     {/each}
 </ul>
+
+<style>
+    :global {
+        html, body {
+            overflow-y: hidden;
+        }
+    }
+</style>

@@ -87,6 +87,12 @@
 {/key}
 
 <style>
+    :global {
+        html, body {
+            overflow-y: visible;
+        }
+    }
+
     main {
         & article {
             max-width: 1000px;
