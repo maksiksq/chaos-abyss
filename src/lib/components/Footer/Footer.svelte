@@ -128,6 +128,7 @@
     })
 
     let diamond: HTMLElement | undefined = $state();
+    let ticking = $state(false);
     const handleDiamondAnim = (e: MouseEvent): void => {
         if (!diamond) return;
         const diaX = diamond.getBoundingClientRect().left + window.scrollX;
@@ -147,8 +148,14 @@
         }
         const x = 5 + shiftX/100;
         const y = 5 + shiftY/50;
-        diamond.style.transform = `translate(${x}px, ${y}px)`;
-        console.log("hihhhh")
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                if (!diamond) return;
+                diamond.style.transform = `translate(${x}px, ${y}px)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
     }
 </script>
 

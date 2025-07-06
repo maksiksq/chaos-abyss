@@ -1,4 +1,4 @@
-import {articles} from '../shared.ts';
+import {articles} from '../shared';
 
 export const load = () => {
     return {
