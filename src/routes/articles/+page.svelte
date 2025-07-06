@@ -52,6 +52,11 @@
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon the developer",
                 "slug": "example"
+            }, {
+                "title": "How i found out about the word for Wallpapers in Japanese.",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon the developer",
+                "slug": "example"
             }]
         },
         {
@@ -170,10 +175,10 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-auto-flow: dense;
+                grid-auto-rows: 1fr;
                 gap: 1rem;
 
                 & .card {
-                    height: 100vh;
                     * {
                         max-width: 100%;
                     }
