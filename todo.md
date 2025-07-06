@@ -30,7 +30,9 @@
 - [ ] : maybe autospace in md part of the editor to match article line height better?
 - [ ] : maybe revisit hand slightly
 - [ ] : remake hand anim later
-
+- [ ] : RSS
+- [ ] : add admin mode (edit articles and etc.)
+- [ ] : add article read time (~ very approx and idk humanely)
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
 client| editor preview -> client| render, whatever
