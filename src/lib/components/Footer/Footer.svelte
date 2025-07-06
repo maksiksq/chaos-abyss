@@ -136,16 +136,8 @@
 
         let shiftX = 0;
         let shiftY = 0;
-        if (e.clientX > diaX) {
-            shiftX = e.clientX;
-        } else {
-            shiftX = -e.clientX;
-        }
-        if (e.clientY < diaY) {
-            shiftY = e.clientY;
-        } else {
-            shiftY = -e.clientY;
-        }
+        shiftX = (e.clientX > diaX ? 1 : -1) * e.clientX;
+        shiftY = (e.clientY < diaY ? 1 : -1) * e.clientY;
         const x = 5 + shiftX/100;
         const y = 5 + shiftY/50;
         if (!ticking) {
