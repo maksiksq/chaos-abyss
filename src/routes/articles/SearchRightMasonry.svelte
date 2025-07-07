@@ -23,6 +23,7 @@
     .feat-seg {
         width: 60%;
         display: flex;
+        height: 300vh;
         flex-direction: column;
 
         & h2 {
@@ -30,10 +31,12 @@
         }
 
         & .cards {
+            position: sticky;
+            top: 0;
+
             width: 100%;
             gap: 1rem;
             columns: 2;
-            height: 300vh;
 
             & .card {
                 break-inside: avoid;
@@ -49,15 +52,11 @@
                     border-bottom: 1px solid black;
                 }
 
-                /* -> */
+                & ul {
+                    padding: 1rem 1rem 0.3rem 1rem;
+                    list-style: none;
+                }
             }
-        }
-    }
-
-    .card {
-        ul {
-            padding: 1rem 1rem 0.3rem 1rem;
-            list-style: none;
         }
     }
 </style>
