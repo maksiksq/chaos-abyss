@@ -72,21 +72,65 @@
     }
 </script>
 <section class="search-seg">
-    <h1><span class={!fromSearch ? 'd-none' : ''}>Results for:</span>{query}</h1>
-    <small>try searching something up there, or look at newest articles on the right.</small>
-    <ul class="search-results">
-        <SearchSummaries data={results}/>
-    </ul>
+    <h1><span class={fromSearch ? '' : 'd-none'}>Results for:&nbsp;</span><br><span
+            class={fromSearch ? 'query-smol' : '' }>{query}</span></h1>
+    {#if fromSearch}
+        <ul class="search-results">
+            <SearchSummaries data={results}/>
+        </ul>
+    {:else}
+        <small>Try searching something up there, or look at newest articles on the right.</small>
+    {/if}
+    {#if results}
+        <div class="lamp-wrap">
+            <img class="lamp" src="/img/lamp.svg" alt="a dim lamp (no search results)">
+            {#if fromSearch}
+                <p>The abyss gave no reply.</p>
+            {:else}
+                <p>Nothing in here</p>
+            {/if}
+        </div>
+    {/if}
 </section>
 <style>
+    .query-smol {
+        font-size: 1.2rem;
+    }
+
     .search-seg {
         width: 40%;
+        padding-right: 1rem;
 
-        small {
-            margin-top: 10rem;
+        & h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .search-results {
+        & small {
+            font-size: 0.9rem;
+        }
+
+        & .lamp-wrap {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+
+            & .lamp {
+                width: 8rem;
+                opacity: 0.6;
+            }
+
+            * {
+                padding-right: 2rem;
+                color: #666666;
+            }
+        }
+
+        & .search-results {
             display: flex;
             flex-direction: column;
             list-style: none;
