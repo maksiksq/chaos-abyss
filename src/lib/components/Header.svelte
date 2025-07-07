@@ -18,7 +18,7 @@
                 <line y1="-0.5" x2="57" y2="-0.5" transform="matrix(-0.642788 0.766044 0.766044 0.642788 348.641 38)" stroke="black"/>
             </svg>
         {/if}
-        <a class="about" style="margin-left: {home ? 'unset' : 'auto'}" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <a class="about" style="margin-left: {home ? 'unset' : 'auto'}" href="about">
             About
         </a>
     </nav>
