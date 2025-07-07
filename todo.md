@@ -33,7 +33,7 @@
 - [ ] : RSS
 - [ ] : add admin mode (edit articles and etc.)
 - [ ] : add article read time (~ very approx and idk humanely)
-- [ ] : fix stuck in search page
+- [ ] : fix stuck in search page / probably just making it fixed with a wrapper maybe
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
