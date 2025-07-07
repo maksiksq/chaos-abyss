@@ -169,8 +169,6 @@
         <!--            &lt;!&ndash;{/each}&ndash;&gt;-->
         <!--        </ul>-->
 </main>
-
-<Footer/>
 <style>
     :global {
         body {

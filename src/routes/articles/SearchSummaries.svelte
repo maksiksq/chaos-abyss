@@ -1,6 +1,5 @@
 <script>
     const {data} = $props();
-    $inspect(data)
 </script>
 {#each data.summaries as summary}
     <li>
