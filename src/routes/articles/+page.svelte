@@ -118,6 +118,8 @@
     <section class="feat-seg">
         <h2> Here, pick an article: </h2>
         <div class="cards">
+<!--            why did I name it like that -->
+<!--            it was 1 am but still -->
             {#each feats as feat}
                 <div class="card">
                     <h3>{feat.name}</h3>
@@ -158,11 +160,12 @@
         flex-direction: row;
         justify-content: center;
 
-        max-width: 1200px;
-        width: 100%;
+        width: 100vw;
+        padding-left: clamp(0.1rem, 3vw, 8vw);
+        padding-right: clamp(0.1rem, 2vw, 10vw);
         padding-top: clamp(0.5rem, 1.2vw, 3rem);
         margin: 0 auto;
-        background: yellow;
+        box-sizing: border-box;
 
         min-height: 200vh;
 
@@ -174,6 +177,10 @@
             width: 60%;
             display: flex;
             flex-direction: column;
+
+            & h2 {
+                margin-bottom: 1rem;
+            }
 
             & .cards {
                 width: 100%;
