@@ -212,11 +212,28 @@
             & li {
                 & article {
                     & a {
+                        cursor: pointer;
                         display: grid;
                         grid-template-columns: 40% 1fr;
                         grid-template-rows: 1fr 1fr;
 
                         margin-bottom: 1.4rem;
+                        & h4, p {
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                            overflow-y: hidden;
+                            line-clamp: 2;
+                            line-height: 1.2;
+                            margin-left: 1rem;
+                        }
+
+                        & h4 {
+                            font-family: Comfortaa, sans-serif;
+                            font-weight: bolder;
+                            font-size: 1rem;
+                        }
+
                         & img {
                             border-radius: 4px;
                             grid-row: span 2;
