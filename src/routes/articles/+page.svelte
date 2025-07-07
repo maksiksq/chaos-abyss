@@ -158,7 +158,7 @@
         flex-direction: row;
         justify-content: center;
 
-        max-width: 1000px;
+        max-width: 1200px;
         width: 100%;
         padding-top: clamp(0.5rem, 1.2vw, 3rem);
         margin: 0 auto;
@@ -185,17 +185,43 @@
                     break-inside: avoid;
                     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
                     background-color: white;
-                    border-radius: 16px;
-                    padding-bottom: 2rem;
+                    border-radius: 4px;
+
+                    padding: 1rem 1rem 0.3rem 1rem;
 
                     margin-bottom: 0.6rem;
-                    ul {
-                        list-style: none;
+
+                    & h3 {
+                        margin-bottom: 1rem;
                     }
 
                     * {
                         max-width: 100%;
                         height: auto;
+                    }
+                    /* -> */
+                }
+            }
+        }
+    }
+
+    .card {
+        ul {
+            list-style: none;
+
+            & li {
+                & article {
+                    & a {
+                        display: grid;
+                        grid-template-columns: 40% 1fr;
+                        grid-template-rows: 1fr 1fr;
+
+                        margin-bottom: 1.4rem;
+                        & img {
+                            border-radius: 4px;
+                            grid-row: span 2;
+                            width: 100%;
+                        }
                     }
                 }
             }
