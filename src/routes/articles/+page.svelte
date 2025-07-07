@@ -1,16 +1,21 @@
 <script lang="ts">
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer/Footer.svelte";
+    import SearchRightMasonry from "./SearchRightMasonry.svelte";
+    import SearchLeftSearch from "./SearchLeftSearch.svelte";
 
     let {data} = $props();
-    let fromSearch = $state(false);
-    let query = $state('Welcome to the Abyss');
+    let fromSearch = false;
+    let query = 'Welcome to the Abyss';
 
     type FeatArticle = {
         title: string;
         img: string;
         blurb: string;
         slug: string;
+        date: string;
+        time: string;
+        commentCount: number;
     }
     type Feats = {
         name: string;
@@ -32,64 +37,26 @@
                 "title": "Svelte is cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet theee cat",
-                "slug": "example"
+                "slug": "example",
+                "date": "Jun 20, 2025",
+                "time": "3 mins",
+                "commentCount": 0
             }, {
                 "title": "Svelte is the best thing ever",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "summon thee developer",
-                "slug": "example"
+                "blurb": "summon thee developer tes ttestst tteststestsetestest tesdfffffffffffffffffffffffffffffst",
+                "slug": "example",
+                "date": "Jun 21, 2025",
+                "time": "4 mins",
+                "commentCount": 3
             }, {
                 "title": "Svelte is the best thing ever",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "summon thee developer",
-                "slug": "example"
-            }]
-        },
-        {
-            "name": "Japanese",
-            "summaries": [{
-                "title": "How i found out about the word for Beans in Japanese.",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "yeet the cat",
-                "slug": "example"
-            }, {
-                "title": "How i found out about the word for Wallpapers in Japanese.",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "summon the developer",
-                "slug": "example"
-            }, {
-                "title": "How i found out about the word for Wallpapers in Japanese.",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "summon the developer",
-                "slug": "example"
-            }]
-        },
-        {
-            "name": "Games & Media",
-            "summaries": [{
-                "title": "Hades is poggers",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "yeet theee cat",
-                "slug": "example"
-            }, {
-                "title": "OneShot is also cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "summon theeeeeee developer",
-                "slug": "example"
-            }]
-        },
-        {
-            "name": "Project Stash",
-            "summaries": [{
-                "title": "Lirith is cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "yeet theee cat",
-                "slug": "example"
-            }, {
-                "title": "Lirith is not yet a thing",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "blurb": "summon thee developer",
-                "slug": "example"
+                "blurb": "summon thee develosdfffffffffffffffffffff fffffffff fffffffffff ffffffffffffffffffffffffper",
+                "slug": "example",
+                "date": "Jun 22, 2025",
+                "time": "2 mins",
+                "commentCount": 5
             }]
         },
         {
@@ -98,53 +65,109 @@
                 "title": "Hades is poggers",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "yeet theee cat",
-                "slug": "example"
+                "slug": "example",
+                "date": "Mar 15, 2025",
+                "time": "2 mins",
+                "commentCount": 0
             }, {
                 "title": "OneShot is also cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon theeeeeee developer",
-                "slug": "example"
+                "slug": "example",
+                "date": "Mar 16, 2025",
+                "time": "3 mins",
+                "commentCount": 3
+            },{
+                "title": "OneShot is also cool",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon theeeeeee developer",
+                "slug": "example",
+                "date": "Mar 16, 2025",
+                "time": "3 mins",
+                "commentCount": 3
+            },{
+                "title": "OneShot is also cool",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon theeeeeee developer",
+                "slug": "example",
+                "date": "Mar 16, 2025",
+                "time": "3 mins",
+                "commentCount": 3
+            }]
+        },
+        {
+            "name": "Japanese",
+            "summaries": [{
+                "title": "How i found out about the word for Beans in Japanese.",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "yeet the cat",
+                "slug": "example",
+                "date": "Jul 1, 2025",
+                "time": "5 mins",
+                "commentCount": 1
+            }, {
+                "title": "How i found out about the word for Wallpapers in Japanese.",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon the developer",
+                "slug": "example",
+                "date": "Jul 2, 2025",
+                "time": "4 mins",
+                "commentCount": 2
+            }]
+        },
+        {
+            "name": "Games & Media",
+            "summaries": [{
+                "title": "Hades is poggers",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "yeet theee cat",
+                "slug": "example",
+                "date": "May 30, 2025",
+                "time": "6 mins",
+                "commentCount": 0
+            }, {
+                "title": "OneShot is also cool",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon theeeeeee developer",
+                "slug": "example",
+                "date": "May 31, 2025",
+                "time": "5 mins",
+                "commentCount": 4
+            }]
+        },
+        {
+            "name": "Project Stash",
+            "summaries": [{
+                "title": "Lirith is cool",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "yeet theee cat",
+                "slug": "example",
+                "date": "Apr 18, 2025",
+                "time": "3 mins",
+                "commentCount": 1
+            }, {
+                "title": "Lirith is not yet a thing",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon thee developer",
+                "slug": "example",
+                "date": "Apr 19, 2025",
+                "time": "4 mins",
+                "commentCount": 2
             }]
         }
-    ]
+    ];
+
 </script>
 
 <Header/>
 <main>
-    <section class="search-seg">
-        <h1><span class={!fromSearch ? 'd-none' : ''}>Results for:</span>{query}</h1>
-        <small>try searching something up or look at newest articles on the right.</small>
-    </section>
-    <section class="feat-seg">
-        <h2> Here, pick an article: </h2>
-        <div class="cards">
-<!--            why did I name it like that -->
-<!--            it was 1 am but still -->
-            {#each feats as feat}
-                <div class="card">
-                    <h3>{feat.name}</h3>
-                    <ul>
-                        {#each feat.summaries as summary}
-                            <li>
-                                <article>
-                                    <a href={`articles/${summary.slug}`}>
-                                        <img src={summary.img} alt="article summary pic" role="presentation"/>
-                                        <h4>{summary.title}</h4>
-                                        <p>{summary.blurb}</p>
-                                    </a>
-                                </article>
-                            </li>
-                        {/each}
-                    </ul>
-                </div>
-            {/each}
-        </div>
+    <SearchLeftSearch {fromSearch} {query} />
+    <SearchRightMasonry {feats}/>
         <!--        <ul>-->
         <!--            &lt;!&ndash;{#each data.summaries as {slug, title}}&ndash;&gt;-->
         <!--            &lt;!&ndash;    <li><a href="/articles/{slug}">{title}</a></li>&ndash;&gt;-->
         <!--            &lt;!&ndash;{/each}&ndash;&gt;-->
         <!--        </ul>-->
-    </section>
 </main>
 
 <Footer/>
@@ -168,87 +191,5 @@
         box-sizing: border-box;
 
         min-height: 200vh;
-
-        & .search-seg {
-            width: 40%;
-        }
-
-        & .feat-seg {
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-
-            & h2 {
-                margin-bottom: 1rem;
-            }
-
-            & .cards {
-                width: 100%;
-                gap: 1rem;
-                columns: 2;
-                height: 300vh;
-
-                & .card {
-                    break-inside: avoid;
-                    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
-                    background-color: white;
-                    border-radius: 4px;
-
-                    padding: 1rem 1rem 0.3rem 1rem;
-
-                    margin-bottom: 0.6rem;
-
-                    & h3 {
-                        margin-bottom: 1rem;
-                    }
-
-                    * {
-                        max-width: 100%;
-                        height: auto;
-                    }
-                    /* -> */
-                }
-            }
-        }
-    }
-
-    .card {
-        ul {
-            list-style: none;
-
-            & li {
-                & article {
-                    & a {
-                        cursor: pointer;
-                        display: grid;
-                        grid-template-columns: 40% 1fr;
-                        grid-template-rows: 1fr 1fr;
-
-                        margin-bottom: 1.4rem;
-                        & h4, p {
-                            display: -webkit-box;
-                            -webkit-box-orient: vertical;
-                            -webkit-line-clamp: 2;
-                            overflow-y: hidden;
-                            line-clamp: 2;
-                            line-height: 1.2;
-                            margin-left: 1rem;
-                        }
-
-                        & h4 {
-                            font-family: Comfortaa, sans-serif;
-                            font-weight: bolder;
-                            font-size: 1rem;
-                        }
-
-                        & img {
-                            border-radius: 4px;
-                            grid-row: span 2;
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-        }
     }
 </style>
