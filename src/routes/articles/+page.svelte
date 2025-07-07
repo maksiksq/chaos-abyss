@@ -111,18 +111,18 @@
         <small>try searching something up or look at newest articles on the right.</small>
     </section>
     <section class="feat-seg">
-        <p> here, pick a slug: </p>
+        <h2> here, pick a slug: </h2>
         <div class="cards">
             {#each feats as feat}
                 <div class="card">
-                    <h2>{feat.name}</h2>
+                    <h3>{feat.name}</h3>
                     <ul>
                         {#each feat.summaries as summary}
                             <li>
                                 <article>
                                     <a href={`articles/${summary.slug}`}>
                                         <img src={summary.img} alt="article summary pic" role="presentation"/>
-                                        <h3>{summary.title}</h3>
+                                        <h4>{summary.title}</h4>
                                         <p>{summary.blurb}</p>
                                     </a>
                                 </article>
@@ -172,15 +172,13 @@
 
             & .cards {
                 width: 100%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-auto-flow: dense;
-                grid-auto-rows: 1fr;
                 gap: 1rem;
+                columns: 2;
 
                 & .card {
                     * {
                         max-width: 100%;
+                        height: auto;
                     }
                 }
             }
