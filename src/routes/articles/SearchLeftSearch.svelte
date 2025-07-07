@@ -74,17 +74,24 @@
 <section class="search-seg">
     <h1><span class={!fromSearch ? 'd-none' : ''}>Results for:</span>{query}</h1>
     <small>try searching something up there, or look at newest articles on the right.</small>
-    <div class="search-results">
+    <ul class="search-results">
         <SearchSummaries data={results}/>
-    </div>
+    </ul>
 </section>
 <style>
     .search-seg {
         width: 40%;
 
+        small {
+            margin-top: 10rem;
+        }
+
         .search-results {
             display: flex;
             flex-direction: column;
+            list-style: none;
+
+            padding-top: 1rem;
         }
     }
 </style>

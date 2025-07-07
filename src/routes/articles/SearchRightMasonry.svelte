@@ -4,18 +4,16 @@
     let {feats} = $props();
 
     let cont: HTMLElement | undefined = $state();
-    const handleScroll = (e: Event) => {
+    const handleScroll = () => {
         if (!cont) return;
 
         const contBottom = cont.offsetTop + cont.offsetHeight;
         const scrollPos = window.scrollY + window.innerHeight;
 
-        if (scrollPos >= contBottom) {
-            window.requestAnimationFrame(() => {
-                if (!cont) return;
-                cont.style.transform = `translateY(${Math.max(0, scrollPos - contBottom)}px)`;
-            })
-        }
+        window.requestAnimationFrame(() => {
+            if (!cont) return;
+            cont.style.transform = `translateY(${Math.max(0, scrollPos - contBottom)}px)`;
+        })
     }
 </script>
 
@@ -51,7 +49,7 @@
             width: 100%;
             gap: 1rem;
             columns: 2;
-            padding-bottom: 0.6rem;
+            padding-bottom: 10px;
             transition: all 0.5s ease;
 
             & .card {

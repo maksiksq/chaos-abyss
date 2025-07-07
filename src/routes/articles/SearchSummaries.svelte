@@ -1,5 +1,5 @@
 <script>
-    const {data} = $props();
+    const {data, search = false} = $props();
 </script>
 {#each data.summaries as summary}
     <li>
