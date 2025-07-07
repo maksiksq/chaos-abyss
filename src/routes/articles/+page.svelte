@@ -38,6 +38,11 @@
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
                 "blurb": "summon thee developer",
                 "slug": "example"
+            }, {
+                "title": "Svelte is the best thing ever",
+                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "blurb": "summon thee developer",
+                "slug": "example"
             }]
         },
         {
@@ -111,7 +116,7 @@
         <small>try searching something up or look at newest articles on the right.</small>
     </section>
     <section class="feat-seg">
-        <h2> here, pick a slug: </h2>
+        <h2> Here, pick an article: </h2>
         <div class="cards">
             {#each feats as feat}
                 <div class="card">
@@ -174,8 +179,20 @@
                 width: 100%;
                 gap: 1rem;
                 columns: 2;
+                height: 300vh;
 
                 & .card {
+                    break-inside: avoid;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+                    background-color: white;
+                    border-radius: 16px;
+                    padding-bottom: 2rem;
+
+                    margin-bottom: 0.6rem;
+                    ul {
+                        list-style: none;
+                    }
+
                     * {
                         max-width: 100%;
                         height: auto;
