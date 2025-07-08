@@ -5,10 +5,10 @@
     <li>
         <article>
             <a href={`articles/${summary.slug}`}>
-                <img src={summary.img} alt="article summary pic" role="presentation"/>
+                <img src={summary.img} alt={summary.imgalt}/>
                 <h4>{summary.title}</h4>
                 <p class="blurb">{summary.blurb}</p>
-                <p class="info"><span>{summary.date}</span> <span>✦ {summary.time}</span>
+                <p class="info"><span>{summary.date}</span> <span>✦ {summary.time} mins</span>
                     {#if summary.commentCount}
                                             <span>
                                                 &nbsp;✦

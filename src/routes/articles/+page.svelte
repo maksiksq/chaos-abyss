@@ -10,10 +10,11 @@
     type FeatArticle = {
         title: string;
         img: string;
+        imgalt: string;
         blurb: string;
         slug: string;
         date: string;
-        time: string;
+        time: number;
         commentCount: number;
     }
     type Feats = {
@@ -35,26 +36,29 @@
             "summaries": [{
                 "title": "Svelte is cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "yeet theee cat",
                 "slug": "example",
                 "date": "Jun 20, 2025",
-                "time": "3 mins",
+                "time": 3,
                 "commentCount": 0
             }, {
                 "title": "Svelte is the best thing ever",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon thee developer tes ttestst tteststestsetestest tesdfffffffffffffffffffffffffffffst",
                 "slug": "example",
                 "date": "Jun 21, 2025",
-                "time": "4 mins",
+                "time": 4,
                 "commentCount": 3
             }, {
                 "title": "Svelte is the best thing ever",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon thee develosdfffffffffffffffffffff fffffffff fffffffffff ffffffffffffffffffffffffper",
                 "slug": "example",
                 "date": "Jun 22, 2025",
-                "time": "2 mins",
+                "time": 2,
                 "commentCount": 5
             }]
         },
@@ -63,34 +67,38 @@
             "summaries": [{
                 "title": "Hades is poggers",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "yeet theee cat",
                 "slug": "example",
                 "date": "Mar 15, 2025",
-                "time": "2 mins",
+                "time": 2,
                 "commentCount": 0
             }, {
                 "title": "OneShot is also cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon theeeeeee developer",
                 "slug": "example",
                 "date": "Mar 16, 2025",
-                "time": "3 mins",
+                "time": 3,
                 "commentCount": 3
-            },{
+            }, {
                 "title": "OneShot is also cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon theeeeeee developer",
                 "slug": "example",
                 "date": "Mar 16, 2025",
-                "time": "3 mins",
+                "time": 3,
                 "commentCount": 3
-            },{
+            }, {
                 "title": "OneShot is also cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon theeeeeee developer",
                 "slug": "example",
                 "date": "Mar 16, 2025",
-                "time": "3 mins",
+                "time": 3,
                 "commentCount": 3
             }]
         },
@@ -99,18 +107,20 @@
             "summaries": [{
                 "title": "How i found out about the word for Beans in Japanese.",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "yeet the cat",
                 "slug": "example",
                 "date": "Jul 1, 2025",
-                "time": "5 mins",
+                "time": 5,
                 "commentCount": 1
             }, {
                 "title": "How i found out about the word for Wallpapers in Japanese.",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon the developer",
                 "slug": "example",
                 "date": "Jul 2, 2025",
-                "time": "4 mins",
+                "time": 4,
                 "commentCount": 2
             }]
         },
@@ -119,18 +129,20 @@
             "summaries": [{
                 "title": "Hades is poggers",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "yeet theee cat",
                 "slug": "example",
                 "date": "May 30, 2025",
-                "time": "6 mins",
+                "time": 6,
                 "commentCount": 0
             }, {
                 "title": "OneShot is also cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon theeeeeee developer",
                 "slug": "example",
                 "date": "May 31, 2025",
-                "time": "5 mins",
+                "time": 5,
                 "commentCount": 4
             }]
         },
@@ -139,18 +151,20 @@
             "summaries": [{
                 "title": "Lirith is cool",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "yeet theee cat",
                 "slug": "example",
                 "date": "Apr 18, 2025",
-                "time": "3 mins",
+                "time": 3,
                 "commentCount": 1
             }, {
                 "title": "Lirith is not yet a thing",
                 "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
+                "imgalt": "a cat",
                 "blurb": "summon thee developer",
                 "slug": "example",
                 "date": "Apr 19, 2025",
-                "time": "4 mins",
+                "time": 4,
                 "commentCount": 2
             }]
         }

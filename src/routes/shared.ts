@@ -10,6 +10,8 @@ type Article = {
     authorLink: string;
     accent: string;
     content: string;
+    time: number;
+    commentCount: number;
 };
 
 import data from './data.json';
