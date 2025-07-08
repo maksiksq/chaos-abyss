@@ -3,6 +3,10 @@
 
     const { home = false, contact = false, about = false } = $props();
 
+    $inspect("footer", home);
+    $inspect(contact);
+    $inspect(about);
+
     let links = $state([
         {
             text: 'Home',
@@ -18,15 +22,20 @@
         }
     ]);
 
+    let linksCurrent: { text: string; link: string; }[] = $state(links);
+
+    $inspect("footlinks", home);
+    $inspect(contact);
+    $inspect(about);
     onMount(() => {
         if (home) {
-            links = links.filter(e => e.text !== 'Home');
+            linksCurrent = links.filter(e => e.text !== 'Home');
         }
         if (contact) {
-            links = links.filter(e => e.text !== 'Contact');
+            linksCurrent = links.filter(e => e.text !== 'Contact');
         }
         if (about) {
-            links = links.filter(e => e.text !== 'About');
+            linksCurrent = links.filter(e => e.text !== 'About');
         }
     })
 
@@ -36,7 +45,7 @@
 <li class="heading">
     Links
 </li>
-{#each links as link}
+{#each linksCurrent as link}
     <li class={`link li-${link}`}>
         <a href={link.link}>
             {link.text}

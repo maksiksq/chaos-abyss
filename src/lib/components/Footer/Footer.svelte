@@ -1,5 +1,5 @@
 <script lang="ts">
-    const {home = false, about = true, contact = false} = $props();
+    const {home = false, about = false, contact = false} = $props();
 
     // whatever legal meaning these even have this is All rights reserved just read the license lol
     import {onMount} from "svelte";

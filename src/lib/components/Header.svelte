@@ -75,6 +75,8 @@
                 padding-left: 1.3rem;
                 padding-right: 3vw;
                 margin-left: auto;
+                position: relative;
+                z-index: 99999;
             }
         }
     }
