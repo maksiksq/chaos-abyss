@@ -1,28 +1,15 @@
 <script lang="ts">
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import ArticleEndblock from "./ArticleEndblock.svelte";
-    import {onMount, tick} from "svelte";
+    import {tick} from "svelte";
 
     const { data } = $props();
-
-    const dateObj = new Date(data.article.date);
-    const humanDate = dateObj.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: '2-digit'
-    });
-
-    // TODO: word count
-    const wordCount = 4500;
-
-    //
 
     let body: HTMLBodyElement | undefined = $state();
     const accent = $state(data.article.accent);
 
     $effect(() => {
         tick().then(() => {
-            console.log(accent);
             const match = accent.match(/^oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)$/);
             if (!match) {
                 console.warn('Maksiks: Invalid accent, default will be used instead.')
@@ -66,12 +53,12 @@
                     <small class="blurb"><span>{data.article.blurb}</span></small>
                     <footer>
                         <p>
-                            <time datetime={data.article.date}>{humanDate} ✦&nbsp;</time>
+                            <time datetime={data.article.date}>{data.article.date} ✦&nbsp;</time>
                         </p>
                         <address>
-                            {wordCount}
+                            {data.wordcount}
                             words written by&nbsp;
-                            <a rel="author" href={data.article.authorLink}>
+                            <a rel="author" href={data.authorlink}>
                                 {data.article.author}
                             </a>
                         </address>
