@@ -1,5 +1,5 @@
 <script lang="ts">
-    const {home = false, contact = false} = $props();
+    const {home = false, about = true, contact = false} = $props();
 
     // whatever legal meaning these even have this is All rights reserved just read the license lol
     import {onMount} from "svelte";
@@ -169,7 +169,7 @@
     <div class="footer-right">
         <div class="link-bloc">
             <ul class="links">
-                <FooterLinks {home} {contact}/>
+                <FooterLinks {home} {contact} {about}/>
             </ul>
             <ul class="socials">
                 <FooterSocials/>

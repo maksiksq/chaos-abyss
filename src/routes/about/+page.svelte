@@ -14,7 +14,7 @@
         </div>
     </div>
 </main>
-<Footer />
+<Footer about={true}/>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
