@@ -1,27 +1,24 @@
 <script>
     const {adjacent} = $props();
-
-    const previous = adjacent.previous;
-    const next = adjacent.next;
 </script>
 
 <footer class="endblock">
     <div class="previous-article">
-        {#if previous.slug}
-            <a href="/articles/{previous.slug}">&lt; Previous article <br>
-                <span>{previous.title}</span>
+        {#if adjacent.previous.slug}
+            <a href="/articles/{adjacent.previous.slug}">&lt; Previous article <br>
+                <span>{adjacent.previous.title}</span>
             </a>
         {:else}
-            <p>{previous.title}</p>
+            <p>{adjacent.previous.title}</p>
         {/if}
     </div>
     <div class="next-article">
-        {#if next.slug}
-            <a href="/articles/{next.slug}">Next article &gt;<br>
-                <span>{next.title}</span>
+        {#if adjacent.next.slug}
+            <a href="/articles/{adjacent.next.slug}">Next article &gt;<br>
+                <span>{adjacent.next.title}</span>
             </a>
         {:else}
-            <p>{next.title}</p>
+            <p>{adjacent.next.title}</p>
         {/if}
     </div>
 </footer>

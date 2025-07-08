@@ -40,6 +40,8 @@
 - [ ] : use dates, not strings
 - [ ] : setup drafts in the db
 - [ ] : responsive the hell of it
+- [ ] : dark mode (proper color matched gonna be hard)
+- [ ] : cdn
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

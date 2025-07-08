@@ -75,8 +75,11 @@
 
 <style>
     :global {
-        html, body {
+        html {
             overflow-y: visible;
+        }
+        body {
+            overflow-y: hidden;
         }
     }
 

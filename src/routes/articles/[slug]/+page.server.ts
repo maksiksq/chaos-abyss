@@ -21,35 +21,52 @@ type Article = {
     accent: string;
     content: string;
     commentCount: number;
+    id: number;
 };
 
 
 export const prerender = 'auto';
 
 export const load = async ({params}) => {
-    const { data, error } = await supabase
+    // article per slug
+    const { data: artData, error: artErr } = await supabase
         .from('articles')
-        .select('*');
-    const articles: Article[] | null = data;
-    if (error || !articles) {
+        .select('*')
+        .eq('slug', params.slug);
+    if (artErr || !artData) {
         throw sverror(404, 'Oh no, article not found.');
     }
 
-    const i = articles.findIndex((article) => article.slug === params.slug);
+    const article: Article = artData[0];
 
-    const article = articles[i];
 
+    // adjacent articles
+    const { data: adjData, error: adjErr } = await supabase
+        .from('articles')
+        .select('title, slug, id')
+        .in('id', [article.id - 1, article.id + 1]);
+
+    console.log(adjData);
+
+    if (adjErr || !adjData) {
+        throw sverror(500, 'You broke the space time-continuum. Previous and next articles don\'t exist.');
+    }
+    const previousArt = adjData.find(a => a.id === article.id - 1) ?? null;
+    const nextArt = adjData.find(a => a.id === article.id + 1) ?? null;
 
     const previous = {
-        title: articles[i-1]?.title ?? 'You\'ve reached the bottom of the abyss.',
-        slug: articles[i-1]?.slug ?? undefined,
+        title: previousArt?.title ?? 'You’ve reached the bottom of the abyss.',
+        slug: previousArt?.slug ?? undefined,
     };
+
     const next = {
-        title: articles[i+1]?.title ?? 'This is the freshest baked article on the site. Can\'t go beyond that.',
-        slug: articles[i+1]?.slug ?? undefined,
+        title: nextArt?.title ?? 'There is nothing but stars above.',
+        slug: nextArt?.slug ?? undefined,
     };
 
     const adjacent = { previous, next };
+
+    // misc
 
     const wordcount = article.content.trim().split(/\s+/).length;
     const authorlink = authors.find(author => author.name === article.author)?.link;
@@ -60,6 +77,7 @@ export const load = async ({params}) => {
         authorlink,
         adjacent
     };
+
 }
 
 
