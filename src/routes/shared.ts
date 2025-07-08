@@ -7,9 +7,11 @@ type Article = {
     blurb: string;
     date: string;
     author: string;
+    // author link resolved by name
     authorLink: string;
     accent: string;
     content: string;
+    // time calculated from word count on client
     time: number;
     commentCount: number;
 };

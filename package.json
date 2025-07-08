@@ -42,6 +42,7 @@
 	"packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
 	"dependencies": {
 		"@maksiks/markdown-it-image-caption": "^1.1.2",
+		"@supabase/supabase-js": "^2.50.3",
 		"highlight.js": "^11.11.1",
 		"markdown-it": "^14.1.0",
 		"markdown-it-anchor": "^9.2.0",

@@ -36,6 +36,9 @@
 - [ ] : fix stuck in search page / probably just making it fixed with a wrapper maybe
 - [ ] : make search cards different
 - [ ] : image based accent
+- [ ] : db
+- [ ] : use dates, not strings
+- [ ] : setup drafts in the db
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
