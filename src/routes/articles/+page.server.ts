@@ -14,15 +14,14 @@ const getClient = () => {
 
 export const load = async () => {
     const supabase = getClient();
-    console.log(supabase);
     const { data: articles, error: artErr } = await supabase
         .from('articles')
-        .select('slug, title, fig, figalt, blurb, date, comment_count')
+        .select('category, slug, title, fig, figalt, blurb, date, comment_count')
     if (artErr || !articles) {
-        console.log(artErr);
         throw error(500, 'Failed to load articles');
     }
 
+    console.log('Articles loaded', articles);
     return {
         summaries: articles
     }

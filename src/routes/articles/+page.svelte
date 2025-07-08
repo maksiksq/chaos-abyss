@@ -3,24 +3,34 @@
     import SearchRightMasonry from "./SearchRightMasonry.svelte";
     import SearchLeftSearch from "./SearchLeftSearch.svelte";
 
-    let {data} = $props();
-    let fromSearch = false;
-    let query = 'Welcome to the Abyss';
-
-    type FeatArticle = {
-        title: string;
-        img: string;
-        imgalt: string;
-        blurb: string;
+    type Summary = {
+        category: string;
         slug: string;
+        title: string;
+        fig: string;
+        figalt: string;
+        blurb: string;
         date: string;
-        time: number;
         commentCount: number;
     }
-    type Feats = {
-        name: string;
-        summaries: FeatArticle[]
-    }[];
+
+    let { data } = $props();
+    const grouped = data.summaries.reduce((acc: any, summary: Summary) => {
+        if (!acc[summary.category]) {
+            acc[summary.category] = [];
+        }
+        acc[summary.category].push(summary);
+        return acc;
+    }, {})
+
+    const categories = Object.entries(grouped).map(([name, summaries]) => ({
+        name,
+        summaries
+    }));
+    $inspect(categories);
+
+    let fromSearch = false;
+    let query = 'Welcome to the Abyss';
 
     // Dev Stuff
     // Japanese
@@ -29,153 +39,12 @@
     // Miscellaneous
     // Later ? Design
     // Later ? Electronics
-
-    const feats: Feats = [
-        {
-            "name": "Dev Stuff",
-            "summaries": [{
-                "title": "Svelte is cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "yeet theee cat",
-                "slug": "example",
-                "date": "Jun 20, 2025",
-                "time": 3,
-                "commentCount": 0
-            }, {
-                "title": "Svelte is the best thing ever",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon thee developer tes ttestst tteststestsetestest tesdfffffffffffffffffffffffffffffst",
-                "slug": "example",
-                "date": "Jun 21, 2025",
-                "time": 4,
-                "commentCount": 3
-            }, {
-                "title": "Svelte is the best thing ever",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon thee develosdfffffffffffffffffffff fffffffff fffffffffff ffffffffffffffffffffffffper",
-                "slug": "example",
-                "date": "Jun 22, 2025",
-                "time": 2,
-                "commentCount": 5
-            }]
-        },
-        {
-            "name": "Miscellaneous",
-            "summaries": [{
-                "title": "Hades is poggers",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "yeet theee cat",
-                "slug": "example",
-                "date": "Mar 15, 2025",
-                "time": 2,
-                "commentCount": 0
-            }, {
-                "title": "OneShot is also cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon theeeeeee developer",
-                "slug": "example",
-                "date": "Mar 16, 2025",
-                "time": 3,
-                "commentCount": 3
-            }, {
-                "title": "OneShot is also cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon theeeeeee developer",
-                "slug": "example",
-                "date": "Mar 16, 2025",
-                "time": 3,
-                "commentCount": 3
-            }, {
-                "title": "OneShot is also cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon theeeeeee developer",
-                "slug": "example",
-                "date": "Mar 16, 2025",
-                "time": 3,
-                "commentCount": 3
-            }]
-        },
-        {
-            "name": "Japanese",
-            "summaries": [{
-                "title": "How i found out about the word for Beans in Japanese.",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "yeet the cat",
-                "slug": "example",
-                "date": "Jul 1, 2025",
-                "time": 5,
-                "commentCount": 1
-            }, {
-                "title": "How i found out about the word for Wallpapers in Japanese.",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon the developer",
-                "slug": "example",
-                "date": "Jul 2, 2025",
-                "time": 4,
-                "commentCount": 2
-            }]
-        },
-        {
-            "name": "Games & Media",
-            "summaries": [{
-                "title": "Hades is poggers",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "yeet theee cat",
-                "slug": "example",
-                "date": "May 30, 2025",
-                "time": 6,
-                "commentCount": 0
-            }, {
-                "title": "OneShot is also cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon theeeeeee developer",
-                "slug": "example",
-                "date": "May 31, 2025",
-                "time": 5,
-                "commentCount": 4
-            }]
-        },
-        {
-            "name": "Project Stash",
-            "summaries": [{
-                "title": "Lirith is cool",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "yeet theee cat",
-                "slug": "example",
-                "date": "Apr 18, 2025",
-                "time": 3,
-                "commentCount": 1
-            }, {
-                "title": "Lirith is not yet a thing",
-                "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-                "imgalt": "a cat",
-                "blurb": "summon thee developer",
-                "slug": "example",
-                "date": "Apr 19, 2025",
-                "time": 4,
-                "commentCount": 2
-            }]
-        }
-    ];
-
 </script>
 
 <Header/>
 <main>
     <SearchLeftSearch {fromSearch} {query} />
-    <SearchRightMasonry {feats}/>
+    <SearchRightMasonry {categories}/>
         <!--        <ul>-->
         <!--            &lt;!&ndash;{#each data.summaries as {slug, title}}&ndash;&gt;-->
         <!--            &lt;!&ndash;    <li><a href="/articles/{slug}">{title}</a></li>&ndash;&gt;-->
