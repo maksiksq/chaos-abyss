@@ -3,10 +3,6 @@
 
     const { home = false, contact = false, about = false } = $props();
 
-    $inspect("footer", home);
-    $inspect(contact);
-    $inspect(about);
-
     let links = $state([
         {
             text: 'Home',
@@ -24,9 +20,6 @@
 
     let linksCurrent: { text: string; link: string; }[] = $state(links);
 
-    $inspect("footlinks", home);
-    $inspect(contact);
-    $inspect(about);
     onMount(() => {
         if (home) {
             linksCurrent = links.filter(e => e.text !== 'Home');
