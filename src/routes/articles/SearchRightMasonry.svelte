@@ -1,7 +1,7 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
 
-    let {feats} = $props();
+    let {categories} = $props();
 
     let cont: HTMLElement | undefined = $state();
     const handleScroll = () => {
@@ -22,13 +22,11 @@
 <section class="feat-seg">
     <h2> Here, pick an article: </h2>
     <div class="cards" bind:this={cont}>
-        <!-- why did I name it like that -->
-        <!-- it was 1 am but still -->
-        {#each feats as feat}
+        {#each categories as category}
             <div class="card">
-                <h3>{feat.name}</h3>
+                <h3>{category.name}</h3>
                 <ul>
-                    <SearchSummaries data={feat}/>
+                    <SearchSummaries data={category}/>
                 </ul>
             </div>
         {/each}
