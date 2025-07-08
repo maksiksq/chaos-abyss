@@ -3,13 +3,21 @@ import {createClient} from '@supabase/supabase-js';
 
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 
-const supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+const getClient = () => {
+    if (!supabase) {
+        supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+    }
+    return supabase;
+}
+
+let supabase: any | null = null;
 const authors = [{
     name: 'Maksiks',
     link: '/about',
 }]
 
 type Article = {
+    category: string;
     slug: string;
     title: string;
     fig: string;
@@ -28,6 +36,7 @@ type Article = {
 export const prerender = 'auto';
 
 export const load = async ({params}) => {
+    const supabase = getClient();
     // article per slug
     const { data: artData, error: artErr } = await supabase
         .from('articles')
@@ -51,8 +60,8 @@ export const load = async ({params}) => {
     if (adjErr || !adjData) {
         throw sverror(500, 'You broke the space time-continuum. Previous and next articles don\'t exist.');
     }
-    const previousArt = adjData.find(a => a.id === article.id - 1) ?? null;
-    const nextArt = adjData.find(a => a.id === article.id + 1) ?? null;
+    const previousArt = adjData.find((a: {title: string, slug: string, id: number}) => a.id === article.id - 1) ?? null;
+    const nextArt = adjData.find((a: {title: string, slug: string, id: number}) => a.id === article.id + 1) ?? null;
 
     const previous = {
         title: previousArt?.title ?? 'You’ve reached the bottom of the abyss.',
