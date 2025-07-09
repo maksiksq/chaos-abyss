@@ -162,7 +162,7 @@
 
                     padding: 2rem;
                     border: #737373 1px solid;
-                    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                    box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
                 }
             }
 

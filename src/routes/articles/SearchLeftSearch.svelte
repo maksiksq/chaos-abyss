@@ -4,8 +4,6 @@
 
     let {searchData, fromSearch = false, query = 'Welcome to the Abyss', categoryNames} = $props();
 
-    $inspect('cat', categoryNames)
-
     if (!searchData && fromSearch) {
         console.warn("Maksiks: No articles loaded into search, you good?");
     }
@@ -26,7 +24,7 @@
         refIndex: number
     }]
 
-    let cat = $state();
+    let cat = $state('Any');
     let fuse: any;
     if (fromSearch) {
         fuse = new Fuse(searchData, {
@@ -50,19 +48,30 @@
             refIndex
         }))
     });
+
+    let greg = $state(false);
 </script>
+
+
 <section class="search-seg">
-    <h1>
-        <span class={fromSearch ? '' : 'd-none'}>Results for:&nbsp;</span>
-        <span><select>
-            <option value="any" selected>Any</option>
-            {#each categoryNames as gregory}
-                <option value={cat}>{gregory}</option>
-            {/each}
-        </select></span>
-        <br>
-        <span class={fromSearch ? 'query-smol' : '' }>{query}</span>
-    </h1>
+    <div class="head-cont">
+        <div class="head-cont-up">
+            <h1 class="head-item {fromSearch ? '' : 'd-none'}">Results for:&nbsp;</h1>
+            <div class="head-item cat-dropdown-cont">
+                <button onclick={() => {greg = true;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
+                    Category: <br><span class="cat">{cat}</span>
+                </button>
+                {#if greg}
+                    <div class="cat-dropdown-menu">
+                        {#each categoryNames as gregory}
+                            <button onclick={() => {cat = gregory}}>{gregory}</button>
+                        {/each}
+                    </div>
+                {/if}
+            </div>
+        </div>
+        <div class="head-item {fromSearch ? 'query-smol' : '' }">{query}</div>
+    </div>
     {#if fromSearch}
         <ul class="search-results">
             <SearchSummaries data={sumResults} {fromSearch} {query}/>
@@ -82,17 +91,74 @@
     {/if}
 </section>
 <style>
-    .query-smol {
-        font-size: 1.2rem;
-    }
-
     .search-seg {
         width: 40%;
         padding-right: 1rem;
 
-        & h1 {
+        & .head-cont {
+            display: flex;
+            flex-direction: column;
+
             font-size: 2rem;
             margin-bottom: 0.5rem;
+
+            & .head-cont-up {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                & h1 {
+                    font-size: 2rem;
+                    width: 70%;
+                }
+
+                & .cat-dropdown-cont {
+                    width: 30%;
+                    font-size: 0.8rem;
+
+                    position: relative;
+
+                    & .cat-dropdown-toggle {
+                        all: unset;
+                        font-size: 0.8rem;
+                        cursor: pointer;
+                        padding: 0.2rem 0.5rem;
+                        margin-bottom: 0.6rem;
+                        border-left: 1px solid black;
+
+                        & .cat {
+                            color: #666666;
+                        }
+                    }
+
+                    & .cat-dropdown-menu {
+                        position: absolute;
+                        display: flex;
+                        flex-direction: column;
+                        top: 100%;
+                        left: 0;
+                        background: rgba(255, 255, 255, 0.9);
+                        z-index: 9999;
+                        /* if there are more filters: */
+                        /*box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;*/
+
+                        button {
+                            all: unset;
+                            font-size: 0.8rem;
+                            cursor: pointer;
+                            border-left: 1px solid black;
+                            padding: 0.4rem 0.5rem;
+                        }
+                    }
+                }
+            }
+
+            & .query-smol {
+                border-left: 5px solid #cdcdcd;
+                padding-left: 5px;
+                grid-column: span 2;
+                font-size: 1.2rem;
+            }
         }
 
         & small {
