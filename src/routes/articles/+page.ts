@@ -4,8 +4,13 @@ import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public"
 import {createClient} from "@supabase/supabase-js";
 import Fuse from "fuse.js";
 
-const getClient = () =>
-    createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+let supabase: any | null = null;
+const getClient = () => {
+    if (!supabase) {
+        supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+    }
+    return supabase;
+}
 
 export const load = async ({url}) => {
     const supabase = getClient();
@@ -36,8 +41,10 @@ export const load = async ({url}) => {
     if (!query) {
         return {
             summaries: summaries,
-            results: [],
-            fromSearch: !!query
+            results: null,
+            fromSearch: !!query,
+            query: query,
+            cat: cat
         }
     }
 
@@ -55,13 +62,23 @@ export const load = async ({url}) => {
 
     let results = fuse.search(query);
 
+    if (!results.length) {
+        return {
+            summaries: summaries,
+            results: null,
+            fromSearch: !!query,
+            query: query,
+            cat: cat
+        }
+    }
+
     let catResults = cat !== 'Any'
-        ? results?.filter(result => result.item.category === cat)
+        ? results?.filter((result: any) => result.item.category === cat)
         : results;
 
     let sumResults = {
         summaries:
-            catResults?.map(({item, refIndex}) => ({
+            catResults?.map(({item, refIndex}: any) => ({
                 ...item,
                 refIndex
             }))

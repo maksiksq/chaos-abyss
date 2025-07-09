@@ -1,6 +1,5 @@
 <script>
     let {home = false} = $props();
-    import { enhance } from '$app/forms';
 </script>
 
 <header>
@@ -8,9 +7,9 @@
         <a href="/" class="logo-link" aria-label="Home">
             <img src="/img/logo.png" alt="logo">
         </a>
-        <form method="GET" action="/search" autocomplete="off">
+        <form method="GET" action="/articles" autocomplete="off">
             <input name="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>
-            <button class="sr-only" formaction="?/search">Search</button>
+            <button class="sr-only">Search</button>
         </form>
         {#if home}
             <svg class="fourth-wall" width="349" height="161" viewBox="0 0 349 161" fill="none"

@@ -6,13 +6,14 @@
     let greg = $state(false);
     categoryNames.push('Any');
     // make client request category in url
+
 </script>
 
 <section class="search-seg">
     <div class="head-cont">
         {#if fromSearch}
             <div class="head-cont-up">
-                <h1 class="head-item">Results for:&nbsp;</h1>
+                <h1>Results for:&nbsp; <span class="query-smol">{query}</span></h1>
                 <div class="head-item cat-dropdown-cont">
                     <button onclick={() => {greg = !greg;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
                         Category: <br><span class="cat">{cat}</span>
@@ -26,15 +27,15 @@
                     {/if}
                 </div>
             </div>
+        {:else}
+            <h1 class="head-main">Welcome to the Abyss</h1>
         {/if}
-
-        <div class="head-item {fromSearch ? 'query-smol' : '' }">{query}</div>
     </div>
-    {#if fromSearch}
+    {#if fromSearch && results}
         <ul class="search-results">
             <SearchSummaries data={results} {fromSearch}/>
         </ul>
-    {:else}
+    {:else if !fromSearch}
         <small>Try searching something up there, or look at newest articles on the right.</small>
     {/if}
     {#if !results || !fromSearch}
@@ -49,6 +50,11 @@
     {/if}
 </section>
 <style>
+    .head-main {
+        font-size: 1.8rem;
+        font-family: 'Comfortaa', sans-serif;
+    }
+
     .search-seg {
         width: 40%;
         padding-right: 1rem;
@@ -66,8 +72,17 @@
                 align-items: center;
 
                 & h1 {
+                    display: flex;
+                    flex-direction: column;
                     font-size: 2rem;
                     width: 70%;
+
+                    & .query-smol {
+                        border-left: 5px solid oklch(0.8149 0.1044 290);
+                        margin-top: 1rem;
+                        padding-left: 1rem;
+                        font-size: 1.2rem;
+                    }
                 }
 
                 & .cat-dropdown-cont {
@@ -109,13 +124,6 @@
                         }
                     }
                 }
-            }
-
-            & .query-smol {
-                border-left: 5px solid oklch(0.8149 0.1044 290);
-                padding-left: 1rem;
-                grid-column: span 2;
-                font-size: 1.2rem;
             }
         }
 
