@@ -1,12 +1,10 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
+    import {goto} from "$app/navigation";
 
     let {results = [], fromSearch = false, query = 'Welcome to the Abyss', cat = "Any", categoryNames} = $props();
 
     let greg = $state(false);
-    categoryNames.push('Any');
-    // make client request category in url
-
 </script>
 
 <section class="search-seg">
@@ -21,7 +19,7 @@
                     {#if greg}
                         <div class="cat-dropdown-menu">
                             {#each categoryNames as gregory}
-                                <button onclick={() => {cat = gregory}}>{gregory}</button>
+                                <button onclick={() => {goto(`/articles?query=${query}&category=${gregory}`)}}>{gregory}</button>
                             {/each}
                         </div>
                     {/if}

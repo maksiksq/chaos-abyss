@@ -62,7 +62,11 @@ export const load = async ({url}) => {
 
     let results = fuse.search(query);
 
-    if (!results.length) {
+    let catResults = cat !== 'Any'
+        ? results?.filter((result: any) => result.item.category === cat)
+        : results;
+
+    if (!catResults.length) {
         return {
             summaries: summaries,
             results: null,
@@ -71,10 +75,6 @@ export const load = async ({url}) => {
             cat: cat
         }
     }
-
-    let catResults = cat !== 'Any'
-        ? results?.filter((result: any) => result.item.category === cat)
-        : results;
 
     let sumResults = {
         summaries:

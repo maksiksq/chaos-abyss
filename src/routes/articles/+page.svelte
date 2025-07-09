@@ -28,7 +28,7 @@
         summaries
     }));
 
-    const categoryNames = categories.map((category) => category.name)
+    let categoryNames = [...categories.map((category) => category.name), "Any"];
 
     // Dev Stuff
     // Japanese
