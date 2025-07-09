@@ -29,8 +29,8 @@
     }));
     $inspect(categories);
 
-    let fromSearch = false;
-    let query = 'Welcome to the Abyss';
+    const fromSearch = true;
+    let query = 'slugging';
 
     // Dev Stuff
     // Japanese
@@ -43,7 +43,7 @@
 
 <Header/>
 <main>
-    <SearchLeftSearch {fromSearch} {query} />
+    <SearchLeftSearch searchData={data.summaries} {fromSearch} {query} />
     <SearchRightMasonry {categories}/>
         <!--        <ul>-->
         <!--            &lt;!&ndash;{#each data.summaries as {slug, title}}&ndash;&gt;-->

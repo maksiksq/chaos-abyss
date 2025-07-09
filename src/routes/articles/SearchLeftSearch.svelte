@@ -1,82 +1,62 @@
-<script>
+<script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
+    import Fuse from "fuse.js";
 
-    let {fromSearch = false, query = 'Welcome to the Abyss'} = $props();
+    let {searchData, fromSearch = false, query = 'Welcome to the Abyss'} = $props();
 
-    const results = {
-        "summaries": [{
-            "title": "Hades is poggers",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "yeet theee cat",
-            "slug": "example",
-            "date": "Mar 15, 2025",
-            "time": "2 mins",
-            "commentCount": 0
-        }, {
-            "title": "OneShot is also cool",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "summon theeeeeee developer",
-            "slug": "example",
-            "date": "Mar 16, 2025",
-            "time": "3 mins",
-            "commentCount": 3
-        }, {
-            "title": "OneShot is also cool",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "summon theeeeeee developer",
-            "slug": "example",
-            "date": "Mar 16, 2025",
-            "time": "3 mins",
-            "commentCount": 3
-        }, {
-            "title": "OneShot is also cool",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "summon theeeeeee developer",
-            "slug": "example",
-            "date": "Mar 16, 2025",
-            "time": "3 mins",
-            "commentCount": 3
-        }, {
-            "title": "Hades is poggers",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "yeet theee cat",
-            "slug": "example",
-            "date": "Mar 15, 2025",
-            "time": "2 mins",
-            "commentCount": 0
-        }, {
-            "title": "OneShot is also cool",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "summon theeeeeee developer",
-            "slug": "example",
-            "date": "Mar 16, 2025",
-            "time": "3 mins",
-            "commentCount": 3
-        }, {
-            "title": "OneShot is also cool",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "summon theeeeeee developer",
-            "slug": "example",
-            "date": "Mar 16, 2025",
-            "time": "3 mins",
-            "commentCount": 3
-        }, {
-            "title": "OneShot is also cool",
-            "img": "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200",
-            "blurb": "summon theeeeeee developer",
-            "slug": "example",
-            "date": "Mar 16, 2025",
-            "time": "3 mins",
-            "commentCount": 3
-        }]
+    if (!searchData && fromSearch) {
+        console.warn("Maksiks: No articles loaded into search, you good?");
     }
+
+    type Result = {
+        id: number,
+        category: string,
+        title: string,
+        blurb: string,
+        figcap?: string,
+        figalt: string,
+        slug: string,
+        contentTrim: string
+    }
+
+    type Results = [{
+        item: Result,
+        refIndex: number
+    }]
+
+    let results: Results | undefined = $state();
+    let fuse: any;
+    if (fromSearch) {
+        fuse = new Fuse(searchData, {keys:[
+                {name: 'title', weight: 0.4},
+                {name: 'blurb', weight: 0.2},
+                {name: 'category', weight: 0.1},
+                {name: 'figcap', weight: 0.03},
+                {name: 'figalt', weight: 0.02},
+                {name: 'slug', weight: 0.1},
+                {name: 'contentTrim', weight: 0.15},
+            ], threshold: 0.4
+        });
+
+        results = fuse.search(query);
+    }
+
+    const sumResults = $derived({
+        summaries: results?.map(({ item, refIndex }) => ({
+            ...item,
+            refIndex
+        }))
+    });
+
+    $inspect('sumResults ', sumResults)
+
 </script>
 <section class="search-seg">
     <h1><span class={fromSearch ? '' : 'd-none'}>Results for:&nbsp;</span><br><span
             class={fromSearch ? 'query-smol' : '' }>{query}</span></h1>
     {#if fromSearch}
         <ul class="search-results">
-            <SearchSummaries data={results}/>
+            <SearchSummaries data={sumResults} {fromSearch} {query} />
         </ul>
     {:else}
         <small>Try searching something up there, or look at newest articles on the right.</small>
@@ -84,7 +64,7 @@
     {#if results}
         <div class="lamp-wrap">
             <img class="lamp" src="/img/lamp.svg" alt="a dim lamp (no search results)">
-            {#if fromSearch}
+            {#if fromSearch || !results}
                 <p>The abyss gave no reply.</p>
             {:else}
                 <p>Nothing in here</p>

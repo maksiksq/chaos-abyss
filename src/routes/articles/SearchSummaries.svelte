@@ -1,11 +1,11 @@
 <script>
-    const {data, search = false} = $props();
+    const {data, fromSearch = false, query = ''} = $props();
 </script>
 {#each data.summaries as summary}
     <li>
         <article>
             <a href={`articles/${summary.slug}`}>
-                <img src={summary.img} alt={summary.imgalt}/>
+                <img src={summary.fig} alt={summary.figalt}/>
                 <h4>{summary.title}</h4>
                 <p class="blurb">{summary.blurb}</p>
                 <p class="info"><span>{summary.date}</span> <span>✦ {summary.time} mins</span>
