@@ -1,61 +1,11 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
-    import Fuse from "fuse.js";
 
-    let {searchData, fromSearch = false, query = 'Welcome to the Abyss', categoryNames} = $props();
+    let {results = [], fromSearch = false, query = 'Welcome to the Abyss', cat = "Any", categoryNames} = $props();
 
-    if (!searchData && fromSearch) {
-        console.warn("Maksiks: No articles loaded into search, you good?");
-    }
-
-    type Result = {
-        id: number,
-        category: string,
-        title: string,
-        blurb: string,
-        figcap?: string,
-        figalt: string,
-        slug: string,
-        contentTrim: string
-    }
-
-    type Results = [{
-        item: Result,
-        refIndex: number
-    }]
-
-    let cat = $state('Any');
-    let fuse: any;
-    if (fromSearch) {
-        fuse = new Fuse(searchData, {
-            keys: [
-                {name: 'title', weight: 0.4},
-                {name: 'blurb', weight: 0.2},
-                {name: 'category', weight: 0.1},
-                {name: 'figcap', weight: 0.03},
-                {name: 'figalt', weight: 0.02},
-                {name: 'slug', weight: 0.1},
-                {name: 'contentTrim', weight: 0.15},
-            ], threshold: 0.4
-        });
-    }
-
-    let results: Results | undefined = $derived(fromSearch ? fuse.search(query) : undefined);
-
-    let catResults = $derived(cat !== 'Any'
-        ? results?.filter(result => result.item.category === cat)
-        : results);
-
-    let sumResults = $derived({
-        summaries:
-            catResults?.map(({item, refIndex}) => ({
-            ...item,
-            refIndex
-        }))
-    });
-
-    let greg = $state(false)
+    let greg = $state(false);
     categoryNames.push('Any');
+    // make client request category in url
 </script>
 
 
@@ -80,7 +30,7 @@
     </div>
     {#if fromSearch}
         <ul class="search-results">
-            <SearchSummaries data={sumResults} {fromSearch}/>
+            <SearchSummaries data={results} {fromSearch}/>
         </ul>
     {:else}
         <small>Try searching something up there, or look at newest articles on the right.</small>

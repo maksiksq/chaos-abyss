@@ -42,8 +42,9 @@
 <Header/>
 <main>
     <SearchLeftSearch
-            searchData={data.summaries}
+            results={data.results}
             fromSearch={data.fromSearch}
+            cat={data.cat}
             query={data.query}
             {categoryNames}
     />
