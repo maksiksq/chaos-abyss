@@ -17,26 +17,18 @@ export const load = async () => {
     const { data: articles, error: artErr } = await supabase
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content')
+        .neq('category', 'draft')
     if (artErr || !articles) {
         throw error(500, 'Failed to load articles');
     }
 
-    type ArticleSearch = {
-        id: number,
-        category: string,
-        title: string,
-        blurb: string,
-        figcap?: string,
-        figalt: string,
-        slug: string,
-        content: string
-    }
 
-    const contentTrim = articles?.content.slice(0, 500);
-    articles.push(contentTrim);
-
+    const trimArticles = articles.map((article: any) => ({
+        ...article,
+        contentTrim: article.content.slice(0, 500)
+    }))
     return {
-        summaries: articles,
+        summaries: trimArticles,
     }
 }
 
