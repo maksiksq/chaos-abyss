@@ -42,14 +42,20 @@
 
     let results: Results | undefined = $derived(fromSearch ? fuse.search(query) : undefined);
 
-    const sumResults = $derived({
-        summaries: results?.map(({item, refIndex}) => ({
+    let catResults = $derived(cat !== 'Any'
+        ? results?.filter(result => result.item.category === cat)
+        : results);
+
+    let sumResults = $derived({
+        summaries:
+            catResults?.map(({item, refIndex}) => ({
             ...item,
             refIndex
         }))
     });
 
-    let greg = $state(false);
+    let greg = $state(false)
+    categoryNames.push('Any');
 </script>
 
 
@@ -154,7 +160,7 @@
             }
 
             & .query-smol {
-                border-left: 5px solid #cdcdcd;
+                border-left: 5px solid oklch(0.8149 0.1044 290);
                 padding-left: 1rem;
                 grid-column: span 2;
                 font-size: 1.2rem;

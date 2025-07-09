@@ -47,6 +47,7 @@
 - [ ] : restyle articles page a bit
 - [ ] : maybe more search filters in the future
 - [ ] : check if search article is most relevant
+- [ ] : move all logic to client
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

@@ -8,8 +8,8 @@
         <a href="/" class="logo-link" aria-label="Home">
             <img src="/img/logo.png" alt="logo">
         </a>
-        <form method="POST" action="/articles" use:enhance>
-            <input name="query" class="search" type="text" placeholder="Search..."/>
+        <form method="POST" action="/articles" autocomplete="off" use:enhance>
+            <input name="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>
             <button class="sr-only" formaction="?/search">Search</button>
         </form>
         {#if home}
