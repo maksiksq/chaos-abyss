@@ -48,6 +48,7 @@
 - [ ] : maybe more search filters in the future
 - [ ] : check if search article is most relevant
 - [ ] : move all logic to client
+- [ ] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

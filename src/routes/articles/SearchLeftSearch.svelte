@@ -8,24 +8,26 @@
     // make client request category in url
 </script>
 
-
 <section class="search-seg">
     <div class="head-cont">
-        <div class="head-cont-up">
-            <h1 class="head-item {fromSearch ? '' : 'd-none'}">Results for:&nbsp;</h1>
-            <div class="head-item cat-dropdown-cont">
-                <button onclick={() => {greg = true;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
-                    Category: <br><span class="cat">{cat}</span>
-                </button>
-                {#if greg}
-                    <div class="cat-dropdown-menu">
-                        {#each categoryNames as gregory}
-                            <button onclick={() => {cat = gregory}}>{gregory}</button>
-                        {/each}
-                    </div>
-                {/if}
+        {#if fromSearch}
+            <div class="head-cont-up">
+                <h1 class="head-item">Results for:&nbsp;</h1>
+                <div class="head-item cat-dropdown-cont">
+                    <button onclick={() => {greg = !greg;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
+                        Category: <br><span class="cat">{cat}</span>
+                    </button>
+                    {#if greg}
+                        <div class="cat-dropdown-menu">
+                            {#each categoryNames as gregory}
+                                <button onclick={() => {cat = gregory}}>{gregory}</button>
+                            {/each}
+                        </div>
+                    {/if}
+                </div>
             </div>
-        </div>
+        {/if}
+
         <div class="head-item {fromSearch ? 'query-smol' : '' }">{query}</div>
     </div>
     {#if fromSearch}

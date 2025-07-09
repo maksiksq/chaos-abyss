@@ -8,7 +8,7 @@
         <a href="/" class="logo-link" aria-label="Home">
             <img src="/img/logo.png" alt="logo">
         </a>
-        <form method="GET" action="/search" autocomplete="off" use:enhance>
+        <form method="GET" action="/search" autocomplete="off">
             <input name="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>
             <button class="sr-only" formaction="?/search">Search</button>
         </form>
