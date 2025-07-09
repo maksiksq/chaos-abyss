@@ -75,13 +75,39 @@
         '© {year} Maksiks. Rights detonated with maximum chuunibyou.',
         '© {year} Maksiks. Megumin cast Explosion on fair use.',
         '© {year} Maksiks. Reincarnated into a copyright holder.',
-        '© {year} Maksiks. Roll a crit on every die of a 20d20 to get rights. Good luck.'
+        '© {year} Maksiks. Roll a crit on every die of a 20d20 to get rights. Good luck.',
+        '© {year} Maksiks. These rights passed the Turing test. You didn’t.',
+        '© {year} Maksiks. These rights are allergic to theft.',
+        '© {year} Maksiks. Rights accessed via terminal_heartbreak.',
+        '© {year} Maksiks. Rights locked behind max friendship.',
+        '© {year} Maksiks. Rights stored in a conveyor loop. Forever.', // this one is hilarious i'm gonna die making these lmaoo
+        '© {year} Maksiks. Rights stored in an Ender Chest. Good luck accessing them.',
+        '© {year} Maksiks. You touched the rights. The curse touched back.',
+        '© {year} Maksiks. You copied. The contract is sealed.',
+        '© {year} Maksiks. You used Steal. You got socks. Not the rights.',
+        '© {year} Maksiks. Rights are absolute. Checkmate.',
+        '© {year} Maksiks. I… am copyright in shadow.', // i'm probably the only one who find these so funny but I don't care
+        '© {year} Maksiks. You have no rights in this world.',
+        '© {year} Maksiks. Rights acquired through legally questionable means.',
+        '© {year} Maksiks. I licked it. It\'s mine.', // * dies of laughter *
+        '© {year} Maksiks. Rights guarded by sarcasm and mild threats.',
+        '© {year} Maksiks. The rights recognize only one master.',
+        '© {year} Maksiks. These rights are a philosopher’s stone. Unreplicable.',
+        '© {year} Maksiks. The rights politely declined.',
+        '© {year} Maksiks. These rights hiss when touched.',
+        '© {year} Maksiks. I didn’t inherit the rights. I conquered them.',
+        '© {year} Maksiks. These rights kneel to no one. Except me.',
+        '© {year} Maksiks. The rights are in your walls.',
+
     ];
 
     const rareCopyblurbs = [
         // rare
         '© 3:33 AM Maksiks. Rights sleep-deprived.',
         '© ??? Maksiks. Rights exist out of bounds.',
+        '© NaN Maksiks. Rights cannot be divided.',
+        '© 0x7E9 Maksiks. Rights protected by wrong hex magic.',
+        '© 2010 Maksiks. El Psy Copy-reserved.',
         '© 1993 Maksiks. Rights DOOMed.',
         '© 1991 Maksiks. Rights discombobulated.',
         '© 1720 Maksiks. Paper rights collapsed.',
