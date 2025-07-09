@@ -55,8 +55,6 @@ export const load = async ({params}) => {
         .select('title, slug, id')
         .in('id', [article.id - 1, article.id + 1]);
 
-    console.log(adjData);
-
     if (adjErr || !adjData) {
         throw sverror(500, 'You broke the space time-continuum. Previous and next articles don\'t exist.');
     }

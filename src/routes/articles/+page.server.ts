@@ -1,4 +1,5 @@
 import {error} from "@sveltejs/kit";
+import type { Actions } from './$types';
 
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 import {createClient} from "@supabase/supabase-js";
@@ -11,6 +12,15 @@ const getClient = () => {
     }
     return supabase;
 }
+
+let query: string | null;
+
+export const actions = {
+    search: async ({request}) => {
+        const data = await request.formData();
+        query = data.get('query') as string | null;
+}
+} satisfies Actions;
 
 export const load = async () => {
     const supabase = getClient();
@@ -28,13 +38,15 @@ export const load = async () => {
         return Math.max(1, Math.round(words / wpm));
     }
 
-    const trimArticles = articles.map((article: any) => ({
+    const articlesAndStuff = articles.map((article: any) => ({
         ...article,
         contentTrim: article.content.slice(0, 500),
-        time: estReadingTime(article.content)
+        time: estReadingTime(article.content),
     }))
     return {
-        summaries: trimArticles,
+        summaries: articlesAndStuff,
+        query: query ? query : undefined,
+        fromSearch: !!query
     }
 }
 

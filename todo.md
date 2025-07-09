@@ -43,6 +43,9 @@
 - [ ] : dark mode (proper color matched gonna be hard)
 - [ ] : cdn
 - [ ] : add sources block
+- [ ] : maybe later add search suggestions
+- [ ] : restyle articles page a bit
+- [ ] : maybe more search filters in the future
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

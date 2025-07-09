@@ -2,7 +2,9 @@
     import SearchSummaries from "./SearchSummaries.svelte";
     import Fuse from "fuse.js";
 
-    let {searchData, fromSearch = false, query = 'Welcome to the Abyss'} = $props();
+    let {searchData, fromSearch = false, query = 'Welcome to the Abyss', categoryNames} = $props();
+
+    $inspect('cat', categoryNames)
 
     if (!searchData && fromSearch) {
         console.warn("Maksiks: No articles loaded into search, you good?");
@@ -24,10 +26,11 @@
         refIndex: number
     }]
 
-    let results: Results | undefined = $state();
+    let cat = $state();
     let fuse: any;
     if (fromSearch) {
-        fuse = new Fuse(searchData, {keys:[
+        fuse = new Fuse(searchData, {
+            keys: [
                 {name: 'title', weight: 0.4},
                 {name: 'blurb', weight: 0.2},
                 {name: 'category', weight: 0.1},
@@ -37,26 +40,32 @@
                 {name: 'contentTrim', weight: 0.15},
             ], threshold: 0.4
         });
-
-        results = fuse.search(query);
     }
 
+    let results: Results | undefined = $derived(fromSearch ? fuse.search(query) : undefined);
+
     const sumResults = $derived({
-        summaries: results?.map(({ item, refIndex }) => ({
+        summaries: results?.map(({item, refIndex}) => ({
             ...item,
             refIndex
         }))
     });
-
-    $inspect('sumResults ', sumResults)
-
 </script>
 <section class="search-seg">
-    <h1><span class={fromSearch ? '' : 'd-none'}>Results for:&nbsp;</span><br><span
-            class={fromSearch ? 'query-smol' : '' }>{query}</span></h1>
+    <h1>
+        <span class={fromSearch ? '' : 'd-none'}>Results for:&nbsp;</span>
+        <span><select>
+            <option value="any" selected>Any</option>
+            {#each categoryNames as gregory}
+                <option value={cat}>{gregory}</option>
+            {/each}
+        </select></span>
+        <br>
+        <span class={fromSearch ? 'query-smol' : '' }>{query}</span>
+    </h1>
     {#if fromSearch}
         <ul class="search-results">
-            <SearchSummaries data={sumResults} {fromSearch} {query} />
+            <SearchSummaries data={sumResults} {fromSearch} {query}/>
         </ul>
     {:else}
         <small>Try searching something up there, or look at newest articles on the right.</small>

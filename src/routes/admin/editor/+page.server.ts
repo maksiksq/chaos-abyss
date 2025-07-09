@@ -1,5 +1,4 @@
-import type {Actions} from '../../../../.svelte-kit/types/src/routes';
-import {fail} from "@sveltejs/kit";
+import {type Actions, fail} from "@sveltejs/kit";
 import {readFileSync, writeFileSync} from 'fs';
 import {md} from "../../shared";
 
@@ -8,7 +7,7 @@ export const load = async () => {
 }
 
 export const actions = {
-    newArticle: async ({ request }) => {
+    newArticle: async ({ request }: any) => {
         const formData = await request.formData();
         const raw = formData.get('article');
 

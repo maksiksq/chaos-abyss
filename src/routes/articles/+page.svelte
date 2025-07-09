@@ -27,10 +27,8 @@
         name,
         summaries
     }));
-    $inspect(categories);
 
-    const fromSearch = true;
-    let query = 'hatstypoune mtypoiku';
+    const categoryNames = categories.map((category) => category.name)
 
     // Dev Stuff
     // Japanese
@@ -43,7 +41,12 @@
 
 <Header/>
 <main>
-    <SearchLeftSearch searchData={data.summaries} {fromSearch} {query} />
+    <SearchLeftSearch
+            searchData={data.summaries}
+            fromSearch={data.fromSearch}
+            query={data.query}
+            {categoryNames}
+    />
     <SearchRightMasonry {categories}/>
         <!--        <ul>-->
         <!--            &lt;!&ndash;{#each data.summaries as {slug, title}}&ndash;&gt;-->
