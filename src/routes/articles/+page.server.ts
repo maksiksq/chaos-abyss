@@ -22,10 +22,16 @@ export const load = async () => {
         throw error(500, 'Failed to load articles');
     }
 
+    const wpm = 225;
+    const estReadingTime = (content: string): number => {
+        const words = content.trim().split(/\s+/).length;
+        return Math.max(1, Math.round(words / wpm));
+    }
 
     const trimArticles = articles.map((article: any) => ({
         ...article,
-        contentTrim: article.content.slice(0, 500)
+        contentTrim: article.content.slice(0, 500),
+        time: estReadingTime(article.content)
     }))
     return {
         summaries: trimArticles,

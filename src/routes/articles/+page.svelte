@@ -30,7 +30,7 @@
     $inspect(categories);
 
     const fromSearch = true;
-    let query = 'hatsune miku';
+    let query = 'hatstypoune mtypoiku';
 
     // Dev Stuff
     // Japanese
