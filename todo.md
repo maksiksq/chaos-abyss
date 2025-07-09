@@ -46,6 +46,7 @@
 - [ ] : maybe later add search suggestions
 - [ ] : restyle articles page a bit
 - [ ] : maybe more search filters in the future
+- [ ] : check if search article is most relevant
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

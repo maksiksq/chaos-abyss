@@ -74,7 +74,7 @@
     </div>
     {#if fromSearch}
         <ul class="search-results">
-            <SearchSummaries data={sumResults} {fromSearch} {query}/>
+            <SearchSummaries data={sumResults} {fromSearch}/>
         </ul>
     {:else}
         <small>Try searching something up there, or look at newest articles on the right.</small>
@@ -155,7 +155,7 @@
 
             & .query-smol {
                 border-left: 5px solid #cdcdcd;
-                padding-left: 5px;
+                padding-left: 1rem;
                 grid-column: span 2;
                 font-size: 1.2rem;
             }

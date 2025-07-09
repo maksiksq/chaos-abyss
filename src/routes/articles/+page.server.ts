@@ -26,7 +26,7 @@ export const load = async () => {
     const supabase = getClient();
     const { data: articles, error: artErr } = await supabase
         .from('articles')
-        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content')
+        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent')
         .neq('category', 'draft')
     if (artErr || !articles) {
         throw error(500, 'Failed to load articles');

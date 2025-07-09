@@ -67,8 +67,8 @@
         justify-content: center;
 
         width: 100vw;
-        padding-left: clamp(0.1rem, 3vw, 8vw);
-        padding-right: clamp(0.1rem, 2vw, 10vw);
+        padding-left: clamp(0.1rem, 1vw, 3vw);
+        padding-right: clamp(0.1rem, 2vw, 5vw);
         padding-top: clamp(0.5rem, 1.2vw, 3rem);
         margin: 0 auto;
         box-sizing: border-box;

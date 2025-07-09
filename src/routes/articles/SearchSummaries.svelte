@@ -1,9 +1,9 @@
 <script>
-    const {data, fromSearch = false, query = ''} = $props();
+    const {data, fromSearch = false} = $props();
 </script>
 {#each data.summaries as summary}
     <li>
-        <article>
+        <article style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
             <a href={`articles/${summary.slug}`}>
                 <img src={summary.fig} alt={summary.figalt}/>
                 <h4>{summary.title}</h4>
