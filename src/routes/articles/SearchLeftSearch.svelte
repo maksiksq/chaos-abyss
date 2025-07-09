@@ -61,12 +61,12 @@
     {:else}
         <small>Try searching something up there, or look at newest articles on the right.</small>
     {/if}
-    {#if results}
+    {#if !results || !fromSearch}
         <div class="lamp-wrap">
             <img class="lamp" src="/img/lamp.svg" alt="a dim lamp (no search results)">
-            {#if fromSearch || !results}
+            {#if fromSearch && !results}
                 <p>The abyss gave no reply.</p>
-            {:else}
+            {:else if !fromSearch}
                 <p>Nothing in here</p>
             {/if}
         </div>
