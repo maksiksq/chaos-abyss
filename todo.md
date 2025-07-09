@@ -44,11 +44,13 @@
 - [ ] : cdn
 - [ ] : add sources block
 - [ ] : maybe later add search suggestions
-- [ ] : restyle articles page a bit
+- [x] : restyle articles page a bit
 - [ ] : maybe more search filters in the future
 - [ ] : check if search article is most relevant
-- [ ] : move all logic to client
+- [x] : move all logic to client where necessary
 - [ ] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think
+- [ ] : fix editor for db and stuff
+- [ ] : hopefully won't need it but Supabase keepalive
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
