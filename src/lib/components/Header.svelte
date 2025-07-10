@@ -5,7 +5,7 @@
 <header>
     <nav>
         <a href="/" class="logo-link" aria-label="Home">
-            <img src="/img/logo.png" alt="logo">
+            <img src="/img/logo.png" alt="Chaos Abyss logo">
         </a>
         <form method="GET" action="/articles" autocomplete="off">
             <input name="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>

@@ -98,7 +98,6 @@
         '© {year} Maksiks. I didn’t inherit the rights. I conquered them.',
         '© {year} Maksiks. These rights kneel to no one. Except me.',
         '© {year} Maksiks. The rights are in your walls. But not those walls, the other ones.',
-
     ];
 
     const rareCopyblurbs = [

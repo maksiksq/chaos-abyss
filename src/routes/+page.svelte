@@ -2,8 +2,6 @@
     import '../styles/global.css';
     import {goto} from "$app/navigation";
     import Header from "$lib/components/Header.svelte";
-    import {onDestroy, onMount} from "svelte";
-    import {browser} from "$app/environment";
     import Footer from "$lib/components/Footer/Footer.svelte";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
@@ -52,13 +50,20 @@
         ctaButtonFake.style.marginLeft = "0.4rem";
     }
 </script>
+<svelte:head>
+    <title>Chaos Abyss</title>
+    <meta name="description" content="A short, catchy summary of the page (~150 characters).">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+</svelte:head>
 
 <svelte:window on:keydown={handleTravelToEditor}/>
 
 <Header home={true}/>
 <main>
     <div class="head-wrap">
-        <h1><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h1>
+        <h1>Chaos Abyss</h1>
+        <h2><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h2>
         <div class="cta-cont">
             <a href="/articles" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut}
                onfocus={buttonAnimIn} onblur={buttonAnimOut}>
@@ -99,9 +104,25 @@
             justify-content: center;
             width: 60%;
 
+            margin-left: 1rem;
+            border-left: 3px solid #242525;
+
             & h1 {
-                margin-top: 2rem;
+                font-family: 'Roboto Slab', sans-serif;
+                font-weight: normal;
                 font-size: 6rem;
+                width: fit-content;
+
+                margin-top: 2rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                color: #242525;
+                border-bottom: 3px solid #242525;
+            }
+
+            & h2 {
+                margin-top: 2rem;
+                font-size: 4rem;
                 line-height: 1.8;
 
                 & span {
@@ -109,7 +130,6 @@
                     font-weight: normal;
                     padding-left: 2rem;
                     padding-right: 2rem;
-                    user-select: none;
 
                     transition: all 0.2s;
 
