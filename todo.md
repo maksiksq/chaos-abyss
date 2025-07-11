@@ -63,6 +63,7 @@
 - [ ] : plug editor in
 - [ ] : add editor auth
 - [ ] : add more easter eggs
+- [ ] : write the articles
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
