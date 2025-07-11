@@ -2,7 +2,7 @@ export const load = () => {
     return {
         meta: {
             title: "Chaos Abyss",
-            canonSlug: "canonSlug",
+            canonUrl: "https://chaos-abyss.com/",
             metaNamed: [
                 { name: "description", content: "Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)." },
                 { name: "twitter:card", content: "summary_large_image" },
