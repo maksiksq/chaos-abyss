@@ -55,7 +55,7 @@ export const load = async ({params}) => {
         .in('id', [article.id - 1, article.id + 1]);
 
     if (adjErr || !adjData) {
-        throw sverror(500, 'You broke the space time-continuum. Previous and next articles don\'t exist.');
+        throw sverror(500, 'You broke the space-time continuum. Previous and next articles don\'t exist.');
     }
     const previousArt = adjData.find((a: {
         title: string,

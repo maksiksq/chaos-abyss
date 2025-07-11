@@ -54,7 +54,7 @@
 - [ ] : make discord bots for Converge (just so i dont forget)
 - [ ] : images via couldflare images (!important)
 - [ ] : seo images on article page
-- [x] : maybe make seo default layout actuall use route instead of just yoinking the meta? I'm not sure if it's ok anyway although it does seem like so
+- [x] : maybe make seo default layout actually use route instead of just yoinking the meta? I'm not sure if it's ok anyway although it does seem like so
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

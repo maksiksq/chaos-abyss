@@ -34,19 +34,70 @@ export const load = async ({url}) => {
         time: estReadingTime(article.content),
     }))
 
+    // seo
+
+    let jsonLDArticles = articles.map((article: any, index: number) => ({
+        "@type": "BlogPosting",
+        "headline": article.title,
+        "url": `https://chaos-abyss.com/articles/${article.slug}`,
+        "position": index + 1,
+    }));
+
+    const meta = {
+        title: "Articles",
+        canonUrl: "https://chaos-abyss.com/articles",
+        metaNamed: [
+            {
+                name: "description",
+                content: "Behold the freshest articles on Chaos Abyss"
+            },
+            {name: "twitter:card", content: "summary_large_image"},
+            {name: "twitter:title", content: "Articles"},
+            {
+                name: "twitter:description",
+                content: "Behold the freshest articles on Chaos Abyss"
+            },
+            {name: "twitter:image", content: "https://chaos-abyss.com/img/ogimg.png"}
+        ],
+        metaProperty: [
+            {property: "og:type", content: "website"},
+            {property: "og:locale", content: "en_US"},
+            {property: "og:title", content: "Chaos Abyss"},
+            {
+                property: "og:description",
+                content: "Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)."
+            },
+            {property: "og:url", content: "https://chaos-abyss.com/"},
+            {property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png"}
+        ],
+        jsonLD: {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Chaos Abyss",
+            "url": "https://chaos-abyss.com",
+            "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": jsonLDArticles,
+            }
+        }
+    }
+
     // search
     let query = url.searchParams.get("query");
     let cat = url.searchParams.get("category") ?? 'Any';
 
     if (!query) {
         return {
-            summaries: summaries,
+            summaries,
             results: null,
             fromSearch: !!query,
-            query: query,
-            cat: cat
+            query,
+            cat,
+            meta
         }
     }
+
+    meta.title = `Results for: ${query}`;
 
     let fuse = new Fuse(summaries, {
         keys: [
@@ -84,13 +135,32 @@ export const load = async ({url}) => {
             }))
     };
 
+    // meta for search results
+    const seen = new Set();
+    const combinedArticles = [...sumResults.summaries, ...articles].filter(a => {
+        if (seen.has(a.slug)) return false;
+        seen.add(a.slug);
+        return true;
+    });
+    console.log("seoeoeo:", sumResults.summaries);
+
+    jsonLDArticles = combinedArticles.map((article, index) => ({
+        "@type": "BlogPosting",
+        "headline": article.title,
+        "url": `https://chaos-abyss.com/articles/${article.slug}`,
+        "position": index + 1
+    }));
+    meta.jsonLD = jsonLDArticles;
+
     return {
-        summaries: summaries,
+        summaries,
         results: sumResults,
         fromSearch: !!query,
-        query: query,
-        cat: cat
+        query,
+        cat,
+        meta
     }
+    // cant forget the no query handler up there
 }
 
 

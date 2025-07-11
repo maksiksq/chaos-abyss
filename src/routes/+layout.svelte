@@ -3,17 +3,19 @@
 
     let {children} = $props();
 
+
+    $inspect(page.data);
     let {meta} = $derived(page.data);
     $effect(() => {
         if (!meta) {
-            console.error("No meta found!");
+            console.error("Maksiks: No meta info found for page! YOU'VE DISTRIBUTED THE SEO GODS");
         }
     })
+
 
     let metasNamed = $derived(meta?.metaNamed);
     let metasProperty = $derived(meta?.metaProperty);
 </script>
-
 
 <svelte:head>
     <title>{meta?.title ?? 'Chaos Abyss'}</title>
