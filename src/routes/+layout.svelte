@@ -3,8 +3,6 @@
 
     let {children} = $props();
 
-
-    $inspect(page.data);
     let {meta} = $derived(page.data);
     $effect(() => {
         if (!meta) {

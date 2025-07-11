@@ -39,10 +39,6 @@
     // Later ? Electronics
 </script>
 
-<svelte:head>
-    <link rel="canonical" href={`https://your-site.com/search?query=${data.query}`} />
-</svelte:head>
-
 <Header/>
 <main>
     <SearchLeftSearch

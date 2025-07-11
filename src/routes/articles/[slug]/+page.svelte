@@ -2,7 +2,6 @@
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import ArticleEndblock from "./ArticleEndblock.svelte";
     import {tick} from "svelte";
-    import {error} from "@sveltejs/kit";
 
     const { data } = $props();
 
@@ -29,53 +28,7 @@
             body?.style.setProperty('--accent-color-deeper', accentDeep);
         });
     })
-
-    const capitalize = (str: string) => str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-
-    const toISODate = (dateString: string): string => {
-        const date = new Date(dateString);
-        if (isNaN(date.getTime())) {
-            return 'uhm, the date is wrong';
-        }
-        return date.toISOString().split("T")[0];
-    }
-
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": data.article.title,
-        "author": {
-            "@type": "Person",
-            "name": "Maksiks"
-        },
-        "name": data.article.title,
-        "datePublished": toISODate(data.article.date),
-        "url": `https://chaos-abyss.com/articles/${data.article.slug}`
-    };
-
-    const jsonLdTag = `<script type="application/ld+json">${JSON.stringify(jsonLd)}<${'/'}script>`;
 </script>
-
-<svelte:head>
-    <title>{capitalize(data.article.title)}</title>
-    <meta name="description" content="{data.article.blurb}" />
-    <meta property="og:type" content="article">
-    <meta property="og:locale" content="en_US">
-
-    <meta property="og:title" content="{capitalize(data.article.title)}">
-    <meta property="og:description" content="{data.article.blurb}">
-    <meta property="og:url" content={`https://chaos-abyss.com/articles/${data.article.slug}`}>
-    <meta property="og:image" content="https://chaos-abyss.com/img/ogimg.png">
-<!--    <meta property="og:image" content={`https://chaos-abyss.com/img/${data.article.img}.webp`}>-->
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{capitalize(data.article.title)}">
-    <meta name="twitter:description" content="{data.article.blurb}">
-    <meta name="twitter:image" content="https://chaos-abyss.com/img/ogimg.png">
-
-    <link rel="canonical" href={`https://chaos-abyss.com/articles/${data.article.slug}`}>
-    {@html jsonLdTag}
-</svelte:head>
 
 <svelte:body bind:this={body}/>
 

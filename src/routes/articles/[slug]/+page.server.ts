@@ -2,6 +2,8 @@ import {error as sverror} from "@sveltejs/kit";
 import {createClient} from '@supabase/supabase-js';
 
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
+import {page} from "$app/state";
+import type {PageLoad} from "../../../../.svelte-kit/types/src/routes/contact/$types";
 
 export const prerender = 'auto';
 
@@ -34,44 +36,47 @@ type Article = {
     id: number;
 };
 
-export const load = async ({params}) => {
+export const load: PageLoad = async ({params, url}) => {
     const supabase = getClient();
     // article per slug
+
     const {data: artData, error: artErr} = await supabase
         .from('articles')
         .select('*')
+        // the slug is real
+        // @ts-ignore
         .eq('slug', params.slug);
-    if (artErr || !artData) {
+    if (artErr || !artData || artData.length === 0) {
         throw sverror(404, 'Oh no, article not found.');
     }
 
-    const article: Article = artData[0];
 
+    const article: Article = artData[0];
+    article.author ||= "Maksiks";
 
     // adjacent articles
-    const {data: adjData, error: adjErr} = await supabase
+    const {data: nextArt} = await supabase
         .from('articles')
-        .select('title, slug, id')
-        .in('id', [article.id - 1, article.id + 1]);
+        .select('title, slug')
+        .gt('id', article.id)
+        .order('id', { ascending: true })
+        .limit(1);
 
-    if (adjErr || !adjData) {
-        throw sverror(500, 'You broke the space-time continuum. Previous and next articles don\'t exist.');
-    }
-    const previousArt = adjData.find((a: {
-        title: string,
-        slug: string,
-        id: number
-    }) => a.id === article.id - 1) ?? null;
-    const nextArt = adjData.find((a: { title: string, slug: string, id: number }) => a.id === article.id + 1) ?? null;
+    const {data: previousArt} = await supabase
+        .from('articles')
+        .select('title, slug')
+        .lt('id', article.id)
+        .order('id', { ascending: false })
+        .limit(1);
 
     const previous = {
-        title: previousArt?.title ?? 'You’ve reached the bottom of the abyss.',
-        slug: previousArt?.slug ?? undefined,
+        title: previousArt[0]?.title ?? 'You’ve reached the bottom of the abyss.',
+        slug: previousArt[0]?.slug ?? undefined,
     };
 
     const next = {
-        title: nextArt?.title ?? 'There is nothing but the stars above.',
-        slug: nextArt?.slug ?? undefined,
+        title: nextArt[0]?.title ?? 'There is nothing but the stars above.',
+        slug: nextArt[0]?.slug ?? undefined,
     };
 
     const adjacent = {previous, next};
@@ -90,23 +95,21 @@ export const load = async ({params}) => {
 
     const meta = {
         title: capitalize(article.title),
-        canonUrl: `https://chaos-abyss.com/articles/${article.slug}`,
+        canonUrl: url.href,
         metaNamed: [
             { name: "description", content: article.blurb },
             { name: "twitter:card", content: "summary_large_image" },
             { name: "twitter:title", content: capitalize(article.title) },
             { name: "twitter:description", content: article.blurb },
-            { name: "twitter:image", content: "https://chaos-abyss.com/img/ogimg.png" }
-            // later `https://chaos-abyss.com/img/${article.img}.webp or cloudflare images`
+            { name: "twitter:image", content: article.fig }
         ],
         metaProperty: [
             { property: "og:type", content: "article" },
             { property: "og:locale", content: "en_US" },
             { property: "og:title", content: capitalize(article.title) },
             { property: "og:description", content: article.blurb },
-            { property: "og:url", content: `https://chaos-abyss.com/articles/${article.slug}` },
-            { property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png" }
-            // later `https://chaos-abyss.com/img/${article.img}.webp or cloudflare images`
+            { property: "og:url", content: url.href },
+            { property: "og:image", content: article.fig }
         ],
         jsonLD: {
             "@context": "https://schema.org",
@@ -114,11 +117,11 @@ export const load = async ({params}) => {
             "headline": article.title,
             "author": {
                 "@type": "Person",
-                "name": article.author || "Maksiks"
+                "name": article.author
             },
             "name": article.title,
             "datePublished": toISODate(article.date),
-            "url": `https://chaos-abyss.com/articles/${article.slug}`
+            "url": url.href
         }
     };
 
@@ -126,7 +129,6 @@ export const load = async ({params}) => {
 
     const wordcount = article.content.trim().split(/\s+/).length;
     const authorlink = authors.find(author => author.name === article.author)?.link;
-
 
     return {
         article,
