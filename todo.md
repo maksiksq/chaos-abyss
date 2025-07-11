@@ -59,7 +59,8 @@
 - [ ] : color associations for more things (notably articles feats)
 - [ ] : add sitemap
 - [ ] : do seo for all other pages
-- [ ] : add func to editor
+- [ ] : add more functions to editor
+- [ ] : plug editor in
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
