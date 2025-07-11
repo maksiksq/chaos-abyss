@@ -1,6 +1,4 @@
-import type {PageLoad} from "../../../.svelte-kit/types/src/routes/contact/$types";
-
-export const load: PageLoad = ({url}) => {
+export const load = ({url}) => {
     return {
         meta: {
             title: "Contact",
@@ -25,17 +23,43 @@ export const load: PageLoad = ({url}) => {
                 "@type": "ContactPage",
                 "name": "Contact",
                 "url": url.href,
+                // look at him yapping about himself
                 "mainEntity": {
                     "@type": "Person",
                     "name": "Maksiks",
-                    "email": "mailto:maksiks.touch@gmail.com",
-                    "image": `${url.origin}/img/pfp40likesmth.png`,
+                    "url": "https://maksiksync.vercel.app",
+                    "gender": "Male",
+                    "knowsLanguage": ["English", "Ukrainian", "Japanese"],
+                    "alternateName": "maksiksq",
+                    "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design. Over 200 hours of raw development time logged in one summer alone.",
+                    "image": "https://yourdomain.com/img/pfp40likesmth.png",
                     "sameAs": [
                         "https://github.com/maksiksq",
                         "https://bsky.app/profile/maksiks.bsky.social",
                         "https://x.com/maksiksq",
-                        "https://discord.com/users/@maksiks"
-                    ]
+                        "https://maksiksync.vercel.app"
+                    ],
+                    "jobTitle": "Software Developer",
+                    "knowsAbout": [
+                        "Software Development",
+                        "JavaScript",
+                        "Youtube",
+                        "Japanese",
+                        "Games and Media",
+                        "Design"
+                    ],
+                    "alumniOf": {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Vinnytsia College of the National University of Food Technology"
+                    },
+                    "birthPlace": {
+                        "@type": "Place",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Vinnytsia",
+                            "addressCountry": "Ukraine"
+                        }
+                    }
                 }
             }
         }

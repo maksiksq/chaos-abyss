@@ -51,10 +51,12 @@
 - [ ] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think
 - [ ] : fix editor for db and stuff
 - [ ] : hopefully won't need it but Supabase keepalive
-- [ ] : make discord bots for Converge (just so i dont forget)
-- [ ] : images via couldflare images (!important)
-- [ ] : seo images on article page
+- [x] : make discord bots for Converge (just so i dont forget)
+- [ ] : images via couldflare images 
+- [x] : seo images on article page
 - [x] : maybe make seo default layout actually use route instead of just yoinking the meta? I'm not sure if it's ok anyway although it does seem like so
+- [ ] : fix searchbar caret
+- [ ] : color associations for more things (notably articles feats)
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

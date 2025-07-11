@@ -35,6 +35,10 @@
     })
 </script>
 
+<svelte:head>
+    <title>Editor</title>
+    <meta name="robots" content="noindex, nofollow">
+</svelte:head>
 <svelte:body bind:this={body}/>
 
 <div class="bg-white"></div>

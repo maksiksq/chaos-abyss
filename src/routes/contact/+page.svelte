@@ -44,7 +44,7 @@
             <br>
             <ul class="socials">
                 Alternatively:
-                <Socials {socials} inline={true}/>
+                <Socials {socials} fromContact={true}/>
             </ul>
         </address>
     </div>
