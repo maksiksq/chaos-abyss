@@ -50,33 +50,6 @@
         ctaButtonFake.style.marginLeft = "0.4rem";
     }
 </script>
-<svelte:head>
-    <title>Chaos Abyss</title>
-    <meta name="description" content="Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)." />
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-
-    <meta property="og:title" content="Chaos Abyss">
-    <meta property="og:description" content="Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes).">
-    <meta property="og:url" content="https://chaos-abyss.com/">
-    <meta property="og:image" content="https://chaos-abyss.com/img/ogimg.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chaos Abyss">
-    <meta name="twitter:description" content="Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes).">
-    <meta name="twitter:image" content="https://chaos-abyss.com/img/ogimg.png">
-
-    <link rel="canonical" href="https://chaos-abyss.com/">
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Chaos Abyss",
-            "url": "https://chaos-abyss.com"
-        }
-    </script>
-</svelte:head>
 
 <svelte:window on:keydown={handleTravelToEditor}/>
 
