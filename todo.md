@@ -53,6 +53,8 @@
 - [ ] : hopefully won't need it but Supabase keepalive
 - [ ] : make discord bots for Converge (just so i dont forget)
 - [ ] : images via couldflare images (!important)
+- [ ] : seo images on article page
+- [ ] : maybe make seo default layout actuall use route instead of just yoinking the meta? I'm not sure if it's load internally anyway althoug it does seem like so
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
