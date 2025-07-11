@@ -51,38 +51,38 @@
     }
 </script>
 
+<svelte:head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" />
+</svelte:head>
 <svelte:window on:keydown={handleTravelToEditor}/>
 
 <Header home={true}/>
 <main>
-    <div class="head-wrap">
+    <section class="heading-wrap">
         <h1>Chaos Abyss</h1>
         <h2><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h2>
         <div class="cta-cont">
-            <a href="/articles" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut}
+            <a href="/articles" aria-label="Read some articles on Chaos Abyss" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut}
                onfocus={buttonAnimIn} onblur={buttonAnimOut}>
                 Step Inside
             </a>
-            <div class="cta-button-fake" bind:this={ctaButtonFake}>
+            <div aria-hidden="true" class="cta-button-fake" bind:this={ctaButtonFake}>
                 Step Inside
             </div>
         </div>
-    </div>
-    <div class="hero-wrap">
+    </section>
+    <section aria-label="Hero animation" class="hero-wrap">
         <video loop autoplay muted src="/img/gem-anim-final.webm"
-               aria-label="A hand doing some weird magic with a really cool gemstone with a star (as a wizard I can tell)"></video>
-    </div>
+               aria-label="A hand doing some weird magic"></video>
+    </section>
 </main>
 <Footer home={true}/>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-
-    :global {
-        body {
-            overflow-y: hidden;
-        }
-    }
 
     main {
         display: flex;
@@ -92,7 +92,7 @@
 
         height: calc(100vh - 4rem);
 
-        .head-wrap {
+        .heading-wrap {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -129,8 +129,7 @@
 
                     &:hover {
                         transform: translate(0px, 10px);
-                        box-shadow: rgb(255, 116, 116) -1px 0 0,
-                        rgba(0, 0, 0, 1) 0 0 0;
+                        box-shadow: rgba(0, 0, 0, 1) 0 0 0;
                     }
                 }
 
@@ -139,7 +138,6 @@
                     line-height: 1.2;
                     color: #242525;
                     background: linear-gradient(70deg, #826e8c, #FFA7A7);
-                    border: solid 1px black;
 
                     padding-bottom: 0.4rem;
                     box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
@@ -148,11 +146,10 @@
 
                 & .clear-words {
                     display: inline-block;
-                    line-height: 1.2;
+                    line-height: 1.25;
                     color: #1f2020;
                     background: linear-gradient(70deg, #6c497e, #FB8E8E);
                     box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
-                    border: solid 1px black;
                 }
             }
 

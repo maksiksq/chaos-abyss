@@ -57,7 +57,7 @@
 - [x] : maybe make seo default layout actually use route instead of just yoinking the meta? I'm not sure if it's ok anyway although it does seem like so
 - [ ] : fix searchbar caret
 - [ ] : color associations for more things (notably articles feats)
-
+- [ ] : add sitemap
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
 client| editor preview -> client| render, whatever
