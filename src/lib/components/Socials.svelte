@@ -1,17 +1,17 @@
 <script lang="ts">
-    const {socials, inline = false} = $props();
+    const {socials, fromContact = false} = $props();
 </script>
 
-{#if !inline}
+{#if !fromContact}
     <li class="heading">
         Socials
     </li>
 {/if}
 
 {#each socials as social}
-    <li class={`social so-${social} ${inline ? 'inline' : ''}`}>
+    <li class={`social so-${social} ${fromContact ? 'inline' : ''}`}>
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-        <a href={social.link}>
+        <a href={social.link} rel={fromContact ? "me" : undefined}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d={social.icon}/>
             </svg>
