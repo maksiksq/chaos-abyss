@@ -58,6 +58,8 @@
 - [ ] : fix searchbar caret
 - [ ] : color associations for more things (notably articles feats)
 - [ ] : add sitemap
+- [ ] : do seo for all other pages
+
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
 client| editor preview -> client| render, whatever
