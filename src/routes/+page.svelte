@@ -82,8 +82,6 @@
 <Footer home={true}/>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-
     main {
         display: flex;
         flex-direction: row;
@@ -91,6 +89,16 @@
         overflow-y: visible;
 
         height: calc(100vh - 4rem);
+
+        @media (max-width: 768px) {
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 1rem;
+        }
 
         .heading-wrap {
             display: flex;
@@ -100,6 +108,11 @@
 
             margin-left: 1rem;
             border-left: 3px solid #242525;
+
+            @media (max-width: 768px) {
+                margin-left: 0.3rem;
+                border-left: 1px solid #242525;
+            }
 
             & h1 {
                 font-family: 'Roboto Slab', sans-serif;
@@ -112,12 +125,24 @@
                 padding-right: 2rem;
                 color: #242525;
                 border-bottom: 3px solid #242525;
+
+                @media (max-width: 768px) {
+                    padding-left: 0.7rem;
+                    border-bottom: 1px solid #242525;
+                }
+                @media (max-width: 420px) {
+                    font-size: 5rem;
+                }
             }
 
             & h2 {
                 margin-top: 2rem;
                 font-size: 4rem;
                 line-height: 1.8;
+
+                @media (max-width: 420px) {
+                    font-size: 3rem;
+                }
 
                 & span {
                     font-family: 'Roboto Slab', sans-serif;
@@ -150,6 +175,10 @@
                     color: #1f2020;
                     background: linear-gradient(70deg, #6c497e, #FB8E8E);
                     box-shadow: rgba(0, 0, 0, 0.09) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
+
+                    @media (max-width: 420px) {
+                        margin-top: 0.5rem;
+                    }
                 }
             }
 
@@ -157,6 +186,10 @@
                 position: relative;
                 margin-left: 2.6rem;
                 margin-bottom: 6rem;
+
+                @media (max-width: 768px) {
+                    margin-left: 0.6rem;
+                }
 
                 & .cta-button {
                     display: flex;
@@ -173,6 +206,10 @@
                     padding: 0.5rem 2.6rem;
                     border: solid black 2px;
                     box-shadow: 0 0 0 1px white;
+
+                    @media (max-width: 420px) {
+                        font-size: 1rem;
+                    }
                 }
 
                 & .cta-button-fake {
@@ -198,6 +235,10 @@
                     border: solid black 2px;
 
                     transition: 0.2s all;
+
+                    @media (max-width: 420px) {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
@@ -213,8 +254,17 @@
             aspect-ratio: 424 / 810;
             transform: translateY(16px);
 
+            @media (max-width: 768px) {
+                width: 100%;
+                align-items: center;
+            }
+
             video {
                 height: 120%;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
             }
         }
     }

@@ -64,10 +64,17 @@
 - [ ] : add more easter eggs
 - [ ] : write the articles
 - [ ] : redirect vercel domains to chaos-abyss.com
-- [ ] : hardcode the domain (again ....)
+- [x] : hardcode the domain (again ....)
 - [ ] : submit sitemap to search console
 - [ ] : check for mistakes
 - [ ] : handle drafts later
+- [ ] : add burger for phone
+- [ ] : and make the header responsive while you're at it
+- [ ] : make footer responsive
+- [ ] : make minor edits to responsive once you have the domain
+- [ ] : add categories to url
+- [ ] : make slug manual
+- [ ] : make sure zoom is responsive
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
