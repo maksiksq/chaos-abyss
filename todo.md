@@ -75,6 +75,9 @@
 - [ ] : add categories to url
 - [ ] : make slug manual
 - [ ] : make sure zoom is responsive
+- [ ] : kofi maybe???
+- [ ] : mark articles as yearly
+- [ ] : fix svelte vs vue vs react formatting
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
