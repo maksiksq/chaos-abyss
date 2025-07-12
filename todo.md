@@ -79,7 +79,8 @@
 - [ ] : mark articles as yearly
 - [ ] : fix svelte vs vue vs react formatting
 - [ ] : separate head fig and banner fig
-- [ ] : chang head fig bg to something other than accent color
+- [ ] : change head fig bg to something other than accent color
+- [ ] : maybe make head fig shadow more intense (or keep it)
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
