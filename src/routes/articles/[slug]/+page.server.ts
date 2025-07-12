@@ -44,15 +44,15 @@ export const load = async ({params, url}) => {
     const {data: nextArt} = await supabase
         .from('articles')
         .select('title, slug')
-        .gt('id', article.id)
-        .order('id', { ascending: true })
+        .gt('date', article.date)
+        .order('date', { ascending: true })
         .limit(1);
 
     const {data: previousArt} = await supabase
         .from('articles')
         .select('title, slug')
-        .lt('id', article.id)
-        .order('id', { ascending: false })
+        .lt('date', article.date)
+        .order('date', { ascending: false })
         .limit(1);
 
     const previous = {
