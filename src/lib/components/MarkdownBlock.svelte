@@ -64,7 +64,7 @@
     })
 </script>
 
-<pre class="article-content">{@html content}</pre>
+<p class="article-content">{@html content}</p>
 
 <style>
     :global {
@@ -110,11 +110,26 @@
         .article-content {
             margin: 20px 0 0 0;
 
-            overflow-wrap: break-word;
-            white-space: pre-wrap;
+            & ul {
+                list-style:  none;
+            }
 
-            p {
-                line-height: 2;
+            & h2 {
+                font-size: 1.7rem;
+                line-height: 1.4;
+            }
+
+            & h3 {
+                font-size: 1.4rem;
+                line-height: 1.4;
+            }
+            & h4 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+            }
+
+            & p {
+                line-height: 1.8;
             }
 
             & figure {
@@ -126,12 +141,14 @@
                 justify-content: center;
 
                 & img {
-                    max-width: 100%;
+                    max-width: 80%;
                 }
             }
 
             & img {
-                max-width: 100%;
+                display: block;
+                margin-inline: auto;
+                max-width: 80%;
             }
 
             & table {
@@ -191,7 +208,7 @@
                 align-items: center;
 
                 & img {
-                    max-width: 100%;
+                    max-width: 80%;
                 }
 
                 & figcaption {
