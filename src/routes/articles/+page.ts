@@ -1,16 +1,7 @@
 import {error} from "@sveltejs/kit";
 
-import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
-import {createClient} from "@supabase/supabase-js";
 import Fuse from "fuse.js";
-
-let supabase: any | null = null;
-const getClient = () => {
-    if (!supabase) {
-        supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
-    }
-    return supabase;
-}
+import {getClient} from "$lib/utils/getSupabaseClient";
 
 export const load = async ({url}) => {
     const supabase = getClient();

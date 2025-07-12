@@ -1,4 +1,6 @@
 <script>
+    import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate.js";
+
     const {data, fromSearch = false} = $props();
 </script>
 {#each data.summaries as summary}
@@ -8,7 +10,7 @@
                 <img src={summary.fig} alt={summary.figalt}/>
                 <h4>{summary.title}</h4>
                 <p class="blurb">{summary.blurb}</p>
-                <p class="info"><span>{summary.date}</span> <span>✦ ~ {summary.time} {summary.time === 1 ? 'min' : 'mins'}</span>
+                <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span> <span>✦ ~ {summary.time} {summary.time === 1 ? 'min' : 'mins'}</span>
                     {#if summary.commentCount}
                                             <span>
                                                 &nbsp;✦

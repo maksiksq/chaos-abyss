@@ -63,7 +63,9 @@
 - [ ] : add editor auth
 - [ ] : add more easter eggs
 - [ ] : write the articles
-
+- [ ] : redirect vercel domains to chaos-abyss.com
+- [ ] : hardcode the domain (again ....)
+- [ ] : submit sitemap to search console
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
 client| editor preview -> client| render, whatever

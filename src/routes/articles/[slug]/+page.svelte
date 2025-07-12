@@ -2,6 +2,7 @@
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import ArticleEndblock from "./ArticleEndblock.svelte";
     import {tick} from "svelte";
+    import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate";
 
     const { data } = $props();
 
@@ -51,7 +52,7 @@
                     <small class="blurb"><span>{data.article.blurb}</span></small>
                     <footer>
                         <p>
-                            <time datetime={data.article.date}>{data.article.date} ✦&nbsp;</time>
+                            <time datetime={timestamptzToHumanDate(data.article.date)}>{timestamptzToHumanDate(data.article.date)} ✦&nbsp;</time>
                         </p>
                         <address>
                             {data.wordcount}

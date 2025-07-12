@@ -1,19 +1,7 @@
 import {error as sverror} from "@sveltejs/kit";
-import {createClient} from '@supabase/supabase-js';
-
-import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
-import {page} from "$app/state";
-import type {PageLoad} from "../../../../.svelte-kit/types/src/routes/contact/$types";
+import {getClient} from "$lib/utils/getSupabaseClient";
 
 export const prerender = 'auto';
-
-let supabase: any | null = null;
-const getClient = () => {
-    if (!supabase) {
-        supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
-    }
-    return supabase;
-}
 
 const authors = [{
     name: 'Maksiks',
@@ -36,15 +24,13 @@ type Article = {
     id: number;
 };
 
-export const load: PageLoad = async ({params, url}) => {
+export const load = async ({params, url}) => {
     const supabase = getClient();
     // article per slug
 
     const {data: artData, error: artErr} = await supabase
         .from('articles')
         .select('*')
-        // the slug is real
-        // @ts-ignore
         .eq('slug', params.slug);
     if (artErr || !artData || artData.length === 0) {
         throw sverror(404, 'Oh no, article not found.');
