@@ -1,38 +1,37 @@
 - [x] : add time parser 
-- [x] : style bits
+- [x] : style bitsi=
 - [x] : basic editor !!!
 - [ ] : add all options to editor (not just content)
 - [ ] : full editor
-- [ ] : search
-- [ ] : home page
-- [ ] : add meta stuff like descs (a lib for this or Svelte has smth built in?)
+- [x] : search
+- [x] : home page
+- [x] : add meta stuff like descs (a lib for this or Svelte has smth built in?)
 - [ ] : apply for google news
 - [x] : maybe add arbitrary code to arbitrary // done @html instead
-- [ ] : make Arbitrary styles scoped
 - [ ] : make header capitalization optional
-- [ ] : word count
+- [x] : word count
 - [ ] : make header colors an option
-- [ ] : figure out optimal seo tags
+- [x] : figure out optimal seo tags
 - [x] : maybe make half width quotes properly
 - [ ] : make runnable code blocks myself, mabye???
 - [ ] : setting to change accent color in editor
 - [ ] : markdown-it codesandbox embed
 - [ ] : remove unnecessary highlight.js styles
 - [x] : clean up whatever the hell is happening in page.svelte right now
-- [ ] : SERVER SIDE ONLY MARKDOWN RENDERING, SEND THE BAKED HTML ALREADY FROM THE STORAGE !!!!!
-- [ ] : make footer a bit more hitting (sorta done)
+- [x] : SERVER SIDE ONLY MARKDOWN RENDERING, SEND THE BAKED HTML ALREADY FROM THE STORAGE !!!!!
+- [x] : make footer a bit more hitting (sorta done)
 - [x] : previous article/next article
 - [ ] : style previous article/next article differently
 - [x] : implement previous/next with the backend
 - [ ] : comments
 - [ ] : figure out if isp or no isp
-- [ ] : experiment with just layout and page for articles
+- [x] : experiment with just layout and page for articles
 - [ ] : maybe autospace in md part of the editor to match article line height better?
 - [ ] : maybe revisit hand slightly
 - [ ] : remake hand anim later
 - [ ] : RSS
 - [ ] : add admin mode (edit articles and etc.)
-- [ ] : add article read time (~ very approx and idk humanely)
+- [x] : add article read time (~ very approx and idk humanely)
 - [ ] : fix stuck in search page / probably just making it fixed with a wrapper maybe
 - [ ] : make search cards different
 - [ ] : image based accent
