@@ -49,11 +49,6 @@
             {categoryNames}
     />
     <SearchRightMasonry {categories}/>
-        <!--        <ul>-->
-        <!--            &lt;!&ndash;{#each data.summaries as {slug, title}}&ndash;&gt;-->
-        <!--            &lt;!&ndash;    <li><a href="/articles/{slug}">{title}</a></li>&ndash;&gt;-->
-        <!--            &lt;!&ndash;{/each}&ndash;&gt;-->
-        <!--        </ul>-->
 </main>
 <style>
     :global {

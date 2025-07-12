@@ -8,6 +8,7 @@
             <img src="/img/logo.png" alt="Chaos Abyss logo">
         </a>
         <form method="GET" action="/articles" autocomplete="off">
+            <label for="query" class="sr-only">Search articles</label>
             <input name="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>
             <button class="sr-only">Search</button>
         </form>

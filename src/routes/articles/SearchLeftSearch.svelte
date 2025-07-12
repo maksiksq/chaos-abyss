@@ -13,7 +13,7 @@
             <div class="head-cont-up">
                 <h1>Results for:&nbsp; <span class="query-smol">{query}</span></h1>
                 <div class="head-item cat-dropdown-cont">
-                    <button onclick={() => {greg = !greg;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
+                    <button aria-label="Select category" onclick={() => {greg = !greg;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
                         Category: <br><span class="cat">{cat}</span>
                     </button>
                     {#if greg}

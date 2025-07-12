@@ -7,7 +7,7 @@
     <li>
         <article style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
             <a href={`articles/${summary.slug}`}>
-                <img src={summary.fig} alt={summary.figalt}/>
+                <img src={summary.fig} alt={summary.figalt} loading="lazy" />
                 <h4>{summary.title}</h4>
                 <p class="blurb">{summary.blurb}</p>
                 <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span> <span>✦ ~ {summary.time} {summary.time === 1 ? 'min' : 'mins'}</span>
