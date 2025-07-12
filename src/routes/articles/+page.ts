@@ -9,6 +9,7 @@ export const load = async ({url}) => {
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent')
         .neq('category', 'draft')
+        .order('date', { ascending: false });
     if (artErr || !articles) {
         throw error(500, 'Failed to load articles');
     }
