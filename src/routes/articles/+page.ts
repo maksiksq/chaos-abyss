@@ -30,13 +30,13 @@ export const load = async ({url}) => {
     let jsonLDArticles = articles.map((article: any, index: number) => ({
         "@type": "BlogPosting",
         "headline": article.title,
-        "url": `${url.href}/${article.slug}`,
+        "url": `https://chaos-abyss.com/articles/${article.slug}`,
         "position": index + 1,
     }));
 
     const meta = {
         title: "Articles",
-        canonUrl: url.href,
+        canonUrl: "https://chaos-abyss.com/articles",
         metaNamed: [
             {
                 name: "description",
@@ -48,7 +48,7 @@ export const load = async ({url}) => {
                 name: "twitter:description",
                 content: "Behold the freshest articles on Chaos Abyss"
             },
-            {name: "twitter:image", content: `${url.origin}/img/ogimg.png`}
+            {name: "twitter:image", content: "https://chaos-abyss.com/img/ogimg.png"}
         ],
         metaProperty: [
             {property: "og:type", content: "website"},
@@ -58,14 +58,14 @@ export const load = async ({url}) => {
                 property: "og:description",
                 content: "Behold the freshest articles on Chaos Abyss."
             },
-            {property: "og:url", content: url.href},
-            {property: "og:image", content: `${url.origin}/img/ogimg.png`}
+            {property: "og:url", content: "https://chaos-abyss.com/articles"},
+            {property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png"}
         ],
         jsonLD: {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Chaos Abyss",
-            "url": url.href,
+            "url": "https://chaos-abyss.com/articles",
             "mainEntity": {
                 "@type": "ItemList",
                 "itemListElement": jsonLDArticles,
@@ -137,7 +137,7 @@ export const load = async ({url}) => {
     jsonLDArticles = combinedArticles.map((article, index) => ({
         "@type": "BlogPosting",
         "headline": article.title,
-        "url": `${url.href}/${article.slug}`,
+        "url": `https://chaos-abyss.com/articles/${article.slug}`,
         "position": index + 1
     }));
     meta.jsonLD = jsonLDArticles;

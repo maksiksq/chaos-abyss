@@ -2,13 +2,13 @@ export const load = ({url}) => {
     return {
         meta: {
             title: "Contact",
-            canonUrl: url.href,
+            canonUrl: "https://chaos-abyss.com",
             metaNamed: [
                 { name: "description", content: "Contact page for Chaos Abyss. Slide into my inbox - it’s lonely in there." },
                 { name: "twitter:card", content: "summary_large_image" },
                 { name: "twitter:title", content: "Contact" },
                 { name: "twitter:description", content: "Contact page for Chaos Abyss. Slide into my inbox - it’s lonely in there." },
-                { name: "twitter:image", content: `${url.origin}/img/ogimg.png` }
+                { name: "twitter:image", content: "https://chaos-abyss.com/img/ogimg.png" }
             ],
             metaProperty: [
                 { property: "og:type", content: "website" },
@@ -16,13 +16,13 @@ export const load = ({url}) => {
                 { property: "og:title", content: "Contact" },
                 { property: "og:description", content: "Contact page for Chaos Abyss. Slide into my inbox - it’s lonely in there." },
                 { property: "og:url", content: url.href },
-                { property: "og:image", content: `${url.origin}/img/ogimg.png` }
+                { property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png" }
             ],
             jsonLD: {
                 "@context": "https://schema.org",
                 "@type": "ContactPage",
                 "name": "Contact",
-                "url": url.href,
+                "url": "https://chaos-abyss.com",
                 // look at him yapping about himself
                 "mainEntity": {
                     "@type": "Person",

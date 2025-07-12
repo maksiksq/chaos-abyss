@@ -2,13 +2,13 @@ export const load = ({url}) => {
     return {
         meta: {
             title: "Chaos Abyss",
-            canonUrl: url.href,
+            canonUrl: "https://chaos-abyss.com",
             metaNamed: [
                 { name: "description", content: "Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)." },
                 { name: "twitter:card", content: "summary_large_image" },
                 { name: "twitter:title", content: "Chaos Abyss" },
                 { name: "twitter:description", content: "Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)." },
-                { name: "twitter:image", content: `${url.origin}/img/ogimg.png` }
+                { name: "twitter:image", content: "https://chaos-abyss.com/img/ogimg.png" }
             ],
             metaProperty: [
                 { property: "og:type", content: "website" },
@@ -16,13 +16,13 @@ export const load = ({url}) => {
                 { property: "og:title", content: "Chaos Abyss" },
                 { property: "og:description", content: "Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)." },
                 { property: "og:url", content: url.href },
-                { property: "og:image", content: `${url.origin}/img/ogimg.png` }
+                { property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png" }
             ],
             jsonLD: {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "Chaos Abyss",
-                "url": url.href
+                "url": "https://chaos-abyss.com"
             }
         }
     };

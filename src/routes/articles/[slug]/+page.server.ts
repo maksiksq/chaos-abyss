@@ -24,7 +24,7 @@ type Article = {
     id: number;
 };
 
-export const load = async ({params, url}) => {
+export const load = async ({params}) => {
     const supabase = getClient();
     // article per slug
 
@@ -81,7 +81,7 @@ export const load = async ({params, url}) => {
 
     const meta = {
         title: capitalize(article.title),
-        canonUrl: url.href,
+        canonUrl: `https://chaos-abyss.com/articles/${params.slug}`,
         metaNamed: [
             { name: "description", content: article.blurb },
             { name: "twitter:card", content: "summary_large_image" },
@@ -94,7 +94,7 @@ export const load = async ({params, url}) => {
             { property: "og:locale", content: "en_US" },
             { property: "og:title", content: capitalize(article.title) },
             { property: "og:description", content: article.blurb },
-            { property: "og:url", content: url.href },
+            { property: "og:url", content: `https://chaos-abyss.com/articles/${params.slug}` },
             { property: "og:image", content: article.fig }
         ],
         jsonLD: {
@@ -107,7 +107,7 @@ export const load = async ({params, url}) => {
             },
             "name": article.title,
             "datePublished": toISODate(article.date),
-            "url": url.href
+            "url": `https://chaos-abyss.com/articles/${params.slug}`
         }
     };
 

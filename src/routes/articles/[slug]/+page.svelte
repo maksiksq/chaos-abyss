@@ -7,9 +7,9 @@
     const { data } = $props();
 
     let body: HTMLBodyElement | undefined = $state();
-    const accent = $state(data.article.accent);
 
     $effect(() => {
+        const accent = data.article.accent;
         tick().then(() => {
             const match = accent.match(/^oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)$/);
             if (!match) {
@@ -26,6 +26,8 @@
             const accentDeep = `oklch(${l}, ${c}, ${h})`;
 
             body?.style.setProperty('--accent-color', accent);
+            console.log("accent");
+            console.log($state.snapshot(accent));
             body?.style.setProperty('--accent-color-deeper', accentDeep);
         });
     })
