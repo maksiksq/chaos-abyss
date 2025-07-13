@@ -45,7 +45,6 @@
             padding: 0.2rem;
         }
 
-
         & h2 {
             margin-bottom: 1rem;
         }
@@ -56,6 +55,11 @@
             columns: 2;
             padding-bottom: 10px;
             transition: all 0.5s ease;
+
+            @media (max-width: 768px) {
+                columns: 1;
+                gap: 0.4rem;
+            }
 
             & .card {
                 break-inside: avoid;
@@ -73,6 +77,10 @@
                 & ul {
                     padding: 1rem 1rem 0.3rem 1rem;
                     list-style: none;
+
+                    @media (max-width: 768px) {
+                        padding: 0 1rem 0.3rem 1rem;
+                    }
                 }
             }
         }

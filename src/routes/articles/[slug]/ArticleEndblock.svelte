@@ -35,8 +35,19 @@
                 all: unset;
                 cursor: pointer;
 
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+
                 & span {
                     font-size: 1.1rem;
+
+                    @media (max-width: 768px) {
+                        border-top: 1px solid black;
+                        display: block;
+                        padding-top: 0.3rem;
+                        margin-top: 0.7rem;
+                    }
                 }
             }
         }

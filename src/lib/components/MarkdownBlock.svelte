@@ -1,7 +1,7 @@
 <script lang="ts">
     // !!!!!!!!!!!!!!!!!
     // The markdown is handled server side
-    // The this page only renders the html gotten from the server
+    // This page only renders the html gotten from the server
     // !!!!!!!!!!!!!!!!!
 
     import {onDestroy, onMount, tick} from "svelte";
@@ -111,26 +111,44 @@
             margin: 20px 0 0 0;
 
             & ul {
-                list-style:  none;
+                list-style: none;
+                margin-top: -1rem;
+                padding-bottom: 1rem;
+
+                & li::before {
+                    content: '✦ ';
+                }
             }
+
 
             & h2 {
                 font-size: 1.7rem;
                 line-height: 1.4;
+
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+                border-bottom: 1px solid black;
             }
 
             & h3 {
                 font-size: 1.4rem;
                 line-height: 1.4;
+
+                margin-top: 1rem;
+                margin-bottom: 1rem;
             }
 
             & h4 {
                 font-size: 1.2rem;
                 line-height: 1.4;
+
+                margin-top: 0.6rem;
+                margin-bottom: 1rem;
             }
 
             & p {
                 line-height: 1.8;
+                margin-bottom: 1rem;
             }
 
             & figure {
@@ -150,6 +168,7 @@
                 display: block;
                 margin-inline: auto;
                 max-width: 100%;
+                margin-top: 1rem;
             }
 
             & table {
@@ -207,14 +226,16 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                margin-top: 1rem;
+                margin-bottom: 3rem;
 
                 & img {
                     max-width: 100%;
                 }
 
                 & figcaption {
-                    margin-top: 10px;
-                    align-self: flex-start;
+                    margin-top: 1.2rem;
+                    align-self: center;
                 }
             }
         }

@@ -34,7 +34,7 @@
             <SearchSummaries data={results} {fromSearch}/>
         </ul>
     {:else if !fromSearch}
-        <small>Try searching something up there, or look at newest articles on the right.</small>
+        <small>Try searching something up there, or look at newest articles <span class="on-the-right"> on the right</span><span class="in-the-other-tab"> in the other tab</span>.</small>
     {/if}
     {#if !results || !fromSearch}
         <div class="lamp-wrap">
@@ -133,6 +133,17 @@
 
         & small {
             font-size: 0.9rem;
+
+            & .on-the-right {
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+            & .in-the-other-tab {
+                @media (min-width: 768px) {
+                    display: none;
+                }
+            }
         }
 
         & .lamp-wrap {

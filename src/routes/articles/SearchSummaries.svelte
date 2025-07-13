@@ -5,7 +5,7 @@
 </script>
 {#each data.summaries as summary}
     <li>
-        <article style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
+        <article class="mobile-article" style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
             <a href={`articles/${summary.slug}`}>
                 <img src={summary.fig} alt={summary.figalt} loading="lazy" />
                 <h4>{summary.title}</h4>
@@ -31,6 +31,26 @@
     </li>
 {/each}
 <style>
+    .mobile-article {
+        @media (max-width: 768px) {
+            & a {
+                display: flex;
+                flex-direction: column;
+                padding-top: 1rem;
+
+                & h4 {
+                    margin-left: 0;
+                    margin-top: 1rem;
+                }
+
+                & .blurb {
+                    margin-left: 0;
+                    margin-top: 0.2rem;
+                }
+            }
+        }
+    }
+
     li {
         & article {
             & a {
@@ -46,7 +66,6 @@
                     max-width: 100%;
                     height: auto;
                 }
-
 
                 & h4, .blurb {
                     display: -webkit-box;
