@@ -41,7 +41,8 @@
             <article>
                 <div class="head-fig-wrap">
                     <figure class="head-fig">
-                        <img src="/img/test-img.png" alt="{data.article.figalt}">
+                        <img class="widefig" src={data.article.widefig} alt="{data.article.figalt}">
+                        <img class="fig" src={data.article.fig} alt="{data.article.figalt}">
                         {#if (data.article.figcap)}
                             <figcaption>{data.article.figcap}</figcaption>
                         {/if}
@@ -55,16 +56,19 @@
 
                         <small class="blurb"><span>{data.article.blurb}</span></small>
                         <footer>
-                            <p>
+                            <div class="databloc">
                                 <time datetime={timestamptzToHumanDate(data.article.date)}>{timestamptzToHumanDate(data.article.date)} ✦&nbsp;</time>
-                            </p>
-                            <address>
-                                {data.wordcount}
-                                words written by&nbsp;
-                                <a rel="author" href={data.authorlink}>
-                                    {data.article.author}
-                                </a>
-                            </address>
+                                <address>
+                                    <p>
+                                        {data.wordcount}
+                                        words written by
+                                    </p>
+                                    <a rel="author" href={data.authorlink}>
+                                        {data.article.author}
+                                    </a>
+                                </address>
+                            </div>
+
                         </footer>
                     </header>
 
@@ -99,6 +103,19 @@
 
                 & .head-fig {
                     width: 100%;
+                    background-color: #ab67ff;
+
+                    & .widefig {
+                        @media (max-width: 768px) {
+                            display: none;
+                        }
+                    }
+
+                    & .fig {
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                    }
                 }
             }
 
@@ -108,6 +125,11 @@
                 box-sizing: border-box;
                 width: 100%;
                 margin: -10vh auto 0 auto;
+
+                @media (max-width: 768px) {
+                    margin: 2vh auto 0 auto;
+                    padding: 0 1.4rem;
+                }
 
                 & header {
                     padding-top: clamp(0.5rem, 1.2vw, 2rem);
@@ -129,6 +151,11 @@
 
                             font-weight: bolder;
                             font-family: 'Karla', sans-serif;
+
+                            @media (max-width: 768px) {
+                                font-size: 1.6rem;
+                                line-height: 2.5rem;
+                            }
                         }
                     }
 
@@ -141,6 +168,10 @@
 
                             font-family: 'Anonymous Pro', sans-serif;
                             font-weight: bolder;
+
+                            @media (max-width: 768px) {
+                                font-size: 1.1rem;
+                            }
                         }
                     }
 
@@ -153,28 +184,41 @@
                         background-color: color-mix(in hsl, var(--accent-color) 93%, black);
                         font-weight: bolder;
 
-                        & p {
+                        @media (max-width: 768px) {
+                            font-size: 1rem;
+                            margin-top: 0.3rem;
+                        }
+
+                        & .databloc {
+                            width: 100%;
+
                             & time {
                                 font-family: 'Anonymous Pro', sans-serif;
                             }
-                        }
 
-                        & address {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: flex-end;
+                            & address {
+                                display: inline;
 
-                            font-family: 'Anonymous Pro', sans-serif;
-                            font-style: normal;
+                                font-family: 'Anonymous Pro', sans-serif;
+                                font-style: normal;
 
-                            & a {
-                                cursor: pointer;
+                                & * {
+                                    display: inline;
+                                    font-family: 'Anonymous Pro', sans-serif;
+                                    font-style: normal;
+                                }
 
-                                &:hover {
-                                    text-decoration: underline;
+                                & a {
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
                                 }
                             }
                         }
+
+
                     }
                 }
             }

@@ -12,7 +12,7 @@
     <li class={`social so-${social} ${fromContact ? 'inline' : ''}`}>
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <a href={social.link} rel={fromContact ? "me" : undefined}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <svg xmlns="http://www.w3.org/2000/svg" class="{social.text === 'Ko-fi' ? 'ko-fi' : ''}" viewBox="0 0 512 512">
                 <path d={social.icon}/>
             </svg>
             {social.text}
@@ -52,6 +52,11 @@
                 height: 1.2rem;
                 padding-right: 0.5rem;
                 fill: currentColor;
+            }
+
+            & .ko-fi {
+                padding-right: 0.3rem;
+                width: 1.4rem;
             }
         }
     }

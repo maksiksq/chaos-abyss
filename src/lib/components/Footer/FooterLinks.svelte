@@ -9,6 +9,10 @@
             link: '/',
         },
         {
+            text: 'Articles',
+            link: '/articles',
+        },
+        {
             text: 'About',
             link: '/about',
         },

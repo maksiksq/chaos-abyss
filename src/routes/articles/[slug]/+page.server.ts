@@ -13,6 +13,7 @@ type Article = {
     slug: string;
     title: string;
     fig: string;
+    widefig: string;
     figcap?: string;
     figalt: string;
     blurb: string;
