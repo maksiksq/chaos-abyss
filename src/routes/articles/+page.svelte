@@ -2,6 +2,7 @@
     import Header from "$lib/components/Header.svelte";
     import SearchRightMasonry from "./SearchRightMasonry.svelte";
     import SearchLeftSearch from "./SearchLeftSearch.svelte";
+    import {onMount} from "svelte";
 
     type Summary = {
         category: string;
@@ -37,18 +38,40 @@
     // Miscellaneous
     // Later ? Design
     // Later ? Electronics
-</script>
+
+    let mobile = $state();
+    const checkIfMobile = () => {
+        mobile = window.matchMedia('(max-width: 768px)').matches;
+    }
+    let mobileSearch = $state(false);
+    let mobileSearchDerived = $derived(mobile ? (mobileSearch ? 'yes' : 'no')  : 'desktop');
+
+    onMount(() => {
+        checkIfMobile();
+    })
+    $inspect(mobileSearchDerived)
+ </script>
+
+<svelte:window onload={checkIfMobile} onresize={checkIfMobile} />
 
 <Header/>
 <main>
-    <SearchLeftSearch
-            results={data.results}
-            fromSearch={data.fromSearch}
-            cat={data.cat}
-            query={data.query}
-            {categoryNames}
-    />
+    <section class="mobile-switcher">
+        <button onclick={() => {mobileSearch = false}}>Newest Articles</button>
+        <button onclick={() => {mobileSearch = true}}>Search</button>
+    </section>
+    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
+        <SearchLeftSearch
+                results={data.results}
+                fromSearch={data.fromSearch}
+                cat={data.cat}
+                query={data.query}
+                {categoryNames}
+        />
+    {/if}
+    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'yes'}
     <SearchRightMasonry {categories}/>
+    {/if}
 </main>
 <style>
     :global {
@@ -70,5 +93,17 @@
         box-sizing: border-box;
 
         min-height: 200vh;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            min-height: 1vh;
+            height: 100%;
+        }
+
+        & .mobile-switcher {
+            @media (min-width: 768px) {
+                display: none;
+            }
+        }
     }
 </style>
