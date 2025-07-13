@@ -5,7 +5,7 @@
 <header>
     <nav>
         <a href="/" class="logo-link" aria-label="Home">
-            <img src="/img/logo.png" alt="Chaos Abyss logo">
+            <img class="logo" src="/img/calogonotext.svg" alt="Chaos Abyss logo">
         </a>
         <form method="GET" action="/articles" autocomplete="off">
             <label for="query" class="sr-only">Search articles</label>
@@ -24,7 +24,7 @@
                       stroke="black"/>
             </svg>
         {/if}
-        <a class="about" style="margin-left: {home ? 'unset' : 'auto'}" href="/about">
+        <a class="about {home ? 'about-home' : ''}" href="/about">
             About
         </a>
     </nav>
@@ -44,11 +44,26 @@
 
             & .logo-link {
                 margin-left: 1vw;
-                margin-right: 2vw;
-                height: 32px;
+                border-bottom:  1px solid black;
+                margin-right: 1vw;
+                margin-top: -0.1vw;
+                height: 100%;
+
+                display: flex;
+                align-items: center;
 
                 & img {
-                    height: 2rem;
+                    width: 100%;
+                    height: 3.5rem;
+
+                    @media (max-width: 768px) {
+                        width: 3rem;
+                        height: 5rem;
+                    }
+
+                    @media (max-width: 420px) {
+                        height: 3.5rem;
+                    }
                 }
             }
 
@@ -56,10 +71,14 @@
                 margin-right: 2vw;
 
                 padding: 12px 8px 8px 8px;
-                background-color: #f5f5f5;
+                background-color: #ededed;
                 border: none;
                 border-radius: 32px;
                 width: 15vw;
+
+                @media (max-width: 768px) {
+                    width: 40vw;
+                }
             }
 
             & .search::placeholder {
@@ -75,6 +94,22 @@
             & .fourth-wall {
                 align-self: flex-start;
                 margin-left: auto;
+
+                @media (max-width: 768px) {
+                    padding-right: 1vw;
+                }
+
+                @media (max-width: 420px) {
+                    display: none;
+                }
+            }
+
+            .about-home {
+                margin-left: unset;
+
+                @media (max-width: 420px) {
+                    margin-left: auto;
+                }
             }
 
             & .about {
@@ -83,6 +118,10 @@
                 margin-left: auto;
                 position: relative;
                 z-index: 99999;
+
+                @media (max-width: 420px) {
+                    padding-right: 5vw;
+                }
             }
         }
     }

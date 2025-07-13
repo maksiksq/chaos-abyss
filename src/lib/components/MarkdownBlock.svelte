@@ -149,7 +149,7 @@
             & img {
                 display: block;
                 margin-inline: auto;
-                max-width: 80%;
+                max-width: 100%;
             }
 
             & table {
@@ -209,7 +209,7 @@
                 align-items: center;
 
                 & img {
-                    max-width: 80%;
+                    max-width: 100%;
                 }
 
                 & figcaption {

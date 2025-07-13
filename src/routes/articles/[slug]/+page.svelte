@@ -41,7 +41,7 @@
             <article>
                 <div class="head-fig-wrap">
                     <figure class="head-fig">
-                        <img src="{data.article.fig}" alt="{data.article.figalt}">
+                        <img src="/img/test-img.png" alt="{data.article.figalt}">
                         {#if (data.article.figcap)}
                             <figcaption>{data.article.figcap}</figcaption>
                         {/if}
@@ -103,7 +103,7 @@
             }
 
             & .content {
-                max-width: 900px;
+                max-width: 800px;
                 width: 100%;
                 margin: -10vh auto 0 auto;
 
@@ -185,7 +185,7 @@
                 margin: 0 auto;
 
                 & img {
-                    max-width: 80%;
+                    max-width: 100%;
                 }
 
                 & figcaption {
