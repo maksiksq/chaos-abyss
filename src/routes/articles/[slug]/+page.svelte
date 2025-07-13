@@ -140,7 +140,6 @@
 
                     & h1 {
                         & span {
-                            text-transform: capitalize;
                             padding: 5px 5px 0 5px;
                             background-color: var(--accent-color);
                             display: inline;

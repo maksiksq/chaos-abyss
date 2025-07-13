@@ -252,7 +252,8 @@
 
             @media (max-width: 728px) {
                 padding-right: 1.5rem;
-                width: 3rem;
+                padding-left: 0.3rem;
+                width: 3.5rem;
             }
         }
 

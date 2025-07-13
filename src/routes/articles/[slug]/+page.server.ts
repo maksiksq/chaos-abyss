@@ -70,8 +70,6 @@ export const load = async ({params}) => {
 
     // seo
 
-    const capitalize = (str: string) => str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-
     const toISODate = (dateString: string): string => {
         const date = new Date(dateString);
         if (isNaN(date.getTime())) {
@@ -81,19 +79,19 @@ export const load = async ({params}) => {
     };
 
     const meta = {
-        title: capitalize(article.title),
+        title: article.title,
         canonUrl: `https://chaos-abyss.com/articles/${params.slug}`,
         metaNamed: [
             { name: "description", content: article.blurb },
             { name: "twitter:card", content: "summary_large_image" },
-            { name: "twitter:title", content: capitalize(article.title) },
+            { name: "twitter:title", content: article.title },
             { name: "twitter:description", content: article.blurb },
             { name: "twitter:image", content: article.fig }
         ],
         metaProperty: [
             { property: "og:type", content: "article" },
             { property: "og:locale", content: "en_US" },
-            { property: "og:title", content: capitalize(article.title) },
+            { property: "og:title", content: article.title },
             { property: "og:description", content: article.blurb },
             { property: "og:url", content: `https://chaos-abyss.com/articles/${params.slug}` },
             { property: "og:image", content: article.fig }
