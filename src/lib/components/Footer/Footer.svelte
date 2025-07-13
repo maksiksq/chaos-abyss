@@ -206,7 +206,7 @@
     </div>
     <div class="footer-mid">
         {#if !home}
-            <p>Your attention nourishes the void.</p>
+            <p class="void-txt">Your attention nourishes the void.</p>
         {:else}
             <a href="https://github.com/maksiksq/chaos-abyss" class="open-sauce" title="github repo">Curious how this
                 site works? It's open source! <br>
@@ -291,6 +291,7 @@
         position: relative;
 
         @media (max-width: 728px) {
+            height: 100%;
             flex-direction: column;
         }
 
@@ -351,6 +352,12 @@
 
                 @media (max-width: 728px) {
                     width: 80%;
+                }
+            }
+
+            & .void-txt {
+                @media (max-width: 728px) {
+                    margin-top: 10vh;
                 }
             }
         }
