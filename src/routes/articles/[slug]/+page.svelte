@@ -103,7 +103,9 @@
             }
 
             & .content {
-                max-width: 800px;
+                max-width: 840px;
+                padding: 0 2rem;
+                box-sizing: border-box;
                 width: 100%;
                 margin: -10vh auto 0 auto;
 
