@@ -123,6 +123,7 @@
                 font-size: 1.4rem;
                 line-height: 1.4;
             }
+
             & h4 {
                 font-size: 1.2rem;
                 line-height: 1.4;

@@ -103,7 +103,7 @@
             }
 
             & .content {
-                max-width: 1000px;
+                max-width: 900px;
                 width: 100%;
                 margin: -10vh auto 0 auto;
 
