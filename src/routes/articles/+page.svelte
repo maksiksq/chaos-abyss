@@ -57,10 +57,10 @@
 <Header/>
 <main>
     <section class="mobile-switcher">
-        <button onclick={() => {mobileSearch = false}}>Newest Articles</button>
-        <button onclick={() => {mobileSearch = true}}>Search</button>
+        <button onclick={() => {mobileSearch = false}} style={mobileSearch ? '' : 'color: black'}>Newest Articles</button>
+        <button onclick={() => {mobileSearch = true}} style={mobileSearch ? "color: black" : ''}>Search</button>
     </section>
-    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
+    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'yes'}
         <SearchLeftSearch
                 results={data.results}
                 fromSearch={data.fromSearch}
@@ -69,7 +69,7 @@
                 {categoryNames}
         />
     {/if}
-    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'yes'}
+    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
     <SearchRightMasonry {categories}/>
     {/if}
 </main>
@@ -101,8 +101,22 @@
         }
 
         & .mobile-switcher {
+            align-self: flex-end;
+            display: flex;
+            justify-content: flex-end;
+            width: 60%;
+            padding: 1rem 0;
+            color: #666666;
+            border-bottom: 1px solid black;
+            transition: color 0.2s;
+
             @media (min-width: 768px) {
                 display: none;
+            }
+
+            & button {
+                all: unset;
+                font-size: 0.8rem;padding-right: 1rem;
             }
         }
     }

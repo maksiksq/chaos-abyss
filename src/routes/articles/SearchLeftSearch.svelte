@@ -38,7 +38,7 @@
     {/if}
     {#if !results || !fromSearch}
         <div class="lamp-wrap">
-            <img class="lamp" src="/img/lamp.svg" alt="a dim lamp (no search results)">
+            <img class="lamp" src="/img/lamp-but-actually-centered.svg" alt="a dim lamp (no search results)">
             {#if fromSearch && !results}
                 <p>The abyss gave no reply.</p>
             {:else if !fromSearch}
@@ -56,6 +56,12 @@
     .search-seg {
         width: 40%;
         padding-right: 1rem;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 1rem;
+        }
 
         & .head-cont {
             display: flex;
@@ -146,6 +152,10 @@
             * {
                 padding-right: 2rem;
                 color: #666666;
+
+                @media (max-width: 768px) {
+                    padding-right: 0;
+                }
             }
         }
 

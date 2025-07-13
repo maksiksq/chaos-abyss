@@ -39,6 +39,13 @@
         display: flex;
         flex-direction: column;
 
+        @media (max-width: 768px) {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.2rem;
+        }
+
+
         & h2 {
             margin-bottom: 1rem;
         }
