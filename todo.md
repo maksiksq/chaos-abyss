@@ -54,35 +54,36 @@
 - [ ] : images via couldflare images 
 - [x] : seo images on article page
 - [x] : maybe make seo default layout actually use route instead of just yoinking the meta? I'm not sure if it's ok anyway although it does seem like so
-- [ ] : fix searchbar caret
-- [ ] : color associations for more things (notably articles feats)
+- [ ] : later: fix searchbar caret
+- [ ] : later: color associations for more things (notably articles feats)
 - [x] : add sitemap
-- [ ] : do seo for all other pages
-- [ ] : add more functions to editor
-- [ ] : plug editor in
-- [ ] : add editor auth
-- [ ] : add more easter eggs
-- [ ] : write the articles
-- [ ] : redirect vercel domains to chaos-abyss.com
+- [x] : do seo for all other pages
+- [ ] : editor: add more functions to editor
+- [ ] : editor: plug editor in
+- [ ] : editor: add editor auth
+- [ ] : later: add more easter eggs yes please
+- [ ] : later: write the articles !!!
+- [ ] : prod: redirect vercel domains to chaos-abyss.com
 - [x] : hardcode the domain (again ....)
-- [ ] : submit sitemap to search console
-- [ ] : check for mistakes
-- [ ] : handle drafts later
-- [ ] : add burger for phone
-- [ ] : and make the header responsive while you're at it
-- [ ] : make footer responsive
-- [ ] : make minor edits to responsive once you have the domain
-- [ ] : add categories to url
-- [ ] : admin: make slug manual
-- [ ] : make sure zoom is more or less responsive
+- [ ] : prod: submit sitemap to search console
+- [ ] : later: check for mistakes
+- [ ] : editor: handle drafts later
+  <br>~~- [ ] : scrap: add burger for phone~~
+- [x] : and make the header responsive while you're at it
+- [x] : make footer responsive
+- [x] : make minor edits to responsive once you have the domain ; used --host instead
+- [x] : add categories to url
+- [ ] : editor: admin: make slug manual
+- [x] : make sure zoom is more or less responsive
 - [ ] : later: kofi maybe??? (maybe plug) 
 - [ ] : admin: mark articles as yearly (should be cool on dashboard)
 - [ ] : later: fix svelte vs vue vs react formatting
 - [x] : separate head fig and banner fig
-- [x] : scrap: change head fig bg to something other than accent color
-- [x] : scrap: maybe make head fig shadow more intense (or keep it)
+  <br>~~- [x] : scrap: change head fig bg to something other than accent color~~
+  <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 - [ ] : prod: check if sitemap also updates weirdly in production
 - [x] : maybe remove read time. It hurts well-researched stuff
+i should really use like Trello for this
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
