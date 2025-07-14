@@ -49,6 +49,7 @@
         ctaButtonFake.style.marginTop = "3.3rem";
         ctaButtonFake.style.marginLeft = "0.4rem";
     }
+
 </script>
 
 <svelte:head>
@@ -109,7 +110,12 @@
             margin-left: 1rem;
             border-left: 3px solid #242525;
 
+            @media (max-width: 1279px) {
+                margin-top: 4rem;
+            }
+
             @media (max-width: 768px) {
+                margin-top: 0;
                 margin-left: 0.3rem;
                 border-left: 1px solid #242525;
             }
@@ -126,9 +132,14 @@
                 color: #242525;
                 border-bottom: 3px solid #242525;
 
+                @media (max-width: 1279px) {
+                    font-size: 4rem;
+                }
+
                 @media (max-width: 768px) {
                     padding-left: 0.7rem;
                     border-bottom: 1px solid #242525;
+                    font-size: 5rem;
                 }
                 @media (max-width: 420px) {
                     font-size: 5rem;
@@ -261,8 +272,11 @@
 
             video {
                 height: 120%;
+                @media (max-width: 1279px) {
+                    width: 60%;
+                }
 
-                @media (max-width: 768px) {
+                @media (max-width: 767px) {
                     width: 80%;
                 }
             }

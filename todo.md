@@ -1,5 +1,5 @@
-- [x] : add time parser 
-- [x] : style bitsi=
+- [x] : scrap: add time parser 
+- [x] : style bits
 - [x] : basic editor !!!
 - [ ] : add all options to editor (not just content)
 - [ ] : full editor
@@ -36,11 +36,11 @@
 - [ ] : make search cards different
 - [ ] : image based accent
 - [x] : db
-- [ ] : use dates, not strings
+- [x] : use dates, not strings
 - [ ] : setup drafts in the db
 - [ ] : responsive the hell of it
 - [ ] : dark mode (proper color matched gonna be hard)
-- [ ] : cdn
+- [x] : cdn ; did external service but same thing
 - [ ] : add sources block
 - [ ] : maybe later add search suggestions
 - [x] : restyle articles page a bit
@@ -73,15 +73,15 @@
 - [ ] : make footer responsive
 - [ ] : make minor edits to responsive once you have the domain
 - [ ] : add categories to url
-- [ ] : make slug manual
-- [ ] : make sure zoom is responsive
-- [ ] : kofi maybe???
-- [ ] : mark articles as yearly
-- [ ] : fix svelte vs vue vs react formatting
+- [ ] : admin: make slug manual
+- [ ] : make sure zoom is more or less responsive
+- [ ] : later: kofi maybe??? (maybe plug) 
+- [ ] : admin: mark articles as yearly (should be cool on dashboard)
+- [ ] : later: fix svelte vs vue vs react formatting
 - [x] : separate head fig and banner fig
-- [ ] : change head fig bg to something other than accent color
-- [ ] : scrap: maybe make head fig shadow more intense (or keep it)
-- [ ] : check if sitemap also updates weirdly in production
+- [x] : scrap: change head fig bg to something other than accent color
+- [x] : scrap: maybe make head fig shadow more intense (or keep it)
+- [ ] : prod: check if sitemap also updates weirdly in production
 - [x] : maybe remove read time. It hurts well-researched stuff
 
 workflow:

@@ -246,11 +246,25 @@
         cursor: pointer;
         gap: 0.1rem;
 
+        @media (max-width: 1279px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 767px) {
+            flex-direction: row;
+        }
+
         & svg {
             display: inline;
             width: 3rem;
 
-            @media (max-width: 728px) {
+            @media (max-width: 1279px) {
+                padding-top: 1rem;
+                width: 2rem;
+            }
+
+            @media (max-width: 767px) {
+                padding-top: 0;
                 padding-right: 1.5rem;
                 padding-left: 0.3rem;
                 width: 3.5rem;
@@ -277,6 +291,10 @@
         height: 1px;
         background: #000000;
 
+        @media (max-width: 1279px) {
+            display: none;
+        }
+
         @media (max-width: 728px) {
             top: -8.5rem;
             width: 34%;
@@ -296,7 +314,7 @@
         margin-top: 4rem;
         position: relative;
 
-        @media (max-width: 728px) {
+        @media (max-width: 767px) {
             height: 100%;
             flex-direction: column;
         }
@@ -310,6 +328,10 @@
 
             margin-bottom: 3rem;
 
+            @media (max-width: 1279px) {
+                width: 20%;
+            }
+
             @media (max-width: 728px) {
                 width: 100%;
                 order: 2;
@@ -318,6 +340,11 @@
             & img {
                 height: 100%;
                 user-select: none;
+
+                @media (max-width: 1279px) {
+                    height: 30%;
+                    width: 30%;
+                }
 
                 @media (max-width: 728px) {
                     height: 70%;
@@ -346,9 +373,15 @@
             /* approximate, doesn't actually matter */
             margin-bottom: calc(22.66vh - clamp(0px, 3rem, 4rem));
 
+            @media (max-width: 1279px) {
+                width: 50%;
+                padding: 0 4rem;
+            }
+
             @media (max-width: 728px) {
                 width: 100%;
                 order: 1;
+                padding: 0;
             }
 
             & p {
@@ -378,6 +411,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
+
+            @media (max-width: 1279px) {
+                width: 40%;
+            }
 
             @media (max-width: 728px) {
                 width: 98%;
