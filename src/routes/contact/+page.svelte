@@ -73,7 +73,7 @@
             padding-top: clamp(0.5rem, 6rem, 3rem);
             margin: 0 auto;
 
-            @media (max-width: 768px) {
+            @media (max-width: 1279px) {
                 display: flex;
                 flex-direction: column;
                 padding: 1rem;
@@ -104,7 +104,13 @@
                 border: 3px solid black;
                 width: 100%;
 
-                @media (max-width: 768px) {
+                @media (max-width: 1279px) {
+                    margin-left: 0;
+                    width: 30%;
+                }
+
+                @media (max-width: 767px) {
+                    width: 100%;
                     margin-left: 0;
                 }
             }
