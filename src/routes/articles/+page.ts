@@ -2,6 +2,7 @@ import {error} from "@sveltejs/kit";
 
 import Fuse from "fuse.js";
 import {getClient} from "$lib/utils/getSupabaseClient";
+import {escapeHTML} from "$lib/utils/escapeHTML";
 const baseUrl = "https://chaos-abyss.com";
 
 export const load = async ({url}) => {
@@ -89,13 +90,6 @@ export const load = async ({url}) => {
         }
     }
 
-    const escapeHTML = (str: string) =>
-        str.replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-
     query = escapeHTML(query);
 
     const updateMeta = (
@@ -182,7 +176,7 @@ export const load = async ({url}) => {
     jsonLDArticles = combinedArticles.map((article, index) => ({
         "@type": "BlogPosting",
         "headline": article.title,
-        "url": `${baseUrl}/articles/${article.slug}`,
+        "url": `${baseUrl}/articles/${article.category}/${article.slug}`,
         "position": index + 1
     }));
     meta.jsonLD.mainEntity.itemListElement = jsonLDArticles;

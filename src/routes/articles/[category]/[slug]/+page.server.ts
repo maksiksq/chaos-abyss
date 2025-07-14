@@ -1,5 +1,6 @@
 import {error as sverror} from "@sveltejs/kit";
 import {getClient} from "$lib/utils/getSupabaseClient";
+import {escapeHTML} from "$lib/utils/escapeHTML";
 
 export const prerender = 'auto';
 
@@ -20,7 +21,7 @@ export const load = async ({params}) => {
         .eq('slug', params.slug)
         .ilike('category', slugcat)
         .single();
-    if (artErr || !article || article.length === 0) {
+    if (artErr || !article ) {
         throw sverror(404, 'Oh no, article not found.');
     }
 
@@ -67,40 +68,40 @@ export const load = async ({params}) => {
     };
 
     const meta = {
-        title: article.title,
-        canonUrl: `https://chaos-abyss.com/articles/${slugcat}/${params.slug}`,
+        title: escapeHTML(article.title),
+        canonUrl: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`,
         metaNamed: [
-            { name: "description", content: article.blurb },
+            { name: "description", content: escapeHTML(article.blurb) },
             { name: "twitter:card", content: "summary_large_image" },
-            { name: "twitter:title", content: article.title },
-            { name: "twitter:description", content: article.blurb },
+            { name: "twitter:title", content: escapeHTML(article.title) },
+            { name: "twitter:description", content: escapeHTML(article.blurb) },
             { name: "twitter:image", content: article.fig }
         ],
         metaProperty: [
             { property: "og:type", content: "article" },
             { property: "og:locale", content: "en_US" },
-            { property: "og:title", content: article.title },
-            { property: "og:description", content: article.blurb },
-            { property: "og:url", content: `https://chaos-abyss.com/articles/${slugcat}/${params.slug}` },
+            { property: "og:title", content: escapeHTML(article.title) },
+            { property: "og:description", content: escapeHTML(article.blurb) },
+            { property: "og:url", content: `https://chaos-abyss.com/articles/${article.category}/${params.slug}` },
             { property: "og:image", content: article.fig }
         ],
         jsonLD: {
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": article.title,
+            "headline": escapeHTML(article.title),
             "author": {
                 "@type": "Person",
                 "name": article.author
             },
-            "name": article.title,
+            "name": escapeHTML(article.title),
             "datePublished": toISODate(article.date),
-            "url": `https://chaos-abyss.com/articles/${slugcat}/${params.slug}`
+            "url": `https://chaos-abyss.com/articles/${article.category}/${params.slug}`
         }
     };
 
     // misc
 
-    const wordcount = article.content.trim().split(/\s+/).length;
+    const wordcount = article.content.trim().replace(/\s+/g, ' ').split(' ').length;
     const authorlink = authors.find(author => author.name === article.author)?.link;
 
     return {
