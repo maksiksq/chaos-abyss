@@ -19,12 +19,12 @@
                 a very deep <span style="color: #666666; cursor: pointer"
                                   onclick={() => {const audio = new Audio('/audio/ba-dum-tss.mp3'); audio.play()}}
                                   onkeydown={() => {}} tabindex="-3" role="button">(ba dum tss)</span> metaphor. You can
-                interpret it however you wish though.<br><br> <strong>You might see:</strong> <br>- Overanalysis of things that probably don’t need it. <br>- Occasional shouting into the void. <br>- Mild chaos, some abyss. <br>- Unhinged passion for details.<br> - Lore. Wait no. </p>
+                interpret it however you wish though.<br><br> <strong>You might see:</strong> <br>- Occasional shouting into the void. <br>- Mild chaos, some abyss. <br>- Unhinged passion for details.<br> - Lore. Wait no. Maybe. <br>- Overanalysis of things that probably don’t need it. </p>
         </section>
         <section class="content">
             <img class="pfp" src="/img/pfp40likesmth.png" alt="Maksiks profile pic" loading="lazy"/>
             <h1>Who is behind all this</h1>
-            <p>Muhahaha - I'm Maksiks, an incredibly tired wizard individual. <br><br>I live in Ukraine <img
+            <p class="content-text">Muhahaha - I'm Maksiks, an incredibly tired wizard individual. <br><br>I live in Ukraine <img
                     class="smol" src="/img/flag-ua.png" alt="Ukrainian flag"> and it's fun here, plus we have pierogi,
                 and they're crazy good. And I recommend you visit here someday.<br><br> My main thing is web development,
                 but I do have a lot of interests and passions, a lot more than I should. <br><br> I
@@ -67,7 +67,6 @@
 
             @media (max-width: 768px) {
                 flex-direction: column;
-                padding: 1rem;
                 box-sizing: border-box;
             }
 
@@ -76,9 +75,14 @@
                 padding: 1rem;
                 box-sizing: border-box;
 
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+
                 & h2 {
                     font-weight: bolder;
                     font-family: 'Roboto Slab', sans-serif;
+                    margin-bottom: 1rem;
                 }
             }
 
@@ -89,15 +93,31 @@
                 padding: 1rem;
                 box-sizing: border-box;
 
+                @media (max-width: 768px) {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
+
                 & h1 {
                     font-family: 'Roboto Slab', sans-serif;
                     padding-bottom: 1rem;
+
+                    @media (max-width: 768px) {
+                        order: 1;
+                    }
                 }
 
-                & .smol {
-                    display: inline;
-                    width: 1rem;
-                    vertical-align: middle;
+                .content-text {
+                    & .smol {
+                        display: inline;
+                        width: 1rem;
+                        vertical-align: middle;
+                    }
+
+                    @media (max-width: 768px) {
+                        order: 3;
+                    }
                 }
 
                 & .pfp {
@@ -110,10 +130,11 @@
                     float: right;
 
                     @media (max-width: 768px) {
+                        align-self: center;
+                        margin: 0 0 1rem  0;
                         display: block;
-                        float: right;
-
-                        margin: 1rem auto 0.2rem auto;
+                        float: none;
+                        order: 2;
                     }
                 }
             }
