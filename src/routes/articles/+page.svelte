@@ -43,7 +43,7 @@
 
     let mobile = $state();
     const checkIfMobile = () => {
-        mobile = window.matchMedia('(max-width: 768px)').matches;
+        mobile = window.matchMedia('(max-width: 1023px)').matches;
     }
     let mobileSearch = $state(data.fromSearch);
     let mobileSearchDerived = $derived(mobile ? (mobileSearch ? 'yes' : 'no')  : 'desktop');
@@ -97,7 +97,7 @@
 
         min-height: 200vh;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1023px) {
             flex-direction: column;
             min-height: 1vh;
             height: 100%;
@@ -113,7 +113,7 @@
             border-bottom: 1px solid black;
             transition: color 0.2s;
 
-            @media (min-width: 768px) {
+            @media (min-width: 1023px) {
                 display: none;
             }
 
