@@ -1,51 +1,51 @@
-- [x] : scrap: add time parser 
+<br>~~- [x] : scrap: add time parser~~
 - [x] : style bits
 - [x] : basic editor !!!
-- [ ] : add all options to editor (not just content)
-- [ ] : full editor
+- [ ] : editor: add all options to editor (not just content)
+- [ ] : editor: full editor
 - [x] : search
 - [x] : home page
 - [x] : add meta stuff like descs (a lib for this or Svelte has smth built in?)
-- [ ] : apply for google news
+- [ ] : later: apply for google news
 - [x] : maybe add arbitrary code to arbitrary // done @html instead
-- [ ] : make header capitalization optional
+<br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
 - [x] : word count
-- [ ] : make header colors an option
+- [ ] : editor: make header colors an option
 - [x] : figure out optimal seo tags
 - [x] : maybe make half width quotes properly
-- [ ] : make runnable code blocks myself, mabye???
-- [ ] : setting to change accent color in editor
-- [ ] : markdown-it codesandbox embed
-- [ ] : remove unnecessary highlight.js styles
+- [ ] : maybe: make runnable code blocks myself, mabye???
+- [ ] : editor: setting to change accent color in editor
+- [ ] : later: markdown-it codesandbox embed
+- [ ] : later: remove unnecessary highlight.js styles
 - [x] : clean up whatever the hell is happening in page.svelte right now
 - [x] : SERVER SIDE ONLY MARKDOWN RENDERING, SEND THE BAKED HTML ALREADY FROM THE STORAGE !!!!!
 - [x] : make footer a bit more hitting (sorta done)
 - [x] : previous article/next article
-- [ ] : style previous article/next article differently
+- [ ] : maybe: style previous article/next article differently
 - [x] : implement previous/next with the backend
-- [ ] : comments
-- [ ] : figure out if isp or no isp
+- [ ] : later: comments
+- [ ] : later: figure out if isp or no isp
 - [x] : experiment with just layout and page for articles
-- [ ] : maybe autospace in md part of the editor to match article line height better?
-- [ ] : maybe revisit hand slightly
-- [ ] : remake hand anim later
-- [ ] : RSS
-- [ ] : add admin mode (edit articles and etc.)
+- [ ] : editor: maybe autospace in md part of the editor to match article line height better?
+- [ ] : very later: maybe revisit hand slightly
+- [ ] : very later: remake hand anim later
+- [ ] : later: RSS
+- [ ] : later: add admin mode (edit articles and etc.)
 - [x] : add article read time (~ very approx and idk humanely)
-- [ ] : fix stuck in search page / probably just making it fixed with a wrapper maybe
-- [ ] : make search cards different
-- [ ] : image based accent
+- [ ] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe
+- [x] : make search cards different
+- [ ] : later: image based accent
 - [x] : db
 - [x] : use dates, not strings
-- [ ] : setup drafts in the db
-- [ ] : responsive the hell of it
-- [ ] : dark mode (proper color matched gonna be hard)
+- [ ] : editor: setup drafts in the db
+- [x] : responsive the hell of it
+- [ ] : maybe: dark mode (proper color matched gonna be hard)
 - [x] : cdn ; did external service but same thing
-- [ ] : add sources block
-- [ ] : maybe later add search suggestions
+- [ ] : later: add sources block
+- [ ] : very later: maybe later add search suggestions
 - [x] : restyle articles page a bit
-- [ ] : maybe more search filters in the future
-- [ ] : check if search article is most relevant
+- [ ] : very later: maybe more search filters in the future
+- [x] : check if search article is most relevant ? i didn't sort them but it's alr probably
 - [x] : move all logic to client where necessary
 - [x] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think ; Svelte doesn't do it anyway
 - [ ] : editor: fix editor for db and stuff
@@ -83,6 +83,9 @@
   <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 - [ ] : prod: check if sitemap also updates weirdly in production
 - [x] : maybe remove read time. It hurts well-researched stuff
+
+
+
 i should really use like Trello for this
 
 workflow:
