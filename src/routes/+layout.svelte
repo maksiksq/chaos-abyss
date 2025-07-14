@@ -18,6 +18,13 @@
 <svelte:head>
     <title>{meta?.title ?? 'Chaos Abyss'}</title>
     {#if meta}
+        <!-- !!! -->
+        {#if meta.noindex}
+            <meta name="robots" content="noindex, follow">
+        {:else }
+            <meta name="robots" content="index, follow" />
+        {/if}
+
         {#each metasNamed ?? [] as meta}
             <meta name={meta.name} content={meta.content}/>
         {/each}

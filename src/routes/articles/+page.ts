@@ -2,12 +2,13 @@ import {error} from "@sveltejs/kit";
 
 import Fuse from "fuse.js";
 import {getClient} from "$lib/utils/getSupabaseClient";
+const baseUrl = "https://chaos-abyss.com";
 
 export const load = async ({url}) => {
     const supabase = getClient();
     const {data: articles, error: artErr} = await supabase
         .from('articles')
-        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent')
+        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent, figcap')
         .neq('category', 'draft')
         .order('date', { ascending: false });
     if (artErr || !articles) {
@@ -31,42 +32,48 @@ export const load = async ({url}) => {
     let jsonLDArticles = articles.map((article: any, index: number) => ({
         "@type": "BlogPosting",
         "headline": article.title,
-        "url": `https://chaos-abyss.com/articles/${article.slug}`,
+        "url": `${baseUrl}/articles/${article.slug}`,
         "position": index + 1,
     }));
 
+    // these change with search results
+    const description = "Behold the freshest articles on Chaos Abyss.";
+    const theUrl = `${baseUrl}/articles`;
+    const title = "Articles";
+
     const meta = {
-        title: "Articles",
-        canonUrl: "https://chaos-abyss.com/articles",
+        title: title,
+        canonUrl: theUrl,
+        noindex: false,
         metaNamed: [
             {
                 name: "description",
-                content: "Behold the freshest articles on Chaos Abyss."
+                content: description,
             },
             {name: "twitter:card", content: "summary_large_image"},
-            {name: "twitter:title", content: "Articles"},
+            {name: "twitter:title", content: title},
             {
                 name: "twitter:description",
-                content: "Behold the freshest articles on Chaos Abyss"
+                content: description,
             },
-            {name: "twitter:image", content: "https://chaos-abyss.com/img/ogimg.png"}
+            {name: "twitter:image", content: `${baseUrl}/img/ogimg.png`}
         ],
         metaProperty: [
             {property: "og:type", content: "website"},
             {property: "og:locale", content: "en_US"},
-            {property: "og:title", content: "Chaos Abyss"},
+            {property: "og:title", content: title},
             {
                 property: "og:description",
-                content: "Behold the freshest articles on Chaos Abyss."
+                content: description
             },
-            {property: "og:url", content: "https://chaos-abyss.com/articles"},
-            {property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png"}
+            {property: "og:url", content: theUrl},
+            {property: "og:image", content: `${baseUrl}/img/ogimg.png`}
         ],
         jsonLD: {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "name": "Chaos Abyss",
-            "url": "https://chaos-abyss.com/articles",
+            "name": title,
+            "url": theUrl,
             "mainEntity": {
                 "@type": "ItemList",
                 "itemListElement": jsonLDArticles,
@@ -89,7 +96,37 @@ export const load = async ({url}) => {
         }
     }
 
+    const escapeHTML = (str: string) =>
+        str.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    query = escapeHTML(query);
+
+    const updateMeta = (
+        list: { name?: string; property?: string; content: string }[],
+        key: 'name' | 'property',
+        value: string,
+        newContent: string
+    ) => {
+        const entry = list.find(m => m[key] === value);
+        if (entry) entry.content = newContent;
+    };
+
+    // here we reassign the meta values because I couldn't
+    // come up with better logic
     meta.title = `Results for: ${query}`;
+
+    updateMeta(meta.metaNamed, 'name', 'twitter:title', `Results for: ${query}`);
+    updateMeta(meta.metaProperty, 'property', 'og:title', `Results for: ${query}`);
+    updateMeta(meta.metaNamed, 'name', 'description', `Search results for "${query}" on Chaos Abyss.`);
+    updateMeta(meta.metaNamed, 'name', 'twitter:description', `Search results for "${query}" on Chaos Abyss.`);
+    updateMeta(meta.metaProperty, 'property', 'og:description', `Search results for "${query}" on Chaos Abyss.`);
+
+    meta.canonUrl = `${baseUrl}/articles?query=${query}`;
+    updateMeta(meta.metaProperty, 'property', 'og:url', `${baseUrl}/articles?query=${query}`);
 
     let fuse = new Fuse(summaries, {
         keys: [
@@ -100,7 +137,9 @@ export const load = async ({url}) => {
             {name: 'figalt', weight: 0.02},
             {name: 'slug', weight: 0.1},
             {name: 'contentTrim', weight: 0.15},
-        ], threshold: 0.4
+        ],
+        threshold: 0.45,
+        minMatchCharLength: 2,
     });
 
     let results = fuse.search(query);
@@ -109,15 +148,28 @@ export const load = async ({url}) => {
         ? results?.filter((result: any) => result.item.category === cat)
         : results;
 
+    // future use
+    const encodedCat = encodeURIComponent(cat);
+
     if (!catResults.length) {
+        // same if no results
+        updateMeta(meta.metaNamed, 'name', 'description', `No results for "${query}" on Chaos Abyss.`);
+        updateMeta(meta.metaNamed, 'name', 'twitter:description', `No results for "${query}" on Chaos Abyss.`);
+        updateMeta(meta.metaProperty, 'property', 'og:description', `No results for "${query}" on Chaos Abyss.`);
+
+        // !!!
+        meta.noindex = true
+
         return {
             summaries: summaries,
             results: null,
-            fromSearch: !!query,
-            query: query,
-            cat: cat
+            fromSearch: Boolean(query),
+            query,
+            cat,
+            meta
         }
     }
+
 
     let sumResults = {
         summaries:
@@ -138,15 +190,15 @@ export const load = async ({url}) => {
     jsonLDArticles = combinedArticles.map((article, index) => ({
         "@type": "BlogPosting",
         "headline": article.title,
-        "url": `https://chaos-abyss.com/articles/${article.slug}`,
+        "url": `${baseUrl}/articles/${article.slug}`,
         "position": index + 1
     }));
-    meta.jsonLD = jsonLDArticles;
+    meta.jsonLD.mainEntity.itemListElement = jsonLDArticles;
 
     return {
         summaries,
         results: sumResults,
-        fromSearch: !!query,
+        fromSearch: Boolean(query),
         query,
         cat,
         meta
