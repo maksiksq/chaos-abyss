@@ -43,8 +43,9 @@
     const checkIfMobile = () => {
         mobile = window.matchMedia('(max-width: 768px)').matches;
     }
-    let mobileSearch = $state(false);
+    let mobileSearch = $state(data.fromSearch);
     let mobileSearchDerived = $derived(mobile ? (mobileSearch ? 'yes' : 'no')  : 'desktop');
+    $effect(() => {data.results ? mobileSearch = true : ''})
 
     onMount(() => {
         checkIfMobile();
