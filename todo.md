@@ -78,9 +78,9 @@
 - [ ] : kofi maybe???
 - [ ] : mark articles as yearly
 - [ ] : fix svelte vs vue vs react formatting
-- [ ] : separate head fig and banner fig
+- [x] : separate head fig and banner fig
 - [ ] : change head fig bg to something other than accent color
-- [ ] : maybe make head fig shadow more intense (or keep it)
+- [ ] : scrap: maybe make head fig shadow more intense (or keep it)
 - [ ] : check if sitemap also updates weirdly in production
 - [x] : maybe remove read time. It hurts well-researched stuff
 

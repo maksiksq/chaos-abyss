@@ -2,7 +2,7 @@
     import SearchSummaries from "./SearchSummaries.svelte";
     import {goto} from "$app/navigation";
 
-    let {results = [], fromSearch = false, query = 'Welcome to the Abyss', cat = "Any", categoryNames} = $props();
+    let {results = [], searchCount = null, fromSearch = false, query = 'Welcome to the Abyss', cat = "Any", categoryNames} = $props();
 
     let greg = $state(false);
 </script>
@@ -11,7 +11,10 @@
     <div class="head-cont">
         {#if fromSearch}
             <div class="head-cont-up">
-                <h1>Results for:&nbsp; <span class="query-smol">{query}</span></h1>
+                <div class="head-results">
+                    <h1>Results for:&nbsp; <span class="query-smol">{query}</span></h1>
+                    <p class="search-count {searchCount ? '' : 'd-none' }">{searchCount} results found</p>
+                </div>
                 <div class="head-item cat-dropdown-cont">
                     <button aria-label="Select category" onclick={() => {greg = !greg;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
                         Category: <br><span class="cat">{cat}</span>
@@ -75,17 +78,29 @@
                 flex-direction: row;
                 align-items: center;
 
-                & h1 {
-                    display: flex;
-                    flex-direction: column;
-                    font-size: 2rem;
+                & .head-results {
                     width: 70%;
 
-                    & .query-smol {
+                    & h1 {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 2rem;
+
+                        & .query-smol {
+                            border-left: 5px solid oklch(0.8149 0.1044 290);
+                            margin-top: 1rem;
+                            padding-left: 1rem;
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    & .search-count {
                         border-left: 5px solid oklch(0.8149 0.1044 290);
-                        margin-top: 1rem;
                         padding-left: 1rem;
-                        font-size: 1.2rem;
+
+                        padding-top: 0.5rem;
+                        font-size: 0.8rem;
+                        color: #666666;
                     }
                 }
 
@@ -175,7 +190,7 @@
             flex-direction: column;
             list-style: none;
 
-            padding-top: 1rem;
+            padding-top: 0.5rem;
         }
     }
 </style>

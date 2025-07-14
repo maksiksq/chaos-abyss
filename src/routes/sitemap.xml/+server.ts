@@ -1,6 +1,7 @@
 import {getClient} from "$lib/utils/getSupabaseClient";
 import crypto from 'crypto';
 import type {RequestEvent} from "@sveltejs/kit";
+import {timestamptzToISOtz} from "$lib/utils/timestamptzToISOtz";
 
 const generateEtag = (input: string) =>
     `"${crypto.createHash('sha1').update(input).digest('hex')}"`;
@@ -9,16 +10,6 @@ const getEtagFromRequest = (e: Request): string | null =>
     e.headers.get('if-none-match');
 
 const base = `https://chaos-abyss.com`;
-
-const timestamptzToISOtz = (timestamptz: string) => {
-    // original values must be in UTC
-
-    const date = new Date(timestamptz);
-    const isoString = date.toISOString();
-
-    const base = isoString.slice(0, 19);
-    return `${base}+00:00`;
-}
 
 const stableStringify = (obj: any): string => {
     return JSON.stringify(obj, Object.keys(obj).sort());

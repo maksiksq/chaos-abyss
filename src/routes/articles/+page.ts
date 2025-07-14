@@ -3,7 +3,22 @@ import {error} from "@sveltejs/kit";
 import Fuse from "fuse.js";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {escapeHTML} from "$lib/utils/escapeHTML";
+import {timestamptzToISOtz} from "$lib/utils/timestamptzToISOtz";
 const baseUrl = "https://chaos-abyss.com";
+
+type Article = {
+    category: string;
+    slug: string;
+    title: string;
+    fig?: string;
+    figalt?: string;
+    figcap?: string;
+    blurb: string;
+    date: string;
+    comment_count?: number;
+    content: string;
+    accent?: string;
+};
 
 export const load = async ({url}) => {
     const supabase = getClient();
@@ -16,17 +31,18 @@ export const load = async ({url}) => {
         throw error(500, 'Failed to load articles');
     }
 
-    const summaries = articles.map((article: any) => ({
+    const summaries = articles.map((article: Article) => ({
         ...article,
-        contentTrim: article.content.slice(0, 500)
+        contentTrim: article.content.trim().replace(/\s+/g, ' ').slice(0, 500)
     }))
 
     // seo
 
-    let jsonLDArticles = articles.map((article: any, index: number) => ({
+    let jsonLDArticles = articles.map((article: Article, index: number) => ({
         "@type": "BlogPosting",
         "headline": article.title,
-        "url": `${baseUrl}/articles/${article.slug}`,
+        "datePublished": article.date ? timestamptzToISOtz(article.date) : undefined,
+        "url": `${baseUrl}/articles/${article.category}/${article.slug}`,
         "position": index + 1,
     }));
 
@@ -83,6 +99,7 @@ export const load = async ({url}) => {
         return {
             summaries,
             results: null,
+            searchCount: null,
             fromSearch: !!query,
             query,
             cat,
@@ -90,7 +107,7 @@ export const load = async ({url}) => {
         }
     }
 
-    query = escapeHTML(query);
+    const escapedQuery = escapeHTML(query);
 
     const updateMeta = (
         list: { name?: string; property?: string; content: string }[],
@@ -104,16 +121,16 @@ export const load = async ({url}) => {
 
     // here we reassign the meta values because I couldn't
     // come up with better logic
-    meta.title = `Results for: ${query}`;
+    meta.title = `Results for: ${escapedQuery}`;
 
-    updateMeta(meta.metaNamed, 'name', 'twitter:title', `Results for: ${query}`);
-    updateMeta(meta.metaProperty, 'property', 'og:title', `Results for: ${query}`);
-    updateMeta(meta.metaNamed, 'name', 'description', `Search results for "${query}" on Chaos Abyss.`);
-    updateMeta(meta.metaNamed, 'name', 'twitter:description', `Search results for "${query}" on Chaos Abyss.`);
-    updateMeta(meta.metaProperty, 'property', 'og:description', `Search results for "${query}" on Chaos Abyss.`);
+    updateMeta(meta.metaNamed, 'name', 'twitter:title', `Results for: ${escapedQuery}`);
+    updateMeta(meta.metaProperty, 'property', 'og:title', `Results for: ${escapedQuery}`);
+    updateMeta(meta.metaNamed, 'name', 'description', `Search results for "${escapedQuery}" on Chaos Abyss.`);
+    updateMeta(meta.metaNamed, 'name', 'twitter:description', `Search results for "${escapedQuery}" on Chaos Abyss.`);
+    updateMeta(meta.metaProperty, 'property', 'og:description', `Search results for "${escapedQuery}" on Chaos Abyss.`);
 
-    meta.canonUrl = `${baseUrl}/articles?query=${query}`;
-    updateMeta(meta.metaProperty, 'property', 'og:url', `${baseUrl}/articles?query=${query}`);
+    meta.canonUrl = `${baseUrl}/articles?query=${escapedQuery}`;
+    updateMeta(meta.metaProperty, 'property', 'og:url', `${baseUrl}/articles?query=${encodeURIComponent(escapedQuery)}`);
 
     let fuse = new Fuse(summaries, {
         keys: [
@@ -135,20 +152,18 @@ export const load = async ({url}) => {
         ? results?.filter((result: any) => result.item.category === cat)
         : results;
 
-    // future use
-    const encodedCat = encodeURIComponent(cat);
-
     if (!catResults.length) {
         // same if no results
-        updateMeta(meta.metaNamed, 'name', 'description', `No results for "${query}" on Chaos Abyss.`);
-        updateMeta(meta.metaNamed, 'name', 'twitter:description', `No results for "${query}" on Chaos Abyss.`);
-        updateMeta(meta.metaProperty, 'property', 'og:description', `No results for "${query}" on Chaos Abyss.`);
+        updateMeta(meta.metaNamed, 'name', 'description', `No results for "${escapedQuery}" on Chaos Abyss.`);
+        updateMeta(meta.metaNamed, 'name', 'twitter:description', `No results for "${escapedQuery}" on Chaos Abyss.`);
+        updateMeta(meta.metaProperty, 'property', 'og:description', `No results for "${escapedQuery}" on Chaos Abyss.`);
 
         // !!!
         meta.noindex = true
         return {
             summaries: summaries,
             results: null,
+            searchCount: null,
             fromSearch: Boolean(query),
             query,
             cat,
@@ -168,8 +183,9 @@ export const load = async ({url}) => {
     // meta for search results
     const seen = new Set();
     const combinedArticles = [...sumResults.summaries, ...articles].filter(a => {
-        if (seen.has(a.slug)) return false;
-        seen.add(a.slug);
+        const key = `${a.category}/${a.slug}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
         return true;
     });
 
@@ -184,6 +200,7 @@ export const load = async ({url}) => {
     return {
         summaries,
         results: sumResults,
+        searchCount: catResults.length,
         fromSearch: Boolean(query),
         query,
         cat,

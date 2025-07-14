@@ -65,6 +65,7 @@
     {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'yes'}
         <SearchLeftSearch
                 results={data.results}
+                searchCount={data.searchCount}
                 fromSearch={data.fromSearch}
                 cat={data.cat}
                 query={data.query}

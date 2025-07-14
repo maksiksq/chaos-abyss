@@ -96,16 +96,16 @@
 
             & .head-fig-wrap {
                 width: 100%;
-                height: 50%;
-                /*background-color: var(--accent-color);*/
-                /*background-color: #ab67ff;*/
-
-                box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+                height: auto;
+                background-color: var(--accent-color);
 
                 & .head-fig {
                     width: 100%;
+                    min-height: 10vh;
+                    height: auto;
 
                     & .widefig {
+
                         @media (max-width: 768px) {
                             display: none;
                         }
