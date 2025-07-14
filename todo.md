@@ -81,6 +81,8 @@
 - [ ] : separate head fig and banner fig
 - [ ] : change head fig bg to something other than accent color
 - [ ] : maybe make head fig shadow more intense (or keep it)
+- [ ] : check if sitemap also updates weirdly in production
+- [x] : maybe remove read time. It hurts well researched stuff
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:

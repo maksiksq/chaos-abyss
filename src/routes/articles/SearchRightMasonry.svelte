@@ -15,6 +15,8 @@
             cont.style.transform = `translateY(${Math.max(0, scrollPos - contBottom)}px)`;
         })
     }
+
+    const capitalize = s => s.replace(/\b\w/g, c => c.toUpperCase());
 </script>
 
 <svelte:window onscroll={handleScroll}/>
@@ -24,7 +26,7 @@
     <div class="cards" bind:this={cont}>
         {#each categories as category}
             <div class="card">
-                <h3>{category.name}</h3>
+                <h3>{capitalize(category.name)}</h3>
                 <ul>
                     <SearchSummaries data={category}/>
                 </ul>

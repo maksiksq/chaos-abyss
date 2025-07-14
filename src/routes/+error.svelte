@@ -3,6 +3,10 @@
     import { page } from '$app/state';
 </script>
 
+<svelte:head>
+    <meta name="robots" content="noindex">
+</svelte:head>
+
 <main>
     <div class="bg"></div>
     <h1>{page.status}</h1>

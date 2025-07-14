@@ -1,16 +1,17 @@
 <script>
     import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate.js";
 
+    const capitalize = s => s.replace(/\b\w/g, c => c.toUpperCase());
     const {data, fromSearch = false} = $props();
 </script>
 {#each data.summaries as summary}
     <li>
         <article class="mobile-article" style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
-            <a href={`articles/${summary.slug}`}>
+            <a href={`articles/${summary.category}/${summary.slug}`}>
                 <img src={summary.fig} alt={summary.figalt} loading="lazy" />
                 <h4>{summary.title}</h4>
                 <p class="blurb">{summary.blurb}</p>
-                <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span> <span>✦ ~ {summary.time} {summary.time === 1 ? 'min' : 'mins'}</span>
+                <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span> <span>✦ {capitalize(summary.category)}</span>
                     {#if summary.commentCount}
                                             <span>
                                                 &nbsp;✦

@@ -15,16 +15,9 @@ export const load = async ({url}) => {
         throw error(500, 'Failed to load articles');
     }
 
-    const wpm = 225;
-    const estReadingTime = (content: string): number => {
-        const words = content.trim().split(/\s+/).length;
-        return Math.max(1, Math.round(words / wpm));
-    }
-
     const summaries = articles.map((article: any) => ({
         ...article,
-        contentTrim: article.content.slice(0, 500),
-        time: estReadingTime(article.content),
+        contentTrim: article.content.slice(0, 500)
     }))
 
     // seo
@@ -113,7 +106,7 @@ export const load = async ({url}) => {
     ) => {
         const entry = list.find(m => m[key] === value);
         if (entry) entry.content = newContent;
-    };
+    }
 
     // here we reassign the meta values because I couldn't
     // come up with better logic
@@ -159,7 +152,6 @@ export const load = async ({url}) => {
 
         // !!!
         meta.noindex = true
-
         return {
             summaries: summaries,
             results: null,

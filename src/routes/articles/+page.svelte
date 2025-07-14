@@ -29,7 +29,9 @@
         summaries
     }));
 
-    let categoryNames = [...categories.map((category) => category.name), "Any"];
+    const capitalize = s => s.replace(/\b\w/g, c => c.toUpperCase());
+
+    let categoryNames = [...categories.map((category) => capitalize(category.name)), "Any"];
 
     // Dev Stuff
     // Japanese
@@ -50,7 +52,6 @@
     onMount(() => {
         checkIfMobile();
     })
-    $inspect(mobileSearchDerived)
  </script>
 
 <svelte:window onload={checkIfMobile} onresize={checkIfMobile} />

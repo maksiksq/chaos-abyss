@@ -5,7 +5,7 @@
 <footer class="endblock">
     <div class="previous-article">
         {#if adjacent.previous.slug}
-            <a href="/articles/{adjacent.previous.slug}">&lt; Previous article <br>
+            <a href="/articles/{adjacent.previous.slugcat}/{adjacent.previous.slug}">&lt; Previous article <br>
                 <span>{adjacent.previous.title}</span>
             </a>
         {:else}
@@ -14,7 +14,7 @@
     </div>
     <div class="next-article">
         {#if adjacent.next.slug}
-            <a href="/articles/{adjacent.next.slug}">Next article &gt;<br>
+            <a href="/articles/{adjacent.next.slugcat}/{adjacent.next.slug}">Next article &gt;<br>
                 <span>{adjacent.next.title}</span>
             </a>
         {:else}

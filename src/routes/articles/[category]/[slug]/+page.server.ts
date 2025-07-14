@@ -8,62 +8,50 @@ const authors = [{
     link: '/about',
 }]
 
-type Article = {
-    category: string;
-    slug: string;
-    title: string;
-    fig: string;
-    widefig: string;
-    figcap?: string;
-    figalt: string;
-    blurb: string;
-    date: string;
-    author: string;
-    accent: string;
-    content: string;
-    commentCount: number;
-    id: number;
-};
-
 export const load = async ({params}) => {
     const supabase = getClient();
-    // article per slug
+    // no, i just wanted to name it like that
+    const slugcat = params.category;
 
-    const {data: artData, error: artErr} = await supabase
+    // article per slug and category
+    const {data: article, error: artErr} = await supabase
         .from('articles')
         .select('*')
-        .eq('slug', params.slug);
-    if (artErr || !artData || artData.length === 0) {
+        .eq('slug', params.slug)
+        .ilike('category', slugcat)
+        .single();
+    if (artErr || !article || article.length === 0) {
         throw sverror(404, 'Oh no, article not found.');
     }
 
-
-    const article: Article = artData[0];
     article.author ||= "Maksiks";
 
     // adjacent articles
-    const {data: nextArt} = await supabase
-        .from('articles')
-        .select('title, slug')
-        .gt('date', article.date)
-        .order('date', { ascending: true })
-        .limit(1);
-
-    const {data: previousArt} = await supabase
-        .from('articles')
-        .select('title, slug')
-        .lt('date', article.date)
-        .order('date', { ascending: false })
-        .limit(1);
-
-    const previous = {
-        title: previousArt[0]?.title ?? 'You’ve reached the bottom of the abyss.',
-        slug: previousArt[0]?.slug ?? undefined,
-    };
+    const [nextArtRes, previousArtRes] = await Promise.all([
+        supabase
+            .from('articles')
+            .select('title, slug, category')
+            .gt('date', article.date)
+            .order('date', { ascending: true })
+            .limit(1),
+        supabase
+            .from('articles')
+            .select('title, slug, category')
+            .lt('date', article.date)
+            .order('date', { ascending: false })
+            .limit(1),
+    ]);
 
     const next = {
-        title: nextArt[0]?.title ?? 'There is nothing but the stars above.',
-        slug: nextArt[0]?.slug ?? undefined,
+        title: nextArtRes.data?.[0]?.title ?? 'There is nothing but the stars above.',
+        slugcat: nextArtRes.data?.[0]?.category ?? undefined,
+        slug: nextArtRes.data?.[0]?.slug ?? undefined,
+    };
+
+    const previous = {
+        title: previousArtRes.data?.[0]?.title ?? 'You’ve reached the bottom of the abyss.',
+        slugcat: previousArtRes.data?.[0]?.category ?? undefined,
+        slug: previousArtRes.data?.[0]?.slug ?? undefined,
     };
 
     const adjacent = {previous, next};
@@ -80,7 +68,7 @@ export const load = async ({params}) => {
 
     const meta = {
         title: article.title,
-        canonUrl: `https://chaos-abyss.com/articles/${params.slug}`,
+        canonUrl: `https://chaos-abyss.com/articles/${slugcat}/${params.slug}`,
         metaNamed: [
             { name: "description", content: article.blurb },
             { name: "twitter:card", content: "summary_large_image" },
@@ -93,7 +81,7 @@ export const load = async ({params}) => {
             { property: "og:locale", content: "en_US" },
             { property: "og:title", content: article.title },
             { property: "og:description", content: article.blurb },
-            { property: "og:url", content: `https://chaos-abyss.com/articles/${params.slug}` },
+            { property: "og:url", content: `https://chaos-abyss.com/articles/${slugcat}/${params.slug}` },
             { property: "og:image", content: article.fig }
         ],
         jsonLD: {
@@ -106,7 +94,7 @@ export const load = async ({params}) => {
             },
             "name": article.title,
             "datePublished": toISODate(article.date),
-            "url": `https://chaos-abyss.com/articles/${params.slug}`
+            "url": `https://chaos-abyss.com/articles/${slugcat}/${params.slug}`
         }
     };
 

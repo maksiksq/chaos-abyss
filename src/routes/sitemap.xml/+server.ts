@@ -68,22 +68,24 @@ export async function GET(e: RequestEvent) {
     const supabase = getClient();
     const {data: articles, error: err} = await supabase
         .from('articles')
-        .select('slug, date, last_edit, jewel')
+        .select('slug, category, date, last_edit, jewel')
 
     if (err || !articles) {
         return new Response('Had a skill issue getting articles', {status: 500});
     }
 
     const articleUrls = [
-        ...articles.map(({slug, date, last_edit: lastEdit, jewel}: {
+        ...articles.map(({slug, category, date, last_edit: lastEdit, jewel}: {
             slug: string,
+            category: string,
             date: string,
             last_edit: string | null,
             jewel: boolean | null
         }) => ({
-                url: `${base}/articles/${slug}`,
+                url: `${base}/articles/${category}/${slug}`,
+                category,
                 date: `${lastEdit ? timestamptzToISOtz(lastEdit) : timestamptzToISOtz(date)}`,
-                jewel: jewel
+                jewel
             }
         )),
     ]
@@ -119,12 +121,13 @@ export async function GET(e: RequestEvent) {
             </url>
             `
         )}
-		${articleUrls.map(({url, date, jewel}) => {
-                return `<url>
+		${articleUrls.map(({url, category, date, jewel}) => {
+            console.log('cat', category);
+                return category !== 'draft' ? `<url>
 					<loc>${url}</loc>
 					${assignForDate(date, jewel)}
 				    <lastmod>${date}</lastmod>
-				</url>`
+				</url>` : ''
             }
         )
             .join('')}
