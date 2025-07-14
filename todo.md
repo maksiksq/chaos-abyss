@@ -47,11 +47,11 @@
 - [ ] : maybe more search filters in the future
 - [ ] : check if search article is most relevant
 - [x] : move all logic to client where necessary
-- [ ] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think
-- [ ] : fix editor for db and stuff
-- [ ] : hopefully won't need it but Supabase keepalive
+- [x] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think ; Svelte doesn't do it anyway
+- [ ] : editor: fix editor for db and stuff
+- [ ] : later: hopefully won't need it but Supabase keepalive !!!
 - [x] : make discord bots for Converge (just so i dont forget)
-- [ ] : images via couldflare images 
+  [x] : scrap: images via couldflare images ; did another service instead forgor the name
 - [x] : seo images on article page
 - [x] : maybe make seo default layout actually use route instead of just yoinking the meta? I'm not sure if it's ok anyway although it does seem like so
 - [ ] : later: fix searchbar caret
