@@ -57,7 +57,7 @@
                         <small class="blurb"><span>{data.article.blurb}</span></small>
                         <footer>
                             <div class="databloc">
-                                <time datetime={timestamptzToHumanDate(data.article.date)}>{timestamptzToHumanDate(data.article.date)} ✦&nbsp;</time>
+                                <time datetime={timestamptzToHumanDate(data.article.date)}>{timestamptzToHumanDate(data.article.date)} {data.article.last_edit ? `| upd. ${timestamptzToHumanDate(data.article.last_edit)}` : ''} ✦&nbsp;</time>
                                 <address>
                                     <p>
                                         {data.wordcount}
