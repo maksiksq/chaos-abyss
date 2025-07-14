@@ -248,10 +248,12 @@
 
         @media (max-width: 1279px) {
             flex-direction: column;
+            padding: 0 4rem;
         }
 
         @media (max-width: 767px) {
             flex-direction: row;
+            padding: 0;
         }
 
         & svg {
@@ -342,8 +344,8 @@
                 user-select: none;
 
                 @media (max-width: 1279px) {
-                    height: 30%;
-                    width: 30%;
+                    width: 100%;
+                    height: 100%;
                 }
 
                 @media (max-width: 728px) {
@@ -374,14 +376,12 @@
             margin-bottom: calc(22.66vh - clamp(0px, 3rem, 4rem));
 
             @media (max-width: 1279px) {
-                width: 50%;
-                padding: 0 4rem;
+                width: auto;
             }
 
             @media (max-width: 728px) {
                 width: 100%;
                 order: 1;
-                padding: 0;
             }
 
             & p {
@@ -395,6 +395,10 @@
             }
 
             & .void-txt {
+                @media (max-width: 1279px) {
+                    padding-right: 4rem;
+                }
+
                 @media (max-width: 728px) {
                     margin-top: 10vh;
                 }
