@@ -79,7 +79,7 @@
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: maybe revisit hand slightly
 - [ ] : very later: remake hand anim later
-
+- [ ] : soon: favicon
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~
