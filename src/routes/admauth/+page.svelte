@@ -10,9 +10,7 @@
         <label for="password">Password</label>
         <input name="password" id="password" type="password">
         <button type="submit" id="login">Login</button>
-        {#if form?.incorrect}<p class="error">Sussy. Nevermind random scumbag.</p>{/if}
-        {#if form?.missing}<p class="error">Please insert your email and password on there my lord.</p>{/if}
-        {#if form?.success}<p class="error">コングラテゥラションー！</p>{/if}
+        {#if form?.skillIssue}<p class="error">Sussy. Nevermind random scumbag.</p>{/if}
     </form>
 </main>
 

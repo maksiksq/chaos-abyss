@@ -8,8 +8,7 @@ export const actions = {
         const password = formData.get('password') as string
         const { error } = await supabase.auth.signInWithPassword({ email, password })
         if (error) {
-            console.error(error)
-            redirect(303, '/admauth/error')
+            return fail(400, {email, skillIssue: true})
         } else {
             redirect(303, '/admin/editor')
         }
