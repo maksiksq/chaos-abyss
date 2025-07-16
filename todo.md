@@ -42,8 +42,8 @@
 - [ ] : editor: add all options to editor (not just content)
 - [ ] : editor: add editor auth
 - [ ] : editor: add more functions to editor
-- [ ] : editor: admin: make slug manual
-- [ ] : editor: fix editor for db and stuff
+- [x] : editor: admin: make slug manual
+- [x] : editor: fix editor for db and stuff
 - [ ] : editor: full editor
 - [ ] : editor: make header colors an option
 - [ ] : editor: maybe autospace in md part of the editor to match article line height better?
