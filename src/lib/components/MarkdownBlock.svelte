@@ -4,6 +4,7 @@
     // This page only renders the html gotten from the server
     // !!!!!!!!!!!!!!!!!
 
+
     import {onDestroy, onMount, tick} from "svelte";
 
     const {content} = $props();
@@ -64,7 +65,7 @@
     })
 </script>
 
-<p class="article-content">{@html content}</p>
+<div class="article-content">{@html content}</div>
 
 <style>
     :global {
