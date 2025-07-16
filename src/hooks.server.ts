@@ -51,12 +51,9 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     e.locals.user = user;
 
     if (!e.locals.session && e.url.pathname.startsWith('/admin')) {
-        console.log('redirecting u1');
-        console.log(e.url.pathname);
         redirect(303, '/admauth');
     }
     if (e.locals.session && e.url.pathname === '/admauth') {
-        console.log('redirecting u')
         redirect(303, '/admin/editor');
     }
 
