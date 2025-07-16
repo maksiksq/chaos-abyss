@@ -1,5 +1,6 @@
 import {createBrowserClient, createServerClient, isBrowser} from "@supabase/ssr";
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
+import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient";
 
 // Supabase SvelteKit example basically:
 // https://supabase.com/docs/guides/auth/server-side/sveltekit
@@ -8,11 +9,7 @@ export const load = async ({ data, depends, fetch }: {data: any, depends: any, f
     depends('supabase:auth');
 
     const supabase = isBrowser()
-        ? createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-            global: {
-                fetch,
-            },
-        })
+        ? getBrowserClient()
         : createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_URL, {
             global: {
                 fetch,

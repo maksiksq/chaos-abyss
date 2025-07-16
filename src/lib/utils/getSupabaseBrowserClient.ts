@@ -4,7 +4,10 @@ import {createBrowserClient} from "@supabase/ssr";
 let supabase: any | null = null;
 export const getBrowserClient = () => {
     if (!supabase) {
-        supabase = createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+        supabase = createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
+            global: {
+                fetch,
+            }});
     }
     return supabase;
 }
