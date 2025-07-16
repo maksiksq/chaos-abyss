@@ -1,9 +1,8 @@
 import {error} from "@sveltejs/kit";
-
 import Fuse from "fuse.js";
-import {getClient} from "$lib/utils/getSupabaseClient";
 import {escapeHTML} from "$lib/utils/escapeHTML";
 import {timestamptzToISOtz} from "$lib/utils/timestamptzToISOtz";
+import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient";
 const baseUrl = "https://chaos-abyss.com";
 
 type Article = {
@@ -21,7 +20,8 @@ type Article = {
 };
 
 export const load = async ({url}) => {
-    const supabase = getClient();
+    const supabase = getBrowserClient();
+    console.log(supabase);
     const {data: articles, error: artErr} = await supabase
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent, figcap')

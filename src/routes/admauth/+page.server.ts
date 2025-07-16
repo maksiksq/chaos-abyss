@@ -1,4 +1,3 @@
-import {getClient} from "$lib/utils/getSupabaseClient";
 import {type Actions, fail, redirect} from "@sveltejs/kit";
 
 export const actions = {

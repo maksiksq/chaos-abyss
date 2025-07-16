@@ -3,6 +3,7 @@ import {createClient} from "@supabase/supabase-js";
 
 let supabase: any | null = null;
 export const getClient = () => {
+
     if (!supabase) {
         supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
     }
