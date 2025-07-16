@@ -113,7 +113,6 @@ export async function GET(e: RequestEvent) {
             `
         )}
 		${articleUrls.map(({url, category, date, jewel}) => {
-            console.log('cat', category);
                 return category !== 'draft' ? `<url>
 					<loc>${url}</loc>
 					${assignForDate(date, jewel)}

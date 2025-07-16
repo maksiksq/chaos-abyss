@@ -26,8 +26,6 @@
             const accentDeep = `oklch(${l}, ${c}, ${h})`;
 
             body?.style.setProperty('--accent-color', accent);
-            console.log("accent");
-            console.log($state.snapshot(accent));
             body?.style.setProperty('--accent-color-deeper', accentDeep);
         });
     })
