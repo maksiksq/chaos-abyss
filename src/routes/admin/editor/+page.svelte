@@ -41,6 +41,41 @@
             sidebar = !sidebar;
         }
     }
+
+    type Details = {
+        title: string,
+        blurb: string,
+        category: string,
+        slug: string,
+        fig: string,
+        widefig: string,
+        figcap: string | null,
+        figalt: string,
+        accent: string,
+        jewel: boolean,
+        reminder: string,
+        author: string,
+    }
+
+    let hue = $state(30);
+    const accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
+
+    let fig = $state('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
+
+    const details: Details = $derived({
+        title: 'Oh no he forgot the title probably',
+        blurb: 'default',
+        category: 'draft',
+        slug: 'default',
+        fig: fig,
+        widefig: '',
+        figcap: null,
+        figalt: '',
+        accent: accent,
+        jewel: false,
+        reminder: '',
+        author: 'Maksiks',
+    })
 </script>
 
 <svelte:head>
@@ -62,12 +97,59 @@
     </svg>
 </button>
 <aside class="sidebar {sidebar ? 'open' : 'closed'}">
+    <label for="title">Title</label>
+    <input name="title" id="title" type="text" bind:value={details.title} />
+
+    <label for="blurb">Blurb</label>
+    <textarea name="blurb" id="blurb" bind:value={details.blurb} ></textarea>
+
+    <label for="category">Category</label>
+    <select name="category" id="category" bind:value={details.category}>
+        <option value="draft">Draft</option>
+        <option value="dev">Dev</option>
+        <option value="japanese">Japanese</option>
+        <option value="media">Games & Media</option>
+        <option value="projects">Projects</option>
+        <option value="miscellaneous">Miscellaneous</option>
+    </select>
+
+    <label for="slug">Slug</label>
+    <input name="slug" id="slug" type="text" bind:value={details.slug} />
+
+    <label for="fig">Figure</label>
+    <input name="fig" id="fig" type="text" bind:value={fig} />
+    <img class="fig" src={fig} alt="fig">
+
+    <label for="widefig">Wide Figure</label>
+    <input name="widefig" id="widefig" type="text" bind:value={details.widefig} />
+
+    <label for="figcap">Figure Caption</label>
+    <input name="figcap" id="figcap" type="text" bind:value={details.figcap} />
+
+    <label for="figalt">Figure Alt Text</label>
+    <input name="figalt" id="figalt" type="text" bind:value={details.figalt} />
+
+    <label for="accent">Accent</label>
+    <input name="accent" id="accent" type="range" min="0" max="360" bind:value={hue} />
+    <div class="color-bar" style="background-color: {accent}"></div>
+
+    <label for="jewel">
+        Jewel
+        <input name="jewel" id="jewel" type="checkbox" bind:checked={details.jewel} />
+    </label>
+
+    <label for="reminder">Reminder</label>
+    <small>format example: yearly-2025</small>
+    <input name="reminder" id="reminder" type="text" bind:value={details.reminder} />
+
+    <label for="author">Author</label>
+    <input name="author" id="author" type="text" bind:value={details.author} />
 </aside>
 <main>
     <h1>No one’s watching. You’re safe here.</h1>
     <form method="POST" action="?/newArticle" use:enhance>
+        <input type="hidden" name="details" value={JSON.stringify(details)} />
         <div class="write-bloc">
-
             <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
             <div class="rendered">
                 <MarkdownBlock content={parsedHtml}/>
@@ -78,7 +160,7 @@
         </div>
     </form>
 </main>
-
+<p>{details.title}</p>
 {#if form?.success}
     <p>new article created</p>
 {/if}
@@ -109,9 +191,8 @@
             width: 100%;
         }
     }
-
     .closed {
-        right: -20vw;
+        right: -30vw;
     }
 
     .open {
@@ -121,13 +202,79 @@
     .sidebar {
         position: fixed;
         z-index: 99998;
-        width: 20vw;
+
+        width: 30vw;
         height: 100vh;
         background: white;
         opacity: 0.95;
         border-left: 1px solid black;
 
         transition: right 0.1s ease-in;
+
+        box-sizing: border-box;
+        padding: 2rem 3rem 0 1.5rem;
+
+        overflow-x: clip;
+        overflow-y: auto;
+
+        * {
+            width: 100%;
+            display: block;
+        }
+
+        & input, select, textarea {
+            margin-bottom: 1rem;
+            padding-left: 0.3rem;
+        }
+
+        & label {
+            margin-bottom: 0.3rem;
+            border-bottom: 1px solid black;
+            padding-right: 0.3rem;
+        }
+
+        & input {
+            height: 2rem;
+        }
+
+        & label[for=jewel] {
+            display: flex;
+            height: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+            width: 5rem;
+        }
+
+        & .color-bar {
+            width: 100%;
+            height: 2rem;
+            background: purple;
+            margin-bottom: 1rem;
+            border: 1px solid black;
+        }
+
+        & input[type=checkbox] {
+            height: 1rem;
+            margin-bottom: 0;
+        }
+
+        & textarea {
+            padding-top: 0.5rem;
+            height: 3rem;
+        }
+
+        & select {
+            height: 2.5rem;
+            padding-right: 1rem;
+        }
+
+        & input[type=checkbox], select {
+            cursor: pointer;
+        }
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none;
     }
 
     .bg-white {

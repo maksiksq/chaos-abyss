@@ -2,14 +2,18 @@ import {type Actions, fail} from "@sveltejs/kit";
 import {readFileSync, writeFileSync} from 'fs';
 import {md} from "../../shared";
 import {getClient} from "$lib/utils/getSupabaseClient";
+import {toTimestampTZ} from "$lib/utils/dateToTimestamptz";
+import {createServerClient} from "@supabase/ssr";
+import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 
 
 export const load = async () => {
 }
 
 export const actions = {
-    newArticle: async ({ request }: any) => {
+    newArticle: async ({ cookies, request }: any) => {
         const formData = await request.formData();
+        const details = JSON.parse(formData.get('details'));
         const raw = formData.get('article');
 
         if (!raw || typeof raw !== 'string') {
@@ -36,10 +40,36 @@ export const actions = {
             }
         );
 
-        const supabase = getClient();
+        console.log({...details, date: toTimestampTZ(new Date())})
+
+        const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
+            global: {
+                fetch,
+            },
+            cookies: {
+                get: (key) => cookies.get(key),
+                getAll: () => cookies.getAll(),
+                set: (name, value, options) => cookies.set(name, value, options),
+                delete: (name, options) => cookies.delete(name, options)
+            }
+        })
+
+        console.log(supabase);
+
+        const {
+            data: { user },
+            error: authError
+        } = await supabase.auth.getUser();
+
+        console.log('user:', user);
+
         const { error } = await supabase
             .from('articles')
-            .insert({ });
+            .insert({...details, content: parsedHtml, date: toTimestampTZ(new Date())});
+
+        if (error) {
+            console.error(error);
+        }
 
         return { success: true, article: parsedHtml };
     }
