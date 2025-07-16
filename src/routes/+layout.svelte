@@ -1,7 +1,8 @@
 <script lang="ts">
+    // meta
     import {page} from "$app/state";
 
-    let {children} = $props();
+    let {data, children} = $props();
 
     let {meta} = $derived(page.data);
     $effect(() => {
@@ -10,9 +11,24 @@
         }
     })
 
-
     let metasNamed = $derived(meta?.metaNamed);
     let metasProperty = $derived(meta?.metaProperty);
+
+    // admin auth
+    import {onMount} from "svelte";
+    import {invalidate} from "$app/navigation";
+
+    let { session, supabase } = $derived(data);
+
+    onMount(() => {
+        const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+            if (newSession?.expires_at !== session?.expires_at) {
+                invalidate('supabase:auth')
+            }
+        });
+
+        return () => data.subscription.unsubscribe();
+    })
 </script>
 
 <svelte:head>
@@ -41,6 +57,5 @@
         {/if}
     {/if}
 </svelte:head>
-
 
 {@render children()}
