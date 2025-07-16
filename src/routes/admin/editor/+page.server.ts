@@ -1,6 +1,7 @@
 import {type Actions, fail} from "@sveltejs/kit";
 import {readFileSync, writeFileSync} from 'fs';
 import {md} from "../../shared";
+import {getClient} from "$lib/utils/getSupabaseClient";
 
 
 export const load = async () => {
@@ -35,7 +36,10 @@ export const actions = {
             }
         );
 
-        writeFileSync('./src/routes/data.json', JSON.stringify(data, null, 2));
+        const supabase = getClient();
+        const { error } = await supabase
+            .from('articles')
+            .insert({ });
 
         return { success: true, article: parsedHtml };
     }
