@@ -21,7 +21,6 @@ type Article = {
 
 export const load = async ({url}) => {
     const supabase = getBrowserClient();
-    console.log(supabase);
     const {data: articles, error: artErr} = await supabase
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent, figcap')
