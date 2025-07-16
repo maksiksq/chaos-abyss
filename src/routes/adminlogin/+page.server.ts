@@ -1,5 +1,5 @@
 import {getClient} from "$lib/utils/getSupabaseClient";
-import {type Actions, fail} from "@sveltejs/kit";
+import {type Actions, fail, redirect} from "@sveltejs/kit";
 
 export const actions = {
     login: async ({ cookies, request }) => {
@@ -9,20 +9,19 @@ export const actions = {
 
         const supabase = getClient();
 
-        const { data: iflog, error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password,
-        })
-
         if (!email || !password) {
             return fail(400, {email, missing: true});
         }
+
+        const { data: session, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password,
+        })
 
         if (error) {
             return fail(400, {email, incorrect: true});
         }
 
-        console.log(iflog);
-        return { success: true };
+        return redirect(303, '/admin/editor');
     }
 } satisfies Actions;
