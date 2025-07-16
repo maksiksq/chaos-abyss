@@ -40,7 +40,7 @@
 
 - [ ] : admin: mark articles as yearly (should be cool on dashboard)
 - [x] : editor: add all options to editor (not just content)
-- [ ] : editor: add editor auth
+- [x] : editor: add editor auth
 - [ ] : editor: add more functions to editor
 - [x] : editor: admin: make slug manual
 - [x] : editor: fix editor for db and stuff
