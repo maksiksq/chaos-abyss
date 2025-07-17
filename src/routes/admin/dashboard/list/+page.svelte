@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import {goto} from "$app/navigation";
     import {currentDetails} from "../../../shared.svelte.js";
 
     const {data} = $props();
 
-    const handleEdit = () => {
-        currentDetails.details = data.articles
+    const handleEdit = (article: any) => {
+        currentDetails.details = article;
         goto('/admin/editor');
     }
 </script>
@@ -16,7 +16,7 @@
         {#each data.articles as article}
             <div class="article">
                 <p>{article.title}</p>
-                <button class="edit" onclick={handleEdit}>Edit</button>
+                <button class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
             </div>
         {/each}
     </main>

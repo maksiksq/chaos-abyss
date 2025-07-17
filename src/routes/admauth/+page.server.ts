@@ -9,7 +9,7 @@ export const actions = {
         if (error) {
             return fail(400, {email, skillIssue: true})
         } else {
-            redirect(303, '/admin/editor')
+            redirect(303, '/admin/dashboard')
         }
     },
 } satisfies Actions;

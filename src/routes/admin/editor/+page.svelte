@@ -58,26 +58,47 @@
         author: string,
     }
 
-
-
-
     let title = $state('Oh no he forgot the title probably');
     let blurb = $state('default');
     let category = $state('draft');
     let slug = $state('default');
     let fig = $state('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
     let widefig = $state('');
-    let figcap = $state(null);
+    let figcap: string | null = $state(null);
     let figalt = $state('');
     let jewel = $state(false);
     let reminder = $state('');
     let author = $state('Maksiks');
 
     let hue = $state(30);
-    const accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
-    if (currentDetails.details) {
+    let accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
 
-    }
+
+    const getHueFromCSSOKLCH = (oklch: string) => parseFloat(oklch.match(/oklch\([^ ]+ [^ ]+ ([^ ]+)/)?.[1] ?? '30');
+
+    // Svelte's object reactivity is weird (or i jsut can't figure it out)
+    // it technically works to just go details.title = 'blah blah blah'
+    // but you get a warning that it's non-reactive so a million variables
+    // go brrrrrrrr
+    const derivedDetails = $derived(currentDetails.details);
+    $effect(() => {
+        if (derivedDetails) {
+            title = derivedDetails.title;
+            blurb = derivedDetails.blurb;
+            category = derivedDetails.category;
+            slug = derivedDetails.slug;
+            fig = derivedDetails.fig;
+            widefig = derivedDetails.widefig;
+            figcap = derivedDetails.figcap;
+            figalt = derivedDetails.figalt;
+            accent = derivedDetails.accent;
+            jewel = derivedDetails.jewel;
+            reminder = derivedDetails.reminder;
+            author = derivedDetails.author;
+
+            hue = getHueFromCSSOKLCH(derivedDetails.accent);
+        }
+    })
 
     const details: Details = $derived({
         title: title,
@@ -93,6 +114,8 @@
         reminder: reminder,
         author: author,
     })
+
+    $inspect(details)
 </script>
 
 <svelte:head>
@@ -115,10 +138,10 @@
 </button>
 <aside class="sidebar {sidebar ? 'open' : 'closed'}">
     <label for="title">Title</label>
-    <input name="title" id="title" type="text" bind:value={title} />
+    <input name="title" id="title" type="text" bind:value={title}/>
 
     <label for="blurb">Blurb</label>
-    <textarea name="blurb" id="blurb" bind:value={blurb} ></textarea>
+    <textarea name="blurb" id="blurb" bind:value={blurb}></textarea>
 
     <label for="category">Category</label>
     <select name="category" id="category" bind:value={category}>
@@ -131,41 +154,41 @@
     </select>
 
     <label for="slug">Slug</label>
-    <input name="slug" id="slug" type="text" bind:value={slug} />
+    <input name="slug" id="slug" type="text" bind:value={slug}/>
 
     <label for="fig">Figure</label>
-    <input name="fig" id="fig" type="text" bind:value={fig} />
+    <input name="fig" id="fig" type="text" bind:value={fig}/>
     <img class="fig" src={fig} alt="fig">
 
     <label for="widefig">Wide Figure</label>
-    <input name="widefig" id="widefig" type="text" bind:value={widefig} />
+    <input name="widefig" id="widefig" type="text" bind:value={widefig}/>
 
     <label for="figcap">Figure Caption</label>
-    <input name="figcap" id="figcap" type="text" bind:value={figcap} />
+    <input name="figcap" id="figcap" type="text" bind:value={figcap}/>
 
     <label for="figalt">Figure Alt Text</label>
-    <input name="figalt" id="figalt" type="text" bind:value={figalt} />
+    <input name="figalt" id="figalt" type="text" bind:value={figalt}/>
 
     <label for="accent">Accent</label>
-    <input name="accent" id="accent" type="range" min="0" max="360" bind:value={hue} />
+    <input name="accent" id="accent" type="range" min="0" max="360" bind:value={hue}/>
     <div class="color-bar" style="background-color: {accent}"></div>
 
     <label for="jewel">
         Jewel
-        <input name="jewel" id="jewel" type="checkbox" bind:checked={jewel} />
+        <input name="jewel" id="jewel" type="checkbox" bind:checked={jewel}/>
     </label>
 
     <label for="reminder">Reminder</label>
     <small>format example: yearly-2025</small>
-    <input name="reminder" id="reminder" type="text" bind:value={reminder} />
+    <input name="reminder" id="reminder" type="text" bind:value={reminder}/>
 
     <label for="author">Author</label>
-    <input name="author" id="author" type="text" bind:value={author} />
+    <input name="author" id="author" type="text" bind:value={author}/>
 </aside>
 <main>
     <h1>No one’s watching. You’re safe here.</h1>
     <form method="POST" action="?/newArticle" use:enhance>
-        <input type="hidden" name="details" value={JSON.stringify(details)} />
+        <input type="hidden" name="details" value={JSON.stringify(details)}/>
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
             <div class="rendered">
@@ -173,7 +196,7 @@
             </div>
         </div>
         <div class="button-wrap">
-            <button>{isEditing ? `Finish Editing ${slug}`  : "Create New Draft" }</button>
+            <button>{isEditing ? `Finish Editing ${slug}` : "Create New Draft" }</button>
         </div>
     </form>
 </main>
@@ -207,6 +230,7 @@
             width: 100%;
         }
     }
+
     .closed {
         right: -30vw;
     }
