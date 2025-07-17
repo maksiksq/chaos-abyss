@@ -205,8 +205,7 @@
 
         width: 30vw;
         height: 100vh;
-        background: white;
-        opacity: 0.95;
+        background-color: rgba(255, 255, 255, 0.95);
         border-left: 1px solid black;
 
         transition: right 0.1s ease-in;
