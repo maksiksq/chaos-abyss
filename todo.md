@@ -47,8 +47,8 @@
 - [ ] : editor: full editor
 - [ ] : editor: make header colors an option
 - [ ] : editor: maybe autospace in md part of the editor to match article line height better?
-- [ ] : editor: plug editor in
-- [ ] : editor: setting to change accent color in editor
+- [x] : editor: plug editor in
+- [x] : editor: setting to change accent color in editor
 - [ ] : editor: setup drafts in the db
 - [ ] : editor: handle drafts later
 - [ ] : later: add admin mode (edit articles and etc.)
@@ -67,6 +67,7 @@
 - [ ] : later: markdown-it codesandbox embed
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
+- [ ] : later: implement reminder
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
