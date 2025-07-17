@@ -1,22 +1,3 @@
-type Article = {
-    slug: string;
-    title: string;
-    fig: string;
-    figcap?: string;
-    figalt: string;
-    blurb: string;
-    date: string;
-    author: string;
-    // author link resolved by name
-    authorLink: string;
-    accent: string;
-    content: string;
-    // time calculated from word count on client
-    time: number;
-    commentCount: number;
-};
-
-import data from './data.json';
 import MarkdownIt from "markdown-it";
 import markdownit from "markdown-it";
 import hljs from "highlight.js";
@@ -28,10 +9,6 @@ import mditanchor from "markdown-it-anchor";
 import mditattr from "markdown-it-attribution";
 // @ts-ignore
 import mditsections from "markdown-it-header-sections";
-
-type Articles = Article[];
-
-export const articles: Articles = data;
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
@@ -65,3 +42,20 @@ export const md: MarkdownIt = markdownit({
         .use(mditanchor)
         .use(mditsections)
 ;
+
+type Details = {
+    title: string,
+    blurb: string,
+    category: string,
+    slug: string,
+    fig: string,
+    widefig: string,
+    figcap: string | null,
+    figalt: string,
+    accent: string,
+    jewel: boolean,
+    reminder: string,
+    author: string,
+}
+
+export const currentDetails: Details | null = $state(null);

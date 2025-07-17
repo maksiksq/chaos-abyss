@@ -1,10 +1,11 @@
 <script lang="ts">
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
-    import {md} from "../../shared";
+    import {currentDetails, md} from "../../shared.svelte";
     import {onDestroy, onMount} from "svelte";
 
     let {form} = $props();
+    const isEditing = $derived(!!currentDetails);
 
     const autoGrow = (e: Event) => {
         const textarea = e.target as HTMLInputElement;
@@ -57,24 +58,40 @@
         author: string,
     }
 
+
+
+
+    let title = $state('Oh no he forgot the title probably');
+    let blurb = $state('default');
+    let category = $state('draft');
+    let slug = $state('default');
+    let fig = $state('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
+    let widefig = $state('');
+    let figcap = $state(null);
+    let figalt = $state('');
+    let jewel = $state(false);
+    let reminder = $state('');
+    let author = $state('Maksiks');
+
     let hue = $state(30);
     const accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
+    if (currentDetails) {
 
-    let fig = $state('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
+    }
 
     const details: Details = $derived({
-        title: 'Oh no he forgot the title probably',
-        blurb: 'default',
-        category: 'draft',
-        slug: 'default',
+        title: title,
+        blurb: blurb,
+        category: category,
+        slug: slug,
         fig: fig,
-        widefig: '',
-        figcap: null,
-        figalt: '',
+        widefig: widefig,
+        figcap: figcap,
+        figalt: figalt,
         accent: accent,
-        jewel: false,
-        reminder: '',
-        author: 'Maksiks',
+        jewel: jewel,
+        reminder: reminder,
+        author: author,
     })
 </script>
 
@@ -98,13 +115,13 @@
 </button>
 <aside class="sidebar {sidebar ? 'open' : 'closed'}">
     <label for="title">Title</label>
-    <input name="title" id="title" type="text" bind:value={details.title} />
+    <input name="title" id="title" type="text" bind:value={title} />
 
     <label for="blurb">Blurb</label>
-    <textarea name="blurb" id="blurb" bind:value={details.blurb} ></textarea>
+    <textarea name="blurb" id="blurb" bind:value={blurb} ></textarea>
 
     <label for="category">Category</label>
-    <select name="category" id="category" bind:value={details.category}>
+    <select name="category" id="category" bind:value={category}>
         <option value="draft">Draft</option>
         <option value="dev">Dev</option>
         <option value="japanese">Japanese</option>
@@ -114,20 +131,20 @@
     </select>
 
     <label for="slug">Slug</label>
-    <input name="slug" id="slug" type="text" bind:value={details.slug} />
+    <input name="slug" id="slug" type="text" bind:value={slug} />
 
     <label for="fig">Figure</label>
     <input name="fig" id="fig" type="text" bind:value={fig} />
     <img class="fig" src={fig} alt="fig">
 
     <label for="widefig">Wide Figure</label>
-    <input name="widefig" id="widefig" type="text" bind:value={details.widefig} />
+    <input name="widefig" id="widefig" type="text" bind:value={widefig} />
 
     <label for="figcap">Figure Caption</label>
-    <input name="figcap" id="figcap" type="text" bind:value={details.figcap} />
+    <input name="figcap" id="figcap" type="text" bind:value={figcap} />
 
     <label for="figalt">Figure Alt Text</label>
-    <input name="figalt" id="figalt" type="text" bind:value={details.figalt} />
+    <input name="figalt" id="figalt" type="text" bind:value={figalt} />
 
     <label for="accent">Accent</label>
     <input name="accent" id="accent" type="range" min="0" max="360" bind:value={hue} />
@@ -135,15 +152,15 @@
 
     <label for="jewel">
         Jewel
-        <input name="jewel" id="jewel" type="checkbox" bind:checked={details.jewel} />
+        <input name="jewel" id="jewel" type="checkbox" bind:checked={jewel} />
     </label>
 
     <label for="reminder">Reminder</label>
     <small>format example: yearly-2025</small>
-    <input name="reminder" id="reminder" type="text" bind:value={details.reminder} />
+    <input name="reminder" id="reminder" type="text" bind:value={reminder} />
 
     <label for="author">Author</label>
-    <input name="author" id="author" type="text" bind:value={details.author} />
+    <input name="author" id="author" type="text" bind:value={author} />
 </aside>
 <main>
     <h1>No one’s watching. You’re safe here.</h1>
@@ -156,11 +173,10 @@
             </div>
         </div>
         <div class="button-wrap">
-            <button>Submit</button>
+            <button>{isEditing ? `Finish Editing ${slug}`  : "Create New Draft" }</button>
         </div>
     </form>
 </main>
-<p>{details.title}</p>
 {#if form?.success}
     <p>new article created</p>
 {/if}

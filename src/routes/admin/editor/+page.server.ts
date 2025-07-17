@@ -1,7 +1,5 @@
 import {type Actions, fail} from "@sveltejs/kit";
-import {readFileSync, writeFileSync} from 'fs';
-import {md} from "../../shared";
-import {getClient} from "$lib/utils/getSupabaseClient";
+import {md} from "../../shared.svelte";
 import {toTimestampTZ} from "$lib/utils/dateToTimestamptz";
 import {createServerClient} from "@supabase/ssr";
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
