@@ -22,34 +22,13 @@ export const actions = {
 
         const parsedHtml = md.render(raw);
 
-        const data = JSON.parse(readFileSync('./src/routes/data.json', 'utf8'));
-
-        data.push(
-            {
-                slug: 'editormade3',
-                title: 'THIS IS NOT THE ARTICLE YOU\'RE LOOKING FOR',
-                fig: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_16x9.jpg?w=1200',
-                figcap: 'non',
-                figalt: 'a really cool cat',
-                blurb: 'may the force be meow you',
-                date: '2025-06-20',
-                author: 'Meeeeeeeeeeee',
-                authorLink: '#',
-
-                content: parsedHtml,
-            }
-        );
-
-        console.log({...details, date: toTimestampTZ(new Date())})
-
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {
                 fetch,
             },
             cookies: {
-                get: (key) => cookies.get(key),
                 getAll: () => cookies.getAll(),
-                set: (name, value, options) => cookies.set(name, value, options),
+                setAll: () => cookies.setAll(),
                 delete: (name, options) => cookies.delete(name, options)
             }
         })
@@ -65,7 +44,7 @@ export const actions = {
 
         const { error } = await supabase
             .from('articles')
-            .insert({...details, content: parsedHtml, date: toTimestampTZ(new Date())});
+            .insert({...details, content: parsedHtml, contentmd: raw, date: toTimestampTZ(new Date())});
 
         if (error) {
             console.error(error);
