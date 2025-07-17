@@ -60,3 +60,4 @@ type Details = {
 
 export let currentDetails: { details: Details } | { details: null } = $state({ details: null});
 export let currentContent: { content: string } | { content: null } = $state({ content: null});
+export let currentDate: { date: string } | { date: null } = $state({ date: null});

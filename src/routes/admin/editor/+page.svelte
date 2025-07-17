@@ -1,11 +1,13 @@
 <script lang="ts">
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
-    import {currentContent, currentDetails, md} from "../../shared.svelte";
+    import {currentContent, currentDate, currentDetails, md} from "../../shared.svelte";
     import {onDestroy, onMount} from "svelte";
 
+    const date = $derived(!!currentDate.date ? currentDate.date : '')
+
     let {form} = $props();
-    const isEditing = $derived(!!currentDetails);
+    const isEditing = $derived({val: !!currentDetails.details});
 
     const autoGrow = (e: Event) => {
         const textarea = e.target as HTMLInputElement;
@@ -97,8 +99,9 @@
             author = derivedDetails.author;
 
             hue = getHueFromCSSOKLCH(derivedDetails.accent);
+            console.log(date);
         }
-    })
+    });
 
     const details: Details = $derived({
         title: title,
@@ -115,7 +118,6 @@
         author: author,
     })
 
-    $inspect(text)
 </script>
 
 <svelte:head>
@@ -189,6 +191,8 @@
     <h1>No one’s watching. You’re safe here.</h1>
     <form method="POST" action="?/newArticle" use:enhance>
         <input type="hidden" name="details" value={JSON.stringify(details)}/>
+        <input type="hidden" name="isEditing" value={isEditing.val}/>
+        <input type="hidden" name="date" value={date}/>
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
             <div class="rendered">
@@ -196,7 +200,7 @@
             </div>
         </div>
         <div class="button-wrap">
-            <button>{isEditing ? `Finish Editing ${slug}` : "Create New Draft" }</button>
+            <button>{isEditing.val ? `Finish Editing ${slug}` : "Create New Draft" }</button>
         </div>
     </form>
 </main>

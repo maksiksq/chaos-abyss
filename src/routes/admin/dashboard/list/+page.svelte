@@ -1,12 +1,14 @@
 <script lang="ts">
     import {goto} from "$app/navigation";
-    import {currentContent, currentDetails} from "../../../shared.svelte.js";
+    import {currentContent, currentDate, currentDetails} from "../../../shared.svelte.js";
 
     const {data} = $props();
 
     const handleEdit = (article: any) => {
         currentDetails.details = article;
         currentContent.content = article.contentmd;
+        currentDate.date = article.date;
+        console.log(article.date);
         goto('/admin/editor');
     }
 </script>
