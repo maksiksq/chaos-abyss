@@ -1,7 +1,7 @@
 <script lang="ts">
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
-    import {currentDetails, md} from "../../shared.svelte";
+    import {currentContent, currentDetails, md} from "../../shared.svelte";
     import {onDestroy, onMount} from "svelte";
 
     let {form} = $props();
@@ -14,7 +14,7 @@
         textarea.style.height = textarea.scrollHeight + 'px';
     }
 
-    let text = $state('');
+    let text = $derived(!!currentContent.content ? currentContent.content : '');
 
     const parsedHtml = $derived(md.render(text));
 
@@ -115,7 +115,7 @@
         author: author,
     })
 
-    $inspect(details)
+    $inspect(text)
 </script>
 
 <svelte:head>
