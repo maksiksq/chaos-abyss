@@ -6,19 +6,19 @@
 
     const handleEdit = (article: any) => {
         currentDetails.details = article;
-        currentContent.content = article.contentmd
+        currentContent.content = article.contentmd;
         goto('/admin/editor');
     }
 </script>
 
 <main>
     <h1>At your service!</h1>
-    <main>
+    <div>
         {#each data.articles as article}
             <div class="article">
                 <p>{article.title}</p>
                 <button class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
             </div>
         {/each}
-    </main>
+    </div>
 </main>
