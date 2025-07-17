@@ -20,6 +20,7 @@ export const actions = {
 
         const parsedHtml = md.render(raw);
 
+        // @ts-ignore investigate later
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {
                 fetch,
@@ -27,7 +28,7 @@ export const actions = {
             cookies: {
                 getAll: () => cookies.getAll(),
                 setAll: () => cookies.setAll(),
-                delete: (name, options) => cookies.delete(name, options)
+                delete: (name: any, options: any) => cookies.delete(name, options)
             }
         })
 

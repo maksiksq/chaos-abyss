@@ -75,7 +75,7 @@
 
     let hue = $state(30);
     const accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
-    if (currentDetails) {
+    if (currentDetails.details) {
 
     }
 

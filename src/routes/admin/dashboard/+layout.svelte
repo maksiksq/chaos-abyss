@@ -1,5 +1,5 @@
 <script lang="ts">
-
+const { children } = $props();
 </script>
 
 <header>
@@ -9,6 +9,8 @@
     <a href="/admin/dashboard/comments">Comments</a>
     <a href="/admin/dashboard/list">Edit/Publish</a>
 </header>
+
+{@render children()}
 
 <style>
     header {

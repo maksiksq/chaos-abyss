@@ -58,4 +58,4 @@ type Details = {
     author: string,
 }
 
-export const currentDetails: Details | null = $state(null);
+export let currentDetails: { details: Details } | { details: null } = $state({ details: null});
