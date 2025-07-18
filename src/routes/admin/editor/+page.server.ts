@@ -1,4 +1,4 @@
-import {type Actions, fail} from "@sveltejs/kit";
+import {type Actions, fail, redirect} from "@sveltejs/kit";
 import {md} from "../../shared.svelte";
 import {toTimestampTZ} from "$lib/utils/dateToTimestamptz";
 import {createServerClient} from "@supabase/ssr";
@@ -51,15 +51,18 @@ export const actions = {
             if (error) {
                 console.error(error);
             }
+
+            redirect(303, '/admin/dashboard/list');
         } else {
             const { error } = await supabase
                 .from('articles')
                 .update({...details, content: parsedHtml, contentmd: raw, date: date, last_edit: toTimestampTZ(new Date())})
                 .eq('date', date)
-
             if (error) {
                 console.error(error);
             }
+
+            redirect(303, '/admin/dashboard/list');
         }
 
         return { success: true, article: parsedHtml };
