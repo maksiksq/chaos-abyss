@@ -64,7 +64,5 @@ export const actions = {
 
             redirect(303, '/admin/dashboard/list');
         }
-
-        return { success: true, article: parsedHtml };
     }
 } satisfies Actions;
