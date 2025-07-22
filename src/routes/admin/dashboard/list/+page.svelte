@@ -1,10 +1,11 @@
 <script lang="ts">
-    import {goto} from "$app/navigation";
+    import {goto, invalidate} from "$app/navigation";
+    import {enhance} from '$app/forms';
     import {currentContent, currentDate, currentDetails} from "../../../shared.svelte.js";
     import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate";
     import CategorySelect from "$lib/components/CategorySelect.svelte";
 
-    const {data} = $props();
+    const {data, form} = $props();
 
     const handleEdit = (article: any) => {
         currentDetails.details = article;
@@ -14,13 +15,24 @@
         goto('/admin/editor');
     }
 
-    const [drafts, published] = $state(data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]));
+    const [drafts, published] = $derived(data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]));
 
-    let categoryMap = $state(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
+    // NOT AN ACTUAL DERIVED
+    let categoryMap = $derived(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
+
+    // This is effect is a workaround to make that derived reactive because for
+    // some reason it isn't (My second time having the same issue with
+    // Object.fromEntries so that's the issue i think)
+    $effect(() => {
+        categoryMap = Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || '']))
+    })
 </script>
 
 <main>
     <h1>At your service!</h1>
+    {#if form?.threat}
+        <p>{form?.threat}</p>
+    {/if}
     <div class="articles">
         <div class="published bloc">
             <h2> PUBLISHED </h2>
@@ -33,11 +45,14 @@
                         <p>{article.blurb}</p>
                     </div>
                     <div class="info">
-                        <p>Category: {article.category} * Published: {timestamptzToHumanDate(article.date)} * Last Edit: {timestamptzToHumanDate(article.last_edit)}</p>
+                        <p>Category: {article.category} * Published: {timestamptzToHumanDate(article.date)} * Last
+                            Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                     </div>
-                    <form class="buttons">
+                    <form method="POST" class="buttons" action="?/draftify" use:enhance={ () => invalidate('/admin/dashboard/list') }>
+                        <input type="hidden" name="uuid" value={JSON.stringify(article.uuid)}/>
                         <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button" class="visit">
+                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
+                           class="visit">
                             Visit
                         </a>
                         <button type="submit" class="draftify">
@@ -58,13 +73,18 @@
                         <p>{article.blurb}</p>
                     </div>
                     <div class="info">
-                        <p>Select category: <select bind:value={categoryMap[article.uuid]}><CategorySelect /></select>  * Created: {timestamptzToHumanDate(article.creation_date)} * Publish Date: {article.date ? timestamptzToHumanDate(article.date) : 'not yet'} * Last Edit: {timestamptzToHumanDate(article.last_edit)}</p>
+                        <p>Select category: <select bind:value={categoryMap[article.uuid]}>
+                            <CategorySelect/>
+                        </select> * Created: {timestamptzToHumanDate(article.creation_date)} * Publish
+                            Date: {article.date ? timestamptzToHumanDate(article.date) : 'not yet'} * Last
+                            Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                     </div>
-                    <form method="POST" class="buttons" action="?/publish">
-                        <input type="hidden" name="article" value={JSON.stringify(article)} />
-                        <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])} />
+                    <form method="POST" class="buttons" action="?/publish" use:enhance={ () => invalidate('/admin/dashboard/list') }>
+                        <input type="hidden" name="article" value={JSON.stringify(article)}/>
+                        <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])}/>
                         <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button" class="visit">
+                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
+                           class="visit">
                             Visit
                         </a>
                         <button type="submit" class="publish">
@@ -85,6 +105,7 @@
 
         & .articles {
             display: flex;
+
             & .bloc {
                 margin-top: 1rem;
                 width: 50%;
