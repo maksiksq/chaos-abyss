@@ -27,6 +27,8 @@
             inset: 0;
             z-index: 0;
 
+            pointer-events: none;
+
             width: 100vw;
             height: 100vh;
 
