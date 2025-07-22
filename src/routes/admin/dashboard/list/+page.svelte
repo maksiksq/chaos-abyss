@@ -1,6 +1,8 @@
 <script lang="ts">
     import {goto} from "$app/navigation";
     import {currentContent, currentDate, currentDetails} from "../../../shared.svelte.js";
+    import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate";
+    import CategorySelect from "$lib/components/CategorySelect.svelte";
 
     const {data} = $props();
 
@@ -13,6 +15,9 @@
     }
 
     const [drafts, published] = $state(data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]));
+
+    let categoryMap = $state(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
+    $inspect(categoryMap)
 </script>
 
 <main>
@@ -29,14 +34,13 @@
                         <p>{article.blurb}</p>
                     </div>
                     <div class="info">
-                        <p>Category: {article.category}</p>
+                        <p>Category: {article.category} * Published: {timestamptzToHumanDate(article.date)} * Last Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                     </div>
                     <form class="buttons">
                         <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <button type="button" class="visit"
-                                onclick={() => {goto(`/articles/${article.category.toLowerCase()}/${article.slug}`)}}>
+                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button" class="visit">
                             Visit
-                        </button>
+                        </a>
                         <button type="submit" class="draftify">
                             Draftify
                         </button>
@@ -55,14 +59,15 @@
                         <p>{article.blurb}</p>
                     </div>
                     <div class="info">
-                        <p>Select category:</p>
+                        <p>Select category: <select bind:value={categoryMap[article.uuid]}><CategorySelect /></select>  * Created: {timestamptzToHumanDate(article.creation_date)} * Publish Date: {article.date ? timestamptzToHumanDate(article.date) : 'not yet'} * Last Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                     </div>
-                    <form class="buttons">
+                    <form method="POST" class="buttons" action="?/publish">
+                        <input type="hidden" name="article" value={JSON.stringify(article)} />
+                        <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])} />
                         <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <button type="button" class="visit"
-                                onclick={() => {goto(`/articles/${article.category.toLowerCase()}/${article.slug}`)}}>
+                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button" class="visit">
                             Visit
-                        </button>
+                        </a>
                         <button type="submit" class="publish">
                             Publish
                         </button>
@@ -120,7 +125,7 @@
                     & .buttons {
                         margin-top: 0.9rem;
 
-                        & button {
+                        & button, a {
                             all: unset;
                             background-color: rgba(126, 0, 189, 0.4);
                             border: 1px solid black;

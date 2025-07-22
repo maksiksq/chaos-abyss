@@ -48,7 +48,7 @@ export const actions = {
         if (!isEditing) {
             const { error } = await supabase
                 .from('articles')
-                .insert({...details, content: parsedHtml, contentmd: raw, date: toTimestampTZ(new Date())});
+                .insert({...details, content: parsedHtml, contentmd: raw, date: null, last_edit: toTimestampTZ(new Date()), creation_date: toTimestampTZ(new Date())});
 
             if (error) {
                 console.error(error);

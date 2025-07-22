@@ -4,6 +4,7 @@
     import {currentContent, currentDate, currentDetails, md} from "../../shared.svelte";
     import {onDestroy, onMount} from "svelte";
     import {goto} from "$app/navigation";
+    import CategorySelect from "$lib/components/CategorySelect.svelte";
 
     const date = $derived(!!currentDate.date ? currentDate.date : '')
 
@@ -157,12 +158,7 @@
 
     <label for="category">Category</label>
     <select name="category" id="category" bind:value={category}>
-        <option value="draft">Draft</option>
-        <option value="dev">Dev</option>
-        <option value="japanese">Japanese</option>
-        <option value="media">Games & Media</option>
-        <option value="projects">Projects</option>
-        <option value="miscellaneous">Miscellaneous</option>
+        <CategorySelect />
     </select>
 
     <label for="slug">Slug</label>

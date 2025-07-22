@@ -19,9 +19,11 @@ export const load = async () => {
 export const actions = {
     publish: async ({ cookies, request }: any) => {
         const formData = await request.formData();
-        const uuid = JSON.parse(formData.get('uuid'));
+        const article = JSON.parse(formData.get('article'));
         const category = JSON.parse(formData.get('category'));
-        const oldDate = JSON.parse(formData.get('date'));
+
+        console.log(category);
+        console.log(article);
 
         // @ts-ignore investigate later
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
@@ -44,20 +46,16 @@ export const actions = {
             return { success: false, threat: 'Uhm, uhm, who are you??'};
         }
 
-        const wasPublishedBefore = false;
-
-        const date = wasPublishedBefore ? oldDate : toTimestampTZ(new Date());
-
         const { error } = await supabase
                 .from('articles')
-                .update({category: category, date: date})
-                .eq('uuid', uuid)
+                .update({category: category, date: article.date ? article.date : toTimestampTZ(new Date())})
+                .eq('uuid', article.uuid)
             if (error) {
                 console.error(error);
                 if (error.code === '23505') {
-                    return { success: false, threat: "Could not update article. How pathetic. Duplicate value (probably slug?)."};
+                    return { success: false, threat: "Could not publish article. How pathetic. Duplicate value (probably slug?)."};
                 }
-                return { success: false, threat: "Could not update article. It's console checking time."};
+                return { success: false, threat: "Could not publish article. It's console checking time."};
             }
             return { success: true };
     },
