@@ -47,6 +47,7 @@
     }
 
     type Details = {
+        uuid: string,
         title: string,
         blurb: string,
         category: string,
@@ -61,6 +62,7 @@
         author: string,
     }
 
+    let uuid = $state('00000000-0000-0000-0000-000000000000');
     let title = $state('Oh no he forgot the title probably');
     let blurb = $state('default');
     let category = $state('draft');
@@ -86,6 +88,7 @@
     const derivedDetails = $derived(currentDetails.details);
     $effect(() => {
         if (derivedDetails) {
+            uuid = derivedDetails.uuid;
             title = derivedDetails.title;
             blurb = derivedDetails.blurb;
             category = derivedDetails.category;
@@ -105,6 +108,7 @@
     });
 
     const details: Details = $derived({
+        uuid: uuid,
         title: title,
         blurb: blurb,
         category: category,

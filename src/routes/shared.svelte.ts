@@ -44,6 +44,7 @@ export const md: MarkdownIt = markdownit({
 ;
 
 type Details = {
+    uuid: string,
     title: string,
     blurb: string,
     category: string,

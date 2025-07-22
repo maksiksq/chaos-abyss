@@ -63,7 +63,7 @@ export const actions = {
             const { error } = await supabase
                 .from('articles')
                 .update({...details, content: parsedHtml, contentmd: raw, date: date, last_edit: toTimestampTZ(new Date())})
-                .eq('date', date)
+                .eq('uuid', details.uuid)
             if (error) {
                 console.error(error);
                 if (error.code === '23505') {

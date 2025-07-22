@@ -51,7 +51,9 @@
 - [x] : editor: setting to change accent color in editor
 - [ ] : editor: setup drafts in the db
 - [ ] : editor: handle drafts later
+- [ ] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
 - [ ] : later: add admin mode (edit articles and etc.)
+- [ ] : later: add old redirects for moved categories + add redirect warning
 - [ ] : later: add more easter eggs yes please
 - [ ] : later: add sources block
 - [ ] : later: apply for google news

@@ -29,19 +29,18 @@
                         <p>{article.blurb}</p>
                     </div>
                     <div class="info">
-                        <p>{article.category}</p>
+                        <p>Category: {article.category}</p>
                     </div>
-                    <div class="buttons">
-                        <button class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <button class="visit"
+                    <form class="buttons">
+                        <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
+                        <button type="button" class="visit"
                                 onclick={() => {goto(`/articles/${article.category.toLowerCase()}/${article.slug}`)}}>
                             Visit
                         </button>
-                        <button class="draftify"
-                                onclick={() => {goto(`/articles/${article.category.toLowerCase()}/${article.slug}`)}}>
+                        <button type="submit" class="draftify">
                             Draftify
                         </button>
-                    </div>
+                    </form>
                 </div>
             {/each}
         </div>
@@ -56,19 +55,18 @@
                         <p>{article.blurb}</p>
                     </div>
                     <div class="info">
-                        <p>{article.category}</p>
+                        <p>Select category:</p>
                     </div>
-                    <div class="buttons">
-                        <button class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <button class="visit"
+                    <form class="buttons">
+                        <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
+                        <button type="button" class="visit"
                                 onclick={() => {goto(`/articles/${article.category.toLowerCase()}/${article.slug}`)}}>
                             Visit
                         </button>
-                        <button class="publish"
-                                onclick={() => {goto(`/articles/${article.category.toLowerCase()}/${article.slug}`)}}>
+                        <button type="submit" class="publish">
                             Publish
                         </button>
-                    </div>
+                    </form>
                 </div>
             {/each}
         </div>
@@ -98,7 +96,7 @@
                     margin-top: 0.9rem;
                     padding-bottom: 0.5rem;
 
-                    & div {
+                    & div, form {
                         display: flex;
                         flex-direction: row;
                     }
