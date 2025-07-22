@@ -50,7 +50,7 @@
 - [x] : editor: plug editor in
 - [x] : editor: setting to change accent color in editor
 - [x] : editor: setup drafts in the db
-- [ ] : editor: handle drafts later
+- [x] : editor: handle drafts later
 - [x] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
 - [ ] : later: add admin mode (edit articles and etc.)
 - [ ] : later: add old redirects for moved categories + add redirect warning
