@@ -1,4 +1,4 @@
-import {error, type Handle, redirect} from "@sveltejs/kit";
+import {error as sverror, type Handle, redirect} from "@sveltejs/kit";
 import {createServerClient} from "@supabase/ssr";
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 import {sequence} from "@sveltejs/kit/hooks";
@@ -62,8 +62,8 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
 
     // draft error
     // no auth
-    if (!e.locals.session && e.url.pathname.startsWith('/articles/draft')) {
-        throw error(404, 'Oh no, article not found.');
+    if (!e.locals.session && e.url.pathname.startsWith('/articles/draft/')) {
+        throw sverror(404, 'Oh no, article not found.');
     }
 
     return resolve(e);
