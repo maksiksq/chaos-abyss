@@ -49,7 +49,7 @@
 - [ ] : editor: maybe autospace in md part of the editor to match article line height better?
 - [x] : editor: plug editor in
 - [x] : editor: setting to change accent color in editor
-- [ ] : editor: setup drafts in the db
+- [x] : editor: setup drafts in the db
 - [ ] : editor: handle drafts later
 - [x] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
 - [ ] : later: add admin mode (edit articles and etc.)
