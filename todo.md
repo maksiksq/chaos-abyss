@@ -51,7 +51,7 @@
 - [x] : editor: setting to change accent color in editor
 - [ ] : editor: setup drafts in the db
 - [ ] : editor: handle drafts later
-- [ ] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
+- [x] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
 - [ ] : later: add admin mode (edit articles and etc.)
 - [ ] : later: add old redirects for moved categories + add redirect warning
 - [ ] : later: add more easter eggs yes please
@@ -84,6 +84,7 @@
 - [ ] : very later: remake hand anim later
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)
 - [ ] : nitpick: draft error page is different
+- [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
