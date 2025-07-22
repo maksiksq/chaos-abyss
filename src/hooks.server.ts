@@ -54,7 +54,7 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
         redirect(303, '/admauth');
     }
     if (e.locals.session && e.url.pathname === '/admauth') {
-        redirect(303, '/admin/editor');
+        redirect(303, '/admin/dashboard');
     }
 
     return resolve(e);

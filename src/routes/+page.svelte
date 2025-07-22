@@ -21,7 +21,7 @@
         if (e.key === cheatCode[codeIx]) {
             codeIx++;
             if (codeIx === cheatCode.length) {
-                goto('admin/editor');
+                goto('admin/dashboard');
                 codeIx = 0;
             }
         } else {
