@@ -41,7 +41,9 @@ export const actions = {
             error: authError
         } = await supabase.auth.getUser();
 
-        console.log('user:', user);
+        if (authError) {
+            return { success: false, threat: 'Uhm, uhm, who are you??'};
+        }
 
         if (!isEditing) {
             const { error } = await supabase
@@ -50,9 +52,13 @@ export const actions = {
 
             if (error) {
                 console.error(error);
+                if (error.code === '23505') {
+                    return { success: false, threat: "Could not create article. How pathetic. Duplicate value (probably slug?)."};
+                }
+                return { success: false, threat: "Could not create article. It's console checking time."};
             }
 
-            redirect(303, '/admin/dashboard/list');
+            return { success: true };
         } else {
             const { error } = await supabase
                 .from('articles')
@@ -60,9 +66,13 @@ export const actions = {
                 .eq('date', date)
             if (error) {
                 console.error(error);
+                if (error.code === '23505') {
+                    return { success: false, threat: "Could not update article. How pathetic. Duplicate value (probably slug?)."};
+                }
+                return { success: false, threat: "Could not update article. It's console checking time."};
             }
 
-            redirect(303, '/admin/dashboard/list');
+            return { success: true };
         }
     }
 } satisfies Actions;

@@ -11,22 +11,8 @@
     $effect(() => {
         const accent = data.article.accent;
         tick().then(() => {
-            const match = accent.match(/^oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)$/);
-            if (!match) {
-                console.warn('Maksiks: Invalid accent, default will be used instead.')
-                return;
-            }
-            let [l, c, h] = match.slice(1).map(Number);
-
-            // won't reach 0 anyway but idk maybe I'm feeling spooky
-            l = Math.max(0, l-0.0508);
-            c = Math.max(0, c+0.0254);
-            h = Math.max(0, h);
-
-            const accentDeep = `oklch(${l}, ${c}, ${h})`;
-
-            body?.style.setProperty('--accent-color', accent);
-            body?.style.setProperty('--accent-color-deeper', accentDeep);
+            body?.style.setProperty('--accent-color', data.article.accent);
+            body?.style.setProperty('--accent-color-deeper', data.accentDeep);
         });
     })
 </script>

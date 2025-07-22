@@ -3,6 +3,7 @@
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
     import {currentContent, currentDate, currentDetails, md} from "../../shared.svelte";
     import {onDestroy, onMount} from "svelte";
+    import {goto} from "$app/navigation";
 
     const date = $derived(!!currentDate.date ? currentDate.date : '')
 
@@ -118,6 +119,11 @@
         author: author,
     })
 
+    $effect(() => {
+        if (form?.success) {
+            goto('/admin/dashboard/list');
+        }
+    })
 </script>
 
 <svelte:head>
@@ -200,19 +206,25 @@
             </div>
         </div>
         <div class="button-wrap">
+            {#if !form?.success}
+                <p class="threat">{form?.threat}</p>
+            {/if}
             <button>{isEditing.val ? `Finish Editing ${slug}` : "Create New Draft" }</button>
         </div>
     </form>
 </main>
-{#if form?.success}
-    <p>new article created</p>
-{/if}
 
 <style>
     :global {
         body {
             overflow-y: hidden;
         }
+    }
+
+    .threat {
+        color: #9a0000;
+        align-content: center;
+        padding-right: 3rem;
     }
 
     .burger {

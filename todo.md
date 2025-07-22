@@ -80,6 +80,7 @@
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: maybe revisit hand slightly
 - [ ] : very later: remake hand anim later
+- [ ] : supabase: made editor check for uuid for update instead of email (it's different for insert)
 - [ ] : soon: favicon
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
