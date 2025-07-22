@@ -17,7 +17,6 @@
     const [drafts, published] = $state(data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]));
 
     let categoryMap = $state(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
-    $inspect(categoryMap)
 </script>
 
 <main>
