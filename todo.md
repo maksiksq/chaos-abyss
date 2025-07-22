@@ -45,7 +45,7 @@
 - [x] : editor: admin: make slug manual
 - [x] : editor: fix editor for db and stuff
 - [ ] : editor: full editor
-- [ ] : editor: make header colors an option
+- [x] : editor: make header colors an option
 - [ ] : editor: maybe autospace in md part of the editor to match article line height better?
 - [x] : editor: plug editor in
 - [x] : editor: setting to change accent color in editor
