@@ -1,10 +1,8 @@
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {type Actions, fail} from "@sveltejs/kit";
-import {md} from "../../../shared.svelte";
 import {createServerClient} from "@supabase/ssr";
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 import {toTimestampTZ} from "$lib/utils/dateToTimestamptz";
-import {invalidate} from "$app/navigation";
 
 export const load = async () => {
     const supabase = getClient();
@@ -90,5 +88,39 @@ export const actions = {
         }
 
         return {threat: 'Draftified the article!'};
+    },
+    stash: async ({cookies, request}: any) => {
+        const formData = await request.formData();
+        const uuid = JSON.parse(formData.get('uuid'));
+
+        // @ts-ignore investigate later
+        const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
+            global: {
+                fetch,
+            },
+            cookies: {
+                getAll: () => cookies.getAll(),
+                setAll: () => cookies.setAll(),
+                delete: (name: any, options: any) => cookies.delete(name, options)
+            }
+        })
+
+        const {
+            error: authError
+        } = await supabase.auth.getUser();
+
+        if (authError) {
+            return {threat: 'Uhm, uhm, who are you???'};
+        }
+
+        const {error} = await supabase
+            .from('articles')
+            .update({category: 'stashed'})
+            .eq('uuid', uuid)
+        if (error) {
+            return {threat: "Could not stash article. It came back from the death realm to haunt you muhahahaha."};
+        }
+
+        return {threat: 'Stashed the article!'};
     }
 } satisfies Actions

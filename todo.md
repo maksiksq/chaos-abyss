@@ -79,6 +79,7 @@
 - [ ] : prod: submit sitemap to search console
 - [ ] : very later: add more text editing functions to editor (e.g. Word)
 - [ ] : very later: maybe later add search suggestions
+- [ ] : very later: revival altar for stashed articles
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: implement reminder
 - [ ] : very later: maybe revisit hand slightly

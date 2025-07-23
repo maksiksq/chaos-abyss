@@ -61,7 +61,10 @@
         modal = 'This will publish the article for everyone to see, you sure?';
     }
 
-    const handleDelete = (e: Event) => {
+    const handleStash = (e: Event) => {
+        const target = e.target as HTMLElement;
+        formEl = target.parentElement as HTMLFormElement;
+
         modal = 'This will stash the article to the depths of hell, you sure? Technically accessible through the database still.';
     }
 </script>
@@ -97,21 +100,20 @@
                             <p>Category: {article.category} * Published: {timestamptzToHumanDate(article.date)} * Last
                                 Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                         </div>
-                        <form method="POST" class="buttons" action="?/draftify"
-                              use:enhance={ () => invalidate('/admin/dashboard/list') }>
-                            <input type="hidden" name="uuid" value={JSON.stringify(article.uuid)}/>
-                            <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                            <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
-                               class="visit">
-                                Visit
-                            </a>
-                            <button type="button" onclick={handleDraftify} class="draftify">
-                                Draftify
-                            </button>
-                            <button type="button" onclick={handleDelete} class="delete">
-                                Delete
-                            </button>
-                        </form>
+                        <div class="clickables">
+                            <form method="POST" class="buttons" action="?/draftify"
+                                  use:enhance={ () => invalidate('/admin/dashboard/list') }>
+                                <input type="hidden" name="uuid" value={JSON.stringify(article.uuid)}/>
+                                <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
+                                <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
+                                   class="visit">
+                                    Visit
+                                </a>
+                                <button type="button" onclick={handleDraftify} class="draftify">
+                                    Draftify
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 {/each}
             {/each}
@@ -133,22 +135,27 @@
                             Date: {article.date ? timestamptzToHumanDate(article.date) : 'not yet'} * Last
                             Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                     </div>
-                    <form method="POST" class="buttons" action="?/publish"
-                          use:enhance={ () => invalidate('/admin/dashboard/list') }>
-                        <input type="hidden" name="article" value={JSON.stringify(article)}/>
-                        <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])}/>
-                        <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
-                           class="visit">
-                            Visit
-                        </a>
-                        <button type="button" onclick={handlePublish} class="publish">
-                            Publish
-                        </button>
-                        <button type="button" onclick={handleDelete} class="delete">
-                            🗑
-                        </button>
-                    </form>
+                    <div class="clickables">
+                        <form method="POST" class="buttons" action="?/publish"
+                              use:enhance={ () => invalidate('/admin/dashboard/list') }>
+                            <input type="hidden" name="article" value={JSON.stringify(article)}/>
+                            <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])}/>
+                            <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
+                            <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
+                               class="visit">
+                                Visit
+                            </a>
+                            <button type="button" onclick={handlePublish} class="publish">
+                                Publish
+                            </button>
+                        </form>
+                        <form method="POST" class="buttons stash-form" action="?/stash" use:enhance>
+                            <input type="hidden" name="uuid" value={JSON.stringify(article.uuid)}/>
+                            <button type="button" onclick={handleStash} class="stash">
+                                🗑
+                            </button>
+                        </form>
+                    </div>
                 </div>
             {/each}
         </div>
@@ -249,19 +256,25 @@
 
                     & .info {
                         margin-top: 0.4rem;
+
+                        & p {
+                            line-height: 1.7em;
+                        }
                     }
 
-                    & .buttons {
-                        margin-top: 0.9rem;
+                    & .clickables {
+                        & .buttons {
+                            margin-top: 0.9rem;
 
-                        & button, a {
-                            all: unset;
-                            background-color: rgba(47, 255, 81, 0.4);
-                            border: 1px solid black;
-                            padding: 0.3rem 2rem;
-                            margin-right: 1rem;
-                            font-size: 0.9rem;
-                            cursor: pointer;
+                            & button, a {
+                                all: unset;
+                                background-color: rgba(47, 255, 81, 0.4);
+                                border: 1px solid black;
+                                padding: 0.3rem 2rem;
+                                margin-right: 1rem;
+                                font-size: 0.9rem;
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
