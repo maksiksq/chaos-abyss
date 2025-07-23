@@ -67,6 +67,7 @@
 - [ ] : later: markdown-it codesandbox embed
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
+- [ ] : later: Add delete
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
 - [ ] : maybe: dark mode (proper color matched gonna be hard)

@@ -29,9 +29,53 @@
     $effect(() => {
         categoryMap = Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || '']))
     })
+
+    //
+
+    let modal = $state('');
+
+    let formEl: HTMLFormElement | null = $state(null);
+
+    const handleLightboxOut = () => {
+        formEl = null;
+        modal = '';
+    }
+
+    const handleModalClick = () => {
+        formEl?.submit();
+    }
+
+    const handleDraftify = (e: Event) => {
+        console.log('what');
+
+        const target = e.target as HTMLElement;
+        formEl = target.parentElement as HTMLFormElement;
+
+        modal = 'This will remove the article from the website, you sure?';
+    }
+
+    const handlePublish = (e: Event) => {
+        const target = e.target as HTMLElement;
+        formEl = target.parentElement as HTMLFormElement;
+
+        modal = 'This will publish the article for everyone to see, you sure?';
+    }
+
+    const handleDelete = (e: Event) => {
+        modal = 'This will PERMANENTLY delete the article, are you absolutely sure??? Do you want to annoyingly download a backup like an idiot? Think twice.';
+    }
 </script>
 
 <main>
+    {#if modal}
+        <div role="button" tabindex="0" class="lightbox" onclick={handleLightboxOut} onkeydown={handleLightboxOut}>
+            <div class="modal">
+                <p>{modal}</p>
+                <button onclick={handleModalClick}>Yup. That's right.</button>
+            </div>
+        </div>
+    {/if}
+
     <h1>At your service!</h1>
     {#if form?.threat}
         <p>{form?.threat}</p>
@@ -61,7 +105,7 @@
                                class="visit">
                                 Visit
                             </a>
-                            <button type="submit" class="draftify">
+                            <button type="button" onclick={handleDraftify} class="draftify">
                                 Draftify
                             </button>
                         </form>
@@ -95,7 +139,7 @@
                            class="visit">
                             Visit
                         </a>
-                        <button type="submit" class="publish">
+                        <button type="button" onclick={handlePublish} class="publish">
                             Publish
                         </button>
                     </form>
@@ -106,6 +150,48 @@
 </main>
 
 <style>
+    .lightbox {
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        & .modal {
+            width: 30vw;
+            height: 30vh;
+            background-color: white;
+            border: 1px solid black;
+
+            box-sizing: border-box;
+            padding: 1rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 1rem;
+
+            & p {
+                width: 80%;
+            }
+
+            & button {
+                all: unset;
+                background-color: rgba(255, 47, 47, 0.4);
+                border: 1px solid black;
+                cursor: pointer;
+                padding: 1rem 2rem;
+            }
+        }
+    }
+
     main {
         margin-top: 1rem;
         margin-left: 1.4rem;
