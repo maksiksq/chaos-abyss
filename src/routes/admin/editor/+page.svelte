@@ -5,6 +5,7 @@
     import {onDestroy, onMount} from "svelte";
     import {goto} from "$app/navigation";
     import CategorySelect from "$lib/components/CategorySelect.svelte";
+    import {browser} from "$app/environment";
 
     const date = $derived(!!currentDate.date ? currentDate.date : '')
 
@@ -18,7 +19,9 @@
         textarea.style.height = textarea.scrollHeight + 'px';
     }
 
-    let text = $derived(!!currentContent.content ? currentContent.content : '');
+    let text = $derived(
+        !!currentContent.content ? currentContent.content : (browser ? localStorage.getItem("text") ?? '' : '')
+    );
 
     const parsedHtml = $derived(md.render(text));
 
@@ -63,26 +66,30 @@
         author: string,
     }
 
-    let uuid = $state('00000000-0000-0000-0000-000000000000');
-    let title = $state('Oh no he forgot the title probably');
-    let blurb = $state('default');
-    let category = $state('draft');
-    let slug = $state('default');
-    let fig = $state('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
-    let widefig = $state('');
-    let figcap: string | null = $state(null);
-    let figalt = $state('');
-    let jewel = $state(false);
-    let reminder = $state('');
-    let author = $state('Maksiks');
+    // LOAD LAST DETAILS FROM LOCAL STORAGE (or defaults)
+    const localDetails = browser ? JSON.parse(localStorage.getItem("details") ?? "{}") : {};
+    console.log('details:', localDetails);
 
-    let hue = $state(30);
+    let uuid = $state(localDetails.uuid ?? '00000000-0000-0000-0000-000000000000');
+    let title = $state(localDetails.title ?? 'Oh no he forgot the title probably');
+    let blurb = $state(localDetails.blurb ?? 'default');
+    let category = $state(localDetails.category ?? 'draft');
+    let slug = $state(localDetails.slug ?? 'default');
+    let fig = $state(localDetails.fig ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
+    let widefig = $state(localDetails.widefig ?? '');
+    let figcap: string | null = $state(localDetails.figcap ?? null);
+    let figalt = $state(localDetails.figalt ?? '');
+    let jewel = $state(!!localDetails.jewel); // coerces to boolean
+    let reminder = $state(localDetails.reminder ?? '');
+    let author = $state(localDetails.author ?? 'Maksiks');
+
+    let hue = $state(parseFloat(localDetails.hue ?? '30'));
     let accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
 
 
     const getHueFromCSSOKLCH = (oklch: string) => parseFloat(oklch.match(/oklch\([^ ]+ [^ ]+ ([^ ]+)/)?.[1] ?? '30');
 
-    // Svelte's object reactivity is weird (or i jsut can't figure it out)
+    // Svelte's object reactivity is weird (or i just can't figure it out)
     // it technically works to just go details.title = 'blah blah blah'
     // but you get a warning that it's non-reactive so a million variables
     // go brrrrrrrr
@@ -129,6 +136,18 @@
             goto('/admin/dashboard/list');
         }
     })
+
+    // SAVE LAST DETAILS FROM LOCAL STORAGE
+    let timeout: ReturnType<typeof setTimeout>;
+
+    const handleSaving = () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            localStorage.setItem('details', JSON.stringify(details));
+            localStorage.setItem('text', text);
+        }, 500)
+    }
+
 </script>
 
 <svelte:head>
@@ -149,7 +168,7 @@
         <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
     </svg>
 </button>
-<aside class="sidebar {sidebar ? 'open' : 'closed'}">
+<aside oninput={handleSaving} class="sidebar {sidebar ? 'open' : 'closed'}">
     <label for="title">Title</label>
     <input name="title" id="title" type="text" bind:value={title}/>
 
@@ -200,7 +219,7 @@
         <input type="hidden" name="isEditing" value={isEditing.val}/>
         <input type="hidden" name="date" value={date}/>
         <div class="write-bloc">
-            <textarea name="article" bind:value={text} oninput={autoGrow}></textarea>
+            <textarea name="article" bind:value={text} oninput={(e) => {autoGrow(e); handleSaving();}}></textarea>
             <div class="rendered">
                 <MarkdownBlock content={parsedHtml}/>
             </div>
