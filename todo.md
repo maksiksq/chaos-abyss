@@ -38,7 +38,6 @@
 - [x] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think ; Svelte doesn't do it anyway
 
 
-- [ ] : cfg: mark articles as yearly (should be cool on dashboard)
 - [x] : editor: add all options to editor (not just content)
 - [x] : editor: add editor auth
 - [ ] : editor: add more functions to editor
@@ -70,7 +69,6 @@
 - [ ] : later: markdown-it codesandbox embed
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
-- [ ] : later: implement reminder
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
@@ -81,14 +79,14 @@
 - [ ] : prod: submit sitemap to search console
 - [ ] : very later: maybe later add search suggestions
 - [ ] : very later: maybe more search filters in the future
+- [ ] : very later: implement reminder
 - [ ] : very later: maybe revisit hand slightly
 - [ ] : very later: remake hand anim later
+- [ ] : very later: editor loadouts and stuff, actually proper real-time saving
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)
 - [ ] : nitpick: draft error page is different
 - [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
-
-cfg: 1
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~

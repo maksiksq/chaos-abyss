@@ -60,6 +60,8 @@ export const actions = {
 
             return { success: true };
         } else {
+            console.log(details.slug);
+            console.log('uuid:', details.uuid);
             const { error } = await supabase
                 .from('articles')
                 .update({...details, content: parsedHtml, contentmd: raw, date: date, last_edit: toTimestampTZ(new Date())})
