@@ -189,7 +189,7 @@
     <label for="slug">Slug</label>
     <input name="slug" id="slug" type="text" bind:value={slug}/>
     {#if isEditing.val === true && slug !== derivedDetails?.slug}
-        <small class="warn">WARNING: if you change the slug here, it will make a redirect to the new page! </small>
+        <small class="warn">WARNING: if you change the slug here, it will make a redirect to the new page! <br>Originally: {derivedDetails?.slug} </small>
     {/if}
 
     <label for="fig">Figure</label>
