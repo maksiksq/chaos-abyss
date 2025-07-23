@@ -23,7 +23,14 @@
         !!currentContent.content ? currentContent.content : (browser ? localStorage.getItem("text") ?? '' : '')
     );
 
-    const parsedHtml = $derived(md.render(text));
+    let parsedHtml = $state('');
+
+    // once again a workaround, it used to work before my manipulations too hmm
+    // really unsure why can't i just use derived here
+    // EDIT: it's cause it has side effects i think
+    $effect(() => {
+        parsedHtml = md.render(text);
+    })
 
     // very lame that you can't do this in css in Svelte right now
     let body: HTMLBodyElement | undefined = $state();
