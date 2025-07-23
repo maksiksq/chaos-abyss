@@ -50,7 +50,7 @@
 - [x] : editor: handle drafts later
 - [x] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
 - [x] : later: add admin mode (edit articles and etc.)
-- [ ] : later: add old redirects for moved categories + add redirect warning
+- [x] : later: add old redirects for moved categories + add redirect warning
 - [ ] : later: add more easter eggs yes please
 - [ ] : later: add sources block
 - [ ] : later: apply for google news
