@@ -188,6 +188,9 @@
 
     <label for="slug">Slug</label>
     <input name="slug" id="slug" type="text" bind:value={slug}/>
+    {#if isEditing.val === true && slug !== derivedDetails?.slug}
+        <small class="warn">WARNING: if you change the slug here, it will make a redirect to the new page! </small>
+    {/if}
 
     <label for="fig">Figure</label>
     <input name="fig" id="fig" type="text" bind:value={fig}/>
@@ -212,7 +215,7 @@
     </label>
 
     <label for="reminder">Reminder</label>
-    <small>format example: yearly-2025</small>
+    <small class="smol">format example: yearly-2025</small>
     <input name="reminder" id="reminder" type="text" bind:value={reminder}/>
 
     <label for="author">Author</label>
@@ -315,6 +318,17 @@
 
         & input {
             height: 2rem;
+        }
+
+        & .warn {
+            color: #c50000;
+            padding-top: 0rem;
+            padding-bottom: 1rem;
+        }
+
+        & .smol {
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
         }
 
         & label[for=jewel] {
