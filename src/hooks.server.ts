@@ -69,4 +69,21 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     return resolve(e);
 }
 
-export const handle: Handle = sequence(supabase, authGuard);
+const redirects: Handle = async ({ event: e, resolve }) => {
+    const current = e.url.pathname;
+    console.log('current', current);
+
+    const { data, error } = await e.locals.supabase
+        .from('redirects')
+        .select('to')
+        .eq('from', current)
+        .single()
+
+    if (data?.to) {
+        redirect(301, data?.to)
+    }
+
+    return resolve(e);
+}
+
+export const handle: Handle = sequence(supabase, authGuard, redirects);
