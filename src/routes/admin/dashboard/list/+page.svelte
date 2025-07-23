@@ -125,6 +125,8 @@
             & .bloc {
                 margin-top: 1rem;
                 width: 50%;
+                box-sizing: border-box;
+                padding-right: 7rem;
 
                 & h2 {
                     font-size: 4rem;

@@ -40,12 +40,10 @@
 
 - [x] : editor: add all options to editor (not just content)
 - [x] : editor: add editor auth
-- [ ] : editor: add more functions to editor
 - [x] : editor: admin: make slug manual
 - [x] : editor: fix editor for db and stuff
-- [ ] : editor: full editor
+- [x] : editor: full editor
 - [x] : editor: make header colors an option
-- [ ] : editor: maybe autospace in md part of the editor to match article line height better?
 - [x] : editor: plug editor in
 - [x] : editor: setting to change accent color in editor
 - [x] : editor: setup drafts in the db
@@ -72,11 +70,13 @@
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
+- [ ] : maybe: maybe autospace in md part of the editor to match article line height better?
 - [ ] : maybe: make runnable code blocks myself, mabye???
 - [ ] : maybe: style previous article/next article differently
 - [ ] : prod: check if sitemap also updates weirdly in production
 - [ ] : prod: redirect vercel domains to chaos-abyss.com
 - [ ] : prod: submit sitemap to search console
+- [ ] : very later: add more text editing functions to editor (e.g. Word)
 - [ ] : very later: maybe later add search suggestions
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: implement reminder
