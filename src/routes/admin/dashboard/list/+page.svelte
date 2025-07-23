@@ -62,7 +62,7 @@
     }
 
     const handleDelete = (e: Event) => {
-        modal = 'This will PERMANENTLY delete the article, are you absolutely sure??? Do you want to annoyingly download a backup like an idiot? Think twice.';
+        modal = 'This will stash the article to the depths of hell, you sure? Technically accessible through the database still.';
     }
 </script>
 
@@ -108,6 +108,9 @@
                             <button type="button" onclick={handleDraftify} class="draftify">
                                 Draftify
                             </button>
+                            <button type="button" onclick={handleDelete} class="delete">
+                                Delete
+                            </button>
                         </form>
                     </div>
                 {/each}
@@ -141,6 +144,9 @@
                         </a>
                         <button type="button" onclick={handlePublish} class="publish">
                             Publish
+                        </button>
+                        <button type="button" onclick={handleDelete} class="delete">
+                            🗑
                         </button>
                     </form>
                 </div>
