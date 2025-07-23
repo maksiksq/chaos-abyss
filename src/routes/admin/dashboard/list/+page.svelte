@@ -19,12 +19,12 @@
     const publishedCategories = $derived(published.reduce((acc: Record<string, typeof published[number]>, article: typeof published[number]) => ((acc[article.category] ||= []).push(article), acc), {} as Record<string, typeof published[number][]>));
     const keysAndCategories = $derived(Object.entries(publishedCategories) as [string, typeof published[number][]][])
 
-    // NOT AN ACTUAL DERIVED
+    // FAKE DERIVED
     // this thing assigns the categories to each select individually
-    // (so don't accidentally publish the wrong thing)
-    let categoryMap = $derived(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
+    // (so I don't accidentally publish the wrong thing)
+    let categoryMap = $state(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
 
-    // This is effect is a workaround to make that derived reactive because for
+    // This effect is a workaround to make that thing reactive because for
     // some reason it isn't (My second time having the same issue with
     // Object.fromEntries so that's the issue i think)
     $effect(() => {
