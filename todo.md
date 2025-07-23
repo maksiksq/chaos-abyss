@@ -38,7 +38,7 @@
 - [x] : if i want to i can in theory do a get search query that doesn't reload the page with invalidate() I think ; Svelte doesn't do it anyway
 
 
-- [ ] : admin: mark articles as yearly (should be cool on dashboard)
+- [ ] : cfg: mark articles as yearly (should be cool on dashboard)
 - [x] : editor: add all options to editor (not just content)
 - [x] : editor: add editor auth
 - [ ] : editor: add more functions to editor
@@ -60,6 +60,7 @@
 - [ ] : later: check for mistakes
 - [ ] : later: color associations for more things (notably articles feats)
 - [ ] : later: comments
+- [ ] : later: articles category order
 - [ ] : later: fix searchbar caret
 - [ ] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe
 - [ ] : later: fix svelte vs vue vs react formatting
@@ -86,6 +87,8 @@
 - [ ] : nitpick: draft error page is different
 - [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
+
+cfg: 1
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~

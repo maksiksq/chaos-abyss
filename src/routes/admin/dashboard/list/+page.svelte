@@ -16,8 +16,12 @@
     }
 
     const [drafts, published] = $derived(data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]));
+    const publishedCategories = $derived(published.reduce((acc: Record<string, typeof published[number]>, article: typeof published[number]) => ((acc[article.category] ||= []).push(article), acc), {} as Record<string, typeof published[number][]>));
+    const keysAndCategories = $derived(Object.entries(publishedCategories) as [string, typeof published[number][]][])
 
     // NOT AN ACTUAL DERIVED
+    // this thing assigns the categories to each select individually
+    // (so don't accidentally publish the wrong thing)
     let categoryMap = $derived(Object.fromEntries(drafts.map((article: typeof drafts[number]) => [article.uuid, article.category || ''])));
 
     // This is effect is a workaround to make that derived reactive because for
@@ -36,30 +40,34 @@
     <div class="articles">
         <div class="published bloc">
             <h2> PUBLISHED </h2>
-            {#each published as article}
-                <div class="article">
-                    <div class="title">
-                        <p>{article.title}</p>
+            {#each keysAndCategories as [categoryName, articles]}
+                <h3 class="category-name">{categoryName}</h3>
+                {#each articles as article}
+                    <div class="article">
+                        <div class="title">
+                            <p>{article.title}</p>
+                        </div>
+                        <div class="blurb">
+                            <p>{article.blurb}</p>
+                        </div>
+                        <div class="info">
+                            <p>Category: {article.category} * Published: {timestamptzToHumanDate(article.date)} * Last
+                                Edit: {timestamptzToHumanDate(article.last_edit)}</p>
+                        </div>
+                        <form method="POST" class="buttons" action="?/draftify"
+                              use:enhance={ () => invalidate('/admin/dashboard/list') }>
+                            <input type="hidden" name="uuid" value={JSON.stringify(article.uuid)}/>
+                            <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
+                            <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
+                               class="visit">
+                                Visit
+                            </a>
+                            <button type="submit" class="draftify">
+                                Draftify
+                            </button>
+                        </form>
                     </div>
-                    <div class="blurb">
-                        <p>{article.blurb}</p>
-                    </div>
-                    <div class="info">
-                        <p>Category: {article.category} * Published: {timestamptzToHumanDate(article.date)} * Last
-                            Edit: {timestamptzToHumanDate(article.last_edit)}</p>
-                    </div>
-                    <form method="POST" class="buttons" action="?/draftify" use:enhance={ () => invalidate('/admin/dashboard/list') }>
-                        <input type="hidden" name="uuid" value={JSON.stringify(article.uuid)}/>
-                        <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                        <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
-                           class="visit">
-                            Visit
-                        </a>
-                        <button type="submit" class="draftify">
-                            Draftify
-                        </button>
-                    </form>
-                </div>
+                {/each}
             {/each}
         </div>
         <div class="drafts bloc">
@@ -79,7 +87,8 @@
                             Date: {article.date ? timestamptzToHumanDate(article.date) : 'not yet'} * Last
                             Edit: {timestamptzToHumanDate(article.last_edit)}</p>
                     </div>
-                    <form method="POST" class="buttons" action="?/publish" use:enhance={ () => invalidate('/admin/dashboard/list') }>
+                    <form method="POST" class="buttons" action="?/publish"
+                          use:enhance={ () => invalidate('/admin/dashboard/list') }>
                         <input type="hidden" name="article" value={JSON.stringify(article)}/>
                         <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])}/>
                         <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
@@ -105,6 +114,14 @@
 
         & .articles {
             display: flex;
+
+            & .published {
+                & .category-name {
+                    padding-top: 0.2rem;
+                    font-size: 1.3rem;
+                    text-transform: capitalize;
+                }
+            }
 
             & .bloc {
                 margin-top: 1rem;
