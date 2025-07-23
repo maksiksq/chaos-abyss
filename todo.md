@@ -87,7 +87,7 @@
 - [ ] : very later: remake hand anim later
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)
-- [ ] : nitpick: draft error page is different
+- [ ] : nitpick: draft/stash error page is different
 - [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
 

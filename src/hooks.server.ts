@@ -60,9 +60,9 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
         redirect(303, '/admin/dashboard');
     }
 
-    // draft error
+    // draft/stashed error
     // no auth
-    if (!e.locals.session && e.url.pathname.startsWith('/articles/draft/')) {
+    if (!e.locals.session && (e.url.pathname.startsWith('/articles/draft/') || e.url.pathname.startsWith('/articles/stashed/'))) {
         throw sverror(404, 'Oh no, article not found.');
     }
 

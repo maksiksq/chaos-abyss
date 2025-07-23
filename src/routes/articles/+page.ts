@@ -24,7 +24,7 @@ export const load = async ({url}) => {
     const {data: articles, error: artErr} = await supabase
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent, figcap')
-        .neq('category', 'draft')
+        .not('category', 'in.("draft","stashed")')
         .order('date', { ascending: false });
     if (artErr || !articles) {
         throw error(500, 'Failed to load articles');

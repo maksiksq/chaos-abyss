@@ -113,11 +113,12 @@ export async function GET(e: RequestEvent) {
             `
         )}
 		${articleUrls.map(({url, category, date, jewel}) => {
-                return category !== 'draft' ? `<url>
-					<loc>${url}</loc>
-					${assignForDate(date, jewel)}
-				    <lastmod>${date}</lastmod>
-				</url>` : ''
+                if (category === 'draft' || category === 'stashed') return '';
+                return `<url>
+                            <loc>${url}</loc>
+                            ${assignForDate(date, jewel)}
+                            <lastmod>${date}</lastmod>
+                        </url>`;
             }
         )
             .join('')}

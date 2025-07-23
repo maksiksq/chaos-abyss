@@ -1,5 +1,5 @@
 import {getClient} from "$lib/utils/getSupabaseClient";
-import {type Actions, fail} from "@sveltejs/kit";
+import {type Actions, error as sverror} from "@sveltejs/kit";
 import {createServerClient} from "@supabase/ssr";
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 import {toTimestampTZ} from "$lib/utils/dateToTimestamptz";
@@ -10,7 +10,13 @@ export const load = async () => {
     const {data: articles, error} = await supabase
         .from('articles')
         .select('*')
+        .neq('category', 'stashed')
         .order('date', {ascending: false});
+
+    if (error) {
+        console.log(error);
+        throw sverror(500, 'Could not get articles.');
+    }
 
     return {articles};
 }
