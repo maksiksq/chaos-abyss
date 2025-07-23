@@ -19,8 +19,6 @@ export const actions = {
         const details = JSON.parse(formData.get('details'));
         const isEditing = JSON.parse(formData.get('isEditing'));
         const date = formData.get('date');
-        console.log('date!!');
-        console.log(typeof date);
         const raw = formData.get('article');
 
         if (!raw || typeof raw !== 'string') {
@@ -65,8 +63,6 @@ export const actions = {
 
             return { success: true };
         } else {
-            console.log(details.slug);
-            console.log('uuid:', details.uuid);
             const { error } = await supabase
                 .from('articles')
                 .update({...details, content: parsedHtml, contentmd: raw, date: date, last_edit: toTimestampTZ(new Date())})

@@ -11,7 +11,6 @@
         currentDetails.details = article;
         currentContent.content = article.contentmd;
         currentDate.date = article.date;
-        console.log(article.date);
         goto('/admin/editor');
     }
 

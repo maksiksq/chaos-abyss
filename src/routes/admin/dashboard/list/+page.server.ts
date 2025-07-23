@@ -23,9 +23,6 @@ export const actions = {
         const article = JSON.parse(formData.get('article'));
         const category = JSON.parse(formData.get('category'));
 
-        console.log("I WAS RUN E");
-        console.log(category);
-
         // @ts-ignore investigate later
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {

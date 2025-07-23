@@ -75,7 +75,6 @@
 
     // LOAD LAST DETAILS FROM LOCAL STORAGE (or defaults)
     const localDetails = browser ? JSON.parse(localStorage.getItem("details") ?? "{}") : {};
-    console.log('details:', localDetails);
 
     let uuid = $state(localDetails.uuid ?? '00000000-0000-0000-0000-000000000000');
     let title = $state(localDetails.title ?? 'Oh no he forgot the title probably');
@@ -118,7 +117,6 @@
             author = derivedDetails.author;
 
             hue = getHueFromCSSOKLCH(derivedDetails.accent);
-            console.log(date);
         }
     });
 
