@@ -63,6 +63,29 @@ export const actions = {
 
             return { success: true };
         } else {
+            const { data: oldSlug, error: slugError } = await supabase
+                .from('articles')
+                .select('slug')
+                .eq('uuid', details.uuid)
+                .single()
+
+            if (slugError) {
+                console.error(slugError);
+                return { success: false, threat: "Could not get old slug. It's console checking time."};
+            }
+
+            if (details.slug !== oldSlug) {
+                const { error } = await supabase
+                    .from('redirects')
+                    .insert({from: `/articles/${details.category}/${oldSlug.slug}`, to: `/articles/${details.category}/${details.slug}`});
+
+                if (error) {
+                    console.error(error);
+                    return { success: false, threat: "Could create redirect. It's console checking time."};
+                }
+            }
+
+
             const { error } = await supabase
                 .from('articles')
                 .update({...details, content: parsedHtml, contentmd: raw, date: date, last_edit: toTimestampTZ(new Date())})
