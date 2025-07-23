@@ -7,10 +7,10 @@
     import CategorySelect from "$lib/components/CategorySelect.svelte";
     import {browser} from "$app/environment";
 
-    const date = (!!currentDate.date ? currentDate.date : (browser ? localStorage.getItem('date') || '' : ''))
+    const date = (!!currentDate.date ? currentDate.date : (browser ? localStorage.getItem('date') || '' : ''));
 
-    let {form} = $props();
-    const isEditing = $derived({val: !!currentDetails.details ? !!currentDetails.details : (browser ? localStorage.getItem('isEditing') === 'true' : false)});
+    let {data, form} = $props();
+    const isEditing = $derived({val: data.clean ? false : (!!currentDetails.details ? !!currentDetails.details : (browser ? localStorage.getItem('isEditing') === 'true' : false))});
 
     const autoGrow = (e: Event) => {
         const textarea = e.target as HTMLInputElement;

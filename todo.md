@@ -81,6 +81,7 @@
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: implement reminder
 - [ ] : very later: maybe revisit hand slightly
+- [ ] : very later: remake editor clean logic to be reversed because why isn't in in the first place why the url param is why why
 - [ ] : very later: remake hand anim later
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)

@@ -5,7 +5,12 @@ import {createServerClient} from "@supabase/ssr";
 import {PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL} from "$env/static/public";
 
 
-export const load = async () => {
+export const load = async ({url}) => {
+    if (url.searchParams.get("clean") === "true") {
+        return {clean: true};
+    } else {
+        return {clean: false};
+    }
 }
 
 export const actions = {

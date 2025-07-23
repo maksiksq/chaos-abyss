@@ -107,7 +107,6 @@
 </main>
 
 <style>
-
     main {
         margin-top: 1rem;
         margin-left: 1.4rem;
@@ -164,7 +163,7 @@
 
                         & button, a {
                             all: unset;
-                            background-color: rgba(126, 0, 189, 0.4);
+                            background-color: rgba(47, 255, 81, 0.4);
                             border: 1px solid black;
                             padding: 0.3rem 2rem;
                             margin-right: 1rem;

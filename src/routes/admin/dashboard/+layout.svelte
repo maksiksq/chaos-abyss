@@ -4,7 +4,8 @@ const { children } = $props();
 
 <header>
     <a href="/">The wild</a>
-    <a href="/admin/editor">Editor</a>
+    <!--    jank-->
+    <a href="/admin/editor?clean=true">Editor</a>
     <a href="/admin/dashboard">Dashboard</a>
     <a href="/admin/dashboard/comments">Comments</a>
     <a href="/admin/dashboard/list">Edit/Publish</a>
