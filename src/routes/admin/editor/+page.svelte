@@ -184,10 +184,7 @@
     <label for="blurb">Blurb</label>
     <textarea name="blurb" id="blurb" bind:value={blurb}></textarea>
 
-    <label for="category">Category</label>
-    <select name="category" id="category" bind:value={category}>
-        <CategorySelect />
-    </select>
+    <!-- the category select is moved to dashboard-->
 
     <label for="slug">Slug</label>
     <input name="slug" id="slug" type="text" bind:value={slug}/>
