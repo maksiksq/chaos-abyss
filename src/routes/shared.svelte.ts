@@ -5,10 +5,14 @@ import mditimgcap from "@maksiks/markdown-it-image-caption";
 import mditanchor from "markdown-it-anchor";
 
 // no types, ide stop bugging me, no i will not feed you more types
+// you got all your types for the week in advance.
 // @ts-ignore
 import mditattr from "markdown-it-attribution";
 // @ts-ignore
 import mditsections from "markdown-it-header-sections";
+// @ts-ignore
+import mditrubyplugin from 'markdown-it-ruby';
+
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
@@ -41,6 +45,7 @@ export const md: MarkdownIt = markdownit({
         })
         .use(mditanchor)
         .use(mditsections)
+        .use(mditrubyplugin);
 ;
 
 type Details = {
