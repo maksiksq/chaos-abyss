@@ -46,6 +46,7 @@ All the words for pineapple in Japanese:
 - {鳳梨|ほうり}: old, refers to both
 
 The old now rarely used form is {鳳梨|ほうり} which as mentioned before came from China, and is still used in Chinese languages.
+![japanese candy](https://ik.imagekit.io/maksiks/k4cp3ht8bob71.webp 'I shamelessly stole this image of Japanese candy with funky old backwards writing from Reddit because it is interesting.')
 
 But after WW2 as {外来語|がいらいご} were becoming more common, the word eventually got replaced by パイナップル.
 
