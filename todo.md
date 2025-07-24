@@ -71,7 +71,7 @@
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
-- [ ] : maybe: maybe autospace in md part of the editor to match article line height better?
+- [ ] : maybe: maybe autospace in md part of the editor to match article line height better? (how???)
 - [ ] : maybe: make runnable code blocks myself, mabye???
 - [ ] : maybe: style previous article/next article differently
 - [ ] : prod: check if sitemap also updates weirdly in production
