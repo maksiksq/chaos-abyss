@@ -43,10 +43,11 @@
                 padding: 5px 5px 0 5px;
                 background-color: var(--accent-color);
                 display: inline;
+                gap: 5px;
                 box-decoration-break: clone;
 
                 font-size: 2.6rem;
-                line-height: 2.9rem;
+                line-height: 3.2rem;
 
                 font-weight: bolder;
                 font-family: 'Karla', sans-serif;
@@ -60,6 +61,7 @@
 
         & .blurb {
             & span {
+                margin-top: -2px;
                 padding: 5px;
                 background-color: var(--accent-color);
                 display: inline-block;
