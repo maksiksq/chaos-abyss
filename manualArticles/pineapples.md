@@ -23,8 +23,17 @@ In English we ended up with *pineapple* because originally the word for what we 
 
 ![explanation](https://ik.imagekit.io/maksiks/pineconexplantion.png ':::nocaption')
 
+And as you'd expect from reading パイナップル, that's where the word came from into Japanese. Well, it's a bit more complicated than that. 
+
 Also as a Ukrainian, I wanna say, it's just straight up ananas (ананас) here. 
 
 ### So what was Japan doing in all that?
 
-They got the word.
+Originally the word for pineapple was {鳳梨|ほうり}, that came from Chinese. You see, in Japanese, there are more or less two types of loanwords:
+- {外来語|がいらいご} - modern foreign words that are borrowed from mostly English, Portuguese, Dutch and modern Chinese. 
+
+<small class="desc">These are your: コンビニ (convenience store) and パソコン (PC). Usually written in katakana but there also exist ateji kanji like
+  {寿司|すし}</small>
+- {漢語｜かんご} - foreign words borrowed from old chinese.
+  {外来語|がいらいご}　words are generally written with katakana 
+*Note: 外来語 can also refer to any foreign-origin word, but especially of Western newer ones.*
