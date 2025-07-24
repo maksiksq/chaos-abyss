@@ -330,9 +330,13 @@
             height: 2rem;
         }
 
+        & img {
+            padding-bottom: 1rem;
+        }
+
         & .warn {
             color: #c50000;
-            padding-top: 0rem;
+            padding-top: 0;
             padding-bottom: 1rem;
         }
 
