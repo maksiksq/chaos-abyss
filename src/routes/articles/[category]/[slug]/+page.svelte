@@ -1,7 +1,6 @@
 <script lang="ts">
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import ArticleEndblock from "./ArticleEndblock.svelte";
-    import {tick} from "svelte";
     import MetaBlock from "$lib/components/MetaBlock.svelte";
 
     const {data} = $props();
