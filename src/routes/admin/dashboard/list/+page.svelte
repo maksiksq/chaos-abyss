@@ -147,7 +147,7 @@
                             <input type="hidden" name="article" value={JSON.stringify(article)}/>
                             <input type="hidden" name="category" value={JSON.stringify(categoryMap[article.uuid])}/>
                             <button type="button" class="edit" onclick={() => {handleEdit(article)}}>Edit</button>
-                            <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} type="button"
+                            <a href={`/articles/${article.category.toLowerCase()}/${article.slug}`} target="_blank" rel="noopener noreffer" type="button"
                                class="visit">
                                 Visit
                             </a>

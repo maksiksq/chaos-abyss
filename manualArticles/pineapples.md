@@ -12,7 +12,7 @@ We'll get to how this relates to Japan in a sec, but first, the history behind t
 Basically, the story goes, Columbus found America, welcome to somewhere in the Bahamas, probably. The Kalinago native people gave him *ananas*, which was the first fruit brought from America to Europe. They didn't know that tho, idiots were totally convinced they found India, and called it **Piña de Indes** aka Indian pinecone. And that's why the drink is called Piña collada too by the way. Which I mean. Does this look like a pinecone to you?
 ![pinecone](https://ik.imagekit.io/maksiks/ananas.png?updatedAt=1753349760471 'Fair enough I guess? But I&apos;d call it something more original. Like i dunno, how about cactusapple???')
 
-# And then the Portuguese
+### And then the Portuguese
 
 So sometime after that, the Portuguese decided they were going on a trip to India. Well, it's obvious how that went.
 ![nooo, I don't want to go to Brazil](https://ik.imagekit.io/maksiks/you-are-going-to-turkey-turkey.gif 'Just kidding, Brazil is cool.')
