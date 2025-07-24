@@ -1,6 +1,7 @@
 import {error as sverror} from "@sveltejs/kit";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {escapeHTML} from "$lib/utils/escapeHTML";
+import {calculateDeepAccent} from "$lib/utils/calculateDeepAccent";
 
 export const prerender = 'auto';
 
@@ -100,8 +101,7 @@ export const load = async ({params}) => {
     };
 
     // accent
-
-    let accentDeep = "oklch(0.8149 0.1044 20)";
+    let accentDeep = calculateDeepAccent(article.accent);
 
     const match = article.accent.match(/^oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)$/);
     if (!match) {

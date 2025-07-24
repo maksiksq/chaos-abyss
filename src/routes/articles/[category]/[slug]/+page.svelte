@@ -4,16 +4,13 @@
     import {tick} from "svelte";
     import MetaBlock from "$lib/components/MetaBlock.svelte";
 
-    const { data } = $props();
+    const {data} = $props();
 
     let body: HTMLBodyElement | undefined = $state();
 
     $effect(() => {
-        const accent = data.article.accent;
-        tick().then(() => {
-            body?.style.setProperty('--accent-color', data.article.accent);
-            body?.style.setProperty('--accent-color-deeper', data.accentDeep);
-        });
+        body?.style.setProperty('--accent-color', data.article.accent);
+        body?.style.setProperty('--accent-color-deeper', data.accentDeep);
     })
 </script>
 
@@ -56,6 +53,7 @@
         html {
             overflow-y: visible;
         }
+
         body {
             overflow-y: hidden;
         }

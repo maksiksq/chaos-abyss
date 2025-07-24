@@ -2,10 +2,11 @@
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
     import {currentContent, currentDate, currentDetails, md} from "../../shared.svelte";
-    import {onDestroy, onMount} from "svelte";
+    import {onDestroy, onMount, tick} from "svelte";
     import {goto} from "$app/navigation";
-    import CategorySelect from "$lib/components/CategorySelect.svelte";
     import {browser} from "$app/environment";
+    import MetaBlock from "$lib/components/MetaBlock.svelte";
+    import {calculateDeepAccent} from "$lib/utils/calculateDeepAccent";
 
     const date = (!!currentDate.date ? currentDate.date : (browser ? localStorage.getItem('date') || '' : ''));
 
@@ -136,6 +137,14 @@
         author: author,
     })
 
+    // accent
+    $effect(() => {
+        body?.style.setProperty('--accent-color', accent);
+        body?.style.setProperty('--accent-color-deeper', calculateDeepAccent(accent));
+    })
+
+    // return to list on success
+
     $effect(() => {
         if (form?.success) {
             goto('/admin/dashboard/list');
@@ -187,7 +196,8 @@
     <label for="slug">Slug</label>
     <input name="slug" id="slug" type="text" bind:value={slug}/>
     {#if isEditing.val === true && slug !== derivedDetails?.slug}
-        <small class="warn">WARNING: if you change the slug here, it will make a redirect to the new page! <br>Originally: {derivedDetails?.slug} </small>
+        <small class="warn">WARNING: if you change the slug here, it will make a redirect to the new page! <br>Originally: {derivedDetails?.slug}
+        </small>
     {/if}
 
     <label for="fig">Figure</label>
@@ -228,6 +238,8 @@
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={(e) => {autoGrow(e); handleSaving();}}></textarea>
             <div class="rendered">
+                <MetaBlock title={title} blurb={blurb} date={date} lastEdit={''} wordcount={0} authorLink={'/'}
+                           author={author}/>
                 <MarkdownBlock content={parsedHtml}/>
             </div>
         </div>
