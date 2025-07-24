@@ -121,6 +121,15 @@
                 }
             }
 
+            & h1::before {
+                content: 'this is a mistake, an h1 # should not be here -> ';
+                color: red;
+            }
+
+            & h1 {
+                color: red;
+            }
+
 
             & h2 {
                 font-size: 1.7rem;
