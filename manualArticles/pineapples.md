@@ -27,10 +27,15 @@ And as you'd expect from reading パイナップル, that's where the word came 
 
 Also as a Ukrainian, I wanna say, it's just straight up ananas (ананас) here. 
 
-### So what was Japan doing in all that?
+## So what was Japan doing in all that?
 
-Originally the word for pineapple was {鳳梨|ほうり}, that came from Chinese. You see, in Japanese, there are more or less two types of loanwords:
-- {外来語|がいらいご} - modern foreign words that are borrowed from mostly English, Portuguese, Dutch and modern Chinese. <small class="desc">These are your: コンビニ (convenience store) and パソコン (PC). Usually written in katakana but there also exist ateji kanji like {寿司|すし}</small>
-- {漢語｜かんご} - foreign words borrowed from old chinese.
-  {外来語|がいらいご}　words are generally written with katakana 
-*Note: 外来語 can also refer to any foreign-origin word, but especially of Western newer ones.*
+Originally the word for pineapple was {鳳梨|ほうり}, that came from Chinese.
+
+### Japanese loanwords
+You see, in Japanese, there are more or less two types of loanwords:
+- {外来語|がいらいご} - modern foreign words that are borrowed from mostly English, Portuguese, Dutch and modern Chinese. <br> <small class="desc">These are your run-of-the-mill: コンビニ (convenience store) and パソコン (PC).</small>
+- {漢語|かんご} - foreign words borrowed from old chinese. <br> <small class="desc">These are your {全部|ぜんぶ}, {人間|にんげん} and {時間|じかん} etc. They are more established parts of the language and kind of feel like native Japanese at this point.</small>
+<br><br>
+<small class="desc">*Note: {外来語|がいらいご} can also refer to any foreign-origin word, but especially to Western newer ones.*</small>
+
+{外来語|がいらいご} words are usually written in katakana but there also exist *ateji* kanji like {寿司|すし} which don't use the meanings of the kanji but rather the pronunciations. {瓦斯|ガス} meaning *gas* for example uses something along the lines of *{瓦|ガ} - roof tiles* and *{斯|ス} - this* which is nonsense.

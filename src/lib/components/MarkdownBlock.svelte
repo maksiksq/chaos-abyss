@@ -242,10 +242,21 @@
 
             & .desc {
                 display: inline-block;
-                font-size: 0.82rem;
+                font-size: 0.88rem;
                 font-weight: 600;
                 line-height: 1.2rem;
-                padding-top: 0.4rem;
+                padding-top: 0.8rem;
+                padding-left: 0.4rem;
+                padding-bottom: 0.8rem;
+            }
+
+            & .note {
+                display: inline-block;
+                font-size: 0.88rem;
+                font-weight: 600;
+                line-height: 1.2rem;
+                padding-top: 0.8rem;
+                padding-bottom: 0.8rem;
             }
         }
     }
