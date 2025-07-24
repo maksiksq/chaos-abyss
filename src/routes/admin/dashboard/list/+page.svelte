@@ -46,8 +46,6 @@
     }
 
     const handleDraftify = (e: Event) => {
-        console.log('what');
-
         const target = e.target as HTMLElement;
         formEl = target.parentElement as HTMLFormElement;
 

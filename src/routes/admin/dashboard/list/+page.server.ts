@@ -14,7 +14,7 @@ export const load = async () => {
         .order('date', {ascending: false});
 
     if (error) {
-        console.log(error);
+        console.error(error);
         throw sverror(500, 'Could not get articles.');
     }
 
