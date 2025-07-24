@@ -15,7 +15,7 @@ Basically, the story goes, Columbus found America, welcome to somewhere in the B
 # And then the Portuguese
 
 So sometime after that, the Portuguese decided they were going on a trip to India. Well, it's obvious how that went.
-![nooo, I don't want to go to Brazil](https://ik.imagekit.io/maksiks/Efyg1EpXgAESeur.png 'Just kidding, Brazil is cool.')
+![nooo, I don't want to go to Brazil](https://ik.imagekit.io/maksiks/you-are-going-to-turkey-turkey.gif 'Just kidding, Brazil is cool.')
 
 The fate that awaited them in Brazil was ... also *ananas*, but this time they called it the same, sorta, it was *nanas* in native Tupi people's language but sure. And so the Portuguese did a lot of trade, and eventually spread it everywhere around the world.
 

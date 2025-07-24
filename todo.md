@@ -67,6 +67,7 @@
 - [ ] : later: markdown-it codesandbox embed
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
+- [ ] : later: account for metablock padding changes (restyle)
 - [ ] : later: small desc custom syntax
 - [ ] : later: maybe hover/button for Romaji?
 - [ ] : later: Add delete
