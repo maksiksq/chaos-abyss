@@ -239,6 +239,14 @@
                     align-self: center;
                 }
             }
+
+            & .desc {
+                display: inline-block;
+                font-size: 0.82rem;
+                font-weight: 600;
+                line-height: 1.2rem;
+                padding-top: 0.4rem;
+            }
         }
     }
 </style>

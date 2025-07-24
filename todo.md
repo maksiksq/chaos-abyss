@@ -67,6 +67,7 @@
 - [ ] : later: markdown-it codesandbox embed
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
+- [ ] : later: small desc custom syntax
 - [ ] : later: maybe hover/button for Romaji?
 - [ ] : later: Add delete
 - [ ] : later: Supabase keepalive !!!
