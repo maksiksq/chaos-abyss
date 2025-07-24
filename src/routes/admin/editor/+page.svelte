@@ -90,9 +90,8 @@
     let reminder = $state(localDetails.reminder ?? '');
     let author = $state(localDetails.author ?? 'Maksiks');
 
-    let hue = $state(parseFloat(localDetails.hue ?? '30'));
+    let hue = $state(parseFloat(browser ? (localStorage.getItem('hue') ?? '30') : '30'));
     let accent = $derived(`oklch(0.8149 0.1044 ${hue})`);
-
 
     const getHueFromCSSOKLCH = (oklch: string) => parseFloat(oklch.match(/oklch\([^ ]+ [^ ]+ ([^ ]+)/)?.[1] ?? '30');
 
@@ -137,7 +136,7 @@
         author: author,
     })
 
-    // accent
+    // set accent vars
     $effect(() => {
         body?.style.setProperty('--accent-color', accent);
         body?.style.setProperty('--accent-color-deeper', calculateDeepAccent(accent));
@@ -161,6 +160,7 @@
             localStorage.setItem('text', text);
             localStorage.setItem('isEditing', isEditing.val.toString());
             localStorage.setItem('date', date);
+            localStorage.setItem('hue', hue.toString());
         }, 500)
     }
 
