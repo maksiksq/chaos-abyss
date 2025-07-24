@@ -228,7 +228,7 @@
                 justify-content: center;
                 align-items: center;
                 margin-top: 1rem;
-                margin-bottom: 3rem;
+                margin-bottom: 2rem;
 
                 & img {
                     max-width: 100%;
