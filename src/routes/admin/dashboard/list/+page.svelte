@@ -14,7 +14,15 @@
         goto('/admin/editor');
     }
 
-    const [drafts, published] = $derived(data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]));
+    const separateAndSortDrafts = () => {
+        const [localDrafts, localPublished] = data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]);
+        const sortedDrafts = localDrafts.sort((a: typeof localDrafts[number], b: typeof localDrafts[number]) => new Date(b.last_edit).getTime() - new Date(a.last_edit).getTime());
+
+        return [sortedDrafts, localPublished]
+
+    }
+
+    const [drafts, published] = $derived.by(separateAndSortDrafts);
     const publishedCategories = $derived(published.reduce((acc: Record<string, typeof published[number]>, article: typeof published[number]) => ((acc[article.category] ||= []).push(article), acc), {} as Record<string, typeof published[number][]>));
     const keysAndCategories = $derived(Object.entries(publishedCategories) as [string, typeof published[number][]][])
 
