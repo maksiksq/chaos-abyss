@@ -76,7 +76,7 @@
     // LOAD LAST DETAILS FROM LOCAL STORAGE (or defaults)
     const localDetails = browser ? JSON.parse(localStorage.getItem("details") ?? "{}") : {};
 
-    let uuid = $state(localDetails.uuid ?? '00000000-0000-0000-0000-000000000000');
+    let uuid = $state(localDetails.uuid ? localDetails.uuid : crypto.randomUUID());
     let title = $state(localDetails.title ?? 'Oh no he forgot the title probably');
     let blurb = $state(localDetails.blurb ?? 'default');
     let category = $state(localDetails.category ?? 'draft');

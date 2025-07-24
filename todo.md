@@ -84,6 +84,7 @@
 - [ ] : very later: revival altar for stashed articles
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: implement reminder
+- [ ] : very later: my own markdown extension for articles specifically because oh my god
 - [ ] : very later: maybe revisit hand slightly
 - [ ] : very later: remake editor clean logic to be reversed because why isn't in in the first place why the url param is why why
 - [ ] : very later: remake hand anim later
