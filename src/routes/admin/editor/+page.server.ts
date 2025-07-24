@@ -74,7 +74,7 @@ export const actions = {
                 return { success: false, threat: "Could not get old slug. It's console checking time."};
             }
 
-            if (details.slug !== oldSlug) {
+            if (details.slug !== oldSlug.slug) {
                 const { error } = await supabase
                     .from('redirects')
                     .insert({from: `/articles/${details.category}/${oldSlug.slug}`, to: `/articles/${details.category}/${details.slug}`});
