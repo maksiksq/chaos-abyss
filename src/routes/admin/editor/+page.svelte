@@ -206,6 +206,7 @@
 
     <label for="widefig">Wide Figure</label>
     <input name="widefig" id="widefig" type="text" bind:value={widefig}/>
+    <img class="widefig" src={widefig} alt="widefig">
 
     <label for="figcap">Figure Caption</label>
     <input name="figcap" id="figcap" type="text" bind:value={figcap}/>
