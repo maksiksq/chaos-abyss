@@ -76,10 +76,10 @@
     // LOAD LAST DETAILS FROM LOCAL STORAGE (or defaults)
     const localDetails = browser ? JSON.parse(localStorage.getItem("details") ?? "{}") : {};
 
-    let uuid = $state(isEditing.val ? (localDetails.uuid ? localDetails.uuid : '00000000-0000-0000-0000-000000000000') : crypto.randomUUID());
+    let uuid = $state(data.clean ? crypto.randomUUID() : localDetails.uuid ?? '00000000-0000-0000-0000-000000000000');
     let title = $state(localDetails.title ?? 'Oh no he forgot the title probably');
     let blurb = $state(localDetails.blurb ?? 'default');
-    let category = $state(localDetails.category ?? 'draft');
+    let category = $state(data.clean ? 'draft' : localDetails.category ?? 'draft');
     let slug = $state(localDetails.slug ?? 'default');
     let fig = $state(localDetails.fig ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
     let widefig = $state(localDetails.widefig ?? '');
