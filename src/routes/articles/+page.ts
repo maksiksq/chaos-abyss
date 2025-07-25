@@ -15,29 +15,23 @@ type Article = {
     blurb: string;
     date: string;
     comment_count?: number;
-    content: string;
+    content_trim: string;
     accent?: string;
 };
 
 export const load = async ({url}) => {
     const supabase = getBrowserClient();
-    const {data: articles, error: artErr} = await supabase
+    const {data: summaries, error: artErr} = await supabase
         .from('articles')
-        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content, accent, figcap')
+        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content_trim, accent, figcap')
         .not('category', 'in.("draft","stashed")')
         .order('date', { ascending: false });
-    if (artErr || !articles) {
+    if (artErr || !summaries) {
         throw error(500, 'Failed to load articles');
     }
-
-    const summaries = articles.map((article: Article) => ({
-        ...article,
-        contentTrim: article.content.trim().replace(/\s+/g, ' ').slice(0, 500)
-    }))
-
     // seo
 
-    let jsonLDArticles = articles.map((article: Article, index: number) => ({
+    let jsonLDArticles = summaries.map((article: Article, index: number) => ({
         "@type": "BlogPosting",
         "headline": article.title,
         "datePublished": article.date ? timestamptzToISOtz(article.date) : undefined,
@@ -139,7 +133,7 @@ export const load = async ({url}) => {
             {name: 'figcap', weight: 0.03},
             {name: 'figalt', weight: 0.02},
             {name: 'slug', weight: 0.1},
-            {name: 'contentTrim', weight: 0.15},
+            {name: 'content_trim', weight: 0.15},
         ],
         threshold: 0.45,
         minMatchCharLength: 2,
@@ -181,7 +175,7 @@ export const load = async ({url}) => {
 
     // meta for search results
     const seen = new Set();
-    const combinedArticles = [...sumResults.summaries, ...articles].filter(a => {
+    const combinedArticles = [...sumResults.summaries, ...summaries].filter(a => {
         const key = `${a.category}/${a.slug}`;
         if (seen.has(key)) return false;
         seen.add(key);

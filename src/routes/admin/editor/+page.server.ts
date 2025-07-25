@@ -19,6 +19,7 @@ export const actions = {
         const details = JSON.parse(formData.get('details'));
         const isEditing = JSON.parse(formData.get('isEditing'));
         const date = formData.get('date');
+        const contentTrim = formData.get('contentTrim');
         const raw = formData.get('article');
 
         if (!raw || typeof raw !== 'string') {
@@ -51,7 +52,7 @@ export const actions = {
         if (!isEditing) {
             const { error } = await supabase
                 .from('articles')
-                .insert({...details, content: parsedHtml, contentmd: raw, date: null, last_edit: toTimestampTZ(new Date()), creation_date: toTimestampTZ(new Date())});
+                .insert({...details, content: parsedHtml, contentmd: raw, content_trim: contentTrim, date: null, last_edit: toTimestampTZ(new Date()), creation_date: toTimestampTZ(new Date())});
 
             if (error) {
                 console.error(error);
@@ -88,7 +89,7 @@ export const actions = {
 
             const { error } = await supabase
                 .from('articles')
-                .update({...details, content: parsedHtml, contentmd: raw, date: date, last_edit: toTimestampTZ(new Date())})
+                .update({...details, content: parsedHtml, contentmd: raw, content_trim: contentTrim, date: date, last_edit: toTimestampTZ(new Date())})
                 .eq('uuid', details.uuid)
             if (error) {
                 console.error(error);

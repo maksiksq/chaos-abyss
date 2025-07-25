@@ -164,6 +164,9 @@
         }, 500)
     }
 
+    // pretrimmed content for search
+    const contentTrim = $derived(parsedHtml.trim().replace(/\s+/g, ' ').slice(0, 500))
+
 </script>
 
 <svelte:head>
@@ -236,6 +239,7 @@
         <input type="hidden" name="details" value={JSON.stringify(details)}/>
         <input type="hidden" name="isEditing" value={isEditing.val}/>
         <input type="hidden" name="date" value={date}/>
+        <input type="hidden" name="contentTrim" value={contentTrim}/>
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={(e) => {autoGrow(e); handleSaving();}}></textarea>
             <div class="rendered">
