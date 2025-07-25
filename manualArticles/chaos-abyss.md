@@ -15,7 +15,12 @@ That said, it's totally just another blog, nothing taking that away.
 
 And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all. 
 
-Plus I just learnt Svelte and SvelteKit a month ago, and never before I made so much back-end and a well-polished blog is a nice entrypoint to that. Next blog will take me 10 days, and the next one 5. If I ever need to make another blog that is, which is unlikely but still.
+Plus I just learnt Svelte and SvelteKit a month ago, and never before I made so much back-end and a well-polished blog is a nice entrypoint to that. The next blog will take me 10 days, and the one after that will take 5. If I ever need to make another personal blog that is, which is unlikely but you get the point.
 
+I took some inspiration from Medium and Tofugu, particularly how an article should even look like. Medium is just a cringe posting website, but it has some nice UI and I bloody love reading Tofugu articles, they're so well written and well-made. 
 
+One thing that I wish I could incorporate more in here is art. As you can see, the thumbnails for most articles are in a specific minimalist style, which looks cool and all, but I'd like to draw something, but then it's going to take me an eternity to post one so that's simply unrealistic in the current state of my life. Maybe I'll work on that in the future tho.
+
+## The Topics and Toppings
+mmm tasty
 
