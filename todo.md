@@ -97,6 +97,7 @@
 - [ ] : nitpick: draft/stash error page is different
 - [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
+- [ ] : fix: dates are wrong
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~
