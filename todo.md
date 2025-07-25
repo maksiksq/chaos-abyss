@@ -70,6 +70,7 @@
 - [ ] : later: pagination
 - [ ] : later: account for metablock padding changes (restyle)
 - [ ] : later: small desc custom syntax
+- [x] : later: kbd syntax
 - [ ] : later: maybe hover/button for Romaji?
 - [ ] : later: Add delete
 - [ ] : later: Supabase keepalive !!!

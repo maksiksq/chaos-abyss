@@ -12,7 +12,7 @@ import mditattr from "markdown-it-attribution";
 import mditsections from "markdown-it-header-sections";
 // @ts-ignore
 import mditrubyplugin from 'markdown-it-ruby';
-
+import kbd from 'markdown-it-kbd';
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
@@ -45,7 +45,8 @@ export const md: MarkdownIt = markdownit({
         })
         .use(mditanchor)
         .use(mditsections)
-        .use(mditrubyplugin);
+        .use(mditrubyplugin)
+        .use(kbd);
 ;
 
 type Details = {
