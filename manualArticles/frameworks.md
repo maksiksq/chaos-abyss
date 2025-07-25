@@ -1,4 +1,3 @@
-
 It's 2025 outside, you probably want to make a website of one kind or another and the modern way to do that is a JavaScript framework, but which? I've made a few projects with each of them in the title, and might as well share my experience as a developer and some data.
 
 One thing I want to make clear before we start, there is no best JS UI framework, but there is the best framework for you and your specific use case. Each one has its own pros and cons, keep that in mind.
@@ -9,7 +8,7 @@ To give you a little bit of context, here are some popularity rankings according
 
 So let's get into it, one by one.
 ## React - the old standard
-![placeholder](https://goodworklabs.com/wp-content/uploads/2016/10/reactjs.png)
+![placeholder](https://goodworklabs.com/wp-content/uploads/2016/10/reactjs.png ':::nocaption')
 React is by far the most popular UI framework out there, and it was a groundbreaking framework in 2013, and that momentum keeps it going to this day.
 
 So how does it compare to modern frameworks? Not very. It uhh, pretty bad. Don't get me wrong, it's not unusable, but it's definitely not the most fun and stable.
@@ -42,12 +41,12 @@ But it's not all gloom and doom, React is still viable and often just necessary,
 - You want something simple ❌
 
 ## Vue
-![placeholder](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*W6ICzT2Tk70wYR7-)
+![placeholder](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*W6ICzT2Tk70wYR7- ':::nocaption')
 Vue was released in 2014 by Vue's chill front-end dad/sorta tech bro Evan You. They also name their versions after anime/manga which I love, that's so fun.
 
 As you'd expect from that last sentence, the community is much less corporate, although it is used by the corporate overlords as well.
-![State of JS's Used At Work ranking](img_2.png)
-// State of JS's "Used At Work" ranking
+
+![State of JS's Used At Work ranking](https://ik.imagekit.io/maksiks/img_2.png 'State of JS&apos;s "Used At Work" ranking')
 
 Unlike React, Vue isn't bloated; unlike Svelte, Vue isn't minimalistic. It's somewhere in the middle of the two. Personally I love Vue's syntax, it's really easy to use and intuitive.
 
@@ -78,7 +77,7 @@ There really isn't that much to hate here, but it still has some of the issues R
 - Some of the very same issues as with React ❌
 
 ## Svelte
-![placholder](https://svelte.dev/_app/immutable/assets/svelte-machine-mobile.B0w2rScM.png)
+![placholder](https://svelte.dev/_app/immutable/assets/svelte-machine-mobile.B0w2rScM.png ':::nocaption')
 I am very biased towards Svelte, because I like it. And there's a lot to like. Also the tutorial includes a rickr- nvm I won't spoil it, unless I already did.
 
 Svelte was created in 2016 by Rich Harris, well, technically Ractive.js in 2013 even before that. It's a framework that's meant to make things easy and efficient - attractively thin, graceful and stylish *(that's what the word svelte means)*.
@@ -114,6 +113,5 @@ My main complaint is SEO, that's kinda pain in Svelte. But any issues right now 
 - You don't like change ❌
 
 ## Sources
-
-[https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4](https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4)<br>
-[https://2024.stateofjs.com/en-US/libraries/front-end-frameworks](https://2024.stateofjs.com/en-US/libraries/front-end-frameworks)
+- [State of JS 2024](https://2024.stateofjs.com/en-US/libraries/front-end-frameworks)
+- [This random Medium article about performance benchmarks](https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4)<br>
