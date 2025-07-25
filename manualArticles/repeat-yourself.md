@@ -32,4 +32,4 @@ We can philosophize a lot about it, but holding these principles to heart isn't 
 
 I'm not saying you should regularly repeat your code, your codebase will end up like a dumpster fire when you look at it again in a month and then when you have to make a change somewhere, it's <kbd><span class="kbd-span">Search All<span></kbd> again 🫠. But I'm saying you should think about it every time.
 
-Well, this is just a bit of my opinion, take it as you wish.
+Just something to think about. But your mileage may vary.

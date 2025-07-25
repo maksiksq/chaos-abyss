@@ -296,6 +296,7 @@
                 padding: 0.1rem;
                 margin: 0 0.2rem;
                 position: relative;
+                top: -2px;
 
                 border-radius: 0.8px;
 
