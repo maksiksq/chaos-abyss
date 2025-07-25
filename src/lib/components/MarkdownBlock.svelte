@@ -68,6 +68,7 @@
 <div class="article-content">{@html content}</div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
     :global {
         .c-quote {
             max-width: 40%;
@@ -284,6 +285,51 @@
                     & li {
                         padding-top: 0.7rem;
                     }
+                }
+            }
+
+            & kbd {
+                color: white;
+                font-size: 0.7rem;
+                display: inline;
+                line-height: 1;
+                padding: 0.1rem;
+                margin: 0 0.2rem;
+                position: relative;
+
+                border-radius: 0.8px;
+
+                background: #595959;
+                box-shadow:
+                        -2px -2px 0 0 #6a6a6a,
+                        -2px 2px 0 0 #6a6a6a,
+                        2px -2px 0 0 #6a6a6a,
+                        2px 2px 0 0 #6a6a6a,
+                        -4px -4px 0 0 #353535,
+                        -4px 4px 0 0 #353535,
+                        4px -4px 0 0 #353535,
+                        4px 4px 0 0 #353535,
+
+                        -5px -5.2px 0 0 #1d1d1d,
+                        -5px 5px 0 0 #1d1d1d,
+                        5px -5.2px 0 0 #1d1d1d,
+                        5px 5px 0 0 #1d1d1d,
+                        -5px -5.2px 0 0 #1d1d1d,
+                        -5px 5px 0 0 #1d1d1d,
+                        5px -5.2px 0 0 #1d1d1d,
+                        5px 5px 0 0 #1d1d1d,
+                        -5px -5.2px 0 0 #1d1d1d,
+                        -5px 5px 0 0 #1d1d1d,
+                        5px -5.2px 0 0 #1d1d1d,
+                        5px 5px 0 0 #1d1d1d,
+                        -5px -5.2px 0 0 #1d1d1d,
+                        -5px 5px 0 0 #1d1d1d,
+                        5px -5.2px 0 0 #1d1d1d,
+                        5px 5px 0 0 #1d1d1d;
+
+                & span {
+                    font-family:  "Fredoka", serif;
+                    font-weight: 450;
                 }
             }
         }
