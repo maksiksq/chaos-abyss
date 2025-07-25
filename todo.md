@@ -57,7 +57,7 @@
 - [ ] : later: check for mistakes
 - [ ] : later: color associations for more things (notably articles feats)
 - [ ] : later: comments
-- [ ] : later: articles category order
+- [x] : later: articles category order
 - [ ] : later: fix searchbar caret
 - [ ] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe
 - [ ] : later: fix svelte vs vue vs react formatting
