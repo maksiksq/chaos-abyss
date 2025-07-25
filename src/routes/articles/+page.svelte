@@ -29,7 +29,7 @@
         summaries
     }));
 
-    const capitalize = s => s.replace(/\b\w/g, c => c.toUpperCase());
+    const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
     let categoryNames = [...categories.map((category) =>
         capitalize(category.name === 'media' ? 'Games & Media' : category.name)), "Any"];
 
