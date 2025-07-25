@@ -294,9 +294,9 @@
                 display: inline;
                 line-height: 1;
                 padding: 0.1rem;
-                margin: 0 0.2rem;
+                margin: 0 0.4rem;
                 position: relative;
-                top: -2px;
+                top: -1px;
 
                 border-radius: 0.8px;
 
