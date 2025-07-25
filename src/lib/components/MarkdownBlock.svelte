@@ -330,6 +330,7 @@
 
                 & span {
                     font-family:  "Fredoka", serif;
+                    white-space: nowrap;
                     font-weight: 450;
                 }
             }
