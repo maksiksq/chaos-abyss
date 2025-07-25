@@ -279,8 +279,11 @@
                     margin-top: 0;
                 }
 
-                & li {
-                    padding-top: 0.7rem;
+                & ul {
+                    padding-bottom: 0.3rem;
+                    & li {
+                        padding-top: 0.7rem;
+                    }
                 }
             }
         }
