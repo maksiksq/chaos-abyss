@@ -32,7 +32,7 @@ export const load = ({url}) => {
                     "gender": "Male",
                     "knowsLanguage": ["English", "Ukrainian", "Japanese"],
                     "alternateName": "maksiksq",
-                    "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design. Over 200 hours of raw development time logged in one summer alone.",
+                    "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design.",
                     "image": "https://yourdomain.com/img/pfp40likesmth.png",
                     "sameAs": [
                         "https://github.com/maksiksq",
