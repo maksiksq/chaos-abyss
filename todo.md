@@ -75,6 +75,7 @@
 - [ ] : later: Add delete
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
+- [ ] : maybe: 
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
 - [ ] : maybe: maybe autospace in md part of the editor to match article line height better? (how???)
 - [ ] : maybe: make runnable code blocks myself, mabye???

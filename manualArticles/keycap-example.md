@@ -1,0 +1,1 @@
+<kbd><span class="kbd-span">Search All<span></kbd>

@@ -1,8 +1,6 @@
-# Why you should repeat yourself sometimes
-
 There are a lot of principles in programming that came about to guide us into making better code, and one of the most frequently mentioned principles is **DRY** - Don't Repeat Yourself.
 
-Now whether you should use some of these principles at all is a whole other dilemma, but you probably should consider it for a lot of them. There's a reason they're there after all.
+Now, whether you should use some of these principles at all is a whole other dilemma, but you probably should consider it for a lot of them. There's a reason they're there, after all.
 
 ## The problem with DRY
 
@@ -28,8 +26,8 @@ This principle exists to make development more flexible, repeat it as many times
 
 ## My take
 
-We can philosophize a lot about it, but holding these principles to heart isn't the best idea either. Sometimes you might want to keep it just for clarity even if it's inefficient, sometimes the deadline is tomorrow, and it's so hectic, time for copy-paste. AHA is better than DRY but as all things should be, it's good in moderation.
+We can philosophize a lot about it, but holding these principles to heart isn't the best idea either. Sometimes you might want to keep it just for clarity even if it's inefficient, sometimes the deadline is tomorrow, and it's so hectic, time for copy-paste. AHA is better than DRY but, as all things should be, it's good in moderation.
 
-I'm not saying you should regularly repeat your code, your codebase will end up like a dumpster fire when you look at it again in a month and then when you have to make a change somewhere, it's <kbd><span class="kbd-span">Search All<span></kbd> again 🫠. But I'm saying you should think about it every time.
+I'm not saying you should regularly repeat your code, your codebase will end up like a dumpster fire when you look at it again in a month and then when you have to make a change somewhere, it's searching time again 🫠. But I'm saying you should think about it every time.
 
 Just something to think about. But your mileage may vary.
