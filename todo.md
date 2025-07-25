@@ -52,7 +52,7 @@
 - [x] : later: add admin mode (edit articles and etc.)
 - [x] : later: add old redirects for moved categories + add redirect warning
 - [ ] : later: add more easter eggs yes please
-- [ ] : later: add sources block
+- [ ] : later: implement sources block
 - [ ] : later: apply for google news
 - [ ] : later: check for mistakes
 - [ ] : later: color associations for more things (notably articles feats)

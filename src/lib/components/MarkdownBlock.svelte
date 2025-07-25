@@ -267,6 +267,21 @@
                 padding-top: 0.8rem;
                 padding-bottom: 0.8rem;
             }
+
+            & #sources {
+                box-sizing: border-box;
+                margin-top: 1rem;
+                padding: 1rem;
+                background-color: #e9eded;
+
+                & h2 {
+                    margin-top: 0;
+                }
+
+                & li {
+                    padding-top: 0.7rem;
+                }
+            }
         }
     }
 </style>

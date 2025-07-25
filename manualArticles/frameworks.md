@@ -12,14 +12,14 @@ So let's get into it, one by one.
 ![placeholder](https://goodworklabs.com/wp-content/uploads/2016/10/reactjs.png)
 React is by far the most popular UI framework out there, and it was a groundbreaking framework in 2013, and that momentum keeps it going to this day.
 
-So how does it compare to modern frameworks? Not very. It uhh, pretty bad. Don't get me wrong, it's not unusable, but it's definitely not the most fun and stable. 
+So how does it compare to modern frameworks? Not very. It uhh, pretty bad. Don't get me wrong, it's not unusable, but it's definitely not the most fun and stable.
 
 And also a lot of people's problem with React is corporate backing - made and maintained by Facebook, influenced by Vercel as a sponsor, and a ton of companies who just got used to it. It's not just 'oh noie this big bad evil company owns this thing I use', it seems to impact the direction the library itself is going.
 
 But it's not all gloom and doom, React is still viable and often just necessary, it's not 'dead'.
 
 ### Pros and Cons:
-#### Pros 
+#### Pros
 - **Huge Ecosystem:** This is the main selling point of React when there are other frameworks in the conversation. Want a library to not make it yourself? Tcshhh, take it. Want a tutorial? As simple as that.
 - **All Hail The Corporate:** If you want to get a job, you probably should learn the most staple and popular thing that's overused by companies that do not like change much.
 - **JSX Syntax:** Some people just prefer it, gotta try and find out.
@@ -49,7 +49,7 @@ As you'd expect from that last sentence, the community is much less corporate, a
 ![State of JS's Used At Work ranking](img_2.png)
 // State of JS's "Used At Work" ranking
 
-Unlike React, Vue isn't bloated; unlike Svelte, Vue isn't minimalistic. It's somewhere in the middle of the two. Personally I love Vue's syntax, it's really easy to use and intuitive. 
+Unlike React, Vue isn't bloated; unlike Svelte, Vue isn't minimalistic. It's somewhere in the middle of the two. Personally I love Vue's syntax, it's really easy to use and intuitive.
 
 Vue uses Template Syntax instead of JSX, in simpler terms, you write HTML and put stuff into it, instead of whatever unholy soup you're adding together in JSX.
 
@@ -92,9 +92,9 @@ It's the thing people are most excited about and I totally see why. It really fe
 - **Fast:** I am speed. No virtual dom, very small, very fast, all the good stuff.
 - **Modern:** That's where the things are going, eventually.
 - **You Don't Need Them Libraries More or Less:** Svelte makes it easy to implement it yourself. Does it save you time, maybe? Not on something complex, probably. But does it save you a headache? Yes.
-- **Easy:** It might be (debatably) more difficult than Vue, but it's not difficult. 
+- **Easy:** It might be (debatably) more difficult than Vue, but it's not difficult.
 #### Cons:
-- **Small Ecosystem:** People tend to put it as *small but growing*, and it is, but it's just not there yet.  
+- **Small Ecosystem:** People tend to put it as *small but growing*, and it is, but it's just not there yet.
 - **New and breaking:** Most things you find on Google about Svelte around going to be about older versions before they added runes. And that's because it's new and fresh and changing fast, even if immensely powerful already.
 
 My main complaint is SEO, that's kinda pain in Svelte. But any issues right now are subject to change, aren't they?
@@ -113,8 +113,7 @@ My main complaint is SEO, that's kinda pain in Svelte. But any issues right now 
 - You want tutorials? ❌
 - You don't like change ❌
 
+## Sources
 
-sauces:
-https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4
-https://en.wikipedia.org/wiki/Vue.js
-https://en.wikipedia.org/wiki/React_(software)
+[https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4](https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4)<br>
+[https://2024.stateofjs.com/en-US/libraries/front-end-frameworks](https://2024.stateofjs.com/en-US/libraries/front-end-frameworks)
