@@ -40,14 +40,13 @@
 
         & h1 {
             & span {
-                padding: 5px 5px 0 5px;
+                padding: 0 5px 5px 5px;
                 background-color: var(--accent-color);
                 display: inline;
-                gap: 5px;
                 box-decoration-break: clone;
 
                 font-size: 2.6rem;
-                line-height: 3.2rem;
+                line-height: 3.1rem;
 
                 font-weight: bolder;
                 font-family: 'Karla', sans-serif;
@@ -61,7 +60,7 @@
 
         & .blurb {
             & span {
-                margin-top: -2px;
+                margin-top: 0;
                 padding: 5px;
                 background-color: var(--accent-color);
                 display: inline-block;
