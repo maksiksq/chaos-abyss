@@ -272,7 +272,8 @@
                 box-sizing: border-box;
                 margin-top: 1rem;
                 padding: 1rem;
-                background-color: #e9eded;
+                background-color: rgba(239, 239, 243, 0.6);
+                /*background-color: #e9eded;*/
 
                 & h2 {
                     margin-top: 0;
