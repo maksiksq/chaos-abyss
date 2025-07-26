@@ -72,10 +72,12 @@
 - [ ] : later: small desc custom syntax
 - [x] : later: kbd syntax
 - [ ] : later: maybe hover/button for Romaji?
-- [ ] : later: Add delete
+- [x] : later: Add delete
+- [ ] : later: Fix margins being all over the place
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
-- [ ] : maybe: 
+- [ ] : later: better article saving (there's a small chance to lose one still)
+- [ ] : maybe: Add button to copy anchor link for every header
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
 - [ ] : maybe: maybe autospace in md part of the editor to match article line height better? (how???)
 - [ ] : maybe: make runnable code blocks myself, mabye???
@@ -84,6 +86,7 @@
 - [ ] : prod: redirect vercel domains to chaos-abyss.com
 - [ ] : prod: Point imagekit url
 - [ ] : prod: submit sitemap to search console
+- [ ] : very later: make header section plugin but with escaping
 - [ ] : very later: add more text editing functions to editor (e.g. Word)
 - [ ] : very later: maybe later add search suggestions
 - [ ] : very later: revival altar for stashed articles

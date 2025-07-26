@@ -1,8 +1,3 @@
-~~# How I made Chaos Abyss.
-blurb: Sort of a devlog in post.
-
-// dont forget the 3d render for the cricket one
-
 I'm almost done with furnishing and publishing this place, and usually at this point normal people would say something engaging along the lines of "I am so excited to present to you - Chaos Abyss!", but no, I'm just tired, not from making this project but from existing. And that doesn't mean I'll stop. I'll keep making things. I'll keep filling in the abyss deep inside my soul. Owa, that took a wrong turn.
 
 This is a blog/publication, I guess? Hard to call it a real publication, but at the same time it's probably higher quality than most actual publications. I guess I'd call it a curated blog. Gotta rewrite the about page now, with that in mind lol.
@@ -17,7 +12,7 @@ That said, it's totally just another blog, nothing taking that away.
 
 And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money in the past (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all.
 
-Plus I just learnt Svelte and SvelteKit a month ago, and never before I made so much back-end and a well-rounded blog is a nice entrypoint to that. The next blog will take me 12.5 days, and the one after that will take 6.25. If I ever need to make another personal blog that is, which is unlikely but you get the point.
+Plus I just learnt Svelte and SvelteKit a month ago, and never before I made so much back-end and a well-rounded blog is a nice entrypoint to that. The next blog will take me 12.5 days, and the one after that will take 6.25. If I ever need to make another personal blog that is, which is unlikely, but you get the point.
 
 I took some inspiration from Medium and Tofugu, particularly how an article should even look like. Medium is just a cringe posting website, but it has some nice UI and I bloody love reading Tofugu articles, they're so well written and well-made.
 
@@ -28,10 +23,10 @@ mmm tasty
 
 It's mostly the stuff I'm interested in right now.
 - Development of any kind.
-- Japanese since I'm learning Japanese.
+- Japanese, since I'm learning Japanese.
 - Games and Stuffs - all the hours I spent in Stardew Valley, or Hades, or Minecraft, or- yes a lot of stuff + anime or something.
 - My projects, the list of which is ever-growing.
-- Plus some stuff that didn't fit into any category like [crickets](/articles/miscellaneous/crickets).
+- Plus some stuff that didn't fit into any category, like [crickets](/articles/miscellaneous/crickets).
 
 At the time of publication tho. This list will probably grow, it's not the full extent of my OCD's.
 
@@ -47,7 +42,18 @@ Picking a UI framework was easy. That is to say, I'm obsessed with Svelte.
 
 Then for the database it's Supabase because I'm not making all that myself.
 
-Also, I've stopped using SASS lately in favor of vanilla CSS, modern CSS is more than enough for almost any app. My CSS cursed tho, it's all & nested selector { & nested selector }.
+### Styling
+
+Also, I've stopped using SASS lately in favor of vanilla CSS, modern CSS is more than enough for almost any app. My CSS is cursed tho, it's all:
+```    
+
+probably-nested-selector {
+        & even-more-nested-selector {
+            color: beans;
+        }
+    }
+    
+```
 
 
 
@@ -73,13 +79,13 @@ One thing that bothered me was the lack of a proper way to make captions for ima
 
 This is basically exactly the branding I had in mind when making this site. The idea is based on some really old art that I did for my first attempt at making a portfolio, which went wrong, a modern successor of that is [maksiksync.vercel.app](https://maksiksync.vercel.app), but the original "altar" I guess, looked like this:
 
-![The Crystal](https://ik.imagekit.io/maksiks/2025-07-26_13-00.png 'The Crystal™ but old')
+![The Crystal but old](https://ik.imagekit.io/maksiks/2025-07-26_13-11.png 'The Crystal™ but old')
 
-If you want to take a look at the original page from back then it was basically this [mockup](https://github.com/maksiksq/old-portfolio/blob/Syzygy/gallery/page.svg).
+If you want to take a look at the original page from back then, it was basically this [mockup](https://github.com/maksiksq/old-portfolio/blob/Syzygy/gallery/page.svg).
 
-As for the homepage icon for the top left page I had to simplify it later because it didn't really work there. And now it's just this meme coming to life.
+As for the homepage icon for the top left of the header (including this very page) I had to simplify it later because it didn't really work there. And now it's just this meme coming to life.
 
-![firefox meme](https://ik.imagekit.io/maksiks/firefox.png ':::nocaption')
+![Firefox meme](https://ik.imagekit.io/maksiks/firefox.png ':::nocaption')
 
 This whole stage of the development then involved making all the static pages. I figured that would be best before making the back-end because I'll have some idea of what the actual user experience would look like, and it was definitely a good call.
 
@@ -93,7 +99,7 @@ Then I spent an absurd amount of time making it optimized for search engines as 
 
 ### The back-end
 
-Then it was back-end time, I had no idea how to use SvelteKit at the time so what did I do? I learn how to use SvelteKit, now I have an idea.
+Then it was back-end time, I had no idea how to use SvelteKit at the time so what did I do? I learnt how to use SvelteKit, now I have an idea.
 
 The real blessing is Svelte's [docs](https://svelte.dev/docs/), they're just very good even if they lack some stuff, plus their [tutorial](https://svelte.dev/tutorial/svelte/welcome-to-svelte) which is also great and actually fun.
 
@@ -115,7 +121,7 @@ Mix all that into a soup, and you'll get a deep black infinite void of neverendi
 
 Here's the [repository](https://github.com/maksiksq/chaos-abyss/). All the code is there for you to see!
 
-You're free to use anything in there for your own things as long as you're not trying to blatantly copy it, steal the Chaos Abyss identity or do something malicious with it. 
+You're free to use anything in there for your own things as long as you're not trying to blatantly copy it, steal the Chaos Abyss identity or do something malicious with it.
 
 Credit is appreciated but not mandatory.
 
@@ -125,7 +131,7 @@ Can't forget about writing the articles themselves. Well, that's what I'm doing 
 
 ![Pineapple article](https://ik.imagekit.io/maksiks/2025-07-24_20-46%20(2).png 'Pineapple article')
 
-Probably the most important part, because no matter how cool and sophisticated a blog is the whole point is the text written in there after all.
+Probably the most important part, because no matter how cool and sophisticated a blog is, the whole point is the text written in there after all.
 
 ### What I want to post
 I want to post:
@@ -141,6 +147,7 @@ Here you won't see:
 - 2000 words of fluff for a two-sentence point
 
 What am I gonna, give you ads and a pop-up with a newsletter? I'd rather starve. But I don't like starving, here's my [Ko-Fi](https://ko-fi.com/maksiks), no pressure tho.
+
 
 ## And that's about it.
 Let's see how this abyss goes.

@@ -38,6 +38,19 @@ body, html {
     border: 0;
 }
 
+.space-1 {
+    margin-top: 1rem;
+}
+
+.space-2 {
+    margin-top: 2rem;
+}
+
+.space-3 {
+    margin-top: 3rem;
+}
+
+
 .d-none {
     display: none;
 }
