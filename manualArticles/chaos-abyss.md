@@ -62,7 +62,7 @@ I implemented basically anything I might need for writing an article.
 
 ![Catppuccin Highlight.js theme](https://ik.imagekit.io/maksiks/2025-07-01_19-29%20(1).png 'Catppuccin Highlight.js theme codeblock')
 
-One thing that bothered me was the lack of a proper way to make captions for images, there existed libraries but they were kind of jank. So I made a whole thing.
+One thing that bothered me was the lack of a proper way to make captions for images, there existed libraries, but they were kind of jank. So I made a whole thing.
 ![Markdown-it image caption](https://ik.imagekit.io/maksiks/image.png ':::nocaption')
 
 ### Then I made The Crystal

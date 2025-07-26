@@ -44,6 +44,7 @@
 		"@maksiks/markdown-it-image-caption": "^1.1.2",
 		"@supabase/ssr": "^0.6.1",
 		"@supabase/supabase-js": "^2.50.3",
+		"@types/markdown-it-link-attributes": "^3.0.5",
 		"fuse.js": "^7.1.0",
 		"highlight.js": "^11.11.1",
 		"markdown-it": "^14.1.0",

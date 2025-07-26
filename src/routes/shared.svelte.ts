@@ -3,6 +3,7 @@ import markdownit from "markdown-it";
 import hljs from "highlight.js";
 import mditimgcap from "@maksiks/markdown-it-image-caption";
 import mditanchor from "markdown-it-anchor";
+import mditlinkattrs from 'markdown-it-link-attributes';
 
 // no types, ide stop bugging me, no i will not feed you more types
 // you got all your types for the week in advance.
@@ -12,8 +13,6 @@ import mditattr from "markdown-it-attribution";
 import mditsections from "markdown-it-header-sections";
 // @ts-ignore
 import mditrubyplugin from 'markdown-it-ruby';
-// @ts-ignore
-import mditlinkattrs from 'markdown-it-ruby';
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
