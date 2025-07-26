@@ -150,7 +150,7 @@ Here you won't see:
 - AI written shit
 - 2000 words of fluff for a two-sentence point
 
-What am I gonna, give you ads and a pop-up with a newsletter? I'd rather starve. But I don't like starving, here's my [Ko-Fi](https://ko-fi.com/maksiks), no pressure tho.
+What am I gonna, give you ads and a pop-up with a newsletter? I'd rather starve. But I don't like starving, here's my [Ko-fi](https://ko-fi.com/maksiks), no pressure tho.
 
 ## And that's about it.
 Check back sometime if you're interested. Now, let's see how this abyss goes.

@@ -16,7 +16,16 @@
 
     const separateAndSortDrafts = () => {
         const [localDrafts, localPublished] = data.articles.reduce(([a, b]: any, article: (typeof data.articles)[number]) => article.category === 'draft' ? [[...a, article], b] : [a, [...b, article]], [[], []]);
-        const sortedDrafts = localDrafts.sort((a: typeof localDrafts[number], b: typeof localDrafts[number]) => new Date(b.last_edit).getTime() - new Date(a.last_edit).getTime());
+        const sortedDrafts = localDrafts.sort((a: typeof localDrafts[number], b: typeof localDrafts[number]) => {
+            const aDate = a.last_edit;
+            const bDate = b.last_edit;
+
+            if (aDate === null && bDate === null) return 0;
+            if (aDate === null) return -1;
+            if (bDate === null) return 1;
+
+            return new Date(bDate).getTime() - new Date(aDate).getTime();
+        });
 
         return [sortedDrafts, localPublished]
 
