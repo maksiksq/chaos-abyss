@@ -27,10 +27,10 @@ One thing that I wish I could incorporate more in here is art. As you can see, t
 mmm tasty
 
 It's mostly the stuff I'm interested in right now.
-- Development of any kind;
-- Japanese since I'm learning Japanese, haven't been putting nearly enough attention to it so this place might help;
-- Games and Stuffs - all the hours I spent in Stardew Valley, or Hades, or Minecraft, or- yes a lot of stuff + anime or something;
-- My projects, the list of which is ever-growing;
+- Development of any kind.
+- Japanese since I'm learning Japanese.
+- Games and Stuffs - all the hours I spent in Stardew Valley, or Hades, or Minecraft, or- yes a lot of stuff + anime or something.
+- My projects, the list of which is ever-growing.
 - Plus some stuff that didn't fit into any category like [crickets](/articles/miscellaneous/crickets).
 
 At the time of publication tho. This list will probably grow, it's not the full extent of my OCD's.
@@ -39,11 +39,19 @@ At the time of publication tho. This list will probably grow, it's not the full 
 
 **Svelte**. A lot of Svelte.
 
-I will be mostly skimming over stuff from a developer's perspective, do not expect much explanation here, but I'll highlight some hopefully interesting bits.
+I will be mostly skimming over stuff from a developer's perspective, do not expect much explanation here, but I'll highlight some hopefully interesting bits. If you're trying to make something like this yourself, sit down and listen. Or read. Probably better off reading.
+
+### The insides
+
+Picking a UI framework was easy. That is to say, I'm obsessed with Svelte.
+
+Then for the database it's Supabase because I'm not making all that myself.
+
+Also, I've stopped using SASS lately in favor of vanilla CSS, modern CSS is more than enough for almost any app. My CSS cursed tho, it's all & nested selector { & nested selector }.
+
+
 
 ### Markdown
-
-Picking a UI framework was easy. That is to say I'm obsessed with Svelte since lately.
 
 Before anything, I implemented the styles and the generated page for the articles themselves. My initial call was to make each thing manually and then make a custom syntax for it, but then I quickly remembered **Markdown** *exists*, I don't need to reinvent markdown with my custom article parser so it's library choosing time.
 
@@ -52,7 +60,7 @@ After looking some stuff up, **Markdown-it** seemed like the best bet, because i
 
 I implemented basically anything I might need for writing an article.
 
-![Catppuccin Highlight.js theme](https://ik.imagekit.io/maksiks/2025-07-01_19-29%20(1).png 'Catppuccin Highlight.js theme')
+![Catppuccin Highlight.js theme](https://ik.imagekit.io/maksiks/2025-07-01_19-29%20(1).png 'Catppuccin Highlight.js theme codeblock')
 
 One thing that bothered me was the lack of a proper way to make captions for images, there existed libraries but they were kind of jank. So I made a whole thing.
 ![Markdown-it image caption](https://ik.imagekit.io/maksiks/image.png ':::nocaption')
@@ -81,7 +89,7 @@ This whole stage of the development then involved making all the static pages. I
 
 Then I spent an absurd amount of time making it optimized for search engines as I'm Wall Street Journal or something. I have everything: proper meta tags, social media previews, JSON-LD, a sitemap. And it's all automatically generated - zero input from my side for articles.
 
-![Lighthouse report](https://ik.imagekit.io/maksiks/2025-07-12_16-46%20(1).png ':::nocaption')
+![Lighthouse report](https://ik.imagekit.io/maksiks/2025-07-12_16-46%20(1).png 'ez')
 
 ### The back-end
 
@@ -91,9 +99,15 @@ The real blessing is Svelte's [docs](https://svelte.dev/docs/), they're just ver
 
 ![routing docs](https://ik.imagekit.io/maksiks/2025-07-26_13-24.png ':::nocaption')
 
+Can't forget the fuzzy search with Fuse.js.
+
+![fuse js search](https://ik.imagekit.io/maksiks/2025-07-14_16-48%20(1).png ':::nocaption')
+
 Then came an editor, a dashboard, the ability to edit articles and all the good stuff. It was a lot of bugs but having a written with future use in mind codebase helped a lot to alleviate the pain, which is nice.
 
 ![editor](https://ik.imagekit.io/maksiks/2025-07-16_21-52%20(1).png 'My private article editor. <br>Hidden and locked in plain sight. (Homepage, ↑↑↓↓←→←→)')
+
+Mix all that into a soup, and you'll get a deep black infinite void of neverending chaos.
 
 ### The sauce is open.
 
@@ -126,4 +140,7 @@ Here you won't see:
 - AI written shit
 - 2000 words of fluff for a two-sentence point
 
+What am I gonna, give you ads and a pop-up with a newsletter? I'd rather starve. But I don't like starving, here's my [Ko-Fi](https://ko-fi.com/maksiks), no pressure tho.
+
 ## And that's about it.
+Let's see how this abyss goes.
