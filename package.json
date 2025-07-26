@@ -51,6 +51,7 @@
 		"markdown-it-attribution": "^0.1.4",
 		"markdown-it-header-sections": "^1.0.0",
 		"markdown-it-image-caption": "^1.0.0",
+		"markdown-it-link-attributes": "^4.0.1",
 		"markdown-it-ruby": "^1.1.2"
 	}
 }
