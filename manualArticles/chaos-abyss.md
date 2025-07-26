@@ -1,4 +1,4 @@
-# How I made Chaos Abyss.
+~~# How I made Chaos Abyss.
 blurb: Sort of a devlog in post.
 
 // dont forget the 3d render for the cricket one
@@ -11,24 +11,119 @@ This is a blog/publication, I guess? Hard to call it a real publication, but at 
 Here is where I cast my whimsy into the world. Some stuff here is serious, and some stuff is not very serious. All you need is to look at the discovery page right [here](/articles).
 
 ## Just another blog?
-I've been working on this project for the last ~25 days about 6-12 hours a day, although there were some irl complications so it's probably a bit less than that, but my Hackatime timer is ticking 160 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too. 
+I've been working on this project for the last ~25 days about 6-12 hours a day, although there were some irl complications so it's probably a bit less than that, but my Hackatime timer is ticking 160 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too.
 
 That said, it's totally just another blog, nothing taking that away.
 
-And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money in the past (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all. 
+And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money in the past (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all.
 
 Plus I just learnt Svelte and SvelteKit a month ago, and never before I made so much back-end and a well-rounded blog is a nice entrypoint to that. The next blog will take me 12.5 days, and the one after that will take 6.25. If I ever need to make another personal blog that is, which is unlikely but you get the point.
 
-I took some inspiration from Medium and Tofugu, particularly how an article should even look like. Medium is just a cringe posting website, but it has some nice UI and I bloody love reading Tofugu articles, they're so well written and well-made. 
+I took some inspiration from Medium and Tofugu, particularly how an article should even look like. Medium is just a cringe posting website, but it has some nice UI and I bloody love reading Tofugu articles, they're so well written and well-made.
 
 One thing that I wish I could incorporate more in here is art. As you can see, the thumbnails for most articles are in a specific minimalist style, which looks cool and all, but I'd like to draw something, but then it's going to take me an eternity to post one so that's simply unrealistic in the current state of things. Maybe I'll work on that in the future tho.
 
 ## The Topics and Toppings
 mmm tasty
 
-It's mostly the stuff I'm interested in right now. 
-- Development of any kind; 
-- Japanese since I'm learning Japanese; 
-- Games and Stuffs - all the hours I spent in Stardew Valley, or Hades, or Minecraft, or- yes a lot of stuff + anime or something; 
-- My projects, the list of which is ever-growing; 
+It's mostly the stuff I'm interested in right now.
+- Development of any kind;
+- Japanese since I'm learning Japanese, haven't been putting nearly enough attention to it so this place might help;
+- Games and Stuffs - all the hours I spent in Stardew Valley, or Hades, or Minecraft, or- yes a lot of stuff + anime or something;
+- My projects, the list of which is ever-growing;
 - Plus some stuff that didn't fit into any category like [crickets](/articles/miscellaneous/crickets).
+
+At the time of publication tho. This list will probably grow, it's not the full extent of my OCD's.
+
+## So how was this made?
+
+**Svelte**. A lot of Svelte.
+
+I will be mostly skimming over stuff from a developer's perspective, do not expect much explanation here, but I'll highlight some hopefully interesting bits.
+
+### Markdown
+
+Picking a UI framework was easy. That is to say I'm obsessed with Svelte since lately.
+
+Before anything, I implemented the styles and the generated page for the articles themselves. My initial call was to make each thing manually and then make a custom syntax for it, but then I quickly remembered **Markdown** *exists*, I don't need to reinvent markdown with my custom article parser so it's library choosing time.
+
+After looking some stuff up, **Markdown-it** seemed like the best bet, because it wasn't much about being out of the box but rather about plugins, which is perfect if I want to retain search engine optimization with semantic tags (e.g. &lt;article&gt;) and style it a lot.
+![The original page](https://ik.imagekit.io/maksiks/2025-07-01_17-01%20(2).png 'The original page')
+
+I implemented basically anything I might need for writing an article.
+
+![Catppuccin Highlight.js theme](https://ik.imagekit.io/maksiks/2025-07-01_19-29%20(1).png 'Catppuccin Highlight.js theme')
+
+One thing that bothered me was the lack of a proper way to make captions for images, there existed libraries but they were kind of jank. So I made a whole thing.
+![Markdown-it image caption](https://ik.imagekit.io/maksiks/image.png ':::nocaption')
+
+### Then I made The Crystal
+
+**The Crystal™** (dramatic)
+
+![The Crystal](https://ik.imagekit.io/maksiks/2025-07-03_15-24%20(1).png 'The Crystal')
+
+This is basically exactly the branding I had in mind when making this site. The idea is based on some really old art that I did for my first attempt at making a portfolio, which went wrong, a modern successor of that is [maksiksync.vercel.app](https://maksiksync.vercel.app), but the original "altar" I guess, looked like this:
+
+![The Crystal](https://ik.imagekit.io/maksiks/2025-07-26_13-00.png 'The Crystal™ but old')
+
+If you want to take a look at the original page from back then it was basically this [mockup](https://github.com/maksiksq/old-portfolio/blob/Syzygy/gallery/page.svg).
+
+As for the homepage icon for the top left page I had to simplify it later because it didn't really work there. And now it's just this meme coming to life.
+
+![firefox meme](https://ik.imagekit.io/maksiks/firefox.png ':::nocaption')
+
+This whole stage of the development then involved making all the static pages. I figured that would be best before making the back-end because I'll have some idea of what the actual user experience would look like, and it was definitely a good call.
+
+![Older homepage](https://ik.imagekit.io/maksiks/2025-07-10_12-27%20(2).png 'An older version of the current homepage.')
+
+### SEO
+
+Then I spent an absurd amount of time making it optimized for search engines as I'm Wall Street Journal or something. I have everything: proper meta tags, social media previews, JSON-LD, a sitemap. And it's all automatically generated - zero input from my side for articles.
+
+![Lighthouse report](https://ik.imagekit.io/maksiks/2025-07-12_16-46%20(1).png ':::nocaption')
+
+### The back-end
+
+Then it was back-end time, I had no idea how to use SvelteKit at the time so what did I do? I learn how to use SvelteKit, now I have an idea.
+
+The real blessing is Svelte's [docs](https://svelte.dev/docs/), they're just very good even if they lack some stuff, plus their [tutorial](https://svelte.dev/tutorial/svelte/welcome-to-svelte) which is also great and actually fun.
+
+![routing docs](https://ik.imagekit.io/maksiks/2025-07-26_13-24.png ':::nocaption')
+
+Then came an editor, a dashboard, the ability to edit articles and all the good stuff. It was a lot of bugs but having a written with future use in mind codebase helped a lot to alleviate the pain, which is nice.
+
+![editor](https://ik.imagekit.io/maksiks/2025-07-16_21-52%20(1).png 'My private article editor. <br>Hidden and locked in plain sight. (Homepage, ↑↑↓↓←→←→)')
+
+### The sauce is open.
+
+> It's open-source. Go check the repo out!
+
+Here's the [repository](https://github.com/maksiksq/chaos-abyss/). All the code is there for you to see!
+
+You're free to use anything in there for your own things as long as you're not trying to blatantly copy it, steal the Chaos Abyss identity or do something malicious with it. 
+
+Credit is appreciated but not mandatory.
+
+## And Writing
+
+Can't forget about writing the articles themselves. Well, that's what I'm doing now, and what you're reading right now. Fourth wall break. Shock.
+
+![Pineapple article](https://ik.imagekit.io/maksiks/2025-07-24_20-46%20(2).png 'Pineapple article')
+
+Probably the most important part, because no matter how cool and sophisticated a blog is the whole point is the text written in there after all.
+
+### What I want to post
+I want to post:
+- Things I learnt, because I always learn. And consume.
+- Tutorials.
+- Occasional opinions on some stuff.
+- Silly articles about silly topics I found silly or sharable.
+
+### What I don't want to post
+Here you won't see:
+- Sensational articles <small class="desc">*"I SURVIVED THE NIGHT OF A THOUSAND CRICKETS AND YOU WON’T BELIEVE HOW"*</small>
+- AI written shit
+- 2000 words of fluff for a two-sentence point
+
+## And that's about it.

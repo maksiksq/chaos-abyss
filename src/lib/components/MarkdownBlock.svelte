@@ -247,6 +247,7 @@
                 & figcaption {
                     margin-top: 1.2rem;
                     align-self: center;
+                    text-align: center;
                 }
             }
 

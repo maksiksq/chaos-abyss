@@ -82,6 +82,7 @@
 - [ ] : maybe: style previous article/next article differently
 - [ ] : prod: check if sitemap also updates weirdly in production
 - [ ] : prod: redirect vercel domains to chaos-abyss.com
+- [ ] : prod: Point imagekit url
 - [ ] : prod: submit sitemap to search console
 - [ ] : very later: add more text editing functions to editor (e.g. Word)
 - [ ] : very later: maybe later add search suggestions
