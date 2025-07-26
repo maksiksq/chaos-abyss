@@ -76,6 +76,7 @@
 - [ ] : later: Fix margins being all over the place
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!
+- [ ] : later: dates make some sense but not enough sense (currently no edit date when it's a draft at all) - i should just reset it to null on first publish and rename the goddam date to publish date
 - [ ] : later: better article saving (there's a small chance to lose one still)
 - [ ] : maybe: Add button to copy anchor link for every header
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
@@ -101,7 +102,6 @@
 - [ ] : nitpick: draft/stash error page is different
 - [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
-- [ ] : fix: date make some sense but not enough sense (currently no edit date when it's a draft at all)
 
 <br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~

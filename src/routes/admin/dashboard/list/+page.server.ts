@@ -49,7 +49,7 @@ export const actions = {
 
         const {error} = await supabase
             .from('articles')
-            .update({category: category, date: article.date ? article.date : toTimestampTZ(new Date())})
+            .update({category: category, date: article.date ? article.date : toTimestampTZ(new Date()), last_edit: article.date ?? null})
             .eq('uuid', article.uuid)
         if (error) {
             console.error(error);

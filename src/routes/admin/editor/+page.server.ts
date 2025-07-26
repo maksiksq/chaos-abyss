@@ -88,10 +88,9 @@ export const actions = {
                 }
             }
 
-
             const { error } = await supabase
                 .from('articles')
-                .update({...details, content: parsedHtml, contentmd: raw, content_trim: contentTrim, date: isPublished ? oldSlugAndDate.date : null, last_edit: isPublished ? toTimestampTZ(new Date()) : null})
+                .update({...details, content: parsedHtml, contentmd: raw, content_trim: contentTrim, date: isPublished ? oldSlugAndDate.date : null, last_edit: toTimestampTZ(new Date())})
                 .eq('uuid', details.uuid)
             if (error) {
                 console.error(error);
