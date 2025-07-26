@@ -75,7 +75,7 @@ One thing that bothered me was the lack of a proper way to make captions for ima
 
 **The Crystal™** (dramatic)
 
-![The Crystal](https://ik.imagekit.io/maksiks/2025-07-03_15-24%20(1).png 'The Crystal')
+![The Crystal](https://ik.imagekit.io/maksiks/2025-07-03_15-24%20(1).png 'The Crystal™')
 
 This is basically exactly the branding I had in mind when making this site. The idea is based on some really old art that I did for my first attempt at making a portfolio, which went wrong, a modern successor of that is [maksiksync.vercel.app](https://maksiksync.vercel.app), but the original "altar" I guess, looked like this:
 
