@@ -1,13 +1,13 @@
 I'm almost done with furnishing and publishing this place, and usually at this point normal people would say something engaging along the lines of "I am so excited to present to you - Chaos Abyss!", but no, I'm just tired, not from making this project but from existing. And that doesn't mean I'll stop. I'll keep making things. I'll keep filling in the abyss deep inside my soul. Owa, that took a wrong turn.
 
-This is a blog/publication, I guess? Hard to call it a real publication, but at the same time it's probably higher quality than most actual publications. I guess I'd call it a curated blog. Gotta rewrite the about page now, with that in mind lol.
+This is a blog/publication, I guess? Hard to call it a real publication, but at the same time it's probably higher quality than most actual publications. I guess I'd call it a curated blog. Might rewrite the about page with that in mind lol.
 
 ## What is Chaos Abyss?
 Here is where I cast my whimsy into the world. Some stuff here is serious, and some stuff is not very serious. All you need is to look at the discovery page right [here](/articles).
 
 ## Just another blog?
-I've been working on this project for the last ~25 days about 6-12 hours a day, although there were some irl complications so it's probably a bit less than that, but my Hackatime timer is ticking 160 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too.
-
+I've been working on this project for the last ~25 days about 6-12 hours a day, although there were some real-life complications, so it's probably a bit less than that, but my Hackatime timer is ticking 160 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too.
+ 
 That said, it's totally just another blog, nothing taking that away.
 
 And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money in the past (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all.
@@ -59,7 +59,7 @@ probably-nested-selector {
 
 ### Markdown
 
-Before anything, I implemented the styles and the generated page for the articles themselves. My initial call was to make each thing manually and then make a custom syntax for it, but then I quickly remembered **Markdown** *exists*, I don't need to reinvent markdown with my custom article parser so it's library choosing time.
+Before anything, I implemented the styles and the generated page for the articles themselves. My initial call was to make each thing manually and then make a custom syntax for it, but then I quickly remembered **Markdown** *exists*, I don't need to reinvent Markdown with my custom article parser so it's library choosing time.
 
 After looking some stuff up, **Markdown-it** seemed like the best bet, because it wasn't much about being out of the box but rather about plugins, which is perfect if I want to retain search engine optimization with semantic tags (e.g. &lt;article&gt;) and style it a lot.
 ![The original page](https://ik.imagekit.io/maksiks/2025-07-01_17-01%20(2).png 'The original page')
@@ -93,7 +93,7 @@ This whole stage of the development then involved making all the static pages. I
 
 ### SEO
 
-Then I spent an absurd amount of time making it optimized for search engines as I'm Wall Street Journal or something. I have everything: proper meta tags, social media previews, JSON-LD, a sitemap. And it's all automatically generated - zero input from my side for articles.
+Then I spent an absurd amount of time making it optimized for search engines like I'm Wall Street Journal or something. I have everything: proper meta tags, social media previews, JSON-LD, a sitemap. And it's all automatically generated - zero input from my side for articles.
 
 ![Lighthouse report](https://ik.imagekit.io/maksiks/2025-07-12_16-46%20(1).png 'ez')
 
@@ -101,7 +101,7 @@ Then I spent an absurd amount of time making it optimized for search engines as 
 
 Then it was back-end time, I had no idea how to use SvelteKit at the time so what did I do? I learnt how to use SvelteKit, now I have an idea.
 
-The real blessing is Svelte's [docs](https://svelte.dev/docs/), they're just very good even if they lack some stuff, plus their [tutorial](https://svelte.dev/tutorial/svelte/welcome-to-svelte) which is also great and actually fun.
+The real blessing is Svelte's [docs](https://svelte.dev/docs/), they're just very good, even if a bit lacking in places. Plus their [tutorial](https://svelte.dev/tutorial/svelte/welcome-to-svelte) which is also great and actually fun.
 
 ![routing docs](https://ik.imagekit.io/maksiks/2025-07-26_13-24.png ':::nocaption')
 
@@ -121,7 +121,7 @@ Mix all that into a soup, and you'll get a deep black infinite void of neverendi
 
 Here's the [repository](https://github.com/maksiksq/chaos-abyss/). All the code is there for you to see!
 
-You're free to use anything in there for your own things as long as you're not trying to blatantly copy it, steal the Chaos Abyss identity or do something malicious with it.
+You're free to use anything in there for your own things as long as you're not trying to blatantly copy it, steal the Chaos Abyss identity, or do something malicious with it.
 
 Credit is appreciated but not mandatory.
 
@@ -129,9 +129,13 @@ Credit is appreciated but not mandatory.
 
 Can't forget about writing the articles themselves. Well, that's what I'm doing now, and what you're reading right now. Fourth wall break. Shock.
 
-![Pineapple article](https://ik.imagekit.io/maksiks/2025-07-24_20-46%20(2).png 'Pineapple article')
+![Drafts](https://ik.imagekit.io/maksiks/2025-07-26_19-46.png 'Here are some drafts for this article&apos;s thumbnail. | top')
 
-Probably the most important part, because no matter how cool and sophisticated a blog is, the whole point is the text written in there after all.
+That red one looks sick too. Was my second contender in line.
+
+![Drafts for wider pics](https://ik.imagekit.io/maksiks/2025-07-26_19-46_1.png 'And these are for the wide (pc) thumbnail | top')
+
+Writing the articles is probably the most important part, because no matter how cool and sophisticated a blog is, the whole point is the text written in there, the points made and the things shared after all.
 
 ### What I want to post
 I want to post:
@@ -148,6 +152,5 @@ Here you won't see:
 
 What am I gonna, give you ads and a pop-up with a newsletter? I'd rather starve. But I don't like starving, here's my [Ko-Fi](https://ko-fi.com/maksiks), no pressure tho.
 
-
 ## And that's about it.
-Let's see how this abyss goes.
+Check back sometime if you're interested. Now, let's see how this abyss goes.
