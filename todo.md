@@ -104,7 +104,7 @@
 - [ ] : soon: favicon
 - [x] : fix consistent capitalization
 
-<br>~~- [ ] : make header capitalization optional~~ ; it matches the db now
+<br>~~- [ ] : scrap: make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~
 <br>~~- [x] : scrap: change head fig bg to something other than accent color~~
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
