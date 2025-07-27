@@ -66,7 +66,7 @@
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
 - [ ] : later: pagination
-- [ ] : later: account for metablock padding changes (restyle)
+- [x] : later: account for metablock padding changes (restyle)
 - [ ] : later: small desc custom syntax
 - [x] : later: kbd syntax
 - [x] : later: Add delete
