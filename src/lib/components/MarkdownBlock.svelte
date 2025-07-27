@@ -91,7 +91,6 @@
 
         blockquote {
             max-width: 40%;
-            margin: 0 !important;
 
             background: linear-gradient(135deg, color-mix(in oklab, var(--accent-color) 99%, black), color-mix(in oklab, var(--accent-color) 30%, black));
             -webkit-background-clip: text;
@@ -107,6 +106,10 @@
             align-items: center;
 
             float: right;
+
+            & p {
+                margin: 0 !important;
+            }
         }
 
         .article-content {
