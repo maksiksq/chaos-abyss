@@ -4,6 +4,7 @@ import hljs from "highlight.js";
 import mditimgcap from "@maksiks/markdown-it-image-caption";
 import mditanchor from "markdown-it-anchor";
 import mditlinkattrs from 'markdown-it-link-attributes';
+import mditmathjax from 'markdown-it-mathjax3';
 
 // no types, ide stop bugging me, no i will not feed you more types
 // you got all your types for the week in advance.
@@ -46,6 +47,7 @@ export const md: MarkdownIt = markdownit({
         .use(mditanchor)
         .use(mditsections)
         .use(mditrubyplugin)
+        .use(mditmathjax)
         .use(mditlinkattrs, {
             attrs: {
                 target: "_blank",
