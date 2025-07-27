@@ -20,51 +20,45 @@ import mditrubyplugin from 'markdown-it-ruby';
 const reparseRubyInsideTables = (md: MarkdownIt) => {
     const PLACEHOLDER = '⸻';
 
+    // Step 1: Prevent pipe inside ruby from breaking table parsing
     md.core.ruler.before('block', 'preprocess-ruby', (state) => {
-        state.src = state.src.replace(/\{([^{}|]+)\|([^{}|]+)}/g, (_: string, rb: string, rt: string) => {
-            return `{${rb}${PLACEHOLDER}${rt}}`;
-        });
+        state.src = state.src.replace(
+            /\{([^{}|]+)\|([^{}|]+)\}/g,
+            (_: string, rb: string, rt: string) => `{${rb}${PLACEHOLDER}${rt}}`
+        );
     });
 
-    md.core.ruler.after('inline', 'reparse-table-inline', (state) => {
+    // Step 2: Restore pipe and reparse only affected inline tokens
+    md.core.ruler.after('inline', 'reparse-ruby-inline', (state) => {
         const tokens = state.tokens;
         let insideTable = false;
 
-        for (let i = 0; i < tokens.length; i++) {
-            const token = tokens[i];
-
+        for (const token of tokens) {
             if (token.type === 'table_open') {
                 insideTable = true;
             } else if (token.type === 'table_close') {
                 insideTable = false;
             }
 
-            if (insideTable && token.type === 'inline') {
-                const restored = token.content.replace(new RegExp(PLACEHOLDER, 'g'), '|');
-                const inlineState = new state.md.inline.State(
-                    restored,
-                    state.md,
-                    state.env,
-                    []
-                );
-                inlineState.md.inline.tokenize(inlineState);
-                token.children = inlineState.tokens;
-            }
+            if (token.type !== 'inline') continue;
 
-            if (!insideTable && token.type === 'inline') {
-                const restored = token.content.replace(new RegExp(PLACEHOLDER, 'g'), '|');
-                const inlineState = new state.md.inline.State(
-                    restored,
-                    state.md,
-                    state.env,
-                    []
-                );
-                inlineState.md.inline.tokenize(inlineState);
-                token.children = inlineState.tokens;
-            }
+            // Only re-tokenize if there's a placeholder to restore
+            if (!token.content.includes(PLACEHOLDER)) continue;
+
+            const restored = token.content.replaceAll(PLACEHOLDER, '|');
+
+            token.children = [];
+            state.md.inline.parse(
+                restored,
+                state.md,
+                state.env,
+                token.children
+            );
+            token.content = restored;
         }
     });
-}
+};
+
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {

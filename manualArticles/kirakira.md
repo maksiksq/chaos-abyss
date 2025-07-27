@@ -37,14 +37,32 @@ Them being written with weird kanji makes them difficult to recognize for most p
 Here's a list:
 | Name                 | Origin          | Written as      | Comment                                                                 |
 |----------------------|-----------------|------------------|-------------------------------------------------------------------------|
-| {七音|ドレミ} (Doremi)     | Musical notes   | seven + sound {七音|ドレミ}   | Do-re-mi ... I'd think of Ratatouille every time I'd speak to this person. |
+| {煮物} (にもの)     | Likely the dish  | Nimono  | Nimono - Seasoned simmered vegetables and seafood. The word can also just mean boiled food. |
+| {夏夏夏} (ななみ)     | -  | summer + summer + summer  | It's the kanji for summer repeated thrice. |
+| {精飛愛} (せぴあ)     | Likely Sepia  | spirit + fly + love  | Sepia is a name for a color or a yellow/brown filter which makes things look kinda sad.  |
+| {キック今日中|しかた} (きっくきょうじゅう)     | -   | kick sometime today ???  | I hope they don't mean literally kicking their children. Apparently, it's a slang term meaning a dumb delinquent. |
+| {詩香多|しかた} (Shikata)     | -   | poem + fragrance + multiple  | In Japanese しかたない (shikatanai) means "there's nothing we can do", so their name is going to be eternally joked as 詩香多ない. |
+| {士恵大|じぇだい} (Jedai)     | Likely Star Wars   | warrior + wisdom + big   | Anakin, do not kill the younglings. |
+| {今鹿|なうしか} (Naushika)     | Ghibli film   | now + deer   | The sacrifice you have to make to be possibly read as Nausicaä instead of Now deer.|
+| {夏響|カノン} (Kanon)     | -   | shiny + shiny   | The same as the word for a literal cannon. |
+| {綺羅々|きらきら} (Kirakira)     | Kirakira   | shiny + shiny   | The embodiment of キラキラ. |
+| {七音|ドレミ} (Doremi)     | Musical notes   | seven + sound   | Do-re-mi ... I'd think of Ratatouille every time I'd speak to this person. |
 | {一心|ピュア} (Pyua)       | Pure             | wholeheartedness        | Being named wholeheartedness is cool and this is poetic, but why?                                                                   |
+| {愛天奈|アテナ} (Atena)       | Athena             | love + sky + what?      | Named after the goddess of Wisdom.                                                                   |
+| {北子|のこ} (Noko)       | -             | north + child      | The existence of a Noko (half english from North) implies the existence of a Soko, Eastko and Westko.                                                                 |
 | {黄熊|プウ} (Pu)           | Winnie the Pooh | yellow + bear    | Winnie the Pooh. I'm sorry. What.                                                       |
 | {紅葉|メイプル} (Meipuru)   | Maple            | crimson leaves   | Unintentional Bofuri reference, she just needs a pet シロップ.             |
 | {夢希|ナイキ} (Naiki)       | Nike                | dream + hope     | Yes. Nike. The company. Shoes.                                                                        |
 | {奇跡|ダイヤ} (Daiya)       | Diamond                | miracle           | This is just confusing.                                                                         |
-| {緑夢|グリム} (Gurimu)      | probably Grimm brothers (source?)            | green + dream    | Part of English "green" and part of Japanese for "dream" spliced together.                                                                          |
+| {緑夢|グリム} (Gurimu)      | Possibly Grimm brothers            | green + dream    | Part of English "green" and part of Japanese for "dream" spliced together.                                                                          |
 | {王子様|オウジサマ} (Ojisama) | -                | prince            |                                                                         |
+
+
+**Honorable mention:** {野風平蔵重親|のかぜへいぞうしげちか} (nokazeheizoshigechika) - apparently: "The mother was a rekijo (history-loving woman), and she wanted to give her child both a childhood name and an adult name like the samurai did in the old days. But since that wasn’t allowed, she ended up just combining everything into one big name." 
+
+
+
+A lot more of these are inappropriate or almost inappropriate than you'd expect.  
 
 ### Dqname.jp
 
