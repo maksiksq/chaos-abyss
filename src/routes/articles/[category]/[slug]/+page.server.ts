@@ -119,7 +119,7 @@ export const load = async ({params}) => {
 
     // misc
 
-    const wordcount = article.content.trim().replace(/\s+/g, ' ').split(' ').length;
+    const wordcount = article.contentmd.trim().replace(/\s+/g, ' ').split(' ').length;
     const authorlink = authors.find(author => author.name === article.author)?.link;
 
     return {
