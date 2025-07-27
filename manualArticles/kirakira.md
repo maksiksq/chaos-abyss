@@ -38,14 +38,23 @@ Here's a list:
 | Name                 | Origin          | Written as      | Comment                                                                 |
 |----------------------|-----------------|------------------|-------------------------------------------------------------------------|
 | {七音|ドレミ} (Doremi)     | Musical notes   | seven + sound {七音|ドレミ}   | Do-re-mi ... I'd think of Ratatouille every time I'd speak to this person. |
-| {一心|ピュア} (Pyua)       | Pure             | one heart        |                                                                         |
-| {黄熊|プウ} (Pu)           | Winnie the Pooh | yellow + bear    | Winnie the Pooh.                                                       |
+| {一心|ピュア} (Pyua)       | Pure             | wholeheartedness        | Being named wholeheartedness is cool and this is poetic, but why?                                                                   |
+| {黄熊|プウ} (Pu)           | Winnie the Pooh | yellow + bear    | Winnie the Pooh. I'm sorry. What.                                                       |
 | {紅葉|メイプル} (Meipuru)   | Maple            | crimson leaves   | Unintentional Bofuri reference, she just needs a pet シロップ.             |
-| {夢希|ナイキ} (Naiki)       | —                | dream + hope     |                                                                         |
-| {奇跡|ダイヤ} (Daiya)       | —                | miracle           |                                                                         |
-| {緑夢|グリム} (Gurimu)      | —                | green + dream    |                                                                         |
-| {王子様|オウジサマ} (Ojisama) | —                | prince            |                                                                         |
+| {夢希|ナイキ} (Naiki)       | Nike                | dream + hope     | Yes. Nike. The company. Shoes.                                                                        |
+| {奇跡|ダイヤ} (Daiya)       | Diamond                | miracle           | This is just confusing.                                                                         |
+| {緑夢|グリム} (Gurimu)      | probably Grimm brothers (source?)            | green + dream    | Part of English "green" and part of Japanese for "dream" spliced together.                                                                          |
+| {王子様|オウジサマ} (Ojisama) | -                | prince            |                                                                         |
+
+### Dqname.jp
+
+This place is the biggest database of キラキラ names that I could find:<br>
+[https://dqname.jp/](https://dqname.jp/)<br>
+(it's all in Japanese)
+
+
 
 ## Sources
+https://dqname.jp/
 https://www.upi.com/Archives/1994/02/15/Father-decides-against-calling-child-Devil/2302761288400/
 https://en.namu.wiki/w/%EC%9D%B4%EB%A6%84%EC%9D%B4%20%EC%95%85%EB%A7%88%EC%9D%B8%20%EC%95%84%EC%9D%B4

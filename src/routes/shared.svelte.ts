@@ -41,7 +41,18 @@ const reparseRubyInsideTables = (md: MarkdownIt) => {
 
             if (insideTable && token.type === 'inline') {
                 const restored = token.content.replace(new RegExp(PLACEHOLDER, 'g'), '|');
+                const inlineState = new state.md.inline.State(
+                    restored,
+                    state.md,
+                    state.env,
+                    []
+                );
+                inlineState.md.inline.tokenize(inlineState);
+                token.children = inlineState.tokens;
+            }
 
+            if (!insideTable && token.type === 'inline') {
+                const restored = token.content.replace(new RegExp(PLACEHOLDER, 'g'), '|');
                 const inlineState = new state.md.inline.State(
                     restored,
                     state.md,
@@ -54,7 +65,6 @@ const reparseRubyInsideTables = (md: MarkdownIt) => {
         }
     });
 }
-
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
