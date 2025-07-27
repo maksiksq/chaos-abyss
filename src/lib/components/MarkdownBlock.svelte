@@ -106,7 +106,7 @@
             align-items: center;
 
             float: right;
-
+            
             & p {
                 margin: 0 !important;
             }

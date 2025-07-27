@@ -47,7 +47,7 @@ So I counted. My crickets kind of do it in waves, and you're supposed to isolate
 
 I decided to use the 15 second formula. This and my counting are in no way scientific, but when counting the amount of cricket chirps ever was? I guess it was if this law exists.
 
-I ended up with about 16 waves from a single cricket (they have like a voice basically), and I averaged it out to about 5 chirps per wave. So about 80 chirps in total, plug it into the formula and that's 120° Fahrenheit, which converted from freedom units is 48° Celsius. Uhm. Yeah, we're frying on this one, it's actually a cool 23° night right now.
+I ended up with about 16 waves from a single cricket (they have like a voice basically so I can separate one), and I averaged it out to about 5 chirps per wave. So about 80 chirps in total, plug it into the formula and that's 120° Fahrenheit, which converted from freedom units is 48° Celsius. Uhm. Yeah, we're frying on this one, it's actually a cool 23° night right now.
 
 It might be the law being kind of inaccurate or my sloppy counting, but it didn't work for me, lol. Even if I count again and reduce the number generously, or try to count for the whole 60 seconds, it's not even close at all.
 
