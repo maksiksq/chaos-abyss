@@ -15,6 +15,47 @@ import mditsections from "markdown-it-header-sections";
 // @ts-ignore
 import mditrubyplugin from 'markdown-it-ruby';
 
+// reparse inside tables, considering it uses pipe characters
+// (lazy as heck)
+const reparseRubyInsideTables = (md: MarkdownIt) => {
+    const PLACEHOLDER = '⸻';
+
+    md.core.ruler.before('block', 'preprocess-ruby', (state) => {
+        state.src = state.src.replace(/\{([^{}|]+)\|([^{}|]+)}/g, (_: string, rb: string, rt: string) => {
+            return `{${rb}${PLACEHOLDER}${rt}}`;
+        });
+    });
+
+    md.core.ruler.after('inline', 'reparse-table-inline', (state) => {
+        const tokens = state.tokens;
+        let insideTable = false;
+
+        for (let i = 0; i < tokens.length; i++) {
+            const token = tokens[i];
+
+            if (token.type === 'table_open') {
+                insideTable = true;
+            } else if (token.type === 'table_close') {
+                insideTable = false;
+            }
+
+            if (insideTable && token.type === 'inline') {
+                const restored = token.content.replace(new RegExp(PLACEHOLDER, 'g'), '|');
+
+                const inlineState = new state.md.inline.State(
+                    restored,
+                    state.md,
+                    state.env,
+                    []
+                );
+                inlineState.md.inline.tokenize(inlineState);
+                token.children = inlineState.tokens;
+            }
+        }
+    });
+}
+
+
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
             if (lang && hljs.getLanguage(lang)) {
@@ -53,7 +94,9 @@ export const md: MarkdownIt = markdownit({
                 target: "_blank",
                 rel: "noopener",
             }
-        });
+        })
+        .use(reparseRubyInsideTables);
+
 
 type Details = {
     uuid: string,
