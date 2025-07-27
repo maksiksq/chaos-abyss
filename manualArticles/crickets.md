@@ -20,7 +20,7 @@ Well, apparently just as a lot of bugs they're attracted to light. I'm not exact
 
 So I plopped a garden light somewhere far away from my window. Worked like a charm.
 
-![Garden light](https://ik.imagekit.io/maksiks/IMG_20250727_135116.jpg 'The garden light in question.')
+![Garden light](https://ik.imagekit.io/maksiks/IMG_20250727_135116.jpg 'The garden light in question.')d
 
 Now the sound is still there, but it's distant and more than comfy enough for me. A few of my family members confirmed when walking at night all the crickets were gathered there too.
 
