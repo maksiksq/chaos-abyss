@@ -71,7 +71,6 @@
 - [ ] : later: account for metablock padding changes (restyle)
 - [ ] : later: small desc custom syntax
 - [x] : later: kbd syntax
-- [ ] : later: maybe hover/button for Romaji?
 - [x] : later: Add delete
 - [ ] : later: Fix margins being all over the place
 - [ ] : later: Supabase keepalive !!!
@@ -92,6 +91,7 @@
 - [ ] : very later: maybe later add search suggestions
 - [ ] : very later: revival altar for stashed articles
 - [ ] : very later: maybe more search filters in the future
+- [ ] : very later: maybe hover/button for Romaji?
 - [ ] : very later: implement reminder
 - [ ] : very later: my own markdown extension for articles specifically because oh my god
 - [ ] : very later: maybe revisit hand slightly
