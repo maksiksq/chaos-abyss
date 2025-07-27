@@ -55,8 +55,6 @@
 - [x] : later: implement sources block
 - [ ] : later: apply for google news
 - [ ] : later: check for mistakes
-- [ ] : later: color associations for more things (notably articles feats)
-- [ ] : later: comments
 - [x] : later: articles category order
 - [ ] : later: fix searchbar caret
 - [ ] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe
@@ -78,6 +76,7 @@
 - [ ] : later: dates make some sense but not enough sense (currently no edit date when it's a draft at all) - i should just reset it to null on first publish and rename the goddam date to publish date
 - [ ] : later: better article saving (there's a small chance to lose one still)
 - [ ] : maybe: Add button to copy anchor link for every header
+- [ ] : maybe: color associations for more things (notably articles feats)
 - [ ] : maybe: dark mode (proper color matched gonna be hard)
 - [ ] : maybe: maybe autospace in md part of the editor to match article line height better? (how???)
 - [ ] : maybe: make runnable code blocks myself, mabye???
@@ -88,6 +87,7 @@
 - [ ] : prod: submit sitemap to search console
 - [ ] : very later: make header section plugin but with escaping
 - [ ] : very later: add more text editing functions to editor (e.g. Word)
+- [ ] : very later: comments
 - [ ] : very later: maybe later add search suggestions
 - [ ] : very later: revival altar for stashed articles
 - [ ] : very later: maybe more search filters in the future
