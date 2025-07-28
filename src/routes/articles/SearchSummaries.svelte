@@ -78,7 +78,7 @@
     }
 
     .mobile-article {
-        @media (max-width: 768px) {
+        @media (max-width: 1023px) {
             & a {
                 padding-top: 1rem;
 

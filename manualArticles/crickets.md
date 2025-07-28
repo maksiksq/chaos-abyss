@@ -1,12 +1,13 @@
 As a wise man once said. Crickets.
 
-Truly devious creatures of the night. No, really, they are nocturnal creatures, as I've had the irritating experience of discovering.
+Truly devious creatures of the night. No, seriously, they're nocturnal. As I've irritatingly suffered to find out.
 
 **TL;DR:** My solution was light. I plopped down a garden light, and they went there like the idiots that they are.
 
+
 ## They're loud
 
-In my room with a half-open window, their sounds get to 60-70 decibels. For context, my laptop's speaker (singular) playing music at full volume does just about as much when measuring right near the speaker (according to an app on my phone*). It's not painfully or dangerously loud, just incredibly annoying, particularly when you're trying to fall asleep.
+In my room with a half-open window, their sounds get to 60-70 decibels. For context, my laptop's speaker (singular) playing music at full volume does just about as much when measuring right near the speaker (according to an app on my phone*). It's not painfully or dangerously loud, just the kind of sound that gets into your skull and sets up a drum circle when you're trying to peacefully descend into blissful slumber.
 
 One solution would be to stay up till about 4-5 AM until the summer ends, because that's when they stop chirping, but you might find some issues with that solution.
 
@@ -43,27 +44,37 @@ $$
 T_F = 40 + \text{Number of chirps in 15 seconds}
 $$
 
-So I counted. My crickets kind of do it in waves, and you're supposed to isolate a single cricket, which made it kinda hard. I would just use Audacity on my laptop and count the spikes in the waveform, but my microphone was only picking up some static, which is fair enough. It's not meant for crickets, it's meant for my voice.
+So I counted. I don't actually know if my crickets are even the correct kind of cricket to do this, and I'm not going out of my way to catch a poor cricket just do some experiments on one, *of course proven enough benefit I could (  •̀ω  •́  )*.
 
-I decided to use the 15 second formula. This and my counting are in no way scientific, but when counting the amount of cricket chirps ever was? I guess it was if this law exists.
+So, situation, I have lots of crickets, and you're supposed to isolate a single cricket. Well, if you listen to them for long enough, you start to notice they kinda have a "voice". I identified 3 separate crickets in the vicinity of my window right now, it's really hard to be sure tho.
 
-I ended up with about 16 waves from a single cricket (they have like a voice basically so I can separate one), and I averaged it out to about 5 chirps per wave. So about 80 chirps in total, plug it into the formula and that's 120° Fahrenheit, which converted from freedom units is 48° Celsius. Uhm. Yeah, we're frying on this one, it's actually a cool 23° night right now.
+And I decided to use the 15 second formula because suffering. This and my counting are in no way scientific, but when was counting the amount of cricket chirps scientific anyway? Well, I guess it was at some point if this law exists.
 
-It might be the law being kind of inaccurate or my sloppy counting, but it didn't work for me, lol. Even if I count again and reduce the number generously, or try to count for the whole 60 seconds, it's not even close at all.
+To count them up, I took my microphone, a pencil and Audacity. Then I hit my table with the pencil for every chirp I can hear. It ended up more or less rhythmic, not sure if that's a good thing.
+![Pencil hitting waveform](https://ik.imagekit.io/maksiks/2025-07-28_22-01_1.png 'Each bump is a hit')
 
-Most likely, I just have a different kind of cricket. Here in Vinnytsia, Ukraine we probably have some kinda different species than Dolbear after whom the law was named. A USA-only law, I guess. *eagle noises intensify*
+I would just take a microphone somewhere near a cricket and count it up in post, but none of my microphones were picking it up at all. It's all just static and wind or something. Which is fair enough, these are not exactly meant for crickets, they're meant for human voices.
 
-To get an actually accurate result, I could record the temperature and the number of chirps at different temperatures to eventually get a more accurate formula for my exact environment and crickets.
+The counting yielded **86 chirps** that I divided by the number of crickets: $86/3 \approx 28.6 \approx 29$ chirps, plug that into the formula, $40+29 ~= 69°$ Fahrenheit (coincidental funny number), convert that from freedom units, and we get **20.5° Celsius**. According to my weather app it's **20° Celsius** right now. 
 
-But that kind of defeats the purpose, like I imagine myself stuck in a forest trying to figure out what season it is and counting crickets out of desperation, not doing a field study.
+Spot on? Haaaa??
 
-A more accurate formula for my crickets seems to be something like:
+I think I just got lucky tho. But I did try this on two separate evenings, and in both cases if we divide the number of chirps by 3, we get an accurate result. I'm not sure if it's my judgment about the number of crickets, or I just got the formula for my specific kind and number of crickets right, somehow. But confusingly, yes, this works.
+
+I do think that here in Vinnytsia, Ukraine we probably have some kinda different species than Dolbear after whom the law was named. And I'm just feeling like I'm tripping getting such accurate results from crickets, the first evening I counted it manually, and it was 21°. 
+
+To really figure out, whether I'm tripping or not and my newfound self-trust issues, I could do like a month-long study on crickets, measuring them every day. But in addition to me being lazy, that kind of defeats the purpose, like I imagine myself stuck in a forest trying to figure out what season it is and counting crickets out of desperation, not doing a field study.
+
+The formula for my crickets seems to be something like:
 $$
-T_F = 50 + \frac{\text{Number of chirps in 15 seconds}}{4}
+T_F = 40 + \frac{\text{Number of chirps in 15 seconds}}{3}
 $$
-Speedy crickets = fewer seconds, I guess.
 
 This is, however, from my very limited dataset of a few samples in two consecutive nights.
 
+*Vinnytsia's unofficial cricket-based temperature system is now open for licensing inquiries, contact [here](https://www.youtube.com/watch?v=xvFZjo5PgG0).*
+
 ## In the end
+Chirpers deterred.
+
 It worked. I sleep. They chirp ... somewhere else. Perfection.

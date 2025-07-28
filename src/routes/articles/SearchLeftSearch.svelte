@@ -87,7 +87,7 @@
         width: 40%;
         padding-right: 1rem;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1023px) {
             width: 100%;
             box-sizing: border-box;
             padding: 1rem;
@@ -178,13 +178,13 @@
             font-size: 0.9rem;
 
             & .on-the-right {
-                @media (max-width: 768px) {
+                @media (max-width: 1023px) {
                     display: none;
                 }
             }
 
             & .in-the-other-tab {
-                @media (min-width: 768px) {
+                @media (min-width: 1023px) {
                     display: none;
                 }
             }
