@@ -55,7 +55,7 @@
 - [x] : later: implement sources block
 - [ ] : later: check for mistakes
 - [x] : later: articles category order
-- [ ] : later: fix searchbar caret
+- [x] : later: fix searchbar caret
 - [ ] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe
 - [ ] : later: fix svelte vs vue vs react formatting
 - [ ] : later: figure out if isp or no isp
