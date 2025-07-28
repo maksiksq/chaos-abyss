@@ -338,6 +338,14 @@
                     font-weight: 450;
                 }
             }
+
+            & .MathJax {
+                max-width: 100%;
+
+                svg {
+                    max-width: 100%;
+                }
+            }
         }
     }
 </style>
