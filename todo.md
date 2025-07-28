@@ -51,7 +51,7 @@
 - [x] : later: resolve articles by uuid instead of date (still safe but it's cleaner code)
 - [x] : later: add admin mode (edit articles and etc.)
 - [x] : later: add old redirects for moved categories + add redirect warning
-- [ ] : later: add more easter eggs yes please
+- [x] : later: add more easter eggs yes please
 - [x] : later: implement sources block
 - [ ] : later: check for mistakes
 - [x] : later: articles category order

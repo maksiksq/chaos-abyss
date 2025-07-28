@@ -1,17 +1,30 @@
-<script>
+<script lang="ts">
     import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate.js";
 
-    const capitalize = s => s.replace(/\b\w/g, c => c.toUpperCase());
+    const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
     const {data, fromSearch = false} = $props();
 </script>
 {#each data.summaries as summary}
     <li>
-        <article class="mobile-article" style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
+        <article class={`mobile-article ${fromSearch ? 'from-search' : ''}`}
+                 style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
             <a href={`articles/${summary.category}/${summary.slug}`}>
-                <img src={summary.fig} alt={summary.figalt} loading="lazy" />
-                <h4>{summary.title}</h4>
-                <p class="blurb">{summary.blurb}</p>
-                <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span> <span>✦ {capitalize(summary.category)}</span>
+                <!-- css grid is being cursed so flex spaghetti -->
+                <div class="main-art-cont">
+                    <div class="img-cont">
+                        <img src={summary.fig} alt={summary.figalt} loading="lazy"/>
+                    </div>
+                    <div class="head-blurb-cont">
+                        <div class="h4-cont">
+                            <h4 title={fromSearch ? '' : summary.title}>{summary.title}</h4>
+                        </div>
+                        <div class="blurb-cont" title={fromSearch ? '' : summary.blurb}>
+                            <p class="blurb">{summary.blurb}</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span>
+                    <span>✦ {capitalize(summary.category)}</span>
                     {#if summary.commentCount}
                                             <span>
                                                 &nbsp;✦
@@ -32,6 +45,38 @@
     </li>
 {/each}
 <style>
+    .from-search {
+        & a {
+            & .head-blurb-cont {
+                & .blurb {
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    max-height: calc(1.2em * 3);
+                }
+
+                & h4 {
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    height: calc(1.2em * 2);
+                    max-height: calc(1.2em * 2);
+                }
+
+                .h4-cont {
+                    height: auto;
+                }
+
+                .blurb-cont {
+                    height: auto;
+                }
+
+                .blurb {
+                    border-top: 1px solid black;
+                    padding-top: 0.6rem;
+                }
+            }
+        }
+    }
+
     .mobile-article {
         @media (max-width: 768px) {
             & a {
@@ -42,11 +87,15 @@
                 & h4 {
                     margin-left: 0;
                     margin-top: 1rem;
+
                 }
 
                 & .blurb {
+                    display: block;
                     margin-left: 0;
                     margin-top: 0.2rem;
+
+                    border-top: 1px solid black
                 }
             }
         }
@@ -56,50 +105,70 @@
         & article {
             & a {
                 cursor: pointer;
-                display: grid;
-                grid-template-columns: 40% 1fr;
-                grid-template-rows: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
 
                 margin-bottom: 1.4rem;
                 height: auto;
 
-                & img {
-                    max-width: 100%;
-                    height: auto;
-                }
+                & .main-art-cont {
+                    display: flex;
 
-                & h4, .blurb {
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2;
-                    overflow: hidden;
-                    line-clamp: 2;
-                    margin-left: 1rem;
-                }
+                    & .img-cont {
+                        width: 40%;
+                    }
 
-                & h4 {
-                    line-height: 1.2;
-                    max-height: calc(1.2em * 2);
-                    font-family: Comfortaa, sans-serif;
-                    font-weight: bolder;
-                    font-size: 1rem;
-                }
+                    & .head-blurb-cont {
+                        width: 60%;
+                    }
 
-                & .blurb {
-                    line-height: 1.2;
-                    max-height: calc(1.2em * 2);
-                }
+                    & h4, .blurb {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        margin-left: 1rem;
 
-                & img {
-                    border-radius: 4px;
-                    grid-row: span 2;
-                    width: 100%;
+                        max-height: calc(1.2em * 2);
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                    }
+
+                    & .h4-cont {
+                        height: 50%;
+
+                        & h4 {
+                            line-height: 1.2;
+                            font-family: Comfortaa, sans-serif;
+                            font-weight: bolder;
+                            font-size: 1rem;
+                        }
+                    }
+
+                    & .blurb-cont {
+                        height: 50%;
+
+                        & .blurb {
+                            line-height: 1.2;
+                        }
+                    }
+
+                    & img {
+                        border-radius: 4px;
+                        grid-row: span 2;
+                        width: 100%;
+
+                        max-width: 100%;
+                        height: auto;
+                    }
                 }
 
                 & .info {
                     grid-column: span 2;
                     margin-top: 0.7rem;
                     padding-top: 0.3rem;
+
+                    width: 100%;
 
                     line-height: 1.2;
                     height: 1.2em;
