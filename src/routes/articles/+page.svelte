@@ -69,6 +69,7 @@
                 fromSearch={data.fromSearch}
                 cat={data.cat}
                 query={data.query}
+                noResultsTxt={data.noResultsTxt}
                 {categoryNames}
         />
     {/if}

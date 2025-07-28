@@ -94,6 +94,7 @@ export const load = async ({url}) => {
             results: null,
             searchCount: null,
             fromSearch: !!query,
+            noResultsTxt: 'The abyss gave no reply.',
             query,
             cat,
             meta
@@ -151,6 +152,113 @@ export const load = async ({url}) => {
         updateMeta(meta.metaNamed, 'name', 'twitter:description', `No results for "${escapedQuery}" on Chaos Abyss.`);
         updateMeta(meta.metaProperty, 'property', 'og:description', `No results for "${escapedQuery}" on Chaos Abyss.`);
 
+        // easter eggs
+
+        const isOneCharOff = (a: string, b: string) => {
+            a = a.toLowerCase()
+            b = b.toLowerCase()
+
+            if (a===b) return true;
+
+            const lenDiff = Math.abs(a.length - b.length);
+            if (lenDiff > 1) return false;
+
+            if (a.length === b.length) {
+                let diff = 0;
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] !== b[i]) diff++;
+                    if (diff > 1) return false;
+                }
+                return diff === 1;
+            }
+
+            let [shorter, longer] = a.length < b.length ? [a, b] : [b, a];
+            let i = 0, j = 0, mismatch = false;
+            while (i < shorter.length && j < longer.length) {
+                if (shorter[i] !== longer[j]) {
+                    if (mismatch) return false;
+                    mismatch = true;
+                    j++;
+                } else {
+                    i++;
+                    j++;
+                }
+            }
+            return true;
+        }
+
+        const easterEggs = [
+            {
+                "result": "You're doing great!",
+                "options": ["how do I search", "is this how this works?"]
+            },
+            {
+                "result": "There is no escape.",
+                "options": ["escape", "run"]
+            },
+            {
+                "result": "[null]",
+                "options": ["herobrine", "creepypasta"]
+            },
+            {
+                "result": "Oh no, you broke it. (jk)",
+                "options": ["undefined", "null"]
+            },
+            {
+                "result": "Don't search for search. It's right here.",
+                "options": ["search", "search..."]
+            },
+            {
+                "result": "*Stares in confusion.*",
+                "options": ["...", "stares in confusion"]
+            },
+            {
+                "result": "Coffee??? WHERE? I CAN'T SEE IT!!! WHERE",
+                "options": ["coffee", "caffeine"]
+            },
+            {
+                "result": "Drawn to the glow. Even if it burns.",
+                "options": ["lepidoptera", "a lantern"]
+            },
+            {
+                "result": "One task remains: forgive yourself.",
+                "options": ["to-do list", "to-do"]
+            },
+            {
+                "result": "You typed that, not me.",
+                "options": ["why am I here", "what am I doing here"]
+            },
+            {
+                "result": "Same...",
+                "options": ["can't sleep", "sleepless"]
+            },
+            {
+                "result": "You may not rest, there are crickets nearby.",
+                "options": ["trying to sleep"]
+            },
+            {
+                "result": "There's noise even in silence if you listen long enough.",
+                "options": ["quiet", "midnight"]
+            },
+        ]
+
+        easterEggs.push({
+            // this number is always 1 more than the actual amount
+            // because I am incredibly evil
+            "result": `And there's at least ${easterEggs.length+1} more.`,
+            "options": ["easter egg", "secrets"]
+        })
+
+        const getNoResultsTxt = (q: string) => {
+            const match = easterEggs.find(e => {
+                return e.options.some(o => isOneCharOff(q, o));
+            });
+
+            return match ? match.result : "The abyss gave no reply.";
+        }
+
+        const noResultsTxt = getNoResultsTxt(query);
+
         // !!!
         meta.noindex = true
         return {
@@ -158,6 +266,7 @@ export const load = async ({url}) => {
             results: null,
             searchCount: null,
             fromSearch: Boolean(query),
+            noResultsTxt,
             query,
             cat,
             meta
@@ -196,6 +305,7 @@ export const load = async ({url}) => {
         searchCount: catResults.length,
         fromSearch: Boolean(query),
         query,
+        noResultsTxt: 'Success.',
         cat,
         meta
     }

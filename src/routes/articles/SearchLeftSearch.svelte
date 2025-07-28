@@ -2,46 +2,22 @@
     import SearchSummaries from "./SearchSummaries.svelte";
     import {goto} from "$app/navigation";
 
-    let {results = [], searchCount = null, fromSearch = false, query = 'Welcome to the Abyss', cat = "Any", categoryNames} = $props();
+    let {
+        results = [],
+        searchCount = null,
+        fromSearch = false,
+        query = 'Welcome to the Abyss',
+        noResultsTxt = 'The abyss gave no reply.',
+        cat = "Any",
+        categoryNames
+    } = $props();
 
     let greg = $state(false);
 
     // easter eggs
 
     $inspect('query', query)
-
-    const isOneCharOff = (a: string, b: string) => {
-        a = a.toLowerCase()
-        b = b.toLowerCase()
-
-        if (a===b) return true;
-
-        const lenDiff = Math.abs(a.length - b.length);
-        if (lenDiff > 1) return false;
-
-        if (a.length === b.length) {
-            let diff = 0;
-            for (let i = 0; i < a.length; i++) {
-                if (a[i] !== b[i]) diff++;
-                if (diff > 1) return false;
-            }
-            return diff === 1;
-        }
-
-        let [shorter, longer] = a.length < b.length ? [a, b] : [b, a];
-        let i = 0, j = 0, mismatch = false;
-        while (i < shorter.length && j < longer.length) {
-            if (shorter[i] !== longer[j]) {
-                if (mismatch) return false;
-                mismatch = true;
-                j++;
-            } else {
-                i++;
-                j++;
-            }
-        }
-        return true;
-    }
+    $inspect('easter egg', noResultsTxt)
 </script>
 
 <section class="search-seg">
@@ -53,7 +29,8 @@
                     <p class="search-count {searchCount ? '' : 'd-none' }">{searchCount} results found</p>
                 </div>
                 <div class="head-item cat-dropdown-cont">
-                    <button aria-label="Select category" onclick={() => {greg = !greg;}} onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
+                    <button aria-label="Select category" onclick={() => {greg = !greg;}}
+                            onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
                         Category: <br><span class="cat">{cat}</span>
                     </button>
                     {#if greg}
@@ -74,45 +51,15 @@
             <SearchSummaries data={results} {fromSearch}/>
         </ul>
     {:else if !fromSearch}
-        <small>Try searching something up there, or look at newest articles <span class="on-the-right"> on the right</span><span class="in-the-other-tab"> in the other tab</span>.</small>
+        <small>Try searching something up there, or look at newest articles <span
+                class="on-the-right"> on the right</span><span
+                class="in-the-other-tab"> in the other tab</span>.</small>
     {/if}
     {#if !results || !fromSearch}
         <div class="lamp-wrap">
             <img class="lamp" src="/img/lamp-but-actually-centered.svg" alt="a dim lamp (no search results)">
             {#if fromSearch && !results}
-                {#if isOneCharOff(query, 'how do I search') || isOneCharOff(query, 'is this how this works?')}
-                    <p>You're doing great!</p>
-                {:else if isOneCharOff(query, 'escape') || isOneCharOff(query, 'run')}
-                    <p>There is no escape.</p>
-                {:else if isOneCharOff(query, 'herobrine') || isOneCharOff(query, 'creepypasta')}
-                    <p>[null]</p>
-                {:else if isOneCharOff(query, 'undefined') || isOneCharOff(query, 'null')}
-                    <p>Oh no, you broke it. (jk)</p>
-                {:else if isOneCharOff(query, 'search') || isOneCharOff(query, 'search...')}
-                    <p>Don't search for search. It's right here.</p>
-                {:else if isOneCharOff(query, '...') || isOneCharOff(query, 'stares in confusion')}
-                    <p>*Stares in confusion.*</p>
-                {:else if isOneCharOff(query, 'coffee') || isOneCharOff(query, 'caffeine')}
-                    <p>Coffee??? WHERE? I CAN'T SEE IT!!! WHERE</p>
-                {:else if isOneCharOff(query, 'moth') || isOneCharOff(query, 'fluffy butterfly')}
-                    <p>Drawn to the glow. Even if it burns.</p>
-                {:else if isOneCharOff(query, 'to-do list') || isOneCharOff(query, 'to-do')}
-                    <p>One task remains: forgive yourself.</p>
-                {:else if isOneCharOff(query, 'why am I here') || isOneCharOff(query, 'what am I doing here')}
-                    <p>You typed that, not me.</p>
-                {:else if isOneCharOff(query, 'can\'t sleep') || isOneCharOff(query, 'sleepless') }
-                    <p>Same...</p>
-                {:else if isOneCharOff(query, 'bed') || isOneCharOff(query, 'sleep') }
-                    <p>You may not rest, there are monsters nearby.</p>
-                {:else if isOneCharOff(query, 'quiet') || isOneCharOff(query, 'midnight') }
-                    <p>There's noise even in silence if you listen long enough.</p>
-                {:else if isOneCharOff(query, 'easter egg') || isOneCharOff(query, 'secrets')}
-<!--                    this number is always 1 more than the actual amount-->
-<!--                    because I am incredibly evil-->
-                    <p>And there's at least 12 more.</p>
-                {:else}
-                    <p>The abyss gave no reply.</p>
-                {/if}
+                <p>{noResultsTxt ?? 'The abyss gave no reply.'}</p>
             {:else if !fromSearch}
                 <p>Nothing in here</p>
             {/if}
@@ -223,6 +170,7 @@
                     display: none;
                 }
             }
+
             & .in-the-other-tab {
                 @media (min-width: 768px) {
                     display: none;
