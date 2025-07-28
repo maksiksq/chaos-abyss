@@ -1,18 +1,47 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
+    import {onMount} from "svelte";
 
     let {categories} = $props();
 
-    let cont: HTMLElement | undefined = $state();
-    const handleScroll = () => {
-        if (!cont) return;
+    let cardsWrap: HTMLElement | undefined = $state();
+    let cards: HTMLElement | undefined = $state();
 
-        const contBottom = cont.offsetTop + cont.offsetHeight;
-        const scrollPos = window.scrollY + window.innerHeight;
+    let cardsTop: number;
+
+    onMount(() => {
+        if (!cards) return;
+        cardsTop = cards.offsetTop;
+    })
+
+
+    const handleScroll = () => {
+        if (!cards) return;
+
+        const cardsBottom = cards.offsetTop + cards.offsetHeight;
+        const bottomScroll = window.scrollY + window.innerHeight;
+        const topScroll = window.scrollY;
 
         window.requestAnimationFrame(() => {
-            if (!cont) return;
-            cont.style.transform = `translateY(${Math.max(0, scrollPos - contBottom)}px)`;
+            if (!cards) return;
+            if (!cardsWrap) return;
+
+            if (bottomScroll > cardsBottom) {
+                cards.style.position = 'fixed';
+                cards.style.width = `${cardsWrap.offsetWidth}px`;
+                cards.style.left = `${cardsWrap.getBoundingClientRect().left}px`;
+                cards.style.top = ``;
+                cards.style.bottom = '0';
+            }
+            if (topScroll < cardsTop) {
+                const topOffset = cards.getBoundingClientRect().top;
+
+                cards.style.position = '';
+                cards.style.width = '';
+                cards.style.left = '';
+                cards.style.top = `${topOffset}px`;
+                cards.style.bottom = '';
+            }
         })
     }
 
@@ -23,15 +52,17 @@
 
 <section class="feat-seg">
     <h2> Here, pick an article: </h2>
-    <div class="cards" bind:this={cont}>
-        {#each categories as category}
-            <div class="card">
-                <h3>{capitalize(category.name)}</h3>
-                <ul>
-                    <SearchSummaries data={category}/>
-                </ul>
-            </div>
-        {/each}
+    <div class="cards-wrap" bind:this={cardsWrap}>
+        <div class="cards" bind:this={cards}>
+            {#each categories as category}
+                <div class="card">
+                    <h3>{capitalize(category.name)}</h3>
+                    <ul>
+                        <SearchSummaries data={category}/>
+                    </ul>
+                </div>
+            {/each}
+        </div>
     </div>
 </section>
 
@@ -56,7 +87,6 @@
             gap: 1rem;
             columns: 2;
             padding-bottom: 10px;
-            transition: all 0.5s ease;
 
             @media (max-width: 768px) {
                 columns: 1;
