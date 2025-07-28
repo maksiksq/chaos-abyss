@@ -400,6 +400,7 @@
                 }
 
                 @media (max-width: 728px) {
+                    padding-right: 0;
                     margin-top: 10vh;
                 }
             }
