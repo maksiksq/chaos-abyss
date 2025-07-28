@@ -12,12 +12,9 @@
         categoryNames
     } = $props();
 
-    $inspect(cat);
+
 
     let greg = $state(false);
-
-    $inspect(categoryNames)
-
     type CategoryName = {db: string, human: string};
 </script>
 
@@ -39,7 +36,7 @@
                         <div class="cat-dropdown-menu">
                             {#each categoryNames as gregory}
                                 {#if gregory.db !== cat}
-                                    <button onclick={async () => {await goto(`/articles?query=${query}&category=${gregory.db}`)}}>{gregory.human}</button>
+                                    <button onclick={() => {goto(`/articles?query=${query}&category=${gregory.db}`)}}>{gregory.human}</button>
                                 {/if}
                             {/each}
                         </div>
@@ -160,6 +157,7 @@
                             cursor: pointer;
                             border-left: 1px solid black;
                             padding: 0.4rem 0.5rem;
+                            height: 100%;
                         }
                     }
                 }
