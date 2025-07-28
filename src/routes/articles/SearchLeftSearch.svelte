@@ -13,9 +13,8 @@
     } = $props();
 
 
-
     let greg = $state(false);
-    type CategoryName = {db: string, human: string};
+    type CategoryName = { db: string, human: string };
 </script>
 
 <section class="search-seg">
@@ -24,13 +23,20 @@
             <div class="head-cont-up">
                 <div class="head-results">
                     <h1>Results for:&nbsp; <span class="query-smol">{query}</span></h1>
-                    <p class="search-count {searchCount ? '' : 'd-none' }">{searchCount} results found</p>
+                    <p class="search-count {searchCount ? '' : 'search-count-disappear' }">
+                        {#if searchCount}
+                            {searchCount} results found
+                        {:else}
+                            no results
+                        {/if}
+                    </p>
                 </div>
                 <div class="head-item cat-dropdown-cont">
                     <!-- Games & Media is stored as media in the db because of url, thus the array of objects -->
                     <button aria-label="Select category" onclick={() => {greg = !greg;}}
                             onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
-                        Category: <br><span class="cat">{categoryNames.find((c: CategoryName) => c.db === cat)?.human}</span>
+                        Category: <br><span
+                            class="cat">{categoryNames.find((c: CategoryName) => c.db === cat)?.human}</span>
                     </button>
                     {#if greg}
                         <div class="cat-dropdown-menu">
@@ -68,6 +74,10 @@
     {/if}
 </section>
 <style>
+    .search-count-disappear {
+        opacity: 0;
+    }
+
     .head-main {
         font-size: 1.8rem;
         font-family: 'Comfortaa', sans-serif;
