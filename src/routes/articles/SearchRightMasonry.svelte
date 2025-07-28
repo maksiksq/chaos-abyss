@@ -16,7 +16,7 @@
         })
     }
 
-    const capitalize = s => s.replace(/\b\w/g, c => c.toUpperCase());
+    const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
 </script>
 
 <svelte:window onscroll={handleScroll}/>
