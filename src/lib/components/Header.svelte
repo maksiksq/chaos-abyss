@@ -76,9 +76,15 @@
                 border-radius: 32px;
                 width: 15vw;
 
+                font-size: 0.9rem;
+
                 @media (max-width: 768px) {
                     width: 40vw;
                 }
+            }
+
+            & .search:placeholder-shown {
+                caret-color: transparent;
             }
 
             & .search::placeholder {
