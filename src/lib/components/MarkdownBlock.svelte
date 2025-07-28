@@ -39,7 +39,6 @@
 
             makeBlockquoteFullHeight();
 
-
             observer.observe(below);
         })
     }

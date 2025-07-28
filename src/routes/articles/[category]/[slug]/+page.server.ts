@@ -34,12 +34,14 @@ export const load = async ({params}) => {
             .from('articles')
             .select('title, slug, category')
             .gt('date', article.date)
+            .not('category', 'in', '("draft","stashed")')
             .order('date', { ascending: true })
             .limit(1),
         supabase
             .from('articles')
             .select('title, slug, category')
             .lt('date', article.date)
+            .not('category', 'in', '("draft","stashed")')
             .order('date', { ascending: false })
             .limit(1),
     ]);
