@@ -38,7 +38,9 @@
                     {#if greg}
                         <div class="cat-dropdown-menu">
                             {#each categoryNames as gregory}
-                                <button onclick={async () => {await goto(`/articles?query=${query}&category=${gregory.db}`)}}>{gregory.human}</button>
+                                {#if gregory.db !== cat}
+                                    <button onclick={async () => {await goto(`/articles?query=${query}&category=${gregory.db}`)}}>{gregory.human}</button>
+                                {/if}
                             {/each}
                         </div>
                     {/if}
