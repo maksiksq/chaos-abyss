@@ -86,7 +86,7 @@ export const load = async ({url}) => {
 
     // search
     let query = url.searchParams.get("query");
-    let cat = url.searchParams.get("category") ?? 'Any';
+    let cat = url.searchParams.get("category") ?? 'any';
 
     if (!query) {
         return {
@@ -142,7 +142,7 @@ export const load = async ({url}) => {
 
     let results = fuse.search(query);
 
-    let catResults = cat !== 'Any'
+    let catResults = cat !== 'any'
         ? results?.filter((result: any) => result.item.category === cat)
         : results;
 

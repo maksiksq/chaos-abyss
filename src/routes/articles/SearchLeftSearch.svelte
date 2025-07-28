@@ -9,15 +9,13 @@
         query = 'Welcome to the Abyss',
         noResultsTxt = 'The abyss gave no reply.',
         cat = "Any",
+        categoryNamesRaw,
         categoryNames
     } = $props();
 
     let greg = $state(false);
 
     // easter eggs
-
-    $inspect('query', query)
-    $inspect('easter egg', noResultsTxt)
 </script>
 
 <section class="search-seg">
@@ -36,7 +34,7 @@
                     {#if greg}
                         <div class="cat-dropdown-menu">
                             {#each categoryNames as gregory}
-                                <button onclick={() => {goto(`/articles?query=${query}&category=${gregory}`)}}>{gregory}</button>
+                                <button onclick={async () => {await goto(`/articles?query=${query}&category=${categoryNamesRaw[categoryNames.indexOf(gregory)]}`)}}>{gregory}</button>
                             {/each}
                         </div>
                     {/if}
