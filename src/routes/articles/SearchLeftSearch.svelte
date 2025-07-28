@@ -8,14 +8,17 @@
         fromSearch = false,
         query = 'Welcome to the Abyss',
         noResultsTxt = 'The abyss gave no reply.',
-        cat = "Any",
-        categoryNamesRaw,
+        cat = "any",
         categoryNames
     } = $props();
 
+    $inspect(cat);
+
     let greg = $state(false);
 
-    // easter eggs
+    $inspect(categoryNames)
+
+    type CategoryName = {db: string, human: string};
 </script>
 
 <section class="search-seg">
@@ -27,14 +30,15 @@
                     <p class="search-count {searchCount ? '' : 'd-none' }">{searchCount} results found</p>
                 </div>
                 <div class="head-item cat-dropdown-cont">
+                    <!-- Games & Media is stored as media in the db because of url, thus the array of objects -->
                     <button aria-label="Select category" onclick={() => {greg = !greg;}}
                             onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
-                        Category: <br><span class="cat">{cat}</span>
+                        Category: <br><span class="cat">{categoryNames.find((c: CategoryName) => c.db === cat)?.human}</span>
                     </button>
                     {#if greg}
                         <div class="cat-dropdown-menu">
                             {#each categoryNames as gregory}
-                                <button onclick={async () => {await goto(`/articles?query=${query}&category=${categoryNamesRaw[categoryNames.indexOf(gregory)]}`)}}>{gregory}</button>
+                                <button onclick={async () => {await goto(`/articles?query=${query}&category=${gregory.db}`)}}>{gregory.human}</button>
                             {/each}
                         </div>
                     {/if}

@@ -1,4 +1,8 @@
 <script>
+    import {page} from "$app/state";
+
+    let currentSearchCategory = $derived(!!page.data.cat ? page.data.cat : 'any');
+
     let {home = false} = $props();
 </script>
 
@@ -10,6 +14,7 @@
         <form method="GET" action="/articles" autocomplete="off">
             <label for="query" class="sr-only">Search articles</label>
             <input name="query" id="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>
+            <input name="category" id="category" type="hidden" value={currentSearchCategory}/>
             <button class="sr-only">Search</button>
         </form>
         {#if home}

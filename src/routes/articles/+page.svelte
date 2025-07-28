@@ -31,9 +31,10 @@
 
     const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
 
-    let categoryNamesRaw = [...categories.map((category) => category.name), "any"];
-    let categoryNames = [...categories.map((category) =>
-        capitalize(category.name === 'media' ? 'Games & Media' : category.name)), "Any"];
+    let categoryNames = [...categories.map((category) => ({
+        db: category.name,
+        human: capitalize(category.name === 'media' ? 'Games & Media' : category.name)
+    })), {db: "any", human: "Any"}];
 
     // Dev Stuff
     // Japanese
@@ -72,7 +73,6 @@
                 cat={data.cat}
                 query={data.query}
                 noResultsTxt={data.noResultsTxt}
-                {categoryNamesRaw}
                 {categoryNames}
         />
     {/if}

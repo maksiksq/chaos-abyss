@@ -88,6 +88,9 @@ export const load = async ({url}) => {
     let query = url.searchParams.get("query");
     let cat = url.searchParams.get("category") ?? 'any';
 
+    console.log('cat')
+    console.log(cat)
+
     if (!query) {
         return {
             summaries,
