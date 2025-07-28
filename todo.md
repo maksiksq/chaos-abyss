@@ -56,7 +56,7 @@
 - [ ] : later: check for mistakes
 - [x] : later: articles category order
 - [x] : later: fix searchbar caret
-- [ ] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe
+- [x] : later: fix stuck in search page / probably just making it fixed with a wrapper maybe - sorta fixed but it's ok
 - [ ] : later: fix svelte vs vue vs react formatting
 - [ ] : later: figure out if isp or no isp
 - [ ] : later: image based accent
