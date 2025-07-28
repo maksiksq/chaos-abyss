@@ -80,29 +80,33 @@
         <div class="lamp-wrap">
             <img class="lamp" src="/img/lamp-but-actually-centered.svg" alt="a dim lamp (no search results)">
             {#if fromSearch && !results}
-                {#if isOneCharOff(query, 'how do I search')}
+                {#if isOneCharOff(query, 'how do I search') || isOneCharOff(query, 'is this how this works?')}
                     <p>You're doing great!</p>
-                {:else if isOneCharOff(query, 'escape')}
+                {:else if isOneCharOff(query, 'escape') || isOneCharOff(query, 'run')}
                     <p>There is no escape.</p>
-                {:else if isOneCharOff(query, 'herobrine')}
+                {:else if isOneCharOff(query, 'herobrine') || isOneCharOff(query, 'creepypasta')}
                     <p>[null]</p>
-                {:else if isOneCharOff(query, 'undefined')}
+                {:else if isOneCharOff(query, 'undefined') || isOneCharOff(query, 'null')}
                     <p>Oh no, you broke it. (jk)</p>
-                {:else if isOneCharOff(query, 'search')}
+                {:else if isOneCharOff(query, 'search') || isOneCharOff(query, 'search...')}
                     <p>Don't search for search. It's right here.</p>
-                {:else if isOneCharOff(query, '...')}
+                {:else if isOneCharOff(query, '...') || isOneCharOff(query, 'stares in confusion')}
                     <p>*Stares in confusion.*</p>
-                {:else if isOneCharOff(query, 'coffee')}
+                {:else if isOneCharOff(query, 'coffee') || isOneCharOff(query, 'caffeine')}
                     <p>Coffee??? WHERE? I CAN'T SEE IT!!! WHERE</p>
-                {:else if isOneCharOff(query, 'moth')}
+                {:else if isOneCharOff(query, 'moth') || isOneCharOff(query, 'fluffy butterfly')}
                     <p>Drawn to the glow. Even if it burns.</p>
-                {:else if isOneCharOff(query, 'to-do list')}
+                {:else if isOneCharOff(query, 'to-do list') || isOneCharOff(query, 'to-do')}
                     <p>One task remains: forgive yourself.</p>
-                {:else if isOneCharOff(query, 'why am I here')}
+                {:else if isOneCharOff(query, 'why am I here') || isOneCharOff(query, 'what am I doing here')}
                     <p>You typed that, not me.</p>
-                {:else if isOneCharOff(query, 'can\'t sleep')}
+                {:else if isOneCharOff(query, 'can\'t sleep') || isOneCharOff(query, 'sleepless') }
                     <p>Same...</p>
-                {:else if isOneCharOff(query, 'easter egg')}
+                {:else if isOneCharOff(query, 'bed') || isOneCharOff(query, 'sleep') }
+                    <p>You may not rest, there are monsters nearby.</p>
+                {:else if isOneCharOff(query, 'quiet') || isOneCharOff(query, 'midnight') }
+                    <p>There's noise even in silence if you listen long enough.</p>
+                {:else if isOneCharOff(query, 'easter egg') || isOneCharOff(query, 'secrets')}
 <!--                    this number is always 1 more than the actual amount-->
 <!--                    because I am incredibly evil-->
                     <p>And there's at least 12 more.</p>
