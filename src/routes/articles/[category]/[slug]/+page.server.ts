@@ -1,4 +1,4 @@
-import {error as sverror} from "@sveltejs/kit";
+import {type Actions, error as sverror} from "@sveltejs/kit";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {escapeHTML} from "$lib/utils/escapeHTML";
 import {calculateDeepAccent} from "$lib/utils/calculateDeepAccent";
@@ -9,6 +9,20 @@ const authors = [{
     name: 'Maksiks',
     link: '/about',
 }]
+
+export const actions = {
+    waitlist: async ({ request, locals: { supabase } }) => {
+    const formData = await request.formData();
+    const email = formData.get('email') as string;
+    const { error: sberror } = await supabase
+        .from('waitlist')
+        .insert({email: email});
+    },
+
+    if (sberror) {
+        console.error(sberror);
+    }
+} satisfies Actions;
 
 export const load = async ({params}) => {
     const supabase = getClient();
