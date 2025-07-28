@@ -48,17 +48,17 @@
     .from-search {
         & a {
             & .head-blurb-cont {
-                & .blurb {
-                    -webkit-line-clamp: 3;
-                    line-clamp: 3;
-                    max-height: calc(1.2em * 3);
-                }
-
                 & h4 {
                     -webkit-line-clamp: 2;
                     line-clamp: 2;
                     height: calc(1.2em * 2);
                     max-height: calc(1.2em * 2);
+                }
+
+                & .blurb {
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    max-height: calc(1.2em * 3);
                 }
 
                 .h4-cont {
@@ -80,22 +80,51 @@
     .mobile-article {
         @media (max-width: 768px) {
             & a {
-                display: flex;
-                flex-direction: column;
                 padding-top: 1rem;
 
-                & h4 {
-                    margin-left: 0;
-                    margin-top: 1rem;
 
+                & .main-art-cont {
+                    flex-direction: column;
+
+                    & .img-cont {
+                        width: 100%;
+                    }
                 }
 
-                & .blurb {
-                    display: block;
-                    margin-left: 0;
-                    margin-top: 0.2rem;
+                & .head-blurb-cont {
+                    min-width: 100%;
+                    .h4-cont {
+                        width: 100%;
+                        height: auto;
 
-                    border-top: 1px solid black
+                        & h4 {
+                            margin-left: 0;
+                            margin-top: 1rem;
+
+                            -webkit-line-clamp: 2;
+                            line-clamp: 2;
+                            height: calc(1.2em * 2);
+                            max-height: calc(1.2em * 2);
+                        }
+                    }
+
+                    .blurb-cont {
+                        width: 100%;
+                        height: auto;
+
+                        & .blurb {
+                            margin-left: 0;
+                            margin-top: 0.4rem;
+                            padding-top: 0.6rem;
+
+                            border-top: 1px solid black;
+
+                            -webkit-line-clamp: 3;
+                            line-clamp: 3;
+                            max-height: calc(1.2em * 3);
+                        }
+
+                    }
                 }
             }
         }

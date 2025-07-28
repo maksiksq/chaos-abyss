@@ -77,7 +77,7 @@
         />
     {/if}
     {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
-    <SearchRightMasonry {categories}/>
+    <SearchRightMasonry {categories} {mobile}/>
     {/if}
 </main>
 <style>

@@ -2,7 +2,7 @@
     import SearchSummaries from "./SearchSummaries.svelte";
     import {onMount} from "svelte";
 
-    let {categories} = $props();
+    let {categories, mobile} = $props();
 
     let cardsWrap: HTMLElement | undefined = $state();
     let cards: HTMLElement | undefined = $state();
@@ -14,8 +14,8 @@
         cardsTop = cards.offsetTop;
     })
 
-
     const handleScroll = () => {
+        if (mobile) return;
         if (!cards) return;
 
         const cardsBottom = cards.offsetTop + cards.offsetHeight;
