@@ -53,7 +53,6 @@
 - [x] : later: add old redirects for moved categories + add redirect warning
 - [ ] : later: add more easter eggs yes please
 - [x] : later: implement sources block
-- [ ] : later: apply for google news
 - [ ] : later: check for mistakes
 - [x] : later: articles category order
 - [ ] : later: fix searchbar caret
@@ -72,7 +71,7 @@
 - [x] : later: Add delete
 - [ ] : later: Fix margins being all over the place
 - [ ] : later: Supabase keepalive !!!
-- [ ] : later: write the articles !!!
+- [ ] : later: write the articles !!!s
 - [ ] : later: dates make some sense but not enough sense (currently no edit date when it's a draft at all) - i should just reset it to null on first publish and rename the goddam date to publish date
 - [ ] : later: better article saving (there's a small chance to lose one still)
 - [ ] : maybe: Add button to copy anchor link for every header
@@ -82,6 +81,7 @@
 - [ ] : maybe: make runnable code blocks myself, mabye???
 - [ ] : maybe: style previous article/next article differently
 - [ ] : prod: check if sitemap also updates weirdly in production
+- [ ] : prod: apply for google news
 - [ ] : prod: redirect vercel domains to chaos-abyss.com
 - [ ] : prod: Point imagekit url
 - [ ] : prod: submit sitemap to search console
