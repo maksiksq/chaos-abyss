@@ -10,7 +10,8 @@ export const actions = {
         const nickname = formData.get('nickname') as string;
         if (nickname) return;
 
-        const email = formData.get('email') as string;
+        let email = formData.get('email') as string;
+        email = email.trim().toLowerCase();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(email)) {
@@ -24,34 +25,50 @@ export const actions = {
         const SALT = SECRET_IP_HASH_SALT;
 
         const hashIP = (ip: string) => {
-            if (clientIp === 'unknown') return;
             return createHash('sha256').update(ip + SALT).digest('hex');
         }
 
         const hashedIP = hashIP(clientIp);
 
-        // checking if IP was used more than 6 times
+        if (clientIp === 'unknown') {
+            // if unknown, bottleneck it to 300 just in case
+            // not that i'm gonna have that many users with a secure vpn
+            // or something but still
+            const {count: unCount, error: selError} = await supabase
+                .from('waitlist')
+                .select('*', {count: "exact", head: true})
+                .eq('hashed_ip', 'unknown');
 
-        const {count, error: selError} = await supabase
-            .from('waitlist')
-            .select('id', {count: "exact", head: true})
-            .eq('hashed_ip', hashedIP);
+            const unCountZeroed = unCount || 0;
 
-        if(selError) {
-            console.error(selError);
-            return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
-        }
+            if (unCountZeroed > 500) {
+                return fail(400, {success: false, threat: 'Something went wrong? Are you per chance behind a proxy?'});
+            }
+        } else {
+            // checking if IP was used more than 6 times
+            const {count, error: selError} = await supabase
+                .from('waitlist')
+                .select('*', {count: "exact", head: true})
+                .eq('hashed_ip', hashedIP);
 
-        const ipCount = count ?? 0;
+            if(selError) {
+                console.error(selError);
+                return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
+            }
 
-        if (ipCount > 6) {
-            return {success: false, threat: 'Oh no! something went wrong! (using a VPN?)'};
+            const ipCountZeroed = count ?? 0;
+
+            if (ipCountZeroed > 6) {
+                return fail(400, {success: false, threat: 'Oh no! something went wrong! (using a VPN?)'});
+            }
         }
 
         // adding the user to the waitlist if everything is ok
         const {error: inError} = await supabase
             .from('waitlist')
-            .insert({email: email, hashed_ip: hashedIP});
+            .insert({email: email, hashed_ip: hashedIP})
+            .select()
+            .single();
 
         if(inError) {
             console.error(inError);
