@@ -1,5 +1,6 @@
 import {type Actions, fail} from "@sveltejs/kit";
 import {SECRET_IP_HASH_SALT} from "$env/static/private";
+import {PUBLIC_DEV} from "$env/static/public";
 import {createHash} from "node:crypto";
 
 export const actions = {
@@ -52,7 +53,7 @@ export const actions = {
                 .eq('hashed_ip', hashedIP);
 
             if(selError) {
-                console.error(selError);
+                if (PUBLIC_DEV) console.error(selError);
                 return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
             }
 
@@ -71,7 +72,10 @@ export const actions = {
             .single();
 
         if(inError) {
-            console.error(inError);
+            if (PUBLIC_DEV) console.error(inError);
+            if (inError.message === 'duplicate key value violates unique constraint "waitlist_email_key"') {
+                return fail(400, {success: false, threat: "You already signed up for it!"});
+            }
             return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
         }
 
