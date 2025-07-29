@@ -52,6 +52,7 @@
 - [x] : later: add admin mode (edit articles and etc.)
 - [x] : later: add old redirects for moved categories + add redirect warning
 - [x] : later: add more easter eggs yes please
+- [x] : later: add more easter eggs yes please x2
 - [x] : later: implement sources block
 - [ ] : later: check for mistakes
 - [x] : later: articles category order
@@ -113,6 +114,8 @@
 <br>~~- [x] : scrap: add time parser~~
 
 i should really use like Trello for this
+
+man spends day making an easter egg and fixes instead of progress im so doomed
 
 workflow:
 first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
