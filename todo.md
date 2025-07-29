@@ -93,6 +93,7 @@
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: maybe hover/button for Romaji?
 - [ ] : very later: implement reminder
+- [ ] : optional cleanup: escape html in layout instead of everywhere
 - [ ] : very later: my own markdown extension for articles specifically because oh my god
 - [ ] : very later: maybe revisit hand slightly
 - [ ] : very later: remake editor clean logic to be reversed because why isn't in in the first place why the url param is why why
@@ -103,7 +104,7 @@
 - [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
 - [x] : fix consistent capitalization
-- [x] : fix titles don't do well with apostrophes and etc
+- [ ] : fix titles don't do well with apostrophes and etc
 
 <br>~~- [ ] : scrap: make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~

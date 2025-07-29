@@ -17,11 +17,13 @@
     // admin auth
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
+    import type {Session} from "@supabase/supabase-js";
+    import {unescapeHTML} from "$lib/utils/unescapeHTML";
 
     let { session, supabase } = $derived(data);
 
     onMount(() => {
-        const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+        const { data } = supabase.auth.onAuthStateChange((_: Event, newSession: Session | null) => {
             if (newSession?.expires_at !== session?.expires_at) {
                 invalidate('supabase:auth')
             }
@@ -32,7 +34,7 @@
 </script>
 
 <svelte:head>
-    <title>{meta?.title ?? 'Chaos Abyss'}</title>
+    <title>{unescapeHTML(meta?.title) ?? 'Chaos Abyss'}</title>
     {#if meta}
         <!-- !!! -->
         {#if meta.noindex}
@@ -42,10 +44,10 @@
         {/if}
 
         {#each metasNamed ?? [] as meta}
-            <meta name={meta.name} content={meta.content}/>
+            <meta name={meta.name} content={unescapeHTML(meta.content)}/>
         {/each}
         {#each metasProperty ?? [] as meta}
-            <meta property={meta.property} content={meta.content}/>
+            <meta property={meta.property} content={unescapeHTML(meta.content)}/>
         {/each}
 
         {#if meta.canonUrl}
