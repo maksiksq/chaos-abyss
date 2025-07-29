@@ -106,6 +106,10 @@
                 align-self: flex-start;
                 margin-left: auto;
 
+                @media (min-width: 1680px) {
+                    padding-right: 2vw;
+                }
+
                 @media (max-width: 768px) {
                     padding-right: 1vw;
                 }
@@ -116,7 +120,7 @@
             }
 
             .about-home {
-                margin-left: unset;
+                margin-left: unset !important;
 
                 @media (max-width: 420px) {
                     margin-left: auto;
