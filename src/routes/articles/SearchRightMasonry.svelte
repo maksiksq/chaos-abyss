@@ -1,6 +1,5 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
-    import {onMount} from "svelte";
 
     let {categories} = $props();
 
@@ -17,19 +16,17 @@
 
         const scroll = window.scrollY + window.innerHeight;
 
-        // he 4 rem of the header and 2 rem of the heading + sum extra and account for the interval
+        // the 4 rem of the header and 2 rem of the heading + sum extra and account for the interval
         const cardsHeight = cards.offsetHeight-60;
 
         if (scroll < cardsHeight) {
             glass = 0;
+            interval = cardsHeight;
             return;
         }
 
-        if (scroll < cardsHeight) {
-            interval = cardsHeight;
-        } else {
-            interval = 200;
-        }
+        interval = 200;
+
 
         glass = Math.floor((scroll-cardsHeight)/(interval));
 

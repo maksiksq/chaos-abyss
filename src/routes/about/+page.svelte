@@ -1,9 +1,57 @@
-<script>
+<script lang="ts">
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer/Footer.svelte";
+    import {goto} from "$app/navigation";
+    import Confidential from "$lib/components/Confidential.svelte";
+
+    const cheatCode = ['L', 'A', 'N', 'T', 'E', 'R', 'N'];
+    let codeIx = 0;
+    const maxDelay = 3000;
+    let past = Date.now();
+    let confidential = $state(false);
+
+    const handleConfidential = (e: KeyboardEvent) => {
+        const now = Date.now();
+
+        if (now - past > maxDelay) {
+            codeIx = 0;
+        }
+
+        past = now;
+
+        if (e.key === cheatCode[codeIx] || e.key === cheatCode[codeIx].toLowerCase()) {
+            codeIx++;
+            if (codeIx === cheatCode.length) {
+                confidential = true;
+                codeIx = 0;
+            }
+        } else {
+            codeIx = 0;
+        }
+    }
+
+    let body = $state<HTMLElement | null>(null);
+
+    $effect(() => {
+        if (!body) return;
+        if (confidential) {
+            body.style.overflow = "hidden";
+        } else {
+            body.style.overflow = "visible";
+        }
+    })
 </script>
 
+<svelte:window onkeydown={handleConfidential}/>
+<svelte:body bind:this={body}/>
+
+
 <Header/>
+{#if confidential}
+    <Confidential bind:confidential={confidential}/>
+{/if}
+
+
 <main>
     <div class="wrap">
         <section class="this-site">
@@ -82,7 +130,10 @@
         </section>
     </div>
 </main>
-<Footer about={true}/>
+{#if !confidential}
+    <Footer about={true}/>
+{/if}
+
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
