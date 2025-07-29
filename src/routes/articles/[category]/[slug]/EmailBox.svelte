@@ -40,9 +40,9 @@
         <p aria-label="error or success message" class="error-success-message">{errMsg}</p>
     {/if}
 
-    <p class="waitlist-info">✦ You'll only get occasional major updates - e.g. release info, significant direction changes, so no spam in your
-        inbox. Only major things, no update logs, no ads, no weekly emails etc. Just the things you need to know before
-        it comes out.</p>
+    <p class="waitlist-info">✦ You'll only get occasional major updates - e.g. release info, significant direction changes. No spam in your
+        inbox! Only major things, no update logs, no ads, no weekly emails etc. Just the things you need to know before
+        it happens.</p>
 
 </div>
 
@@ -55,6 +55,11 @@
         background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20(4).svg");
         border: 1px solid black;
         background-size: cover;
+
+        @media (max-width: 768px) {
+            background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20mobile.svg");
+            filter: blur(0.1px);
+        }
 
         & .waitlist-form {
             display: flex;
@@ -86,6 +91,13 @@
 
         & .waitlist-info {
             margin-top: 1rem;
+            padding: 0.7rem;
+            color: #ffffff;
+
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid black;
+            position: relative;
+            z-index: 10;
         }
 
         & h2 {
