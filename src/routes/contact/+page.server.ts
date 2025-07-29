@@ -1,3 +1,67 @@
+import {type Actions, fail} from "@sveltejs/kit";
+import {SECRET_IP_HASH_SALT} from "$env/static/private";
+import {createHash} from "node:crypto";
+
+export const actions = {
+    waitlist: async ({request, getClientAddress, locals: {supabase}}) => {
+        const formData = await request.formData();
+
+        // fake invisible field to prevent spam bots
+        const nickname = formData.get('nickname') as string;
+        if (nickname) return;
+
+        const email = formData.get('email') as string;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            return fail(400, {success: false, threat: 'Invalid email! Hmmmm...'});
+        }
+
+        // getting the user's ip for spam prevention
+        const clientIp = getClientAddress() || 'unknown';
+
+        // hashing it so even I can't read or use it even if I wanted to really hard
+        const SALT = SECRET_IP_HASH_SALT;
+
+        const hashIP = (ip: string) => {
+            if (clientIp === 'unknown') return;
+            return createHash('sha256').update(ip + SALT).digest('hex');
+        }
+
+        const hashedIP = hashIP(clientIp);
+
+        // checking if IP was used more than 6 times
+
+        const {count, error: selError} = await supabase
+            .from('waitlist')
+            .select('id', {count: "exact", head: true})
+            .eq('hashed_ip', hashedIP);
+
+        if(selError) {
+            console.error(selError);
+            return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
+        }
+
+        const ipCount = count ?? 0;
+
+        if (ipCount > 6) {
+            return {success: false, threat: 'Oh no! something went wrong! (using a VPN?)'};
+        }
+
+        // adding the user to the waitlist if everything is ok
+        const {error: inError} = await supabase
+            .from('waitlist')
+            .insert({email: email, hashed_ip: hashedIP});
+
+        if(inError) {
+            console.error(inError);
+            return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
+        }
+
+        return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.',};
+    },
+} satisfies Actions;
+
 export const load = ({url}) => {
     return {
         meta: {

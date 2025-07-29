@@ -1,5 +1,3 @@
-# What's next?
-
 You like what you see here? Honestly. Sometimes I wish we lived in a completely different world, a world where struggle is optional, a world where you could level up if you wanted to. Where your life isn't largely controlled by the whim of some lousy politicians like mine and quite possibly yours.
 
 I guess it's kind of a core principle of escapism? It hurts, we run. But enough sad talk, because we need ways to keep going.
@@ -14,8 +12,4 @@ My biggest problem with a typical to-do list is that I won't use it unless I exp
 
 And I'm still kinda stuck finding the thing I want. I got a few rather unorthodox things that do work but, it's inconveniencing. So I'm making the thing I want. I'm making the thing I predict would work. So I'm making Lirith.
 
-The concept revolves mostly around using blocks basically like a desktop and micro mnemonics to make you remember your stuff,  keeping it in your eyes all the time, so you can't forget, and making it infinitely customizable because it's not just, a me problem you know.
-
-<form class="waitlist" action="/waitlist">
-</form>
-
+The concept revolves mostly around using blocks basically like a desktop and micro mnemonics to make you remember your stuff, keeping it in your eyes all the time, so you can't forget, and making it infinitely customizable because it's not just, a me problem you know.

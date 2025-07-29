@@ -4,6 +4,10 @@
     import TooltipText from "$lib/components/TooltipText.svelte";
     import Socials from "$lib/components/Socials.svelte";
 
+    let {form} = $props();
+
+    $inspect('form!!', form)
+
     const socials = [
         {
             text: 'Bluesky',

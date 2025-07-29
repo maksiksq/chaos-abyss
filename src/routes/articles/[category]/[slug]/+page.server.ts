@@ -10,20 +10,6 @@ const authors = [{
     link: '/about',
 }]
 
-export const actions = {
-    waitlist: async ({ request, locals: { supabase } }) => {
-    const formData = await request.formData();
-    const email = formData.get('email') as string;
-    const { error: sberror } = await supabase
-        .from('waitlist')
-        .insert({email: email});
-    },
-
-    if (sberror) {
-        console.error(sberror);
-    }
-} satisfies Actions;
-
 export const load = async ({params}) => {
     const supabase = getClient();
     // no, i just wanted to name it like that
@@ -36,7 +22,7 @@ export const load = async ({params}) => {
         .eq('slug', params.slug)
         .ilike('category', slugcat)
         .single();
-    if (artErr || !article ) {
+    if (artErr || !article) {
         throw sverror(404, 'Oh no, article not found.');
     }
 
@@ -49,14 +35,14 @@ export const load = async ({params}) => {
             .select('title, slug, category')
             .gt('date', article.date)
             .not('category', 'in', '("draft","stashed")')
-            .order('date', { ascending: true })
+            .order('date', {ascending: true})
             .limit(1),
         supabase
             .from('articles')
             .select('title, slug, category')
             .lt('date', article.date)
             .not('category', 'in', '("draft","stashed")')
-            .order('date', { ascending: false })
+            .order('date', {ascending: false})
             .limit(1),
     ]);
 
@@ -88,19 +74,19 @@ export const load = async ({params}) => {
         title: escapeHTML(article.title),
         canonUrl: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`,
         metaNamed: [
-            { name: "description", content: escapeHTML(article.blurb) },
-            { name: "twitter:card", content: "summary_large_image" },
-            { name: "twitter:title", content: escapeHTML(article.title) },
-            { name: "twitter:description", content: escapeHTML(article.blurb) },
-            { name: "twitter:image", content: article.fig }
+            {name: "description", content: escapeHTML(article.blurb)},
+            {name: "twitter:card", content: "summary_large_image"},
+            {name: "twitter:title", content: escapeHTML(article.title)},
+            {name: "twitter:description", content: escapeHTML(article.blurb)},
+            {name: "twitter:image", content: article.fig}
         ],
         metaProperty: [
-            { property: "og:type", content: "article" },
-            { property: "og:locale", content: "en_US" },
-            { property: "og:title", content: escapeHTML(article.title) },
-            { property: "og:description", content: escapeHTML(article.blurb) },
-            { property: "og:url", content: `https://chaos-abyss.com/articles/${article.category}/${params.slug}` },
-            { property: "og:image", content: article.fig }
+            {property: "og:type", content: "article"},
+            {property: "og:locale", content: "en_US"},
+            {property: "og:title", content: escapeHTML(article.title)},
+            {property: "og:description", content: escapeHTML(article.blurb)},
+            {property: "og:url", content: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`},
+            {property: "og:image", content: article.fig}
         ],
         jsonLD: {
             "@context": "https://schema.org",
@@ -126,8 +112,8 @@ export const load = async ({params}) => {
         let [l, c, h] = match.slice(1).map(Number);
 
         // won't reach 0 anyway but idk maybe I'm feeling spooky
-        l = Math.max(0, l-0.0508);
-        c = Math.max(0, c+0.0254);
+        l = Math.max(0, l - 0.0508);
+        c = Math.max(0, c + 0.0254);
         h = Math.max(0, h);
 
         accentDeep = `oklch(${l}, ${c}, ${h})`;

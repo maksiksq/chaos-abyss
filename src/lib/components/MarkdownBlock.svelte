@@ -4,10 +4,10 @@
     // This page only renders the html gotten from the server
     // !!!!!!!!!!!!!!!!!
 
-
     import {onDestroy, onMount, tick} from "svelte";
+    import EmailBox from "../../routes/articles/[category]/[slug]/EmailBox.svelte";
 
-    const {content} = $props();
+    const {content, slug, form} = $props();
 
     let quotes: NodeListOf<HTMLQuoteElement>;
     let quote: HTMLElement;
@@ -64,7 +64,13 @@
     })
 </script>
 
-<div class="article-content">{@html content}</div>
+<div class="article-content">
+    {@html content}
+
+    {#if slug === 'lirith'}
+        <EmailBox {form}/>
+    {/if}
+</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');

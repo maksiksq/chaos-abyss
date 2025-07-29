@@ -3,7 +3,9 @@
     import ArticleEndblock from "./ArticleEndblock.svelte";
     import MetaBlock from "$lib/components/MetaBlock.svelte";
 
-    const {data} = $props();
+    const {data, form} = $props();
+
+    $inspect(form);
 
     let body: HTMLBodyElement | undefined = $state();
 
@@ -38,7 +40,7 @@
                             authorLink={data.authorlink}
                             author={data.article.author}
                     />
-                    <MarkdownBlock content={data.article.content}/>
+                    <MarkdownBlock content={data.article.content} slug={data.article.slug} {form}/>
                     <ArticleEndblock adjacent={data.adjacent}/>
                 </section>
             </article>
