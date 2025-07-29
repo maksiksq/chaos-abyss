@@ -1,7 +1,6 @@
 <script lang="ts">
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer/Footer.svelte";
-    import {goto} from "$app/navigation";
     import Confidential from "$lib/components/Confidential.svelte";
 
     const cheatCode = ['L', 'A', 'N', 'T', 'E', 'R', 'N'];
@@ -82,7 +81,7 @@
                 <p><strong>Why Chaos Abyss?:</strong><br> Ehh, it's
                     a very deep <span style="color: #666666; cursor: pointer"
                                       onclick={() => {const audio = new Audio('/audio/ba-dum-tss.mp3'); audio.play()}}
-                                      onkeydown={() => {}} tabindex="-3" role="button">(ba dum tss)</span> metaphor. You
+                                      onkeydown={() => {}} tabindex="-1" role="button">(ba dum tss)</span> metaphor. You
                     can
                     interpret it however you wish though.<br><br> <strong>You might see:</strong> <br>- Occasional
                     shouting into the void. <br>- Mild chaos, some abyss. <br>- Unhinged passion for details.<br> -

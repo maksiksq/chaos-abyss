@@ -121,7 +121,7 @@
             rarity: "LEGENDARY",
             item: "Moth of the Abyssal Watchers",
             category: "Deity / Friendly",
-            desc: "It chirps like a dial-up. You feel safe,"
+            desc: "It chirps like a dial-up. You feel safe."
         },
         {
             rarity: "LEGENDARY",
@@ -220,7 +220,7 @@
         {desc}
     </p>
     <p class="goal">
-        There are 3 legendaries in total. All of them are technically edible.
+        There are 4 legendaries in total. All of them are technically edible.
     </p>
 </div>
 <style>
