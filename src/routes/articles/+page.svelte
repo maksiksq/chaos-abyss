@@ -99,7 +99,7 @@
         margin: 0 auto;
         box-sizing: border-box;
 
-        min-height: 200vh;
+        min-height: 140vh;
 
         @media (max-width: 1023px) {
             flex-direction: column;
