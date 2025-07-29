@@ -57,7 +57,7 @@
         background-size: cover;
 
         @media (max-width: 768px) {
-            background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20mobile.svg");
+            background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20mobile%20(1).svg");
             filter: blur(0.1px);
         }
 
@@ -94,7 +94,7 @@
             padding: 0.7rem;
             color: #ffffff;
 
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.75);
             border: 1px solid black;
             position: relative;
             z-index: 10;
