@@ -9,14 +9,14 @@
 
 <main>
     <div class="bg"></div>
-    <h1>{page.status}</h1>
-    <small>{page.error?.message}</small>
+    <h1>{page.status ?? 500}</h1>
+    <small>{page.error?.message ?? "Unknown error"}</small>
 </main>
 
 <style>
     main {
         width: 100vw;
-        height: 100vh;
+        height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;

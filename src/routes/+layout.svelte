@@ -1,7 +1,10 @@
 <script lang="ts">
     // meta
     import {page} from "$app/state";
-
+    import {onMount} from "svelte";
+    import {invalidate} from "$app/navigation";
+    import type {Session} from "@supabase/supabase-js";
+    import {unescapeHTML} from "$lib/utils/unescapeHTML";
     let {data, children} = $props();
 
     let {meta} = $derived(page.data);
@@ -15,10 +18,6 @@
     let metasProperty = $derived(meta?.metaProperty);
 
     // admin auth
-    import {onMount} from "svelte";
-    import {invalidate} from "$app/navigation";
-    import type {Session} from "@supabase/supabase-js";
-    import {unescapeHTML} from "$lib/utils/unescapeHTML";
 
     let { session, supabase } = $derived(data);
 
@@ -29,12 +28,12 @@
             }
         });
 
-        return () => data.subscription.unsubscribe();
+        return () => data?.subscription?.unsubscribe?.();
     })
 </script>
 
 <svelte:head>
-    <title>{unescapeHTML(meta?.title) ?? 'Chaos Abyss'}</title>
+    <title>{meta?.title ? unescapeHTML(meta.title) : 'Chaos Abyss'}</title>
     {#if meta}
         <!-- !!! -->
         {#if meta.noindex}
