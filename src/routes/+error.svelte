@@ -16,15 +16,11 @@
 <style>
     main {
         width: 100vw;
-        height: 100vh;
+        height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        @supports (height: 100dvh) {
-            height: 100dvh;
-        }
 
         & .bg {
             position: absolute;
