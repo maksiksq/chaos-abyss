@@ -188,6 +188,9 @@
                         border-radius: 4px;
                         width: 100%;
 
+                        aspect-ratio: 16 / 9;
+                        object-fit: cover;
+
                         max-width: 100%;
                         height: auto;
                     }

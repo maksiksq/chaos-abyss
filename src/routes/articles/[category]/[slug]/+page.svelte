@@ -5,8 +5,6 @@
 
     const {data, form} = $props();
 
-    $inspect(form);
-
     let body: HTMLBodyElement | undefined = $state();
 
     $effect(() => {
@@ -23,8 +21,8 @@
             <article>
                 <div class="head-fig-wrap">
                     <figure class="head-fig">
-                        <img class="widefig" src={data.article.widefig} alt="{data.article.figalt}">
-                        <img class="fig" src={data.article.fig} alt="{data.article.figalt}">
+                        <img class="widefig" src={data.article.widefig} alt={data.article.figalt ?? data.article.title}>
+                        <img class="fig" src={data.article.fig} alt={data.article.figalt ?? data.article.title}>
                         {#if (data.article.figcap)}
                             <figcaption>{data.article.figcap}</figcaption>
                         {/if}

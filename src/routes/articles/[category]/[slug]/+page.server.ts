@@ -26,7 +26,7 @@ export const load = async ({params}) => {
         throw sverror(404, 'Oh no, article not found.');
     }
 
-    article.author ||= "Maksiks";
+    article.author ??= "Maksiks";
 
     // adjacent articles
     const [nextArtRes, previousArtRes] = await Promise.all([
@@ -71,7 +71,7 @@ export const load = async ({params}) => {
     };
 
     const meta = {
-        title: escapeHTML(article.title),
+        title: article.title,
         canonUrl: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`,
         metaNamed: [
             {name: "description", content: escapeHTML(article.blurb)},
@@ -83,7 +83,7 @@ export const load = async ({params}) => {
         metaProperty: [
             {property: "og:type", content: "article"},
             {property: "og:locale", content: "en_US"},
-            {property: "og:title", content: escapeHTML(article.title)},
+            {property: "og:title", content: article.title},
             {property: "og:description", content: escapeHTML(article.blurb)},
             {property: "og:url", content: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`},
             {property: "og:image", content: article.fig}
@@ -91,33 +91,27 @@ export const load = async ({params}) => {
         jsonLD: {
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": escapeHTML(article.title),
+            "headline": article.title,
             "author": {
                 "@type": "Person",
                 "name": article.author
             },
-            "name": escapeHTML(article.title),
+            "name": article.title,
             "datePublished": toISODate(article.date),
             "url": `https://chaos-abyss.com/articles/${article.category}/${params.slug}`
         }
     };
 
     // accent
-    let accentDeep = calculateDeepAccent(article.accent);
-
     const match = article.accent.match(/^oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)$/);
     if (!match) {
         console.warn("Maksiks: Invalid accent, default will be used instead.");
-    } else {
-        let [l, c, h] = match.slice(1).map(Number);
-
-        // won't reach 0 anyway but idk maybe I'm feeling spooky
-        l = Math.max(0, l - 0.0508);
-        c = Math.max(0, c + 0.0254);
-        h = Math.max(0, h);
-
-        accentDeep = `oklch(${l}, ${c}, ${h})`;
+        article.accent = 'oklch(0.8149 0.1044 19.57)'
     }
+
+    let accentDeep = calculateDeepAccent(article.accent);
+
+
 
     // misc
 
@@ -126,6 +120,7 @@ export const load = async ({params}) => {
 
     return {
         article,
+        // accent edited inside the article
         adjacent,
         meta,
         wordcount,

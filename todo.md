@@ -106,6 +106,7 @@
 - [ ] : soon: favicon
 - [x] : fix consistent capitalization
 - [x] : fix titles don't do well with apostrophes and etc
+- [ ] : fix minor: redundant escapeHTML everywhere
 
 <br>~~- [ ] : scrap: make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~

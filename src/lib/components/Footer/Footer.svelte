@@ -232,7 +232,7 @@
             </ul>
         </div>
         <div class="copy-bloc">
-            <button class="copyright-blurb" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
+            <button class="copyright-blurb" type="button" onclick={copyblurbify} aria-label="Change copyright label">{text}</button>
         </div>
     </div>
 </footer>
@@ -309,7 +309,7 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-        height: 68vh;
+        height: 68dvh;
         overflow-x: clip;
         overflow-y: visible;
 
