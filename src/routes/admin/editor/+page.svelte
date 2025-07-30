@@ -2,7 +2,7 @@
     import {enhance} from '$app/forms';
     import MarkdownBlock from "$lib/components/MarkdownBlock.svelte";
     import {currentContent, currentDate, currentDetails, md} from "../../shared.svelte";
-    import {onDestroy, onMount, tick} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import {goto} from "$app/navigation";
     import {browser} from "$app/environment";
     import MetaBlock from "$lib/components/MetaBlock.svelte";

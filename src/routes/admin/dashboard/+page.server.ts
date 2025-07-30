@@ -1,0 +1,1 @@
+// hollow server page for auth (do not remove)

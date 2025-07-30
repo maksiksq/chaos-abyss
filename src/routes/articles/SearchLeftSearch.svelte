@@ -30,6 +30,8 @@
     // i will not consider your complaints
     let greg = $state(false);
     type CategoryName = { db: string, human: string };
+
+    const categoryNamesAlphabetical = $derived(categoryNames.slice().sort((a, b) => a.human.localeCompare(b.human)));
 </script>
 
 <section class="search-seg">
@@ -56,10 +58,8 @@
                     </button>
                     {#if greg}
                         <div class="cat-dropdown-menu">
-                            {#each categoryNames as gregory}
-                                {#if gregory.db !== cat}
-                                    <button onclick={() => {goto(`/articles?query=${query}&category=${gregory.db}`)}}>{gregory.human}</button>
-                                {/if}
+                            {#each (categoryNamesAlphabetical ?? categoryNames) as gregory}
+                                <button class={(gregory.db !== cat) ? '' : 'greyed-out'} onclick={(gregory.db !== cat) ? () => {goto(`/articles?query=${query}&category=${gregory.db}`)} : () => {}}>{gregory.human}</button>
                             {/each}
                         </div>
                     {/if}
@@ -90,6 +90,11 @@
     {/if}
 </section>
 <style>
+    .greyed-out {
+        color: #d8d8d8 !important;
+        cursor: default !important;
+    }
+
     .search-count-disappear {
         opacity: 0;
     }

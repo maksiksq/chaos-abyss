@@ -1,5 +1,4 @@
-
-export const load = ({url}) => {
+export const load = () => {
     return {
         meta: {
             title: "About",

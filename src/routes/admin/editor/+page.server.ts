@@ -1,4 +1,4 @@
-import {type Actions, fail, redirect} from "@sveltejs/kit";
+import {type Actions, fail} from "@sveltejs/kit";
 import {md} from "../../shared.svelte";
 import {toTimestampTZ} from "$lib/utils/dateToTimestamptz";
 import {createServerClient} from "@supabase/ssr";
