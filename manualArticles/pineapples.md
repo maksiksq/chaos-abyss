@@ -9,7 +9,7 @@ It's worth mentioning that a lot of these languages have the word *ananas*, but 
 
 We'll get to how this relates to Japan in a sec, but first, the history behind this boils down to influence: <br>
 ### The Spanish
-Basically, the story goes, Columbus found America, welcome to somewhere in the Bahamas, probably. The Kalinago native people gave him *ananas*, which was the first fruit brought from America to Europe. They didn't know that tho, idiots were totally convinced they found India, and called it **Piña de Indes** aka Indian pinecone. And that's why the drink is called Piña collada too by the way. Which I mean. Does this look like a pinecone to you?
+Basically, the story goes, Columbus found America, welcome to somewhere in the Bahamas, probably. The Kalinago native people gave him *ananas*, which was the first fruit brought from America to Europe. They didn't know that tho, idiots were totally convinced they found India, and called it **Piña de Indes** aka Indian pinecone. And that's why the drink is called Piña colada too by the way. Which I mean. Does this look like a pinecone to you?
 ![pinecone](https://ik.imagekit.io/maksiks/ananas.png?updatedAt=1753349760471 'Fair enough I guess? But I&apos;d call it something more original. Like i dunno, how about cactusapple???')
 
 ### And then the Portuguese
@@ -21,7 +21,7 @@ The fate that awaited them in Brazil was ... also *ananas*, but this time they c
 
 ### And then the English got involved
 
-In English we ended up with *pineapple* because originally the word for what we call *pinecone* in English today was the *"pineapple"* in question, so the fish and chips enjoyers kind of followed the same logic as the Spanish and named it *pineapple* which means *pinecone*. Except later they renamed *pineapple* (the pinecone) to *pinecone* so a pineapple is not a pinecone, but a pinecone is a pinecone, and that's how we ended up here, it is totally not confusing at all no, wdym.
+In English we ended up with *pineapple* because originally the word for what we call *pinecone* today was the *"pineapple"* in question, so the fish and chips enjoyers kind of followed the same logic as the Spanish and named it *pineapple* which means *pinecone*. Except later they renamed *pineapple* (the pinecone) to *pinecone* so a pineapple is not a pinecone, but a pinecone is a pinecone, and that's how we ended up here, it is totally not confusing at all no, wdym.
 
 ![explanation](https://ik.imagekit.io/maksiks/pineconexplantion.png ':::nocaption')
 

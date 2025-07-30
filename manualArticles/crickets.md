@@ -44,24 +44,24 @@ $$
 T_F = 40 + \text{Number of chirps in 15 seconds}
 $$
 
-So I counted. I don't actually know if my crickets are even the correct kind of cricket to do this, and I'm not going out of my way to catch a poor cricket just do some experiments on one, *of course proven enough benefit I could (  •̀ω  •́  )*.
+So I counted. I don't actually know if my crickets are even the correct kind of cricket for this, and I'm not going out of my way to catch a poor cricket just to do some experiments on one, *of course proven enough benefit I could (  •̀ω  •́  )*.
 
 So, situation, I have lots of crickets, and you're supposed to isolate a single cricket. Well, if you listen to them for long enough, you start to notice they kinda have a "voice". I identified 3 separate crickets in the vicinity of my window right now, it's really hard to be sure tho.
 
-And I decided to use the 15 second formula because suffering. This and my counting are in no way scientific, but when was counting the amount of cricket chirps scientific anyway? Well, I guess it was at some point if this law exists.
+And I decided to use the 15 second formula because suffering. This and my counting are in no way scientific, but when was counting the amount of cricket chirps scientific anyway? Well, I guess it must've been if this law exists.
 
 To count them up, I took my microphone, a pencil and Audacity. Then I hit my table with the pencil for every chirp I can hear. It ended up more or less rhythmic, not sure if that's a good thing.
 ![Pencil hitting waveform](https://ik.imagekit.io/maksiks/2025-07-28_22-01_1.png 'Each bump is a hit')
 
 I would just take a microphone somewhere near a cricket and count it up in post, but none of my microphones were picking it up at all. It's all just static and wind or something. Which is fair enough, these are not exactly meant for crickets, they're meant for human voices.
 
-The counting yielded **86 chirps** that I divided by the number of crickets: $86/3 \approx 28.6 \approx 29$ chirps, plug that into the formula, $40+29 ~= 69°$ Fahrenheit (coincidental funny number), convert that from freedom units, and we get **20.5° Celsius**. According to my weather app it's **20° Celsius** right now. 
+The counting yielded **86 chirps** that I divided by the number of crickets: $86/3 \approx 28.6 \approx 29$ chirps, plug that into the formula, $40+29 ~= 69°$ Fahrenheit (coincidental funny number), convert that from freedom units, and we get **20.5° Celsius**. According to my weather app it's **20° Celsius** right now.
 
 Spot on? Haaaa??
 
 I think I just got lucky tho. But I did try this on two separate evenings, and in both cases if we divide the number of chirps by 3, we get an accurate result. I'm not sure if it's my judgment about the number of crickets, or I just got the formula for my specific kind and number of crickets right, somehow. But confusingly, yes, this works.
 
-I do think that here in Vinnytsia, Ukraine we probably have some kinda different species than Dolbear after whom the law was named. And I'm just feeling like I'm tripping getting such accurate results from crickets, the first evening I counted it manually, and it was 21°. 
+I do think that here in Vinnytsia, Ukraine we probably have some kinda different species than Dolbear after whom the law was named. And I'm just feeling like I'm tripping getting such accurate results from crickets, the first evening I counted it manually, and it was 21°.
 
 To really figure out, whether I'm tripping or not and my newfound self-trust issues, I could do like a month-long study on crickets, measuring them every day. But in addition to me being lazy, that kind of defeats the purpose, like I imagine myself stuck in a forest trying to figure out what season it is and counting crickets out of desperation, not doing a field study.
 

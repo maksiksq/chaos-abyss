@@ -63,7 +63,7 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     // draft/stashed error
     // no auth
     if (!e.locals.session && (e.url.pathname.startsWith('/articles/draft/') || e.url.pathname.startsWith('/articles/stashed/'))) {
-        throw sverror(404, 'Oh no, article not found.');
+        throw sverror(401, 'Oh no. This is the dungeon, we don\'t go here.');
     }
 
     return resolve(e);
