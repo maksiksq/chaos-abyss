@@ -1,4 +1,4 @@
-import {type Actions, error as sverror} from "@sveltejs/kit";
+import {error as sverror} from "@sveltejs/kit";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {escapeHTML} from "$lib/utils/escapeHTML";
 import {calculateDeepAccent} from "$lib/utils/calculateDeepAccent";

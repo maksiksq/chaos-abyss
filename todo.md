@@ -62,6 +62,9 @@
 - [x] : use dates, not strings
 - [x] : word count
 
+// I'll likely come back once I'm done with something else
+// But this is production ready anyway
+
 - [ ] : fix minor: redundant escapeHTML everywhere
 - [ ] : fix: article margins being all over the place
 - [ ] : later: RSS
