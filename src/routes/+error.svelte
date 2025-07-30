@@ -1,6 +1,6 @@
 <script lang="ts">
     import '../styles/global.css';
-    import { page } from '$app/state';
+    import {page} from '$app/state';
 </script>
 
 <svelte:head>
@@ -16,11 +16,15 @@
 <style>
     main {
         width: 100vw;
-        height: 100dvh;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        @supports (height: 100dvh) {
+            height: 100dvh;
+        }
 
         & .bg {
             position: absolute;
