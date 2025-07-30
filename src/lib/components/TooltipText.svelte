@@ -1,4 +1,7 @@
 <script lang="ts">
+    // FUTURE USE WARNING:
+    // Will go offscreen if close to the edge
+
     const {text} = $props();
     let copy = $state('Click to copy');
     let hovering = $state(false);
@@ -17,7 +20,7 @@
     const handleCopyKeyboard = (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            navigator.clipboard.writeText(text)
+            navigator.clipboard.writeText(text);
 
             copy = 'Copied!';
         }
@@ -63,7 +66,7 @@
             color: white;
             padding: 1px 0.7rem;
             border-radius: 1px;
-            font-family: "Anonymous Pro", sans-serif;
+            font-family: "Anonymous Pro", monospace;
             border: 1px solid black;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
