@@ -61,7 +61,7 @@
 - [ ] : later: fix svelte vs vue vs react formatting
 - [ ] : later: figure out if isp or no isp
 - [ ] : later: image based accent
-- [ ] : later: kofi maybe??? (maybe plug)
+- [x] : later: kofi maybe??? (maybe plug)
 - [ ] : later: markdown-it codesandbox embed
 - [ ] : later: remove unnecessary highlight.js styles
 - [ ] : later: RSS
@@ -70,10 +70,8 @@
 - [ ] : later: small desc custom syntax
 - [x] : later: kbd syntax
 - [x] : later: Add delete
-- [ ] : later: Fix margins being all over the place
 - [ ] : later: Supabase keepalive !!!
 - [ ] : later: write the articles !!!s
-- [ ] : later: dates make some sense but not enough sense (currently no edit date when it's a draft at all) - i should just reset it to null on first publish and rename the goddam date to publish date
 - [ ] : later: better article saving (there's a small chance to lose one still)
 - [ ] : maybe: Add button to copy anchor link for every header
 - [ ] : maybe: color associations for more things (notably articles feats)
@@ -97,28 +95,25 @@
 - [ ] : optional cleanup: escape html in layout instead of everywhere
 - [ ] : very later: my own markdown extension for articles specifically because oh my god
 - [ ] : very later: maybe revisit hand slightly
-- [ ] : very later: remake editor clean logic to be reversed because why isn't in in the first place why the url param is why why
+- [ ] : very later: remake editor clean logic to be reversed because why isn't in the first place why the url param is why why
 - [ ] : very later: remake hand anim later
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)
 - [ ] : nitpick: draft/stash error page is different
-- [ ] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
+- [x] : note to self: stop with the utility functions everywhere just make a variable for future projects (or not, think about it)
 - [ ] : soon: favicon
 - [x] : fix consistent capitalization
 - [x] : fix titles don't do well with apostrophes and etc
 - [ ] : fix minor: redundant escapeHTML everywhere
+- [ ] : fix: article margins being all over the place
 
 <br>~~- [ ] : scrap: make header capitalization optional~~ ; it matches the db now
 <br>~~- [ ] : scrap: add burger for phone~~
 <br>~~- [x] : scrap: change head fig bg to something other than accent color~~
+<br>~~- [ ] : scrap: way too late, just gotta know for the future - Dates make some sense but not enough sense (currently no edit date when it's a draft at all) - i should just reset it to null on first publish and rename the goddam date to publish date~~
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 <br>~~- [x] : scrap: add time parser~~
 
 i should really use like Trello for this
 
 man spends day making an easter egg and fixes instead of progress im so doomed
-
-workflow:
-first of all to access the editor you need the supabase auth otherwise no way you getting in, then:
-client| editor preview -> client| render, whatever
-client| editor send -> server| render and sanitize, make route, send back -> client| renders @html**
