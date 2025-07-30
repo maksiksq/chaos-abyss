@@ -105,6 +105,12 @@
         },
         {
             rarity: "RARE",
+            item: "Cosmic Slush",
+            category: "Food / Melts",
+            desc: "It tastes like stars."
+        },
+        {
+            rarity: "RARE",
             item: "Postcard from Nowhere",
             category: "Mail / Unsent",
             desc: "Wish you were here. Here does not exist."

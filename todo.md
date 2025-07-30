@@ -86,11 +86,6 @@
 - [ ] : maybe: style previous article/next article differently
 - [ ] : nitpick: draft/stash error page is different
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)
-- [ ] : prod: Point imagekit url
-- [ ] : prod: apply for google news
-- [ ] : prod: check if sitemap also updates weirdly in production
-- [ ] : prod: redirect vercel domains to chaos-abyss.com
-- [ ] : prod: submit sitemap to search console
 - [ ] : soon: favicon
 - [ ] : very later: comments
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
@@ -112,6 +107,14 @@
 <br>~~- [x] : scrap: add time parser~~
 <br>~~- [x] : scrap: change head fig bg to something other than accent color~~
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
+
+- [ ] : right before prod: Zero edit dates and fix publish dates
+
+- [ ] : prod: Point imagekit url
+- [ ] : prod: apply for google news
+- [ ] : prod: check if sitemap also updates weirdly in production
+- [ ] : prod: redirect vercel domains to chaos-abyss.com
+- [ ] : prod: submit sitemap to search console
 
 i should really use like Trello for this
 
