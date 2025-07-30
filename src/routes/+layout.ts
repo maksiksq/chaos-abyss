@@ -10,7 +10,7 @@ export const load = async ({ data, depends, fetch }: {data: any, depends: any, f
 
     const supabase = isBrowser()
         ? getBrowserClient()
-        : createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_URL, {
+        : createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {
                 fetch,
             },
