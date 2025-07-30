@@ -9,18 +9,18 @@
     }
 
     const handleCopyClick = () => {
-        navigator.clipboard.writeText("maksiks.touch@gmail.com");
+        navigator.clipboard.writeText(text);
 
         copy = 'Copied!';
     }
 
     const handleCopyKeyboard = (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault;
-            navigator.clipboard.writeText("maksiks.touch@gmail.com")
-        }
+            e.preventDefault();
+            navigator.clipboard.writeText(text)
 
-        copy = 'Copied!';
+            copy = 'Copied!';
+        }
     }
 
     const handleCopyOut = () => {
@@ -36,11 +36,11 @@
         tooltip.style.top = `${e.clientY - 20}px`;
     }
 </script>
-<div class="tooltip-text" onmouseenter={handleTooltip} onmousemove={handleCopyMove} onclick={handleCopyClick}
-     onkeydown={handleCopyKeyboard} onmouseout={handleCopyOut}
-     onblur={handleCopyOut} tabindex="0" role="button">
+<div class="tooltip-text" aria-label={`click to copy ${text}`} onmouseenter={handleTooltip} onmousemove={handleCopyMove} onclick={handleCopyClick}
+     onkeydown={handleCopyKeyboard} onmouseleave={handleCopyOut}
+     onblur={handleCopyOut} tabindex="0" role="button" >
     {#if hovering}
-        <div class="tooltip" bind:this={tooltip}>
+        <div class="tooltip" bind:this={tooltip} role="status" aria-live="polite">
             {copy}
         </div>
     {/if}

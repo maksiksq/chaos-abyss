@@ -29,15 +29,15 @@
         await applyAction(result);
     }
     }}>
-        <label class="d-none">
+        <label class="d-none name-label">
             <input type="text" name="nickname" id="nickname">
         </label>
         <label class="sr-only" for="email">Email</label>
-        <input class="email-input" type="text" name="email" id="email" placeholder="Your email">
+        <input class="email-input" type="email" name="email" id="email" placeholder="Your email">
         <button type="submit">Submit</button>
     </form>
     {#if errMsg}
-        <p aria-label="error or success message" class="error-success-message">{errMsg}</p>
+        <p role="alert" class="error-success-message">{errMsg}</p>
     {/if}
 
     <p class="waitlist-info">✦ You'll only get occasional major updates - e.g. release info, significant direction changes. No spam in your
@@ -47,6 +47,12 @@
 </div>
 
 <style>
+    .name-label {
+        & input {
+            display: none;
+        }
+    }
+
     .waitlist {
         box-sizing: border-box;
         margin-top: 1rem;
