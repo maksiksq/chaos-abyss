@@ -1,4 +1,4 @@
-import MarkdownIt from "markdown-it";
+import type MarkdownIt from "markdown-it";
 import markdownit from "markdown-it";
 import hljs from "highlight.js";
 import mditimgcap from "@maksiks/markdown-it-image-caption";
@@ -18,17 +18,18 @@ import mditrubyplugin from 'markdown-it-ruby';
 // reparse inside tables, considering it uses pipe characters
 // (lazy as heck)
 const reparseRubyInsideTables = (md: MarkdownIt) => {
+    // One thing for sure I'm not typing that! (right? ... right??(
     const PLACEHOLDER = '⸻';
 
-    // Step 1: Prevent pipe inside ruby from breaking table parsing
+    // Preventing pipe inside ruby from breaking table parsing
     md.core.ruler.before('block', 'preprocess-ruby', (state) => {
         state.src = state.src.replace(
-            /\{([^{}|]+)\|([^{}|]+)\}/g,
+            /\{([^{}|]+)\|([^{}|]+)}/g,
             (_: string, rb: string, rt: string) => `{${rb}${PLACEHOLDER}${rt}}`
         );
     });
 
-    // Step 2: Restore pipe and reparse only affected inline tokens
+    // Restoring pipe and reparsing only affected inline tokens
     md.core.ruler.after('inline', 'reparse-ruby-inline', (state) => {
         const tokens = state.tokens;
         let insideTable = false;
@@ -42,7 +43,7 @@ const reparseRubyInsideTables = (md: MarkdownIt) => {
 
             if (token.type !== 'inline') continue;
 
-            // Only re-tokenize if there's a placeholder to restore
+            // Only re-tokenize if there's a placeholder
             if (!token.content.includes(PLACEHOLDER)) continue;
 
             const restored = token.content.replaceAll(PLACEHOLDER, '|');

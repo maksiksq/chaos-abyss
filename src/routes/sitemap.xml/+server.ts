@@ -2,6 +2,12 @@ import {getClient} from "$lib/utils/getSupabaseClient";
 import crypto from 'crypto';
 import type {RequestEvent} from "@sveltejs/kit";
 import {timestamptzToISOtz} from "$lib/utils/timestamptzToISOtz";
+import {PUBLIC_DEV} from "$env/static/public";
+
+const escapeXml = (unsafe: string) =>
+    unsafe.replace(/[<>&'"]/g, c => ({
+        '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;'
+    }[c]!));
 
 const generateEtag = (input: string) =>
     `"${crypto.createHash('sha1').update(input).digest('hex')}"`;
@@ -62,6 +68,9 @@ export async function GET(e: RequestEvent) {
         .select('slug, category, date, last_edit, jewel')
 
     if (err || !articles) {
+        if (PUBLIC_DEV) {
+            console.error(err);
+        }
         return new Response('Had a skill issue getting articles', {status: 500});
     }
 
@@ -75,7 +84,7 @@ export async function GET(e: RequestEvent) {
         }) => ({
                 url: `${base}/articles/${category}/${slug}`,
                 category,
-                date: `${lastEdit ? timestamptzToISOtz(lastEdit) : timestamptzToISOtz(date)}`,
+                date: timestamptzToISOtz(lastEdit ?? date),
                 jewel
             }
         )),
@@ -106,12 +115,12 @@ export async function GET(e: RequestEvent) {
 		${staticPages.map(({url, changeFreq, priority}) =>
             `
             <url>
-            <loc>${url}</loc>
+            <loc>${escapeXml(url)}</loc>
             <changefreq>${changeFreq}</changefreq>    
             <priority>${priority}</priority>
             </url>
             `
-        )}
+        ).join('')}
 		${articleUrls.map(({url, category, date, jewel}) => {
                 if (category === 'draft' || category === 'stashed') return '';
                 return `<url>

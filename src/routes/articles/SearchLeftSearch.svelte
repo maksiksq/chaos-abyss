@@ -2,17 +2,32 @@
     import SearchSummaries from "./SearchSummaries.svelte";
     import {goto} from "$app/navigation";
 
+    interface Props {
+        results: { summaries: any[] } | null;
+        searchCount: number | null,
+        fromSearch: boolean | null,
+        query: string | null,
+        noResultsTxt: string,
+        cat: string,
+        categoryNames: Array<{
+            db: string;
+            human: string;
+        }>,
+    }
+
     let {
-        results = [],
+        results = {summaries: []},
         searchCount = null,
         fromSearch = false,
         query = 'Welcome to the Abyss',
         noResultsTxt = 'The abyss gave no reply.',
         cat = "any",
         categoryNames
-    } = $props();
+    }: Props = $props();
 
 
+    // it must be greg
+    // i will not consider your complaints
     let greg = $state(false);
     type CategoryName = { db: string, human: string };
 </script>
@@ -33,10 +48,11 @@
                 </div>
                 <div class="head-item cat-dropdown-cont">
                     <!-- Games & Media is stored as media in the db because of url, thus the array of objects -->
+                    <!-- Also onblur might cause minor jank once in a blood moon -->
                     <button aria-label="Select category" onclick={() => {greg = !greg;}}
-                            onblur={() => {setTimeout(() => {greg = false;}, 100)}} class="cat-dropdown-toggle">
+                            onblur={() => {setTimeout(() => {greg = false;}, 200)}} class="cat-dropdown-toggle">
                         Category: <br><span
-                            class="cat">{categoryNames.find((c: CategoryName) => c.db === cat)?.human}</span>
+                            class="cat">{categoryNames.find((c: CategoryName) => c.db === cat)?.human ?? "Unknown"}</span>
                     </button>
                     {#if greg}
                         <div class="cat-dropdown-menu">
@@ -161,7 +177,7 @@
                         /* if there are more filters: */
                         /*box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;*/
 
-                        button {
+                        & button {
                             all: unset;
                             font-size: 0.8rem;
                             cursor: pointer;

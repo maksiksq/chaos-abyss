@@ -12,11 +12,11 @@
         figalt: string;
         blurb: string;
         date: string;
-        commentCount: number;
+        comment_count: number;
     }
 
     let { data } = $props();
-    const grouped = data.summaries.reduce((acc: any, summary: Summary) => {
+    const grouped: Record<string, Summary> = data.summaries.reduce((acc: Record<string, Summary[]>, summary: Summary) => {
         if (!acc[summary.category]) {
             acc[summary.category] = [];
         }
@@ -44,7 +44,7 @@
     // Later ? Design
     // Later ? Electronics
 
-    let mobile = $state();
+    let mobile = $state(false);
     const checkIfMobile = () => {
         mobile = window.matchMedia('(max-width: 1023px)').matches;
     }
@@ -77,7 +77,7 @@
         />
     {/if}
     {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
-    <SearchRightMasonry {categories} {mobile}/>
+    <SearchRightMasonry {categories}/>
     {/if}
 </main>
 <style>

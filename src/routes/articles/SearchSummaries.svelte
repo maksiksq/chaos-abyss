@@ -4,38 +4,39 @@
     const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
     const {data, fromSearch = false} = $props();
 </script>
-{#each data.summaries as summary}
+{#each data.summaries as summary (`${summary.category}/${summary.slug}`)}
     <li>
         <article class={`mobile-article ${fromSearch ? 'from-search' : ''}`}
                  style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
-            <a href={`articles/${summary.category}/${summary.slug}`}>
+            <a href={`/articles/${summary.category}/${summary.slug}`}>
                 <!-- css grid is being cursed so flex spaghetti -->
                 <div class="main-art-cont">
                     <div class="img-cont">
-                        <img src={summary.fig} alt={summary.figalt} loading="lazy"/>
+                        <img src={summary.fig || 'https://ik.imagekit.io/maksiks/Slide%2016_9%20-%205.svg'} alt={summary.figalt || 'Image'} loading="lazy"/>
                     </div>
                     <div class="head-blurb-cont">
                         <div class="h4-cont">
-                            <h4 title={fromSearch ? '' : summary.title}>{summary.title}</h4>
+                            <h4 title={fromSearch ? '' : (summary.title ?? 'Unknown')}>{summary.title || 'Unknown'}</h4>
                         </div>
-                        <div class="blurb-cont" title={fromSearch ? '' : summary.blurb}>
-                            <p class="blurb">{summary.blurb}</p>
+                        <div class="blurb-cont" title={fromSearch ? '' : (summary.blurb ?? 'No description available')}>
+                            <p class="blurb">{summary.blurb || 'No description available'}</p>
                         </div>
                     </div>
                 </div>
                 <p class="info"><span>{timestamptzToHumanDate(summary.date)}</span>
-                    <span>✦ {capitalize(summary.category)}</span>
-                    {#if summary.commentCount}
+                    <span>✦ {capitalize(summary?.category)}</span>
+                    {#if summary.comment_count}
                                             <span>
                                                 &nbsp;✦
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <title>Comment icon</title>
                                                 <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                                                 <path
                                                         fill="#000000"
                                                         d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c0 0 0 0 0 0s0 0 0 0s0 0 0 0c0 0 0 0 0 0l.3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"/>
                                             </svg>
                                             <span class="comment-count">
-                                                {summary.commentCount}
+                                                {summary.comment_count}
                                             </span>
                                             </span>
                     {/if}
@@ -93,6 +94,7 @@
 
                 & .head-blurb-cont {
                     min-width: 100%;
+
                     .h4-cont {
                         width: 100%;
                         height: auto;
@@ -184,7 +186,6 @@
 
                     & img {
                         border-radius: 4px;
-                        grid-row: span 2;
                         width: 100%;
 
                         max-width: 100%;
@@ -193,7 +194,6 @@
                 }
 
                 & .info {
-                    grid-column: span 2;
                     margin-top: 0.7rem;
                     padding-top: 0.3rem;
 

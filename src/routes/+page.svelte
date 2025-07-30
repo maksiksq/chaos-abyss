@@ -21,7 +21,7 @@
         if (e.key === cheatCode[codeIx]) {
             codeIx++;
             if (codeIx === cheatCode.length) {
-                goto('admin/dashboard');
+                goto('/admin/dashboard');
                 codeIx = 0;
             }
         } else {
@@ -30,24 +30,23 @@
     }
 
 
-    let ctaButtonFake: HTMLElement | undefined = $state();
+    let ctaButtonHidden: HTMLElement | undefined = $state();
+    let ctaButtonAnim = $state(false);
 
     const buttonAnimIn = () => {
-        if (!ctaButtonFake) {
+        if (!ctaButtonHidden) {
             return;
         }
 
-        ctaButtonFake.style.marginTop = "3rem";
-        ctaButtonFake.style.marginLeft = "0";
+        ctaButtonAnim = true;
     }
 
     const buttonAnimOut = () => {
-        if (!ctaButtonFake) {
+        if (!ctaButtonHidden) {
             return;
         }
 
-        ctaButtonFake.style.marginTop = "3.3rem";
-        ctaButtonFake.style.marginLeft = "0.4rem";
+        ctaButtonAnim = false;
     }
 
 </script>
@@ -70,7 +69,7 @@
                onfocus={buttonAnimIn} onblur={buttonAnimOut}>
                 Step Inside
             </a>
-            <div aria-hidden="true" class="cta-button-fake" bind:this={ctaButtonFake}>
+            <div aria-hidden="true" tabindex="-1" role="presentation" class={`cta-button-hidden ${ctaButtonAnim ? 'cta-hidden-in' : ''}`} bind:this={ctaButtonHidden}>
                 Step Inside
             </div>
         </div>
@@ -83,6 +82,11 @@
 <Footer home={true}/>
 
 <style>
+    .cta-hidden-in {
+        margin-top: 3rem !important;
+        margin-left: 0 !important;
+    }
+
     main {
         display: flex;
         flex-direction: row;
@@ -218,12 +222,14 @@
                     border: solid black 2px;
                     box-shadow: 0 0 0 1px white;
 
+
+
                     @media (max-width: 420px) {
                         font-size: 1rem;
                     }
                 }
 
-                & .cta-button-fake {
+                & .cta-button-hidden {
                     display: flex;
                     justify-content: center;
                     align-items: center;

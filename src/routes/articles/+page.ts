@@ -3,6 +3,9 @@ import Fuse from "fuse.js";
 import {escapeHTML} from "$lib/utils/escapeHTML";
 import {timestamptzToISOtz} from "$lib/utils/timestamptzToISOtz";
 import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient";
+import {getClient} from "$lib/utils/getSupabaseClient";
+import {browser} from "$app/environment";
+import type {PageLoad} from "../../../.svelte-kit/types/src/routes/articles/$types";
 const baseUrl = "https://chaos-abyss.com";
 
 type Article = {
@@ -19,8 +22,8 @@ type Article = {
     accent?: string;
 };
 
-export const load = async ({url}) => {
-    const supabase = getBrowserClient();
+export const load: PageLoad = async ({url}) => {
+    const supabase = browser ? getBrowserClient() : getClient();
     const {data: summaries, error: artErr} = await supabase
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content_trim, accent, figcap')
@@ -88,8 +91,8 @@ export const load = async ({url}) => {
     let query = url.searchParams.get("query");
     let cat = url.searchParams.get("category") ?? 'any';
 
-    console.log('cat')
-    console.log(cat)
+    const validCats = new Set(summaries.map((s: typeof summaries[number]) => s.category));
+    if (!validCats.has(cat) && cat !== 'any') cat = 'any';
 
     if (!query) {
         return {

@@ -1,4 +1,4 @@
-export const load = ({url}) => {
+export const load = () => {
     return {
         meta: {
             title: "Chaos Abyss",
@@ -16,12 +16,13 @@ export const load = ({url}) => {
                 { property: "og:locale", content: "en_US" },
                 { property: "og:title", content: "Chaos Abyss" },
                 { property: "og:description", content: "Cool blog. Come in, we have pancakes. (he's lying, there are no pancakes)." },
-                { property: "og:url", content: url.href },
+                { property: "og:url", content: `https://chaos-abyss.com` },
                 { property: "og:image", content: "https://chaos-abyss.com/img/ogimg.png" }
             ],
             jsonLD: {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
+                "inLanguage": "en",
                 "name": "Chaos Abyss",
                 "url": "https://chaos-abyss.com"
             }

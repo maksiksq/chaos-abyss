@@ -16,8 +16,12 @@
 
         const scroll = window.scrollY + window.innerHeight;
 
-        // the 4 rem of the header and 2 rem of the heading + sum extra and account for the interval
-        const cardsHeight = cards.offsetHeight-60;
+        // WARNING: kinda arbitrary desktop only number
+        // the 4 rem of the header and 2 rem of the heading + sum extra and subtract that from the interval
+        const HEADER_OFFSET = 60;
+        const MAX_GLASS = 5;
+
+        const cardsHeight = cards.offsetHeight-HEADER_OFFSET;
 
         if (scroll < cardsHeight) {
             glass = 0;
@@ -30,7 +34,7 @@
 
         glass = Math.floor((scroll-cardsHeight)/(interval));
 
-        if (glass>5) glass = 5;
+        if (glass>MAX_GLASS) glass = MAX_GLASS;
     }
 </script>
 
