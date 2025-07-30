@@ -22,12 +22,16 @@ export const load = async () => {
 }
 
 export const actions = {
-    publish: async ({cookies, request, params}: any) => {
+    publish: async ({cookies, request}: any) => {
         const formData = await request.formData();
         const article = JSON.parse(formData.get('article'));
         const category = JSON.parse(formData.get('category'));
 
-        // @ts-ignore investigate later
+        // @ts-ignore IDE says it's deprecated, but I think it's misinterpreting the jsdoc.
+        // Using get and set is deprecated, createServerClient isn't.
+        // Used in the docs on the very first page after all.
+        //
+        // + it the IDE counts the options weirdly
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {
                 fetch,
@@ -65,7 +69,11 @@ export const actions = {
         const formData = await request.formData();
         const uuid = JSON.parse(formData.get('uuid'));
 
-        // @ts-ignore investigate later
+        // @ts-ignore IDE says it's deprecated, but I think it's misinterpreting the jsdoc.
+        // Using get and set is deprecated, createServerClient isn't.
+        // Used in the docs on the very first page after all.
+        //
+        // + it the IDE counts the options weirdly
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {
                 fetch,
@@ -99,7 +107,11 @@ export const actions = {
         const formData = await request.formData();
         const uuid = JSON.parse(formData.get('uuid'));
 
-        // @ts-ignore investigate later
+        // @ts-ignore IDE says it's deprecated, but I think it's misinterpreting the jsdoc.
+        // Using get and set is deprecated, createServerClient isn't.
+        // Used in the docs on the very first page after all.
+        //
+        // + it the IDE counts the options weirdly
         const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
             global: {
                 fetch,
