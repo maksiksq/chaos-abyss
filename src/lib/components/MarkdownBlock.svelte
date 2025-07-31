@@ -57,13 +57,11 @@
     onMount(() => {
         if (slug === 'lirith') {
             const target = document.querySelector('#email-box-placeholder')
+            if (!target) {return;}
             const emailBoxHyd = hydrate(EmailBox, {
-                // @ts-ignore shut.
                 target: target,
                 props: {form: form}
             })
-
-            console.log(emailBoxHyd);
         }
 
         tick().then(() => {
