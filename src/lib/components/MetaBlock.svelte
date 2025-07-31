@@ -1,18 +1,31 @@
 <script>
     import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate.js";
 
-    const {title = '', blurb = '', date = '', lastEdit = '', wordcount = 0, authorLink = '', author = ''} = $props();
+    const {
+        title = '',
+        blurb = '',
+        date = '',
+        lastEdit = '',
+        wordcount = 0,
+        authorLink = '',
+        accent = '',
+        author = ''
+    } = $props();
 
     const humanDate = $state(timestamptzToHumanDate(date));
     const humanLastEdit = $state(timestamptzToHumanDate(lastEdit));
+
+    // I kind of remath deep accent down below but sure, let it be self-sufficient.
+    // maybe it will grow some algae eventually
 </script>
 <header class="metablock">
     <h1>
-        <span>{title}</span>
+        <!-- inline styles are fallbacks for nojs-->
+        <span style={`background-color: ${accent}`}>{title}</span>
     </h1>
 
-    <small class="blurb"><span>{blurb}</span></small>
-    <footer>
+    <small class="blurb"><span style={`background-color: ${accent}`}>{blurb}</span></small>
+    <footer style={`background-color: color-mix(in hsl, ${accent} 93%, black);`}>
         <div class="databloc">
             <time datetime={humanDate}>{humanDate} {(lastEdit !== date && !!lastEdit) ? `| upd. ${humanLastEdit}` : ''}
                 ✦&nbsp;

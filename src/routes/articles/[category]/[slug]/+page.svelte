@@ -36,6 +36,7 @@
                             lastEdit={data.article.last_edit}
                             wordcount={data.wordcount}
                             authorLink={data.authorlink}
+                            accent={data.article.accent}
                             author={data.article.author}
                     />
                     <MarkdownBlock content={data.article.content} slug={data.article.slug} {form}/>
@@ -54,7 +55,7 @@
         }
 
         body {
-            overflow-y: hidden;
+            overflow-y: visible;
         }
     }
 

@@ -243,9 +243,9 @@
         <div class="write-bloc">
             <textarea name="article" bind:value={text} oninput={(e) => {autoGrow(e); handleSaving();}}></textarea>
             <div class="rendered">
-                <MetaBlock title={title} blurb={blurb} date={date} lastEdit={''} wordcount={0} authorLink={'/'}
+                <MetaBlock title={title} blurb={blurb} date={date} accent={accent} lastEdit={''} wordcount={0} authorLink={'/'}
                            author={author}/>
-                <MarkdownBlock content={parsedHtml}/>
+                <MarkdownBlock content={parsedHtml} slug={slug}/>
             </div>
         </div>
         <div class="button-wrap">
