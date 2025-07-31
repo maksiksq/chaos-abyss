@@ -4,10 +4,12 @@
     // This page only renders the html gotten from the server
     // !!!!!!!!!!!!!!!!!
 
-    import {onDestroy, onMount, tick} from "svelte";
+    import {hydrate, mount, onDestroy, onMount, tick} from "svelte";
     import EmailBox from "../../routes/articles/[category]/[slug]/EmailBox.svelte";
+    import {browser} from "$app/environment";
+    import {render} from "svelte/server";
 
-    const {content, slug, form} = $props();
+    const {content, slug, form = null} = $props();
 
     let quotes: NodeListOf<HTMLQuoteElement>;
     let quote: HTMLElement;
@@ -43,7 +45,27 @@
         })
     }
 
+    if (!browser) {
+        // I'm not completely positive that this works
+        // the docs do be kind of vague on this one
+        const emailBox = render(EmailBox, {
+            props: {form: form}
+        })
+    }
+
+
     onMount(() => {
+        if (slug === 'lirith') {
+            const target = document.querySelector('#email-box-placeholder')
+            const emailBoxHyd = hydrate(EmailBox, {
+                // @ts-ignore shut.
+                target: target,
+                props: {form: form}
+            })
+
+            console.log(emailBoxHyd);
+        }
+
         tick().then(() => {
             observer = new ResizeObserver(makeBlockquoteFullHeight)
 
@@ -65,15 +87,17 @@
 </script>
 
 <div class="article-content">
+    <noscript>
+        {#if slug === 'lirith'}
+            <EmailBox {form}/>
+        {/if}
+    </noscript>
     {@html content}
-
-    {#if slug === 'lirith'}
-        <EmailBox {form}/>
-    {/if}
 </div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
     :global {
         .c-quote {
             max-width: 40%;
@@ -111,7 +135,7 @@
             align-items: center;
 
             float: right;
-            
+
             & p {
                 margin: 0 !important;
             }
@@ -290,6 +314,7 @@
 
                 & ul {
                     padding-bottom: 0.3rem;
+
                     & li {
                         padding-top: 0.7rem;
                     }
@@ -309,35 +334,33 @@
                 border-radius: 0.8px;
 
                 background: #595959;
-                box-shadow:
-                        -2px -2px 0 0 #6a6a6a,
-                        -2px 2px 0 0 #6a6a6a,
-                        2px -2px 0 0 #6a6a6a,
-                        2px 2px 0 0 #6a6a6a,
-                        -4px -4px 0 0 #353535,
-                        -4px 4px 0 0 #353535,
-                        4px -4px 0 0 #353535,
-                        4px 4px 0 0 #353535,
-
-                        -5px -5.2px 0 0 #1d1d1d,
-                        -5px 5px 0 0 #1d1d1d,
-                        5px -5.2px 0 0 #1d1d1d,
-                        5px 5px 0 0 #1d1d1d,
-                        -5px -5.2px 0 0 #1d1d1d,
-                        -5px 5px 0 0 #1d1d1d,
-                        5px -5.2px 0 0 #1d1d1d,
-                        5px 5px 0 0 #1d1d1d,
-                        -5px -5.2px 0 0 #1d1d1d,
-                        -5px 5px 0 0 #1d1d1d,
-                        5px -5.2px 0 0 #1d1d1d,
-                        5px 5px 0 0 #1d1d1d,
-                        -5px -5.2px 0 0 #1d1d1d,
-                        -5px 5px 0 0 #1d1d1d,
-                        5px -5.2px 0 0 #1d1d1d,
-                        5px 5px 0 0 #1d1d1d;
+                box-shadow: -2px -2px 0 0 #6a6a6a,
+                -2px 2px 0 0 #6a6a6a,
+                2px -2px 0 0 #6a6a6a,
+                2px 2px 0 0 #6a6a6a,
+                -4px -4px 0 0 #353535,
+                -4px 4px 0 0 #353535,
+                4px -4px 0 0 #353535,
+                4px 4px 0 0 #353535,
+                -5px -5.2px 0 0 #1d1d1d,
+                -5px 5px 0 0 #1d1d1d,
+                5px -5.2px 0 0 #1d1d1d,
+                5px 5px 0 0 #1d1d1d,
+                -5px -5.2px 0 0 #1d1d1d,
+                -5px 5px 0 0 #1d1d1d,
+                5px -5.2px 0 0 #1d1d1d,
+                5px 5px 0 0 #1d1d1d,
+                -5px -5.2px 0 0 #1d1d1d,
+                -5px 5px 0 0 #1d1d1d,
+                5px -5.2px 0 0 #1d1d1d,
+                5px 5px 0 0 #1d1d1d,
+                -5px -5.2px 0 0 #1d1d1d,
+                -5px 5px 0 0 #1d1d1d,
+                5px -5.2px 0 0 #1d1d1d,
+                5px 5px 0 0 #1d1d1d;
 
                 & span {
-                    font-family:  "Fredoka", serif;
+                    font-family: "Fredoka", serif;
                     white-space: nowrap;
                     font-weight: 450;
                 }

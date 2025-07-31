@@ -1,5 +1,7 @@
 <script lang="ts">
-    import {applyAction, enhance} from '$app/forms';
+    import {flushSync, onMount} from "svelte";
+    import {enhance} from '$app/forms';
+    import {applyAction} from "$app/forms";
 
     let {form = null} = $props();
 
@@ -7,6 +9,10 @@
 
     $effect(() => {
         errMsg = form?.threat;
+    })
+
+    onMount(() => {
+        flushSync();
     })
 </script>
 
@@ -56,6 +62,7 @@
     .waitlist {
         box-sizing: border-box;
         margin-top: 1rem;
+        margin-bottom: 1rem;
         padding: 1rem;
         background-color: rgba(239, 239, 243, 0.6);
         background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20(4).svg");

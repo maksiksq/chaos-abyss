@@ -1,4 +1,7 @@
 <script lang="ts">
+    // global styles
+    import '../styles/global.css';
+
     // meta
     import {page} from "$app/state";
     import {onMount} from "svelte";
