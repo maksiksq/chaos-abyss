@@ -108,7 +108,7 @@
 <br>~~- [x] : scrap: change head fig bg to something other than accent color~~
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 
-- [x] : FIX!: no js articles don't scroll
+- [x] : fix: no js articles don't scroll
 - [ ] : right before prod: Zero edit dates and fix publish dates
 
 - [ ] : prod: Point imagekit url
