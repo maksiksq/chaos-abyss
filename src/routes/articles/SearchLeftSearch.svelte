@@ -58,7 +58,7 @@
                     </button>
                     {#if greg}
                         <div class="cat-dropdown-menu">
-                            {#each (categoryNamesAlphabetical ?? categoryNames) as gregory}
+                            {#each (categoryNamesAlphabetical ?? categoryNames) as gregory (gregory.db)}
                                 <button class={(gregory.db !== cat) ? '' : 'greyed-out'} onclick={(gregory.db !== cat) ? () => {goto(`/articles?query=${query}&category=${gregory.db}`)} : () => {}}>{gregory.human}</button>
                             {/each}
                         </div>

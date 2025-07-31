@@ -8,7 +8,7 @@
     </li>
 {/if}
 
-{#each socials as social}
+{#each socials as social (social.text)}
     <li class={`social so-${social.text.toLowerCase()} ${fromContact ? 'inline' : ''}`}>
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <a href={social.link} target="_blank" rel={`noopener ${fromContact ? "me" : ''}`}>

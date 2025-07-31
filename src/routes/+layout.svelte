@@ -42,10 +42,10 @@
             <meta name="robots" content="index, follow" />
         {/if}
 
-        {#each metasNamed ?? [] as meta}
+        {#each metasNamed ?? [] as meta (meta.name)}
             <meta name={meta.name} content={unescapeHTML(meta.content)}/>
         {/each}
-        {#each metasProperty ?? [] as meta}
+        {#each metasProperty ?? [] as meta (meta.property)}
             <meta property={meta.property} content={unescapeHTML(meta.content)}/>
         {/each}
 

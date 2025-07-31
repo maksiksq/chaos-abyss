@@ -42,7 +42,7 @@
 <li class="heading">
     Links
 </li>
-{#each linksCurrent as link}
+{#each linksCurrent as link (link.link)}
     <li class={`link li-${link}`}>
         <a href={link.link}>
             {link.text}

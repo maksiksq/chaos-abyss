@@ -44,7 +44,7 @@
     <h2> Here, pick an article: </h2>
     <div class="cards-wrap">
         <div class="cards" bind:this={cards}>
-            {#each categories as category}
+            {#each categories as category (category.name)}
                 <div class="card">
                     <h3>{capitalize(category.name)}</h3>
                     <ul>

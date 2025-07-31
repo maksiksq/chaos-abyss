@@ -101,9 +101,9 @@
     <div class="articles">
         <div class="published bloc">
             <h2> PUBLISHED </h2>
-            {#each keysAndCategories as [categoryName, articles]}
+            {#each keysAndCategories as [categoryName, articles] (categoryName)}
                 <h3 class="category-name">{categoryName}</h3>
-                {#each articles as article}
+                {#each articles as article (article.uuid)}
                     <div class="article">
                         <div class="title">
                             <p>{article.title}</p>
@@ -135,7 +135,7 @@
         </div>
         <div class="drafts bloc">
             <h2> DRAFTS </h2>
-            {#each drafts as article}
+            {#each drafts as article (article.uuid)}
                 <div class="article">
                     <div class="title">
                         <p>{article.title}</p>
