@@ -86,7 +86,7 @@
 - [ ] : maybe: style previous article/next article differently
 - [ ] : nitpick: draft/stash error page is different
 - [ ] : nitpick: make editor check for uuid for update instead of email (it's different for insert)
-- [ ] : soon: favicon
+- [x] : soon: favicon
 - [ ] : very later: comments
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
 - [ ] : very later: implement reminder
