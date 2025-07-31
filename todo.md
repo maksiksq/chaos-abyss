@@ -95,7 +95,7 @@
 - [ ] : very later: maybe revisit hand slightly
 - [ ] : very later: my own markdown extension for articles specifically because oh my god
 - [ ] : very later: remake editor clean logic to be reversed because why isn't in the first place why the url param is why why
-- [ ] : very later: remake hand anim later
+- [ ] : very later: remake hand later to something more uh glorius
 - [ ] : very later: revival altar for stashed articles
 - [ ] : very later: search suggestions
 - [ ] : very later: add more text editing functions to editor (e.g. Word)
