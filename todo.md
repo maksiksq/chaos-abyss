@@ -69,7 +69,7 @@
 - [ ] : fix: article margins being all over the place
 - [ ] : later: RSS
 - [ ] : later: Supabase keepalive !!!
-- [ ] : later: check for mistakes
+- [x] : later: check for mistakes
 - [ ] : later: figure out if isp or no isp
 - [ ] : later: fix svelte vs vue vs react formatting
 - [ ] : later: image based accent
