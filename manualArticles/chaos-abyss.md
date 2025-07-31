@@ -6,13 +6,13 @@ This is a blog/publication, I guess? Hard to call it a real publication, but at 
 Here is where I cast my whimsy into the world. Some stuff here is serious, and some stuff is not very serious. All you need is to look at the discovery page right [here](/articles).
 
 ## Just another blog?
-I've been working on this project for the last month about 6-12 hours a day, although there were some real-life complications, so it's probably a bit less than that, but my Hackatime timer is ticking 180 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too.
+I've been working on this project for the last month about 6-12 hours a day, although there were some real-life complications, so it's probably a bit less than that, but my Hackatime timer is ticking 200 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too.
  
 That said, it's totally just another blog, nothing taking that away.
 
 And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money in the past (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all.
 
-Plus I just learnt Svelte and SvelteKit a month ago, and never before I made so much back-end and a well-rounded blog is a nice entrypoint to that. The next blog will take me 15 days, and the one after that will take 7.5. If I ever need to make another personal blog that is, which is unlikely, but you get the point.
+Plus I just learnt Svelte and SvelteKit a month or two ago, and never before I made so much back-end and a well-rounded blog is a nice entrypoint to that. The next blog will take me 15 days, and the one after that will take 7.5. If I ever need to make another personal blog that is, which is unlikely, but you get the point.
 
 I took some inspiration from Medium and Tofugu, particularly how an article should even look like. Medium is just a cringe posting website, but it has some nice UI and I bloody love reading Tofugu articles, they're so well written and well-made.
 

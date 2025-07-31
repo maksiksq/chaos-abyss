@@ -1,15 +1,18 @@
-It's 2025 outside, you probably want to make a website of one kind or another and the modern way to do that is a JavaScript framework, but which? I've made a few projects with each of them in the title, and might as well share my experience as a developer and some data.
+It's 2025 outside, you probably want to make a website of one kind or another and the modern way to do that is a JavaScript framework, but which?
+
+Whether you're just learning or thinking what to pick for your next project, I have spent lots of hours with each one of them in the title, so I'll share my experience as a developer and some data.
 
 One thing I want to make clear before we start, there is no best JS UI framework, but there is the best framework for you and your specific use case. Each one has its own pros and cons, keep that in mind.
 
 ## Popularity comparison and why it's sorta a lie
-To give you a little bit of context, here are some popularity rankings according to [State of JS](https://2024.stateofjs.com/en-US/libraries/front-end-frameworks). These can give you a lot of insight, but don't jump into conclusions. More popular does not equal better, in fact, often the opposite. Why? I'll go into detail for each framework later.
+To give you a little bit of context, here are some popularity rankings according to [State of JS](https://2024.stateofjs.com/en-US/libraries/front-end-frameworks). These can give you a lot of insight, but don't jump to conclusions. More popular does not equal better, in fact, depending on the situation, it might be quite the opposite. Why? I'll go into detail for each framework later.
 ![State of JS 2024](https://assets.devographics.com/captures/js2024/en-US/front_end_frameworks_ratios.png 'State of JS 2024')
 
 So let's get into it, one by one.
 ## React - the old standard
-![placeholder](https://goodworklabs.com/wp-content/uploads/2016/10/reactjs.png ':::nocaption')
-React is by far the most popular UI framework out there, and it was a groundbreaking framework in 2013, and that momentum keeps it going to this day.
+![React logo and caption](https://ik.imagekit.io/maksiks/react%20img%20maybe%20(9).png ':::nocaption')
+
+[React](https://react.dev/) is by far the most popular UI framework out there, and it was a groundbreaking framework in 2013, and that momentum keeps it going to this day.
 
 So how does it compare to modern frameworks? Not very. It uhh, pretty bad. Don't get me wrong, it's not unusable, but it's definitely not the most fun and stable.
 
@@ -24,8 +27,8 @@ But it's not all gloom and doom, React is still viable and often just necessary,
 - **JSX Syntax:** Some people just prefer it, gotta try and find out.
 #### Cons
 - **Less Modern:** As time went on, developers realized they needed new ways to make apps, and they made new things, React, mostly stayed.
-- **Library Horror:** When making a React app sometimes it's like a, "choose your own adventure". You install lots of libraries for everything and each library has its own quirk and bug or two, and it all stacks up into a horrid mess.
-- **It's Slow:** React is the hungriest of the 3, and where you're the likeliest to come to a performance bottleneck which also directly impacts search engine optimization (SEO), add a pile of libraries on top of that too.
+- **Library Horror:** When making a React app sometimes it's like a *"choose your own adventure"*. You install lots of libraries for everything and each library has its own quirk and bug or two, and it all stacks up into a horrid mess.
+- **It's Slow:** React is the hungriest of the 3, and where you're the likeliest to come to a performance bottleneck which also directly impacts search engine optimization (SEO). Add a pile of libraries on top of that too.
 - **Learning curve:** The syntax is not fun and not easy. Fun isn't deterministic but you probably should keep it in mind.
 
 ### So should you use/learn it?
@@ -41,8 +44,9 @@ But it's not all gloom and doom, React is still viable and often just necessary,
 - You want something simple ❌
 
 ## Vue
-![placeholder](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*W6ICzT2Tk70wYR7- ':::nocaption')
-Vue was released in 2014 by Vue's chill front-end dad/sorta tech bro Evan You. They also name their versions after anime/manga which I love, that's so fun.
+![Vue logo and caption](https://ik.imagekit.io/maksiks/vue%20img%20confidently%20(1).png ':::nocaption')
+
+[Vue](https://vuejs.org/) was released in 2014 by Vue's chill front-end dad/sorta tech bro Evan You. They also name their versions after anime/manga which I love, that's so fun.
 
 As you'd expect from that last sentence, the community is much less corporate, although it is used by the corporate overlords as well.
 
@@ -77,8 +81,9 @@ There really isn't that much to hate here, but it still has some of the issues R
 - Some of the very same issues as with React ❌
 
 ## Svelte
-![placholder](https://svelte.dev/_app/immutable/assets/svelte-machine-mobile.B0w2rScM.png ':::nocaption')
-I am very biased towards Svelte, because I like it. And there's a lot to like. Also the tutorial includes a rickr- nvm I won't spoil it, unless I already did.
+![Svelte logo and caption](https://ik.imagekit.io/maksiks/svelte%20img%20confidently%20(1).png ':::nocaption')
+
+I am very biased towards [Svelte](https://svelte.dev/), because I like it. And there's a lot to like. Also the tutorial includes a rickr- nvm I won't spoil it, unless I already did.
 
 Svelte was created in 2016 by Rich Harris, well, technically Ractive.js in 2013 even before that. It's a framework that's meant to make things easy and efficient - attractively thin, graceful and stylish *(that's what the word svelte means)*.
 
@@ -94,7 +99,7 @@ It's the thing people are most excited about and I totally see why. It really fe
 - **Easy:** It might be (debatably) more difficult than Vue, but it's not difficult.
 #### Cons:
 - **Small Ecosystem:** People tend to put it as *small but growing*, and it is, but it's just not there yet.
-- **New and breaking:** Most things you find on Google about Svelte around going to be about older versions before they added runes. And that's because it's new and fresh and changing fast, even if immensely powerful already.
+- **New and breaking:** Most things you find on Google about Svelte around are going to be about older versions before they added runes. And that's because it's new and fresh and changing fast, even if immensely powerful already.
 
 My main complaint is SEO, that's kinda pain in Svelte. But any issues right now are subject to change, aren't they?
 
@@ -112,6 +117,15 @@ My main complaint is SEO, that's kinda pain in Svelte. But any issues right now 
 - You want tutorials? ❌
 - You don't like change ❌
 
+## So which?
+Well it depends, of course. If you're learning, I'd go for either Vue or Svelte. I started with React and it was not fun. Svelte is the way for new things, but there are considerations to not use it because it's only growing.
+
+And if you're looking for a UI framework, you should also consider a meta-framework. Usually for React it's Next.js, for Vue it's Nuxt.js, for Svelte it's SvelteKit. Those are essential in many cases.
+
+And the frameworks don't end on these three, there is [Angular](https://angular.dev/), [Qwik](https://qwik.dev/), [Solid.js](https://www.solidjs.com/) and others.
+
+Plus, it doesn't stop in JS, there are Rust web UI frameworks like [Leptos](https://leptos.dev/), [Dioxus](https://dioxuslabs.com/) and [Yew](https://yew.rs/). It's a big wide world.
+
 ## Sources
 - [State of JS 2024](https://2024.stateofjs.com/en-US/libraries/front-end-frameworks)
-- [This random Medium article about performance benchmarks](https://dev.to/im_sonujangra/react-vs-svelte-a-performance-benchmarking-33n4)<br>
+- [This random repo with performance benchmarks](https://github.com/Pierstoval/benchmarks-react-svelte-vue?tab=readme-ov-file)<br>
