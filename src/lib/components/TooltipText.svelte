@@ -39,7 +39,7 @@
         tooltip.style.top = `${e.clientY - 20}px`;
     }
 </script>
-<div class="tooltip-text" aria-label={`click to copy ${text}`} onmouseenter={handleTooltip} onmousemove={handleCopyMove} onclick={handleCopyClick}
+<span class="tooltip-text" aria-label={`click to copy ${text}`} onmouseenter={handleTooltip} onmousemove={handleCopyMove} onclick={handleCopyClick}
      onkeydown={handleCopyKeyboard} onmouseleave={handleCopyOut}
      onblur={handleCopyOut} tabindex="0" role="button" >
     {#if hovering}
@@ -48,10 +48,9 @@
         </div>
     {/if}
     {text}
-</div>
+</span>
 
 <style>
-
     .tooltip-text {
         font-weight: bold;
         cursor: pointer;

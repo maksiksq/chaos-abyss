@@ -4,7 +4,7 @@
     // This page only renders the html gotten from the server
     // !!!!!!!!!!!!!!!!!
 
-    import {hydrate, mount, onDestroy, onMount, tick} from "svelte";
+    import {hydrate, onDestroy, onMount, tick} from "svelte";
     import EmailBox from "../../routes/articles/[category]/[slug]/EmailBox.svelte";
     import {browser} from "$app/environment";
     import {render} from "svelte/server";
