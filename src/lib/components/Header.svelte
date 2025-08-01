@@ -120,7 +120,7 @@
             }
 
             .about-home {
-                margin-left: unset !important;
+                margin-left: unset;
 
                 @media (max-width: 420px) {
                     margin-left: auto;
