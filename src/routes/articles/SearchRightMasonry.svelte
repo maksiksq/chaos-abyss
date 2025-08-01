@@ -3,8 +3,6 @@
 
     let {categories} = $props();
 
-    const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
-
     let interval = $state(1000);
 
     let glass = $state(0);
@@ -44,9 +42,9 @@
     <h2> Here, pick an article: </h2>
     <div class="cards-wrap">
         <div class="cards" bind:this={cards}>
-            {#each categories as category (category.name)}
+            {#each categories as category (category.db)}
                 <div class="card">
-                    <h3>{capitalize(category.name)}</h3>
+                    <h3>{category.human}</h3>
                     <ul>
                         <SearchSummaries data={category}/>
                     </ul>

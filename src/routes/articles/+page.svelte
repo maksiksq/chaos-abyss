@@ -15,7 +15,7 @@
         comment_count: number;
     }
 
-    let { data } = $props();
+    let {data} = $props();
     const grouped: Record<string, Summary> = data.summaries.reduce((acc: Record<string, Summary[]>, summary: Summary) => {
         if (!acc[summary.category]) {
             acc[summary.category] = [];
@@ -24,17 +24,40 @@
         return acc;
     }, {})
 
-    const categories = Object.entries(grouped).map(([name, summaries]) => ({
-        name,
-        summaries
+    const order = ['projects', 'japanese', 'dev', 'media', 'miscellaneous'];
+
+    const capitalize = (s: string) =>
+        s.replace(/\b\w/g, (c: string) => c.toUpperCase());
+
+    let categoryNames = $state([
+        ...Object.keys(grouped).map((name) => ({
+            db: name,
+            human: capitalize(name === 'media' ? 'Games & Media' : name)
+        })),
+        {db: "any", human: "Any"}
+    ]);
+
+    categoryNames = categoryNames.sort((a, b) => {
+        const indexA = order.indexOf(a.db);
+        const indexB = order.indexOf(b.db);
+        return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
+    });
+
+    const categories = $state(Object.entries(grouped).map(([name, summaries]) => {
+        const names = categoryNames.find(n => n.db === name);
+        return {
+            name,
+            summaries,
+            ...names
+        };
+
     }));
 
-    const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
-
-    let categoryNames = [...categories.map((category) => ({
-        db: category.name,
-        human: capitalize(category.name === 'media' ? 'Games & Media' : category.name)
-    })), {db: "any", human: "Any"}];
+    const sortedCategories = $state(categories.sort((a, b) => {
+        const indexA = order.indexOf(a.db ?? '');
+        const indexB = order.indexOf(b.db ?? '');
+        return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
+    }));
 
     // Dev Stuff
     // Japanese
@@ -49,20 +72,23 @@
         mobile = window.matchMedia('(max-width: 1023px)').matches;
     }
     let mobileSearch = $state(data.fromSearch);
-    let mobileSearchDerived = $derived(mobile ? (mobileSearch ? 'yes' : 'no')  : 'desktop');
-    $effect(() => {data.results ? mobileSearch = true : ''})
+    let mobileSearchDerived = $derived(mobile ? (mobileSearch ? 'yes' : 'no') : 'desktop');
+    $effect(() => {
+        data.results ? mobileSearch = true : '';
+    })
 
     onMount(() => {
         checkIfMobile();
     })
- </script>
+</script>
 
-<svelte:window onload={checkIfMobile} onresize={checkIfMobile} />
+<svelte:window onload={checkIfMobile} onresize={checkIfMobile}/>
 
 <Header/>
 <main>
     <section class="mobile-switcher">
-        <button onclick={() => {mobileSearch = false}} style={mobileSearch ? '' : 'color: black'}>Newest Articles</button>
+        <button onclick={() => {mobileSearch = false}} style={mobileSearch ? '' : 'color: black'}>Newest Articles
+        </button>
         <button onclick={() => {mobileSearch = true}} style={mobileSearch ? "color: black" : ''}>Search</button>
     </section>
     {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'yes'}
@@ -77,7 +103,7 @@
         />
     {/if}
     {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
-    <SearchRightMasonry {categories}/>
+        <SearchRightMasonry categories={sortedCategories}/>
     {/if}
 </main>
 <style>
@@ -123,7 +149,8 @@
 
             & button {
                 all: unset;
-                font-size: 0.8rem;padding-right: 1rem;
+                font-size: 0.8rem;
+                padding-right: 1rem;
             }
         }
     }
