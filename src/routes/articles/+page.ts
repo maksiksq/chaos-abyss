@@ -6,7 +6,7 @@ import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {browser} from "$app/environment";
 import type {PageLoad} from "../../../.svelte-kit/types/src/routes/articles/$types";
-const baseUrl = "https://chaos-abyss.com";
+const baseUrl = "https://www.chaos-abyss.com";
 
 type Article = {
     category: string;

@@ -74,7 +74,7 @@ export const load = async ({params}) => {
 
     const meta = {
         title: article.title,
-        canonUrl: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`,
+        canonUrl: `https://www.chaos-abyss.com/articles/${article.category}/${params.slug}`,
         metaNamed: [
             {name: "description", content: escapeHTML(article.blurb)},
             {name: "twitter:card", content: "summary_large_image"},
@@ -87,7 +87,7 @@ export const load = async ({params}) => {
             {property: "og:locale", content: "en_US"},
             {property: "og:title", content: article.title},
             {property: "og:description", content: escapeHTML(article.blurb)},
-            {property: "og:url", content: `https://chaos-abyss.com/articles/${article.category}/${params.slug}`},
+            {property: "og:url", content: `https://www.chaos-abyss.com/articles/${article.category}/${params.slug}`},
             {property: "og:image", content: article.fig}
         ],
         jsonLD: {
@@ -100,7 +100,7 @@ export const load = async ({params}) => {
             },
             "name": article.title,
             "datePublished": toISODate(article.date),
-            "url": `https://chaos-abyss.com/articles/${article.category}/${params.slug}`
+            "url": `https://www.chaos-abyss.com/articles/${article.category}/${params.slug}`
         }
     };
 
