@@ -7,7 +7,7 @@ Here is where I cast my whimsy into the world. Some stuff here is serious, and s
 
 ## Just another blog?
 I've been working on this project for the last month about 6-12 hours a day, although there were some real-life complications, so it's probably a bit less than that, but my Hackatime timer is ticking 200 hours on this project, which only includes coding time, writing and Figma usage which isn't the full extent of it too.
- 
+
 That said, it's totally just another blog, nothing taking that away.
 
 And yes, I could just make a website with wordpress or any other cms and I had the unfortunate experience of doing that for money in the past (the money is nice tho, yoink). But that would just lose so much of the aforementioned whimsy, so much creativity, so much experience and flexibility; making it myself is fun, and that's exactly the thing I hated about those cms commissions I made in the past, it was not fun at all.
@@ -45,14 +45,14 @@ Then for the database it's Supabase because I'm not making all that myself.
 ### Styling
 
 Also, I've stopped using SASS lately in favor of vanilla CSS, modern CSS is more than enough for almost any app. My CSS is cursed tho, it's all:
-```    
+```css    
 
-probably-nested-selector {
-        & even-more-nested-selector {
-            color: beans;
-        }
+.probably-nested-selector {
+    & .even-more-nested-selector {
+        color: beans;
     }
-    
+}
+
 ```
 
 

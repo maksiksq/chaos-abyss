@@ -93,6 +93,18 @@
     </section>
 
     <noscript>
+        <div class={`search-left-search  noscript-mobile`}>
+            <SearchLeftSearch
+                    results={data.results}
+                    searchCount={data.searchCount}
+                    fromSearch={data.fromSearch}
+                    cat={data.cat}
+                    query={data.query}
+                    noResultsTxt={data.noResultsTxt}
+                    {categoryNames}
+                    {mobile}
+            />
+        </div>
         <div class={`search-right-masonry  noscript-mobile`}>
             <SearchRightMasonry categories={sortedCategories} {mobile}/>
         </div>
