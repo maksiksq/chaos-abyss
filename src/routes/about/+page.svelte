@@ -202,6 +202,7 @@
 
                 & h1 {
                     font-family: 'Roboto Slab', sans-serif;
+                    font-size: 2rem;
                     padding-bottom: 1rem;
 
                     @media (max-width: 768px) {

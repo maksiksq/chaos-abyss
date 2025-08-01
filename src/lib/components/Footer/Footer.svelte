@@ -204,7 +204,7 @@
 <footer class="{home ? 'hand-holder' : ''}">
     <div class="footer-left">
         {#if !home}
-            <img class="gem" src="/img/gem.svg" alt="A really cool gemstone encircled by magic tentacles or something">
+            <img class="gem" src="/img/gem.svg" width="1325" height="2457" alt="A really cool gemstone encircled by magic tentacles or something">
         {:else}
             <img class="gem diamond" src="/img/diamond-sticks.svg" alt="A diamond" bind:this={diamond}/>
         {/if}

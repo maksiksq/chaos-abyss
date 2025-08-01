@@ -27,7 +27,7 @@
 <main>
     <div class="wrap">
         <h1>Contact:</h1>
-        <img class="pfp" src="/img/pfp40likesmth.png" alt="Maksiks profile pic">
+        <img class="pfp" width="1048" height="1048" src="/img/pfpvlike40somethingidkilostcountsquare.png" alt="Maksiks profile pic">
         <address class="content">
             <p>The best way to contact me is via email:<br>
                 <svg aria-label="Email icon" class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -94,6 +94,7 @@
 
             & h1 {
                 font-family: 'Roboto Slab', sans-serif;
+                font-size: 2rem;
             }
 
             & .content {
@@ -119,7 +120,6 @@
             & .pfp {
                 grid-row: span 2;
                 margin-left: 2rem;
-                aspect-ratio: 1;
                 border-radius: 4px;
                 border: 3px solid black;
                 width: 100%;
