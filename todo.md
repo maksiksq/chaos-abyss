@@ -109,7 +109,7 @@
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 
 - [x] : fix: no js articles don't scroll
-- [ ] : fix: mobile articles page first contenful load lighthouse report is too long
+- [ ] : minor fix: mobile articles page first contenful load lighthouse report is too long
 - [x] : right before prod: Zero edit dates and fix publish dates
 
 - [ ] : prod: Point imagekit url
