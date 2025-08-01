@@ -122,8 +122,7 @@
                     Frieren, Omori, Oneshot, Hades, Vocaloid music, Dead Cells, EDM music <br> <strong>Some things that
                         keep
                         me alive:</strong> caffeine, Svelte, Stardew Valley, badass Ukrainian soldiers on the
-                    frontlines,
-                    my insanity
+                    frontlines
                 </p>
             </div>
         </section>
