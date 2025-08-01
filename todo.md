@@ -114,11 +114,11 @@
 - [x] : right before prod: Zero edit dates and fix publish dates
 
 - [ ] : prod: Point imagekit url
-- [ ] : prod: Check if copying on mobile works
+- [x] : prod: Check if copying on mobile works
 - [ ] : prod: apply for google news
-- [ ] : prod: check if sitemap also updates weirdly in production
+- [x] : prod: check if sitemap also updates weirdly in production
 - [x] : prod: redirect vercel domains to chaos-abyss.com
-- [ ] : prod: submit sitemap to search console
+- [x] : prod: submit sitemap to search console
 
 i should really use like Trello for this
 
