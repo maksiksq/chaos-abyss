@@ -12,7 +12,7 @@
                 <!-- css grid is being cursed so flex spaghetti -->
                 <div class="main-art-cont">
                     <div class="img-cont">
-                        <img width="1920" height="1080" src={summary.fig ? `${summary.fig}?tr=w-960` : 'https://ik.imagekit.io/maksiks/Slide%2016_9%20-%205.svg'} alt={summary.figalt || 'Image'} loading={mobile && ix !== 0 ? `lazy` : undefined}/>
+                        <img width={summary.fig.slice(-4) === '.svg' ? undefined : 960} height="545" src={summary.fig ? `${summary.fig}?tr=w-960` : 'https://ik.imagekit.io/maksiks/Slide%2016_9%20-%205.svg'} alt={summary.figalt || 'Image'} loading={mobile && ix !== 0 ? `lazy` : undefined}/>
                     </div>
                     <div class="head-blurb-cont">
                         <div class="h4-cont">

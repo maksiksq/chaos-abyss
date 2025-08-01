@@ -82,7 +82,7 @@
     {/if}
     {#if !results || !fromSearch}
         <div class="lamp-wrap">
-            <img class="lamp" src="https://ik.imagekit.io/maksiks/lamp-but-actually-centered.svg?tr=w-300" alt="a dim lamp (no search results)">
+            <img class="lamp" width="300" height="240" src="https://ik.imagekit.io/maksiks/lamp-but-actually-centered.svg?tr=w-300" alt="a dim lamp (no search results)">
             {#if fromSearch && !results}
                 <p>{noResultsTxt ?? 'The abyss gave no reply.'}</p>
             {:else if !fromSearch}

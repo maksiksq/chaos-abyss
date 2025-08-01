@@ -90,7 +90,7 @@
             </div>
         </section>
         <section class="content">
-            <img class="pfp" src="/img/pfp40likesmth.png" alt="Maksiks profile pic" loading="lazy"/>
+            <img class="pfp" width="1048" height="1048" src="/img/pfpvlike40somethingidkilostcountsquare.png" alt="Maksiks profile pic" loading="lazy"/>
             <h1>Who is behind all this</h1>
             <div class="content-text">
                 <p>
@@ -99,7 +99,7 @@
                 <p>
                     I live in
                     Ukraine <img
-                        class="smol" src="/img/flag-ua.png" alt="Ukrainian flag"> and it's fun here, plus we have
+                        width="72" height="72" class="smol" src="/img/flag-ua.png" alt="Ukrainian flag"> and it's fun here, plus we have
                     pierogi,
                     and they're crazy good. And I recommend you visit here someday.
                 </p>
@@ -213,7 +213,9 @@
                 .content-text {
                     & .smol {
                         display: inline;
+                        aspect-ratio: 1;
                         width: 1rem;
+                        height: auto;
                         vertical-align: middle;
                     }
 
@@ -229,6 +231,7 @@
                     margin-left: 1rem;
                     margin-bottom: 0.5rem;
                     width: 200px;
+                    height: auto;
                     float: right;
 
                     @media (max-width: 768px) {
