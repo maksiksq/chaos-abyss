@@ -53,8 +53,7 @@
 <svelte:head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" />
+
 </svelte:head>
 <svelte:window on:keydown={handleTravelToEditor}/>
 
@@ -124,7 +123,7 @@
             }
 
             & h1 {
-                font-family: 'Roboto Slab', sans-serif;
+                font-family: 'Roboto Slab', sans-serif, Georgia;
                 font-weight: normal;
                 font-size: 6rem;
                 width: fit-content;

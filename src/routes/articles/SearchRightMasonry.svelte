@@ -75,7 +75,7 @@
     }
 
     .feat-seg {
-        width: 60%;
+        width: 100%;
         display: flex;
         flex-direction: column;
 

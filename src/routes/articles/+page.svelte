@@ -91,7 +91,13 @@
         </button>
         <button onclick={() => {mobileSearch = true}} style={mobileSearch ? "color: black" : ''}>Search</button>
     </section>
-    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'yes'}
+
+    <noscript>
+        <div class={`search-right-masonry  noscript-mobile`}>
+            <SearchRightMasonry categories={sortedCategories} {mobile}/>
+        </div>
+    </noscript>
+    <div class={`search-left-search mobile-none ${mobileSearchDerived === 'yes' ? 'mobile-block' : ''}`}>
         <SearchLeftSearch
                 results={data.results}
                 searchCount={data.searchCount}
@@ -102,12 +108,30 @@
                 {categoryNames}
                 {mobile}
         />
-    {/if}
-    {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
+    </div>
+    <div class={`search-right-masonry ${mobileSearchDerived === 'no' ? '' : 'mobile-none'}`}>
         <SearchRightMasonry categories={sortedCategories} {mobile}/>
-    {/if}
+    </div>
 </main>
 <style>
+    .noscript-mobile {
+        display: none;
+    }
+
+    @media (max-width: 1023px) {
+        .mobile-none {
+            display: none;
+        }
+
+        .noscript-mobile {
+            display: block;
+        }
+
+        .mobile-block {
+            display: block;
+        }
+    }
+
     :global {
         body {
             overflow-y: visible;
@@ -132,6 +156,23 @@
             flex-direction: column;
             min-height: 1vh;
             height: 100%;
+        }
+
+        & .search-left-search {
+            width: 40%;
+            padding-right: 1rem;
+
+            @media (max-width: 1023px) {
+                width: 100%;
+            }
+        }
+
+        & .search-right-masonry {
+            width: 60%;
+
+            @media (max-width: 1023px) {
+                width: 100%;
+            }
         }
 
         & .mobile-switcher {
