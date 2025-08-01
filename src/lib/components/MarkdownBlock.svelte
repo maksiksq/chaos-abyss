@@ -45,16 +45,13 @@
         })
     }
 
-    let formReactive = $derived(form);
-
     if (!browser) {
         // I'm not completely positive that this works
         // the docs do be kind of vague on this one
         const emailBox = render(EmailBox, {
-            props: {form: formReactive}
+            props: {form: form}
         })
     }
-
 
     onMount(() => {
         if (slug === 'lirith') {
@@ -62,7 +59,7 @@
             if (!target) {return;}
             const emailBoxHyd = hydrate(EmailBox, {
                 target: target,
-                props: {form: formReactive}
+                props: {form: form}
             })
         }
 

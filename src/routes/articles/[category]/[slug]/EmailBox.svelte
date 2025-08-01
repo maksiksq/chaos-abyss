@@ -2,7 +2,7 @@
     import {flushSync, onMount} from "svelte";
     import {enhance} from '$app/forms';
     import {applyAction} from "$app/forms";
-    import {invalidate, invalidateAll} from "$app/navigation";
+    import {invalidateAll} from "$app/navigation";
 
     let {form = null} = $props();
 
@@ -12,13 +12,7 @@
         errMsg = form?.threat;
     })
 
-    $inspect(form)
-    $inspect(errMsg)
-
     flushSync();
-
-    onMount(() => {
-    })
 </script>
 
 <div class="waitlist">
