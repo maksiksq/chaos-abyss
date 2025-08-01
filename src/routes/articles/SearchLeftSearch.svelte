@@ -223,11 +223,12 @@
 
             & .lamp {
                 width: 8rem;
+                height: auto;
                 opacity: 0.6;
             }
 
             * {
-                padding-right: 2rem;
+                padding-right: 1rem;
                 color: #666666;
 
                 @media (max-width: 768px) {
