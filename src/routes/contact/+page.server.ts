@@ -117,7 +117,7 @@ export const load = ({url}) => {
                     "knowsLanguage": ["English", "Ukrainian", "Japanese"],
                     "alternateName": "maksiksq",
                     "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design..",
-                    "image": "https://chaos-abyss.com/img/pfpvlike40somethingidkilostcountsquare.png",
+                    "image": "https://chaos-abyss.com/img/pfpvlike40somethingidkilostcountsquaresmol.webp",
                     "sameAs": [
                         "https://github.com/maksiksq",
                         "https://bsky.app/profile/maksiks.bsky.social",

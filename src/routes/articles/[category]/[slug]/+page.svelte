@@ -21,7 +21,7 @@
             <article>
                 <div class="head-fig-wrap">
                     <figure class="head-fig">
-                        <img class="widefig" src={data.article.widefig} alt={data.article.figalt ?? data.article.title}>
+                        <img class="widefig" width="1920" src={data.article.widefig} alt={data.article.figalt ?? data.article.title}>
                         <img class="fig" src={data.article.fig} alt={data.article.figalt ?? data.article.title}>
                         {#if (data.article.figcap)}
                             <figcaption>{data.article.figcap}</figcaption>

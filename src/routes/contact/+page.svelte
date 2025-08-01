@@ -27,7 +27,7 @@
 <main>
     <div class="wrap">
         <h1>Contact:</h1>
-        <img class="pfp" width="1048" height="1048" src="/img/pfpvlike40somethingidkilostcountsquare.png" alt="Maksiks profile pic">
+        <img class="pfp" width="524" height="524" src="/img/pfpvlike40somethingidkilostcountsquaresmol.webp" alt="Maksiks profile pic">
         <address class="content">
             <p>The best way to contact me is via email:<br>
                 <svg aria-label="Email icon" class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -46,8 +46,8 @@
                 </svg>
                 <TooltipText text={'@maksiks'}/>
             </p>
+            <p>Alternatively:</p>
             <ul class="socials">
-                Alternatively:
                 <Socials {socials} fromContact={true}/>
             </ul>
         </address>
@@ -122,7 +122,9 @@
                 margin-left: 2rem;
                 border-radius: 4px;
                 border: 3px solid black;
+                aspect-ratio: 1;
                 width: 100%;
+                height: auto;
 
                 @media (max-width: 1279px) {
                     margin-left: 0;

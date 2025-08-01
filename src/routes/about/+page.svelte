@@ -90,7 +90,7 @@
             </div>
         </section>
         <section class="content">
-            <img class="pfp" width="1048" height="1048" src="/img/pfpvlike40somethingidkilostcountsquare.png" alt="Maksiks profile pic" loading="lazy"/>
+            <img class="pfp" width="524" height="524" src="/img/pfpvlike40somethingidkilostcountsquaresmol.webp" alt="Maksiks profile pic" loading="lazy"/>
             <h1>Who is behind all this</h1>
             <div class="content-text">
                 <p>

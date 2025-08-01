@@ -52,6 +52,7 @@
         flex-direction: column;
 
         & h1 {
+            font-size: 2rem;
             & span {
                 padding: 0 5px 5px 5px;
                 background-color: var(--accent-color);
