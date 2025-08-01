@@ -11,16 +11,21 @@
         copy = 'Click to copy';
     }
 
-    const handleCopyClick = () => {
-        navigator.clipboard.writeText(text);
-
-        copy = 'Copied!';
+    const handleCopyClick = async () => {
+        try {
+            await navigator.clipboard.writeText(text);
+            console.log('Copied!');
+            copy = 'Copied!';
+        } catch (err) {
+            console.error('Clipboard write failed:', err);
+            copy = 'Failed to copy. Please do it manually then :)';
+        }
     }
 
-    const handleCopyKeyboard = (e: KeyboardEvent) => {
+    const handleCopyKeyboard = async (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            navigator.clipboard.writeText(text);
+            await navigator.clipboard.writeText(text);
 
             copy = 'Copied!';
         }
@@ -39,7 +44,7 @@
         tooltip.style.top = `${e.clientY - 20}px`;
     }
 </script>
-<span class="tooltip-text" aria-label={`click to copy ${text}`} onmouseenter={handleTooltip} onmousemove={handleCopyMove} onclick={handleCopyClick}
+<span class="tooltip-text" aria-label={`click to copy ${text}`} onmouseenter={handleTooltip} onpointermove={handleCopyMove} onclick={handleCopyClick}
      onkeydown={handleCopyKeyboard} onmouseleave={handleCopyOut}
      onblur={handleCopyOut} tabindex="0" role="button" >
     {#if hovering}
