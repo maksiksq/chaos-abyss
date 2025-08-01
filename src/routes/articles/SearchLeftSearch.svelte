@@ -13,6 +13,7 @@
             db: string;
             human: string;
         }>,
+        mobile: boolean
     }
 
     let {
@@ -22,7 +23,8 @@
         query = 'Welcome to the Abyss',
         noResultsTxt = 'The abyss gave no reply.',
         cat = "any",
-        categoryNames
+        categoryNames,
+        mobile
     }: Props = $props();
 
 
@@ -71,7 +73,7 @@
     </div>
     {#if fromSearch && results}
         <ul class="search-results">
-            <SearchSummaries data={results} {fromSearch}/>
+            <SearchSummaries data={results} {fromSearch} {mobile}/>
         </ul>
     {:else if !fromSearch}
         <small>Try searching something up there, or look at newest articles <span
@@ -80,7 +82,7 @@
     {/if}
     {#if !results || !fromSearch}
         <div class="lamp-wrap">
-            <img class="lamp" src="/img/lamp-but-actually-centered.svg" alt="a dim lamp (no search results)">
+            <img class="lamp" src="https://ik.imagekit.io/maksiks/lamp-but-actually-centered.svg?tr=w-300" alt="a dim lamp (no search results)">
             {#if fromSearch && !results}
                 <p>{noResultsTxt ?? 'The abyss gave no reply.'}</p>
             {:else if !fromSearch}

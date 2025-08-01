@@ -100,10 +100,11 @@
                 query={data.query}
                 noResultsTxt={data.noResultsTxt}
                 {categoryNames}
+                {mobile}
         />
     {/if}
     {#if mobileSearchDerived === 'desktop' || mobileSearchDerived === 'no'}
-        <SearchRightMasonry categories={sortedCategories}/>
+        <SearchRightMasonry categories={sortedCategories} {mobile}/>
     {/if}
 </main>
 <style>

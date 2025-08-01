@@ -1,7 +1,7 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
 
-    let {categories} = $props();
+    let {categories, mobile} = $props();
 
     let interval = $state(1000);
 
@@ -46,7 +46,7 @@
                 <div class="card">
                     <h3>{category.human}</h3>
                     <ul>
-                        <SearchSummaries data={category}/>
+                        <SearchSummaries data={category} {mobile}/>
                     </ul>
                 </div>
             {/each}

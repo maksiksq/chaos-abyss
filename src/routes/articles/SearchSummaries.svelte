@@ -2,9 +2,9 @@
     import {timestamptzToHumanDate} from "$lib/utils/timestamptzToHumanDate.js";
 
     const capitalize = (s: string) => s.replace(/\b\w/g, (c: string) => c.toUpperCase());
-    const {data, fromSearch = false} = $props();
+    const {data, fromSearch = false, mobile=false} = $props();
 </script>
-{#each data.summaries as summary (`${summary.category}/${summary.slug}`)}
+{#each data.summaries as summary, ix (`${summary.category}/${summary.slug}`)}
     <li>
         <article class={`mobile-article ${fromSearch ? 'from-search' : ''}`}
                  style={fromSearch ? `border-left: 5px solid ${summary.accent}; padding-left: 1rem;` : ''}>
@@ -12,7 +12,7 @@
                 <!-- css grid is being cursed so flex spaghetti -->
                 <div class="main-art-cont">
                     <div class="img-cont">
-                        <img src={summary.fig || 'https://ik.imagekit.io/maksiks/Slide%2016_9%20-%205.svg'} alt={summary.figalt || 'Image'} loading="lazy"/>
+                        <img width="1920" height="1080" src={summary.fig ? `${summary.fig}?tr=w-960` : 'https://ik.imagekit.io/maksiks/Slide%2016_9%20-%205.svg'} alt={summary.figalt || 'Image'} loading={mobile && ix !== 0 ? `lazy` : undefined}/>
                     </div>
                     <div class="head-blurb-cont">
                         <div class="h4-cont">
