@@ -45,22 +45,24 @@
         })
     }
 
+    let formReactive = $derived(form);
+
     if (!browser) {
         // I'm not completely positive that this works
         // the docs do be kind of vague on this one
         const emailBox = render(EmailBox, {
-            props: {form: form}
+            props: {form: formReactive}
         })
     }
 
 
     onMount(() => {
         if (slug === 'lirith') {
-            const target = document.querySelector('#email-box-placeholder')
+            const target = document.querySelector('#email-box-placeholder');
             if (!target) {return;}
             const emailBoxHyd = hydrate(EmailBox, {
                 target: target,
-                props: {form: form}
+                props: {form: formReactive}
             })
         }
 
