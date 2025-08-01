@@ -89,7 +89,7 @@
 - [x] : soon: favicon
 - [ ] : very later: comments
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
-- [ ] : very later: implement reminder
+- [ ] : very later: implement reminder 
 - [ ] : very later: maybe hover/button for Romaji?
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: maybe revisit hand slightly

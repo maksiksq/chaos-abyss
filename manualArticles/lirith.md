@@ -15,10 +15,10 @@ The concept revolves mostly around using blocks basically like a desktop and mic
 
 ## The ideas
 
-One day I started placing files on my desktop, it was something like "reminder to use this thing". And well, I wake up, stare at it, hard to miss that. That worked so, well that I now have over 60 text files on my desktop being kinda ugly. Another day I was brainstorming the places I look most often, then I realized my phone notifications are free real estate. And these ideas have been piling up in the same notes on the desktop.
+One day I started placing files on my desktop, it was something like "reminder to use this thing". And well, I wake up, stare at it, hard to miss that. That worked so well that I now have over 60 text files on my desktop being kinda ugly. Another day I was brainstorming the places I look most often, then I realized my phone notifications are free real estate. And these ideas have been piling up in the same notes on the desktop.
 
 My biggest problem with a typical to-do list is that I won't use it unless I explicitly remember about it. Eventually, I'm surrounded with a lot of tasks, and I kinda check it out once in a while to see if there's something I forgot. It's pretty awkwardly scoped. Project focused apps are nice, but you can't use them universally for all tasks and general life.
 
 And if something that works for me doesn't work for you, then find what fits your mold. I want it customizable but not overly complex, which is quite a task in itself.
 
-Lastly, quality assured, I'll take my time with it. Not because I don't want to ruin expectations, no I just need a good app to use myself too ofc.
+Lastly, quality assured, I'll take my time with it. Not just because I don't want to ruin expectations, no I just need a good app to use myself too of course he-he.

@@ -65,7 +65,7 @@
         margin-bottom: 1rem;
         padding: 1rem;
         background-color: rgba(239, 239, 243, 0.6);
-        background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20(4).svg");
+        background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20(8).svg");
         border: 1px solid black;
         background-size: cover;
 
