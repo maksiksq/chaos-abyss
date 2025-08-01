@@ -2,6 +2,7 @@
     import {flushSync, onMount} from "svelte";
     import {enhance} from '$app/forms';
     import {applyAction} from "$app/forms";
+    import {invalidate, invalidateAll} from "$app/navigation";
 
     let {form = null} = $props();
 
@@ -11,8 +12,12 @@
         errMsg = form?.threat;
     })
 
+    $inspect(form)
+    $inspect(errMsg)
+
+    flushSync();
+
     onMount(() => {
-        flushSync();
     })
 </script>
 
@@ -22,6 +27,7 @@
     </h2>
     <p>If you want to, you can sign up to get updates on Lirith.</p>
     <form method="POST" class="waitlist-form" action="/contact?/waitlist" use:enhance={({formData, cancel}) => {
+        invalidateAll();
     const email = formData.get('email');
     if (!email) {errMsg = 'No email provided here.'; cancel()}
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,14 +45,15 @@
             <input type="text" name="nickname" id="nickname">
         </label>
         <label class="sr-only" for="email">Email</label>
-        <input class="email-input" type="email" name="email" id="email" placeholder="Your email">
+        <input class="email-input" type="text" name="email" id="email" placeholder="Your email">
         <button type="submit">Submit</button>
     </form>
     {#if errMsg}
         <p role="alert" class="error-success-message">{errMsg}</p>
     {/if}
 
-    <p class="waitlist-info">✦ You'll only get occasional major updates - e.g. release info, significant direction changes. No spam in your
+    <p class="waitlist-info">✦ You'll only get occasional major updates - e.g. release info, significant direction
+        changes. No spam in your
         inbox! Only major things, no update logs, no ads, no weekly emails etc. Just the things you need to know before
         it happens.</p>
 
