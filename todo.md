@@ -113,9 +113,9 @@
 - [ ] : minor fix: mobile articles page first contentful load lighthouse report is too long
 - [x] : right before prod: Zero edit dates and fix publish dates
 
-~~<br>- [ ] : scrap: Point imagekit url : premium only thing apparently~~
+~~<br>- [ ] : scrap: Point imagekit url~~ : premium only thing apparently
 - [x] : prod: Check if copying on mobile works
-- [ ] : prod: apply for google news
+~~<br>- [x] : scrap: apply for google news~~ : it's automatic now so uh
 - [x] : prod: check if sitemap also updates weirdly in production
 - [x] : prod: redirect vercel domains to chaos-abyss.com
 - [x] : prod: submit sitemap to search console
