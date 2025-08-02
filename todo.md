@@ -121,7 +121,7 @@
 - [x] : prod: submit sitemap to search console
 - [ ] : prod: write readme
 - [ ] : prod: make banner
-- [ ] : prod: handle emails w resend
+- [x] : prod: handle emails w Resend
 
 i should really use like Trello for this
 
