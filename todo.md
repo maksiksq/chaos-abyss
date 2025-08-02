@@ -109,16 +109,19 @@
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 
 - [x] : fix: no js articles don't scroll
-- [x] : fix: email form is still sorta jank
-- [ ] : minor fix: mobile articles page first contenful load lighthouse report is too long
+- [ ] : fix: email form is still sorta jank
+- [ ] : minor fix: mobile articles page first contentful load lighthouse report is too long
 - [x] : right before prod: Zero edit dates and fix publish dates
 
-- [ ] : prod: Point imagekit url
+~~<br>- [ ] : scrap: Point imagekit url : premium only thing apparently~~
 - [x] : prod: Check if copying on mobile works
 - [ ] : prod: apply for google news
 - [x] : prod: check if sitemap also updates weirdly in production
 - [x] : prod: redirect vercel domains to chaos-abyss.com
 - [x] : prod: submit sitemap to search console
+- [ ] : prod: write readme
+- [ ] : prod: make banner
+- [ ] : prod: handle emails w resend
 
 i should really use like Trello for this
 
