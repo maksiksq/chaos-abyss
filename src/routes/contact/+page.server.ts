@@ -3,7 +3,7 @@ import {SECRET_IP_HASH_SALT} from "$env/static/private";
 import {PUBLIC_DEV} from "$env/static/public";
 import {createHash} from "node:crypto";
 
-export const prerender = true;
+export const prerender = false;
 
 export const actions = {
     waitlist: async ({request, getClientAddress, locals: {supabase}}) => {
