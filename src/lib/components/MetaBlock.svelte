@@ -49,7 +49,7 @@
 
 <style>
     header {
-        padding-top: clamp(0.5rem, 1.2vw, 2rem);
+        padding-top: clamp(0.5rem, 1.3vw, 2rem);
 
         width: 100%;
         display: flex;
