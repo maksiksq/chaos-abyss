@@ -2,8 +2,6 @@ import {error as sverror} from "@sveltejs/kit";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {escapeHTML} from "$lib/utils/escapeHTML";
 import {calculateDeepAccent} from "$lib/utils/calculateDeepAccent";
-import {render} from "svelte/server";
-import EmailBox from "./EmailBox.svelte";
 
 export const prerender = 'auto';
 
