@@ -2,10 +2,16 @@
     import MarkdownBlock from '$lib/components/MarkdownBlock.svelte';
     import ArticleEndblock from "./ArticleEndblock.svelte";
     import MetaBlock from "$lib/components/MetaBlock.svelte";
+    import {onMount} from "svelte";
 
     const {data, form} = $props();
 
     let body: HTMLBodyElement | undefined = $state();
+
+    onMount(() => {
+        body?.style.setProperty('--accent-color', data.article.accent);
+        body?.style.setProperty('--accent-color-deeper', data.accentDeep);
+    })
 
     $effect(() => {
         body?.style.setProperty('--accent-color', data.article.accent);

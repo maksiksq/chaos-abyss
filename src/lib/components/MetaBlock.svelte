@@ -12,6 +12,8 @@
         author = ''
     } = $props();
 
+    $inspect(accent)
+
     const humanDate = $state(timestamptzToHumanDate(date));
     const humanLastEdit = $state(timestamptzToHumanDate(lastEdit));
 
