@@ -21,7 +21,9 @@
 <header class="metablock">
     <h1>
         <!-- inline styles are fallbacks for nojs-->
-        <span style={`background-color: ${accent}`}>{title}</span>
+        <!-- also lighthouse doesn't see font-size with nested selector
+         or for some other reason -->
+        <span style={`background-color: ${accent}, font-size: 2rem`}>{title}</span>
     </h1>
 
     <small class="blurb"><span style={`background-color: ${accent}`}>{blurb}</span></small>

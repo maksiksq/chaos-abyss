@@ -41,7 +41,7 @@
         {#if fromSearch}
             <div class="head-cont-up">
                 <div class="head-results">
-                    <h1>Results for:&nbsp; <span class="query-smol">{query}</span></h1>
+                    <h1 style="font-size: 2rem">Results for:&nbsp; <span class="query-smol">{query}</span></h1>
                     <p class="search-count {searchCount ? '' : 'search-count-disappear' }">
                         {#if searchCount}
                             {searchCount} results found
