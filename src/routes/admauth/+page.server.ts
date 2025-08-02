@@ -1,5 +1,13 @@
 import {type Actions, fail, redirect} from "@sveltejs/kit";
 
+export const load = () => {
+    return {
+        meta: {
+            noindex: true,
+        }
+    };
+};
+
 export const actions = {
     login: async ({ request, locals: { supabase } }) => {
         const formData = await request.formData()
