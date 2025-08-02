@@ -8,6 +8,7 @@
     import {invalidate} from "$app/navigation";
     import type {Session} from "@supabase/supabase-js";
     import {unescapeHTML} from "$lib/utils/unescapeHTML";
+
     let {data, children} = $props();
 
     let {meta} = $derived(page.data);
