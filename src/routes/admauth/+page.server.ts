@@ -1,6 +1,5 @@
 import {type Actions, fail, redirect} from "@sveltejs/kit";
 
-export const prerender = false;
 
 export const load = () => {
     return {
