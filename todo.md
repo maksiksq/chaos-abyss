@@ -132,6 +132,7 @@
 - [ ] : prod: make banner
 - [ ] : prod: plausible analytics
 - [ ] : prod: write readme
+- [ ] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
 
 i should really use like Trello for this
 
