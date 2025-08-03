@@ -56,7 +56,7 @@ export const actions = {
 
             if(selError) {
                 if (PUBLIC_DEV) console.error(selError);
-                return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
+                return fail(400, {success: false, threat: 'Oh no! Something went wrong! Try again!'});
             }
 
             const ipCountZeroed = count ?? 0;
@@ -78,7 +78,7 @@ export const actions = {
             if (inError.message === 'duplicate key value violates unique constraint "waitlist_email_key"') {
                 return fail(400, {success: false, threat: "You already signed up for it!"});
             }
-            return fail(400, {success: false, threat: 'Oh no! Something went wrong!'});
+            return fail(400, {success: false, threat: 'Oh no! Something went wrong! Try again!'});
         }
 
         return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.',};
