@@ -24,7 +24,7 @@
         return acc;
     }, {})
 
-    const order = ['projects', 'japanese', 'dev', 'media', 'miscellaneous'];
+    const order = ['dev', 'japanese', 'projects', 'media', 'miscellaneous'];
 
     const capitalize = (s: string) =>
         s.replace(/\b\w/g, (c: string) => c.toUpperCase());
