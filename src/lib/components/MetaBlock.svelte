@@ -12,8 +12,6 @@
         author = ''
     } = $props();
 
-    $inspect(accent)
-
     const humanDate = $state(timestamptzToHumanDate(date));
     const humanLastEdit = $state(timestamptzToHumanDate(lastEdit));
 
@@ -25,7 +23,7 @@
         <!-- inline styles are fallbacks for nojs-->
         <!-- also lighthouse doesn't see font-size with nested selector
          or for some other reason -->
-        <span style={`background-color: ${accent}, font-size: 2rem`}>{title}</span>
+        <span style={`background-color: ${accent}; font-size: 2.6rem;`}>{title}</span>
     </h1>
 
     <small class="blurb"><span style={`background-color: ${accent}`}>{blurb}</span></small>
@@ -59,9 +57,9 @@
             font-size: 2rem;
             & span {
                 padding: 0 5px 5px 5px;
-                background-color: var(--accent-color);
                 display: inline;
                 box-decoration-break: clone;
+                background-color: var(--accent-color);
 
                 font-size: 2.6rem;
                 line-height: 3.1rem;
