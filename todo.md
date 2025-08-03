@@ -121,8 +121,8 @@
 - [ ] : prod: write readme
 - [x] : prod: make email sender edge function secure
 - [ ] : prod: make banner
-- [ ] : prod: google analytics
-- [ ] : prod: about still buggy on mobile
+- [ ] : prod: plausible analytics
+- [x] : prod: about still buggy on mobile
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
 - [ ] : prod: maybe fix emailbox jank
