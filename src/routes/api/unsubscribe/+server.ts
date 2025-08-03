@@ -1,12 +1,13 @@
 import {error as sverror} from '@sveltejs/kit';
 import type {RequestHandler} from './$types';
-import {PUBLIC_DEV} from "$env/static/public";
-import {SECRET_UNSUBSCRIBE_SECRET} from "$env/static/private";
-import {getClient} from "$lib/utils/getSupabaseClient";
+import {PUBLIC_DEV, PUBLIC_SUPABASE_URL} from "$env/static/public";
+import {SECRET_UNSUBSCRIBE_SECRET, SECRET_SUPABASE_SERVICE_ROLE_KEY} from "$env/static/private";
 import {jwtVerify} from "jose";
+import {createClient} from "@supabase/supabase-js";
 
-export const GET: RequestHandler = async ({url}) => {
+export const GET: RequestHandler = async ({url, cookies}) => {
     const jwt = url.searchParams.get('jwt');
+    console.log("OH HI");
 
     if (!jwt) {
         sverror(400, 'Invalid token')
@@ -20,7 +21,8 @@ export const GET: RequestHandler = async ({url}) => {
             console.log("Verified payload:", payload);
         }
 
-        const supabase = getClient();
+        // @ts-ignore
+        const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY)
 
         const {error} = await supabase
             .from('waitlist')
