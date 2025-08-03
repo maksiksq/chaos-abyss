@@ -122,6 +122,7 @@
 - [x] : prod: make email sender edge function secure
 - [ ] : prod: make banner
 - [ ] : prod: google analytics
+- [ ] : prod: about still buggy on mobile
 - [ ] : prod: an article or two
 - [ ] : prod: maybe fix emailbox jank
 - [ ] : prod: make auto email text cooler 
