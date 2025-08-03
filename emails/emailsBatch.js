@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 // NOTE: maximum batch size for Resend is 50
 // + the 100 a day email limit
+// filter csv to only use the subscribed ones later
 
 dotenv.config();
 

@@ -83,6 +83,10 @@ export const actions = {
 
         return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.',};
     },
+    unwaitlist: async ({request}) => {
+        const formData = await request.formData();
+
+    }
 } satisfies Actions;
 
 export const load = ({url}) => {
