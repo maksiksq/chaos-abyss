@@ -125,7 +125,7 @@
 - [x] : prod: about still buggy on mobile
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
-- [ ] : prod: maybe fix emailbox jank
+- [x] : prod: maybe fix emailbox jank it's fixed already
 - [ ] : prod: make auto email text cooler 
 - [x] : unsubscribe link
 - [ ] : prod: post to reddit
