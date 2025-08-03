@@ -109,7 +109,6 @@
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 
 - [x] : fix: no js articles don't scroll
-- [ ] : fix: email form is still sorta jank
 - [ ] : minor fix: mobile articles page first contentful load lighthouse report is too long
 - [x] : right before prod: Zero edit dates and fix publish dates
 
@@ -120,10 +119,13 @@
 - [x] : prod: redirect vercel domains to chaos-abyss.com
 - [x] : prod: submit sitemap to search console
 - [ ] : prod: write readme
+- [x] : prod: make email sender edge function secure
 - [ ] : prod: make banner
 - [ ] : prod: google analytics
 - [ ] : prod: an article or two
 - [ ] : prod: maybe fix emailbox jank
+- [x] : prod: make auto email text cooler
+- [ ] : prod: post to reddit
 - [x] : prod: handle emails w Resend
 - [x] : prod: homepage art is positioned wrong
 - [x] : prod: accent color loading
