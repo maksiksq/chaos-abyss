@@ -124,9 +124,10 @@
 - [ ] : prod: google analytics
 - [ ] : prod: about still buggy on mobile
 - [ ] : prod: an article or two
+- [ ] : prod: maybe a real newsletter but later
 - [ ] : prod: maybe fix emailbox jank
 - [ ] : prod: make auto email text cooler 
-- [ ] : unsubscribe link
+- [x] : unsubscribe link
 - [ ] : prod: post to reddit
 - [x] : prod: handle emails w Resend
 - [x] : prod: homepage art is positioned wrong

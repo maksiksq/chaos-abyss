@@ -123,7 +123,7 @@
                 margin-left: unset !important;
 
                 @media (max-width: 420px) {
-                    margin-left: auto;
+                    margin-left: auto !important;
                 }
             }
 
