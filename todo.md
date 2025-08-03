@@ -126,12 +126,12 @@
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
 - [x] : prod: maybe fix emailbox jank it's fixed already
-- [ ] : prod: make auto email text cooler 
+- [x] : prod: make auto email text cooler 
 - [x] : unsubscribe link
-- [ ] : prod: post to reddit
 - [x] : prod: handle emails w Resend
 - [x] : prod: homepage art is positioned wrong
 - [x] : prod: accent color loading
+- [ ] : prod: post to reddit
 
 i should really use like Trello for this
 
