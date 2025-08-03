@@ -118,13 +118,8 @@
 - [x] : prod: check if sitemap also updates weirdly in production
 - [x] : prod: redirect vercel domains to chaos-abyss.com
 - [x] : prod: submit sitemap to search console
-- [ ] : prod: write readme
 - [x] : prod: make email sender edge function secure
-- [ ] : prod: make banner
-- [ ] : prod: plausible analytics
 - [x] : prod: about still buggy on mobile
-- [ ] : prod: an article or two
-- [ ] : prod: maybe a real newsletter but later
 - [x] : prod: maybe fix emailbox jank it's fixed already
 - [x] : prod: make auto email text cooler 
 - [x] : unsubscribe link
@@ -132,6 +127,11 @@
 - [x] : prod: homepage art is positioned wrong
 - [x] : prod: accent color loading
 - [ ] : prod: post to reddit
+- [ ] : prod: an article or two
+- [ ] : prod: maybe a real newsletter but later
+- [ ] : prod: make banner
+- [ ] : prod: plausible analytics
+- [ ] : prod: write readme
 
 i should really use like Trello for this
 
