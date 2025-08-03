@@ -121,10 +121,11 @@
 - [x] : prod: submit sitemap to search console
 - [ ] : prod: write readme
 - [ ] : prod: make banner
+- [ ] : prod: google analytics
 - [ ] : prod: an article or two
 - [ ] : prod: maybe fix emailbox jank
 - [x] : prod: handle emails w Resend
-- [ ] : prod: homepage art is positioned wrong
+- [x] : prod: homepage art is positioned wrong
 - [x] : prod: accent color loading
 
 i should really use like Trello for this
