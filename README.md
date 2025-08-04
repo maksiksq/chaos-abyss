@@ -11,7 +11,7 @@ Personal blog forged in the fires of curiosity and obsession. Includes a lot of 
 
 Developed to be fast, maintainable, seo compliant, with a11y and nojs in mind, and uses a lot of custom implementations because fancy and fun. [Svelte](https://github.com/sveltejs/svelte) one love, best js framework ever.
 
-Also I spent way too much time on easter eggs... Begin your search.
+Also, I spent way too much time on easter eggs... Begin your search.
 
 > [!Warning]
 > May cause unexpected side effects like thinking too much or opening 8 tabs.<br>

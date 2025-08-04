@@ -132,7 +132,7 @@
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
-- [ ] : prod: write readme
+- [x] : prod: write readme
 
 i should really use like Trello for this
 

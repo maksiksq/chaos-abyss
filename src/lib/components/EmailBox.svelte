@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {flushSync, onMount} from "svelte";
+    import {flushSync} from "svelte";
     import {enhance} from '$app/forms';
     import {applyAction} from "$app/forms";
     import {invalidateAll} from "$app/navigation";
@@ -20,7 +20,7 @@
         Want to know when it comes out?
     </h2>
     <p>If you want to, you can sign up to get updates on Lirith.</p>
-    <form method="POST" class="waitlist-form" action="/contact?/waitlist" use:enhance={({formData, cancel}) => {
+    <form method="POST" class="waitlist-form" action="/newsletter?/waitlist" use:enhance={({formData, cancel}) => {
         invalidateAll();
     const email = formData.get('email');
     if (!email) {errMsg = 'No email provided here.'; cancel()}

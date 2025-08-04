@@ -5,9 +5,9 @@
     // !!!!!!!!!!!!!!!!!
 
     import {hydrate, onDestroy, onMount, tick} from "svelte";
-    import EmailBox from "../../routes/articles/[category]/[slug]/EmailBox.svelte";
     import {browser} from "$app/environment";
     import {render} from "svelte/server";
+    import EmailBox from "$lib/components/EmailBox.svelte";
 
     const {content, slug, form = null} = $props();
 
