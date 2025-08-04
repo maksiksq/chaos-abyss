@@ -62,7 +62,7 @@
         <h1 style="font-size: 6rem">Chaos Abyss</h1>
         <h2><span class="deep-thoughts">Deep Thoughts </span><br><span class="clear-words">Clear Words </span></h2>
         <div class="cta-cont">
-            <a href="/articles" aria-label="Read some articles on Chaos Abyss" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut}
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" aria-label="Read some articles on Chaos Abyss" class="cta-button" onmouseover={buttonAnimIn} onmouseout={buttonAnimOut}
                onfocus={buttonAnimIn} onblur={buttonAnimOut}>
                 Step Inside
             </a>
