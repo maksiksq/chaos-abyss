@@ -1,1 +1,5 @@
-// hollow server page for auth (do not remove)
+export const load  = () => {
+    return {
+        important: "information"
+    };
+};
