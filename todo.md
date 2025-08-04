@@ -129,7 +129,7 @@
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
-- [ ] : prod: make banner
+- [x] : prod: make banner
 - [ ] : prod: plausible analytics
 - [ ] : prod: write readme
 - [ ] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
