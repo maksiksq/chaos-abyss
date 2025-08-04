@@ -120,7 +120,6 @@
 - [x] : prod: submit sitemap to search console
 - [x] : prod: make email sender edge function secure
 - [x] : prod: about still buggy on mobile
-- [x] : prod: maybe fix emailbox jank it's fixed already
 - [x] : prod: make auto email text cooler 
 - [x] : unsubscribe link
 - [x] : prod: handle emails w Resend
@@ -129,10 +128,11 @@
 - [x] : prod: make banner
 - [x] : prod: umami analytics
 - [x] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
+- [x] : prod: write readme
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
-- [x] : prod: write readme
+- [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason
 
 i should really use like Trello for this
 
