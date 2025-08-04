@@ -37,16 +37,4 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     return resolve(e);
 }
 
-const redirects: Handle = async ({ event: e, resolve }) => {
-    const current = e.url.pathname;
-
-    const test = 'whatever'
-
-    if (test) {
-        // redirect(301, test)
-    }
-
-    return resolve(e);
-}
-
-export const handle: Handle = sequence(authGuard, redirects);
+export const handle: Handle = sequence(authGuard);
