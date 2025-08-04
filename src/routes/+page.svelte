@@ -57,7 +57,6 @@
 </svelte:head>
 <svelte:window on:keydown={handleTravelToEditor}/>
 
-<Header home={true}/>
 <main>
     <section class="heading-wrap">
         <h1 style="font-size: 6rem">Chaos Abyss</h1>
@@ -77,7 +76,6 @@
                aria-label="A hand doing some weird magic"></video>
     </section>
 </main>
-<Footer home={true}/>
 
 <style>
     .cta-hidden-in {
