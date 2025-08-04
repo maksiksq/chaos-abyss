@@ -37,4 +37,4 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     return resolve(e);
 }
 
-export const handle: Handle = sequence(authGuard);
+export const handle: Handle = authGuard;
