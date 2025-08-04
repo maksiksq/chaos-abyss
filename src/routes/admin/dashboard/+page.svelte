@@ -2,11 +2,5 @@
 </script>
 
 <main>
-    <p>I mean. Nothing to dashboard here yet. It's all up there.</p>
+    <p>Some very important information.</p>
 </main>
-
-<style>
-    main {
-        padding: 3rem;
-    }
-</style>
