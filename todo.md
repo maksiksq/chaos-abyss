@@ -126,13 +126,13 @@
 - [x] : prod: handle emails w Resend
 - [x] : prod: homepage art is positioned wrong
 - [x] : prod: accent color loading
+- [x] : prod: make banner
+- [x] : prod: umami analytics
+- [x] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
 - [ ] : prod: maybe a real newsletter but later
-- [x] : prod: make banner
-- [x] : prod: umami analytics
 - [ ] : prod: write readme
-- [x] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
 
 i should really use like Trello for this
 
