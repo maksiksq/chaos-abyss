@@ -50,6 +50,7 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     e.locals.session = session;
     e.locals.user = user;
 
+    console.log(session);
     console.log(user);
     console.log('haiiiiiiii');
 
@@ -68,6 +69,8 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     if (!e.locals.session && (e.url.pathname.startsWith('/articles/draft/') || e.url.pathname.startsWith('/articles/stashed/'))) {
         throw sverror(401, 'Oh no. This is the dungeon, we don\'t go here.');
     }
+
+    console.log("so are we just passing or what");
 
     return resolve(e);
 }
