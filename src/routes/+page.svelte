@@ -1,7 +1,5 @@
 <script lang="ts">
     import {goto} from "$app/navigation";
-    import Header from "$lib/components/Header.svelte";
-    import Footer from "$lib/components/Footer/Footer.svelte";
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
     let codeIx = 0;
@@ -26,26 +24,6 @@
         } else {
             codeIx = 0;
         }
-    }
-
-
-    let ctaButtonHidden: HTMLElement | undefined = $state();
-    let ctaButtonAnim = $state(false);
-
-    const buttonAnimIn = () => {
-        if (!ctaButtonHidden) {
-            return;
-        }
-
-        ctaButtonAnim = true;
-    }
-
-    const buttonAnimOut = () => {
-        if (!ctaButtonHidden) {
-            return;
-        }
-
-        ctaButtonAnim = false;
     }
 
 </script>

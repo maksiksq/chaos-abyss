@@ -3,5 +3,5 @@
 
 <main>
     <p>Some very important information.</p>
-    <p></p>
+    <p>Some important static page</p>
 </main>
