@@ -6,7 +6,7 @@ import {PUBLIC_DEV} from "$env/static/public";
 export const prerender = false;
 
 export const actions = {
-    waitlist: async ({request, getClientAddress, locals: {supabase}}) => {
+    consecrate: async ({request, getClientAddress, locals: {supabase}}) => {
         const formData = await request.formData();
 
         // fake invisible field to prevent spam bots
@@ -33,12 +33,17 @@ export const actions = {
 
         const hashedIP = hashIP(clientIp);
 
+        // checking if this is waitlist or consecrat- nevermind newsletter
+        const lirith = formData.get('lirith') as string;
+
+        const table = lirith ? 'waitlist' : 'newsletter';
+
         if (clientIp === 'unknown') {
             // if unknown, bottleneck it to 300 just in case
             // not that i'm gonna have that many users with a secure vpn
             // or something but still
             const {count: unCount, error: selError} = await supabase
-                .from('waitlist')
+                .from(table)
                 .select('*', {count: "exact", head: true})
                 .eq('hashed_ip', 'unknown');
 
@@ -50,7 +55,7 @@ export const actions = {
         } else {
             // checking if IP was used more than 6 times
             const {count, error: selError} = await supabase
-                .from('waitlist')
+                .from(table)
                 .select('*', {count: "exact", head: true})
                 .eq('hashed_ip', hashedIP);
 
@@ -68,7 +73,7 @@ export const actions = {
 
         // adding the user to the waitlist if everything is ok
         const {error: inError} = await supabase
-            .from('waitlist')
+            .from(table)
             .insert({email: email, hashed_ip: hashedIP})
             .select()
             .single();

@@ -4,7 +4,7 @@
     import {applyAction} from "$app/forms";
     import {invalidateAll} from "$app/navigation";
 
-    let {form = null} = $props();
+    let {form = null, lirith} = $props();
 
     let errMsg = $state('')
 
@@ -15,12 +15,22 @@
     flushSync();
 </script>
 
-<div class="waitlist">
-    <h2>
-        Want to know when it comes out?
-    </h2>
-    <p>If you want to, you can sign up to get updates on Lirith.</p>
-    <form method="POST" class="waitlist-form" action="/newsletter?/waitlist" use:enhance={({formData, cancel}) => {
+<div class="email-box">
+    <!--consecration-->
+    {#if !lirith}
+        <h2>
+            Pledge yourself.
+        </h2>
+        <p>Join the cult- I mean, newsletter:</p>
+    {/if}
+    <!--lirith-->
+    {#if lirith}
+        <h2>
+            Want to know when it comes out?
+        </h2>
+        <p>Here you can sign up to get updates on Lirith:</p>
+    {/if}
+    <form method="POST" class="email-box-form" action={`/newsletter?/consecrate`} use:enhance={({formData, cancel}) => {
         invalidateAll();
     const email = formData.get('email');
     if (!email) {errMsg = 'No email provided here.'; cancel()}
@@ -35,6 +45,7 @@
         await applyAction(result);
     }
     }}>
+        <input type="hidden" name="lirith" id="lirith" value={lirith}/>
         <label class="d-none name-label">
             <input type="text" name="nickname" id="nickname">
         </label>
@@ -45,11 +56,18 @@
     {#if errMsg}
         <p role="alert" class="error-success-message">{errMsg}</p>
     {/if}
+    <!--consecration-->
+    {#if !lirith}
+        <p class="consecration-info">Fresh articles delivered to your doorstep.</p>
+    {/if}
+    <!--lirith-->
+    {#if lirith}
+        <p class="lirith-info">✦ You'll only get occasional major updates - e.g. release info, significant direction
+            changes. No spam in your
+            inbox! Only major things, no update logs, no ads, no weekly emails etc. Just the things you need to know before
+            it happens.</p>
+    {/if}
 
-    <p class="waitlist-info">✦ You'll only get occasional major updates - e.g. release info, significant direction
-        changes. No spam in your
-        inbox! Only major things, no update logs, no ads, no weekly emails etc. Just the things you need to know before
-        it happens.</p>
 
 </div>
 
@@ -60,7 +78,7 @@
         }
     }
 
-    .waitlist {
+    .email-box {
         box-sizing: border-box;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -75,7 +93,7 @@
             filter: blur(0.1px);
         }
 
-        & .waitlist-form {
+        & .email-box-form {
             display: flex;
             height: 2rem;
             margin-bottom: 1rem;
@@ -103,7 +121,7 @@
             }
         }
 
-        & .waitlist-info {
+        & .lirith-info {
             margin-top: 1rem;
             padding: 0.7rem;
             color: #ffffff;
