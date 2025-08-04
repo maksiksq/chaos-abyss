@@ -46,7 +46,8 @@ const supabase: Handle = async ({event: e, resolve}) => {
 }
 
 const authGuard: Handle = async ({ event: e, resolve }) => {
-    const { session, user } = await e.locals.safeGetSession();
+    const session = false;
+    const user = false;
     e.locals.session = session;
     e.locals.user = user;
 
@@ -58,12 +59,12 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     // no auth
     if (!e.locals.session && e.url.pathname.startsWith('/admin')) {
         console.log('redirecting to admauth')
-        throw redirect(303, '/admauth');
+        redirect(303, '/admauth');
     }
     // yes auth
     if (e.locals.session && e.url.pathname === '/admauth') {
         console.log('redirecting to admin dashboard')
-        throw redirect(303, '/admin/dashboard');
+        redirect(303, '/admin/dashboard');
     }
 
     // draft/stashed error
