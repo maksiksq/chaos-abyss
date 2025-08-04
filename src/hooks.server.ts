@@ -6,51 +6,10 @@ import {sequence} from "@sveltejs/kit/hooks";
 // Supabase SvelteKit example basically:
 // https://supabase.com/docs/guides/auth/server-side/sveltekit
 
-const supabase: Handle = async ({event: e, resolve}) => {
-    e.locals.supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-        cookies: {
-            getAll: () => e.cookies.getAll(),
-            setAll: (cookiesToSet) => {
-                cookiesToSet.forEach(({name, value, options}) => {
-                    e.cookies.set(name, value, {...options, path: '/'});
-                })
-            }
-        }
-    })
-
-    e.locals.safeGetSession = async () => {
-        const {
-            data: {session},
-        } = await e.locals.supabase.auth.getSession();
-        if (!session) {
-            return {session: null, user: null};
-        }
-
-        const {
-            data: { user },
-            error,
-        } = await e.locals.supabase.auth.getUser();
-        if (error) {
-            // JWT is wrong
-            return { session: null, user: null }
-        }
-
-        return { session, user }
-    }
-
-    return resolve(e, {
-        filterSerializedResponseHeaders(name) {
-            return name === 'content-range' || name === 'x-supabase-api-version';
-        }
-    })
-}
 
 const authGuard: Handle = async ({ event: e, resolve }) => {
     const session = false;
     const user = false;
-    e.locals.session = session;
-    e.locals.user = user;
-
     console.log(session);
     console.log(user);
     console.log('haiiiiiiii');
@@ -81,17 +40,13 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
 const redirects: Handle = async ({ event: e, resolve }) => {
     const current = e.url.pathname;
 
-    const { data, error } = await e.locals.supabase
-        .from('redirects')
-        .select('to')
-        .eq('from', current)
-        .single()
+    const test = 'whatever'
 
-    if (data?.to) {
-        redirect(301, data?.to)
+    if (test) {
+        // redirect(301, test)
     }
 
     return resolve(e);
 }
 
-export const handle: Handle = sequence(supabase, authGuard, redirects);
+export const handle: Handle = sequence(authGuard, redirects);
