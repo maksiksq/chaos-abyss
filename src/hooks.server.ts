@@ -57,11 +57,11 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     // admin auth redirects
     // no auth
     if (!e.locals.session && e.url.pathname.startsWith('/admin')) {
-        redirect(303, '/admauth');
+        throw redirect(303, '/admauth');
     }
     // yes auth
     if (e.locals.session && e.url.pathname === '/admauth') {
-        redirect(303, '/admin/dashboard');
+        throw redirect(303, '/admin/dashboard');
     }
 
     // draft/stashed error
