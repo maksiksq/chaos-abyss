@@ -50,6 +50,9 @@ const authGuard: Handle = async ({ event: e, resolve }) => {
     e.locals.session = session;
     e.locals.user = user;
 
+    console.log(user);
+    console.log('haiiiiiiii');
+
     // admin auth redirects
     // no auth
     if (!e.locals.session && e.url.pathname.startsWith('/admin')) {
