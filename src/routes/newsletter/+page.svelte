@@ -18,7 +18,7 @@ const {form} = $props();
             you might as well want to stick around.
         </h2>
         <p>If that's the case here's a newsletter:</p>
-        <EmailBox />
+        <EmailBox {form} lirith={false}/>
     </div>
 </main>
 <Footer />
