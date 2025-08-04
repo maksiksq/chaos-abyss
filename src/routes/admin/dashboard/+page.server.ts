@@ -1,11 +1,1 @@
-import { redirect } from '@sveltejs/kit';
-
-export const load = async ({ parent }) => {
-    const { session } = await parent();
-
-    if (!session) {
-        throw redirect(303, '/admauth');
-    }
-
-    return {};
-};
+// hollow server page for auth (do not remove)
