@@ -1,7 +1,7 @@
 <script lang="ts">
     import {onMount} from "svelte";
 
-    const { home = false, contact = false, about = false } = $props();
+    const { home = false, contact = false, about = false, newsletter = false } = $props();
 
     let links = $state([
         {
@@ -19,6 +19,10 @@
         {
             text: 'Contact',
             link: '/contact',
+        },
+        {
+            text: 'Newsletter',
+            link: '/newsletter',
         }
     ]);
 
@@ -33,6 +37,9 @@
         }
         if (about) {
             linksCurrent = links.filter(e => e.text !== 'About');
+        }
+        if (newsletter) {
+            linksCurrent = links.filter(e => e.text !== 'Newsletter');
         }
     })
 

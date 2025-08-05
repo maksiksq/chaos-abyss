@@ -5,9 +5,9 @@
     // !!!!!!!!!!!!!!!!!
 
     import {hydrate, onDestroy, onMount, tick} from "svelte";
-    import EmailBox from "../../routes/articles/[category]/[slug]/EmailBox.svelte";
     import {browser} from "$app/environment";
     import {render} from "svelte/server";
+    import EmailBox from "$lib/components/EmailBox.svelte";
 
     const {content, slug, form = null} = $props();
 
@@ -49,7 +49,7 @@
         // I'm not completely positive that this works
         // the docs do be kind of vague on this one
         const emailBox = render(EmailBox, {
-            props: {form: form}
+            props: {form: form, lirith: true}
         })
     }
 
@@ -59,7 +59,7 @@
             if (!target) {return;}
             const emailBoxHyd = hydrate(EmailBox, {
                 target: target,
-                props: {form: form}
+                props: {form: form, lirith: true}
             })
         }
 
@@ -86,7 +86,7 @@
 <div class="article-content">
     <noscript>
         {#if slug === 'lirith'}
-            <EmailBox {form}/>
+            <EmailBox {form} lirith={true}/>
         {/if}
     </noscript>
     {@html content}

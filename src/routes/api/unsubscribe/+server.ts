@@ -5,9 +5,11 @@ import {SECRET_UNSUBSCRIBE_SECRET, SECRET_SUPABASE_SERVICE_ROLE_KEY} from "$env/
 import {jwtVerify} from "jose";
 import {createClient} from "@supabase/supabase-js";
 
-export const GET: RequestHandler = async ({url, cookies}) => {
+export const GET: RequestHandler = async ({url}) => {
     const jwt = url.searchParams.get('jwt');
-    console.log("OH HI");
+    const lirith = url.searchParams.get('lirith') as string === 'true';
+
+    const table = lirith ? 'waitlist' : 'newsletter';
 
     if (!jwt) {
         sverror(400, 'Invalid token')
@@ -21,11 +23,10 @@ export const GET: RequestHandler = async ({url, cookies}) => {
             console.log("Verified payload:", payload);
         }
 
-        // @ts-ignore
         const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY)
 
         const {error} = await supabase
-            .from('waitlist')
+            .from(table)
             .update({subscribed: false})
             .eq('email', payload.email)
 

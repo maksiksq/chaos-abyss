@@ -57,9 +57,10 @@ const assignForDate = (date: string, jewel: boolean) => {
 export async function GET(e: RequestEvent) {
     const staticPages = [
         {url: 'https://www.chaos-abyss.com', changeFreq: 'monthly', priority: 1.0},
-        {url: 'https://www.chaos-abyss.com/about', changeFreq: 'monthly', priority: 1.0},
+        {url: 'https://www.chaos-abyss.com/about', changeFreq: 'monthly', priority: 0.9},
         {url: 'https://www.chaos-abyss.com/articles', changeFreq: 'weekly', priority: 0.8},
         {url: 'https://www.chaos-abyss.com/contact', changeFreq: 'yearly', priority: 0.7},
+        {url: 'https://www.chaos-abyss.com/newsletter', changeFreq: 'yearly', priority: 0.8},
     ]
 
     const supabase = getClient();
