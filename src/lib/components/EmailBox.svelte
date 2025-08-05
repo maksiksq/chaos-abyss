@@ -98,6 +98,7 @@
             width: 150vw;
             height: 100%;
             background-color: #7500bf;
+            box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 3px;
         }
 
         & .consecration-img {
