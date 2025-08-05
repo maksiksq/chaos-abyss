@@ -6,6 +6,8 @@ import {createClient} from "@supabase/supabase-js";
 
 export const prerender = false;
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export const actions = {
     consecrate: async ({request, getClientAddress}) => {
         const formData = await request.formData();
@@ -16,7 +18,6 @@ export const actions = {
 
         let email = formData.get('email') as string;
         email = email.trim().toLowerCase();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(email)) {
             return fail(400, {success: false, threat: 'Invalid email! Hmmmm...'});
@@ -82,7 +83,7 @@ export const actions = {
             }
         }
 
-        // adding the user to the waitlist if everything is ok
+        // adding the user to the waitlist/newsletter if everything is ok
         const {error: inError} = await supabase
             .from(table)
             .insert({email: email, hashed_ip: hashedIP})
@@ -92,10 +93,26 @@ export const actions = {
         if(inError) {
             if (PUBLIC_DEV) console.error(inError);
             if (inError.code === '23505') {
+                const {data, error: selError} = await supabase
+                    .from(table)
+                    .select('subscribed')
+                    .single();
+
+                if (selError) {
+                    if (PUBLIC_DEV) console.error(selError);
+                    return fail(400, {success: false, threat: "Failed subscription check (OH NO)"});
+                }
+
+                if (data?.subscribed === false) {
+                    return {success: true, threat: 'Successfully signed you back up. Welcome back!.'};
+                }
+
                 return fail(400, {success: false, threat: "You already signed up for it!"});
             }
             return fail(400, {success: false, threat: 'Oh no! Something went wrong! Try again!'});
         }
+
+
 
         console.log(`Successfully signed ${email} up for the newsletter`);
         return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.'};
