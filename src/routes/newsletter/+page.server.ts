@@ -37,10 +37,8 @@ export const actions = {
         // checking if this is waitlist or consecrat- nevermind newsletter
         const lirith = formData.get('lirith') as string === 'true';
 
-        console.log(lirith);
 
         const table = lirith ? 'waitlist' : 'newsletter';
-        console.log(table)
 
         const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY);
 
@@ -99,6 +97,7 @@ export const actions = {
             return fail(400, {success: false, threat: 'Oh no! Something went wrong! Try again!'});
         }
 
+        console.log(`Successfully signed ${email} up for the newsletter`);
         return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.',};
     }
 } satisfies Actions;
