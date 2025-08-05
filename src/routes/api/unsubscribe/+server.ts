@@ -7,7 +7,7 @@ import {createClient} from "@supabase/supabase-js";
 
 export const GET: RequestHandler = async ({url}) => {
     const jwt = url.searchParams.get('jwt');
-    const lirith = url.searchParams.get('lirith');
+    const lirith = url.searchParams.get('lirith') as string === 'true';
 
     const table = lirith ? 'waitlist' : 'newsletter';
 
