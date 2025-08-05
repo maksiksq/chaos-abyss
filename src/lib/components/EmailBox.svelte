@@ -2,11 +2,13 @@
     import {flushSync} from "svelte";
     import {enhance} from '$app/forms';
     import {applyAction} from "$app/forms";
-    import {invalidateAll} from "$app/navigation";
+    import {invalidate, invalidateAll} from "$app/navigation";
 
     let {form = null, lirith} = $props();
 
     let errMsg = $state('');
+
+    $inspect(errMsg)
 
     $effect(() => {
         errMsg = form?.threat;
@@ -54,21 +56,23 @@
             <label class="d-none name-label">
                 <input type="text" name="nickname" id="nickname">
             </label>
-            <label class="sr-only" for="email">Email</label>
-            <input class="email-input" type="text" name="email" id="email" placeholder="Your email">
-            <button type="submit">Send</button>
+            <div class="form-cont">
+                <label class="sr-only" for="email">Email</label>
+                <input class="email-input" type="text" name="email" id="email" placeholder="Your email">
+                <button type="submit">Send</button>
+            </div>
         </form>
         {#if errMsg}
             <p role="alert" class="error-success-message">{errMsg}</p>
         {/if}
         <!--consecration-->
         {#if !lirith}
-            <p class="consecration-info-fresh">Fresh articles delivered to the meetup email. There may be sacrifices but only moderate ones.</p>
-            <p class="consecration-info-pancakes">And yes the uhm organization does provide free pancakes 🥞 to every member.</p>
+            <p class={`consecration-info-fresh ${errMsg ? 'info-mobile' : ''}`}>Fresh articles delivered to the meetup email. There may be sacrifices but only moderate ones.</p>
+            <p class="consecration-pancakes" >And yes the uhm organization does provide free pancakes 🥞 to every member.</p>
         {/if}
         <!--lirith-->
         {#if lirith}
-            <p class="lirith-info">✦ You'll only get occasional major updates - e.g. release info, significant direction
+            <p class={`lirith-info ${errMsg ? 'info-mobile' : ''}`}>✦ You'll only get occasional major updates - e.g. release info, significant direction
                 changes. No spam in your
                 inbox! Only major things, no update logs, no ads, no weekly emails etc. Just the things you need to know before
                 it happens.</p>
@@ -77,6 +81,12 @@
 </div>
 
 <style>
+    .info-mobile {
+        @media (max-width: 768px) {
+            margin-top: 0 !important;
+        }
+    }
+
     .consecration-email-box {
         background-color: rgba(0, 0, 0, 1);
         background-image: none;
@@ -88,7 +98,6 @@
 
         @media (max-width: 768px) {
             background-image: none;
-            filter: blur(0.1px);
         }
 
         position: relative;
@@ -102,6 +111,10 @@
             height: 100%;
             background-color: #7500bf;
             box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 3px;
+
+            @media (max-width: 768px) {
+               display: none;
+            }
         }
 
         & .consecration-img {
@@ -127,6 +140,10 @@
             background-color: rgba(0, 0, 0, 0.8);
             padding: 1rem 2rem;
 
+            & .error-success-message {
+                color: #ff6767;
+            }
+
             & p {
                 padding-top: 1.2rem;
             }
@@ -135,6 +152,7 @@
                 margin-top: 1rem;
 
                 & .email-input {
+                    color: white;
                     border-bottom: 1px solid white !important;
                 }
 
@@ -145,6 +163,12 @@
                 & button {
                     color: black !important;
                     background-color: white !important;
+                }
+            }
+
+            & .consecration-info-fresh {
+                @media (max-width: 768px) {
+                    margin-top: 4rem;
                 }
             }
         }
@@ -169,6 +193,21 @@
                     background-color: #1f2020 !important;
                 }
             }
+
+            & .lirith-info {
+                margin-top: 1rem;
+                padding: 0.7rem;
+                color: #ffffff;
+
+                background-color: rgba(0, 0, 0, 0.75);
+                border: 1px solid black;
+                position: relative;
+                z-index: 10;
+
+                @media (max-width: 768px) {
+                    margin-top: 4rem;
+                }
+            }
         }
     }
 
@@ -184,42 +223,58 @@
         background-size: cover;
 
         & .cont {
+            & .error-success-message {
+                @media (max-width: 768px) {
+                    margin-top: 4rem;
+                }
+            }
+
             & .email-box-form {
                 display: flex;
                 height: 2rem;
                 margin-bottom: 1rem;
 
-                & .email-input {
-                    background-color: transparent;
-                    border: 0;
-                    border-bottom: 1px solid black;
-                    width: 75%;
+                & .form-cont {
+                    display: flex;
+                    width: 100%;
+
+                    @media (max-width: 768px) {
+                        flex-direction: column;
+                    }
+
+                    & .email-input {
+                        background-color: transparent;
+                        border: 0;
+                        border-bottom: 1px solid black;
+                        width: 70%;
+
+                        @media (max-width: 768px) {
+                            width: 100%;
+                        }
+                    }
+
+                    & .email-input::placeholder {
+                        font-size: 0.9rem;
+                    }
+
+                    & button {
+                        width: 30%;
+                        all: unset;
+                        cursor: pointer;
+                        color: white;
+                        padding: 0.5rem 4rem;
+                        margin: 0.1rem 0.1rem 0 3rem;
+                        border-radius: 32px;
+
+                        @media (max-width: 768px) {
+                            display: flex;
+                            justify-content: center;
+                            padding: 0.5rem 0;
+                            margin: 1.5rem 0 0 0;
+                            width: 100%;
+                        }
+                    }
                 }
-
-                & .email-input::placeholder {
-                    font-size: 0.9rem;
-                }
-
-                & button {
-                    width: 25%;
-                    all: unset;
-                    cursor: pointer;
-                    color: white;
-                    padding: 0.5rem 3rem;
-                    margin: 0.1rem 0.1rem 0 1rem;
-                    border-radius: 32px;
-                }
-            }
-
-            & .lirith-info {
-                margin-top: 1rem;
-                padding: 0.7rem;
-                color: #ffffff;
-
-                background-color: rgba(0, 0, 0, 0.75);
-                border: 1px solid black;
-                position: relative;
-                z-index: 10;
             }
 
             & h2 {

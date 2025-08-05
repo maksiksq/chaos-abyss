@@ -47,6 +47,10 @@ const {form} = $props();
                 font-family: 'Roboto Slab', sans-serif;
                 font-size: 4rem;
                 border-bottom: 1px solid black;
+
+                @media (max-width: 768px) {
+                    font-size: 3.6rem;
+                }
             }
 
             & h2:nth-of-type(1) {
@@ -57,9 +61,12 @@ const {form} = $props();
                 padding-top: 0.5rem;
                 font-size: 2rem;
 
-
                 color: #131313;
                 font-weight: bold;
+
+                @media (max-width: 768px) {
+                    padding-top: 0;
+                }
             }
 
             & .stick {

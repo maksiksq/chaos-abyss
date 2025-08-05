@@ -110,6 +110,7 @@
 
 - [x] : fix: no js articles don't scroll
 - [ ] : minor fix: mobile articles page first contentful load lighthouse report is too long
+- [ ] : minor fix: lirith articles emailbox reloads the whole component for some reason so client side text only appears for a few seconds
 - [x] : right before prod: Zero edit dates and fix publish dates
 
 ~~<br>- [ ] : scrap: Point imagekit url~~ : premium only thing apparently
@@ -131,6 +132,7 @@
 - [x] : prod: write readme
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
+- [ ] : prod: swap out footer order
 - [ ] : prod: maybe a real newsletter but later
 - [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason
 
