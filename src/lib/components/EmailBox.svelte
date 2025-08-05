@@ -2,7 +2,7 @@
     import {flushSync} from "svelte";
     import {enhance} from '$app/forms';
     import {applyAction} from "$app/forms";
-    import {invalidate, invalidateAll} from "$app/navigation";
+    import {invalidateAll} from "$app/navigation";
 
     let {form = null, lirith} = $props();
 
@@ -63,7 +63,7 @@
             </div>
         </form>
         {#if errMsg}
-            <p role="alert" class="error-success-message">{errMsg}</p>
+            <p role="alert" class="error-success-message" style={lirith ? '' : (form?.success ? 'color: white' : 'color: #ffe667')}>{errMsg}</p>
         {/if}
         <!--consecration-->
         {#if !lirith}
@@ -140,10 +140,6 @@
             background-color: rgba(0, 0, 0, 0.8);
             padding: 1rem 2rem;
 
-            & .error-success-message {
-                color: #ff6767;
-            }
-
             & p {
                 padding-top: 1.2rem;
             }
@@ -168,7 +164,7 @@
 
             & .consecration-info-fresh {
                 @media (max-width: 768px) {
-                    margin-top: 4rem;
+                    margin-top: 5rem;
                 }
             }
         }
@@ -205,7 +201,7 @@
                 z-index: 10;
 
                 @media (max-width: 768px) {
-                    margin-top: 4rem;
+                    margin-top: 5rem;
                 }
             }
         }
@@ -250,7 +246,12 @@
 
                         @media (max-width: 768px) {
                             width: 100%;
+                            padding: 1rem 0 0 0;
                         }
+                    }
+
+                    & .email-input:-webkit-autofill {
+                        background-color: transparent !important;
                     }
 
                     & .email-input::placeholder {

@@ -18,7 +18,7 @@ const {form} = $props();
         <h2 class="stick">
             you might as well want to stick around.
         </h2>
-        <p class="txt">If that's the case here's a newsletter:</p>
+        <p class="txt if-thats">If that's the case here's a newsletter:</p>
         <EmailBox {form} lirith={false}/>
         <p>You'll only get a notification whenever a new article comes out and maybe some important info once in a while. No ads, no nothing, no spam in your inbox!</p>
         <p class="txt-bottom">That's it. Nothing fancy - just good writing, when it's ready.</p>
@@ -60,11 +60,14 @@ const {form} = $props();
             & h2 {
                 padding-top: 0.5rem;
                 font-size: 2rem;
+                font-style: italic;
 
                 color: #131313;
                 font-weight: bold;
 
                 @media (max-width: 768px) {
+                    font-weight: normal;
+                    font-size: 1.2rem;
                     padding-top: 0;
                 }
             }
@@ -72,6 +75,12 @@ const {form} = $props();
             & .stick {
                 display: flex;
                 justify-content: flex-end;
+            }
+
+            & .if-thats {
+                @media (max-width: 768px) {
+                    padding-top: 1rem !important;
+                }
             }
 
             & .txt {
