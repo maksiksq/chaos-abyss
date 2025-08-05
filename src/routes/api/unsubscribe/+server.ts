@@ -21,7 +21,6 @@ export const GET: RequestHandler = async ({url, cookies}) => {
             console.log("Verified payload:", payload);
         }
 
-        // @ts-ignore
         const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY)
 
         const {error} = await supabase

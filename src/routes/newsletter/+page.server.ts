@@ -1,12 +1,13 @@
 import {type Actions, fail} from "@sveltejs/kit";
-import {SECRET_IP_HASH_SALT} from "$env/static/private";
+import {SECRET_IP_HASH_SALT, SECRET_SUPABASE_SERVICE_ROLE_KEY} from "$env/static/private";
 import {createHash} from "node:crypto";
-import {PUBLIC_DEV} from "$env/static/public";
+import {PUBLIC_DEV, PUBLIC_SUPABASE_URL} from "$env/static/public";
+import {createClient} from "@supabase/supabase-js";
 
 export const prerender = false;
 
 export const actions = {
-    consecrate: async ({request, getClientAddress, locals: {supabase}}) => {
+    consecrate: async ({request, getClientAddress}) => {
         const formData = await request.formData();
 
         // fake invisible field to prevent spam bots
@@ -34,14 +35,20 @@ export const actions = {
         const hashedIP = hashIP(clientIp);
 
         // checking if this is waitlist or consecrat- nevermind newsletter
-        const lirith = formData.get('lirith') as string;
+        const lirith = formData.get('lirith') as string === 'true';
+
+        console.log(lirith);
 
         const table = lirith ? 'waitlist' : 'newsletter';
+        console.log(table)
+
+        const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY);
 
         if (clientIp === 'unknown') {
             // if unknown, bottleneck it to 300 just in case
             // not that i'm gonna have that many users with a secure vpn
             // or something but still
+
             const {count: unCount, error: selError} = await supabase
                 .from(table)
                 .select('*', {count: "exact", head: true})
@@ -80,7 +87,7 @@ export const actions = {
 
         if(inError) {
             if (PUBLIC_DEV) console.error(inError);
-            if (inError.message === 'duplicate key value violates unique constraint "waitlist_email_key"') {
+            if (inError.code === '23505') {
                 return fail(400, {success: false, threat: "You already signed up for it!"});
             }
             return fail(400, {success: false, threat: 'Oh no! Something went wrong! Try again!'});
