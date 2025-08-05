@@ -89,7 +89,7 @@
 - [x] : soon: favicon
 - [ ] : very later: comments
 - [ ] : very later: editor loadouts and stuff, actually proper real-time saving
-- [ ] : very later: implement reminder 
+- [ ] : very later: implement reminder
 - [ ] : very later: maybe hover/button for Romaji?
 - [ ] : very later: maybe more search filters in the future
 - [ ] : very later: maybe revisit hand slightly
@@ -115,13 +115,13 @@
 
 ~~<br>- [ ] : scrap: Point imagekit url~~ : premium only thing apparently
 - [x] : prod: Check if copying on mobile works
-~~<br>- [x] : scrap: apply for google news~~ : it's automatic now so uh
+  ~~<br>- [x] : scrap: apply for google news~~ : it's automatic now so uh
 - [x] : prod: check if sitemap also updates weirdly in production
 - [x] : prod: redirect vercel domains to chaos-abyss.com
 - [x] : prod: submit sitemap to search console
 - [x] : prod: make email sender edge function secure
 - [x] : prod: about still buggy on mobile
-- [x] : prod: make auto email text cooler 
+- [x] : prod: make auto email text cooler
 - [x] : unsubscribe link
 - [x] : prod: handle emails w Resend
 - [x] : prod: homepage art is positioned wrong
@@ -131,6 +131,7 @@
 - [x] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
 - [x] : prod: write readme
 - [ ] : prod: post to reddit
+- [ ] : prod: auto emails
 - [ ] : prod: an article or two
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
