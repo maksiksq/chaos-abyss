@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 /* SELECTION */
 ::selection {
     color: white;
-    background: rgba(138,2,181,1);
+    background: rgb(28, 28, 28);
 }
 
 /* SCROLLBAR */
