@@ -6,7 +6,7 @@ export const load = ({url}) => {
     return {
         meta: {
             title: "Contact",
-            canonUrl: "https://www.chaos-abyss.com",
+            canonUrl: "https://www.chaos-abyss.com/contact",
             metaNamed: [
                 { name: "description", content: desc },
                 { name: "twitter:card", content: "summary_large_image" },

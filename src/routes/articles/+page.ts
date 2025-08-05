@@ -129,8 +129,11 @@ export const load: PageLoad = async ({url}) => {
     updateMeta(meta.metaNamed, 'name', 'twitter:description', `Search results for "${escapedQuery}" on Chaos Abyss.`);
     updateMeta(meta.metaProperty, 'property', 'og:description', `Search results for "${escapedQuery}" on Chaos Abyss.`);
 
-    meta.canonUrl = `${baseUrl}/articles?query=${escapedQuery}`;
-    updateMeta(meta.metaProperty, 'property', 'og:url', `${baseUrl}/articles?query=${encodeURIComponent(escapedQuery)}`);
+    const canonSearch = new URLSearchParams();
+    canonSearch.set("query", escapedQuery);
+    if (cat !== 'any') canonSearch.set("category", cat);
+    meta.canonUrl = `${baseUrl}/articles?${canonSearch.toString()}`;
+    updateMeta(meta.metaProperty, 'property', 'og:url', meta.canonUrl);
 
     let fuse = new Fuse(summaries, {
         keys: [
