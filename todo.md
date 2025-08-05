@@ -132,9 +132,9 @@
 - [x] : prod: write readme
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
-- [ ] : prod: swap out footer order
-- [ ] : prod: maybe a real newsletter but later
-- [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason
+- [x] : prod: swap out footer order
+- [x] : prod: maybe a real newsletter but later
+- [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for somer reason)
 
 i should really use like Trello for this
 
