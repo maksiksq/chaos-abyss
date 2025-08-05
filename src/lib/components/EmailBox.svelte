@@ -8,8 +8,6 @@
 
     let errMsg = $state('');
 
-    $inspect(errMsg)
-
     $effect(() => {
         errMsg = form?.threat;
     })

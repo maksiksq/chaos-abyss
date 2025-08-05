@@ -5,9 +5,8 @@ import {SECRET_UNSUBSCRIBE_SECRET, SECRET_SUPABASE_SERVICE_ROLE_KEY} from "$env/
 import {jwtVerify} from "jose";
 import {createClient} from "@supabase/supabase-js";
 
-export const GET: RequestHandler = async ({url, cookies}) => {
+export const GET: RequestHandler = async ({url}) => {
     const jwt = url.searchParams.get('jwt');
-    console.log("OH HI");
 
     if (!jwt) {
         sverror(400, 'Invalid token')
