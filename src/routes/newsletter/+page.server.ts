@@ -1,4 +1,4 @@
-import {type Actions, fail} from "@sveltejs/kit";
+import {type Actions, error, fail} from "@sveltejs/kit";
 import {SECRET_IP_HASH_SALT, SECRET_SUPABASE_SERVICE_ROLE_KEY} from "$env/static/private";
 import {createHash} from "node:crypto";
 import {PUBLIC_DEV, PUBLIC_SUPABASE_URL} from "$env/static/public";
@@ -54,9 +54,15 @@ export const actions = {
                 .select('*', {count: "exact", head: true})
                 .eq('hashed_ip', 'unknown');
 
+            if (selError) {
+                if (PUBLIC_DEV) {console.log(error)}
+
+                return fail(400, {success: false, threat: 'Something went wrong!'});
+            }
+
             const unCountZeroed = unCount || 0;
 
-            if (unCountZeroed > 500) {
+            if (unCountZeroed > 300) {
                 return fail(400, {success: false, threat: 'Something went wrong? Are you per chance behind a proxy?'});
             }
         } else {
