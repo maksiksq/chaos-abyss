@@ -7,6 +7,9 @@ import {createClient} from "@supabase/supabase-js";
 
 export const GET: RequestHandler = async ({url}) => {
     const jwt = url.searchParams.get('jwt');
+    const lirith = url.searchParams.get('lirith');
+
+    const table = lirith ? 'waitlist' : 'newsletter';
 
     if (!jwt) {
         sverror(400, 'Invalid token')
@@ -23,7 +26,7 @@ export const GET: RequestHandler = async ({url}) => {
         const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY)
 
         const {error} = await supabase
-            .from('waitlist')
+            .from(table)
             .update({subscribed: false})
             .eq('email', payload.email)
 

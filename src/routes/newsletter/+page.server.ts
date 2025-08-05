@@ -98,6 +98,6 @@ export const actions = {
         }
 
         console.log(`Successfully signed ${email} up for the newsletter`);
-        return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.',};
+        return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.'};
     }
 } satisfies Actions;
