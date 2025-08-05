@@ -21,7 +21,7 @@ const {form} = $props();
         <EmailBox {form} lirith={false}/>
     </div>
 </main>
-<Footer />
+<Footer newsletter={true} />
 
 <style>
     main {
