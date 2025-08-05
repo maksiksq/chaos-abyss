@@ -16,6 +16,10 @@
 </script>
 
 <div class={`email-box ${lirith ? 'lirith-email-box' : 'consecration-email-box'}`}>
+    <!-- consecration img-->
+    {#if !lirith}
+        <img src="https://ik.imagekit.io/maksiks/Newsletter%20box%20(7).svg" class="consecration-img" role="presentation" alt="newsletter background">
+    {/if}
     <div class="cont">
         <!--consecration-->
         {#if !lirith}
@@ -52,7 +56,7 @@
             </label>
             <label class="sr-only" for="email">Email</label>
             <input class="email-input" type="text" name="email" id="email" placeholder="Your email">
-            <button type="submit">Submit</button>
+            <button type="submit">Send</button>
         </form>
         {#if errMsg}
             <p role="alert" class="error-success-message">{errMsg}</p>
@@ -75,33 +79,88 @@
 <style>
     .consecration-email-box {
         background-color: rgba(0, 0, 0, 1);
-        background-image: url("https://ik.imagekit.io/maksiks/Newsletter%20box%20(5).svg");
-
-        @media (max-width: 768px) {
-            background-image: url("https://ik.imagekit.io/maksiks/Newsletter%20box%20(5).svg");
-            filter: blur(0.1px);
-        }
+        background-image: none;
 
         color: white;
 
+        @media (max-width: 768px) {
+            background-image: none;
+            filter: blur(0.1px);
+        }
+
         position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: -50vw;
+            width: 150vw;
+            height: 100%;
+            background-color: #7500bf;
+        }
+
+        & .consecration-img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+            height: 100%;
+            /* what sort of wild fix is that lmao */
+            border-right: 1px solid #7500bf;
+        }
+
+        & h2 {
+            font-size: 2.4rem;
+        }
 
         & .cont {
             width: 100%;
             height: 100%;
             box-sizing: border-box;
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 2rem 3rem;
+            padding: 1rem 2rem;
+
+            & p {
+                padding-top: 1.2rem;
+            }
+
+            & .email-box-form {
+                margin-top: 1rem;
+
+                & .email-input {
+                    border-bottom: 1px solid white !important;
+                }
+
+                & .email-input::placeholder {
+                    color: rgba(255, 255, 255, 0.77);
+                }
+
+                & button {
+                    color: black !important;
+                    background-color: white !important;
+                }
+            }
         }
     }
 
     .lirith-email-box {
         background-color: rgba(239, 239, 243, 0.6);
         background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20(8).svg");
+        border: 1px solid black;
 
         @media (max-width: 768px) {
             background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20mobile%20(1).svg");
             filter: blur(0.1px);
+        }
+
+        & .cont {
+            & .email-box-form {
+                & button {
+                    background-color: #1f2020 !important;
+                }
+            }
         }
     }
 
@@ -116,7 +175,6 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         padding: 1rem;
-        border: 1px solid black;
         background-size: cover;
 
         & .cont {
@@ -141,7 +199,6 @@
                     all: unset;
                     cursor: pointer;
                     color: white;
-                    background-color: #1f2020;
                     padding: 0.5rem 3rem;
                     margin: 0.1rem 0.1rem 0 1rem;
                     border-radius: 32px;
