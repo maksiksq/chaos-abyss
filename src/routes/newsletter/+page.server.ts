@@ -118,3 +118,57 @@ export const actions = {
         return {success: true, threat: 'Signed up successfully! Thx! Stay tuned.'};
     }
 } satisfies Actions;
+
+export const load = ({url}) => {
+    // should've done this for every other page
+    // ever
+
+    const title = "Newsletter";
+    const desc = "Subscribe for the Chaos Abyss newsletter, get an email every time a new article comes out.";
+    const link = "https://www.chaos-abyss.com/newsletter";
+
+    return {
+        meta: {
+            title: title,
+            canonUrl: link,
+            metaNamed: [
+                { name: "description", content: desc },
+                { name: "twitter:card", content: "summary_large_image" },
+                { name: "twitter:title", content: title },
+                { name: "twitter:description", content: desc },
+                { name: "twitter:image", content: "https://www.chaos-abyss.com/img/ogimg.png" }
+            ],
+            metaProperty: [
+                { property: "og:type", content: "website" },
+                { property: "og:locale", content: "en_US" },
+                { property: "og:title", content: title },
+                { property: "og:description", content: desc },
+                { property: "og:url", content: url.href },
+                { property: "og:image", content: "https://www.chaos-abyss.com/img/ogimg.png" }
+            ],
+            jsonLD: {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": title,
+                "url": link,
+                "description": desc,
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Chaos Abyss",
+                    "url": "https://www.chaos-abyss.com",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.chaos-abyss.com/img/ogimg.png"
+                    }
+                },
+                "potentialAction": {
+                    "@type": "SubscribeAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://www.chaos-abyss.com/newsletter"
+                    }
+                }
+            }
+        }
+    };
+};

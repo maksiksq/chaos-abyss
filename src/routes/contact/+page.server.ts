@@ -1,22 +1,24 @@
 export const prerender = true;
 
 export const load = ({url}) => {
+    const desc = "Contact page for Chaos Abyss. This is where you reach out, summon me, or accidentally open a portal. No promises which."
+
     return {
         meta: {
             title: "Contact",
             canonUrl: "https://www.chaos-abyss.com",
             metaNamed: [
-                { name: "description", content: "Contact page for Chaos Abyss. Slide into my inbox - it’s lonely in there." },
+                { name: "description", content: desc },
                 { name: "twitter:card", content: "summary_large_image" },
                 { name: "twitter:title", content: "Contact" },
-                { name: "twitter:description", content: "Contact page for Chaos Abyss. Slide into my inbox - it’s lonely in there." },
+                { name: "twitter:description", content: desc },
                 { name: "twitter:image", content: "https://www.chaos-abyss.com/img/ogimg.png" }
             ],
             metaProperty: [
                 { property: "og:type", content: "website" },
                 { property: "og:locale", content: "en_US" },
                 { property: "og:title", content: "Contact" },
-                { property: "og:description", content: "Contact page for Chaos Abyss. Slide into my inbox - it’s lonely in there." },
+                { property: "og:description", content: desc },
                 { property: "og:url", content: url.href },
                 { property: "og:image", content: "https://www.chaos-abyss.com/img/ogimg.png" }
             ],
@@ -33,7 +35,7 @@ export const load = ({url}) => {
                     "gender": "Male",
                     "knowsLanguage": ["English", "Ukrainian", "Japanese"],
                     "alternateName": "maksiksq",
-                    "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design..",
+                    "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design.",
                     "image": "https://www.chaos-abyss.com/img/pfpvlike40somethingidkilostcountsquaresmol.webp",
                     "sameAs": [
                         "https://github.com/maksiksq",
