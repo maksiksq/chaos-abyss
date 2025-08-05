@@ -57,7 +57,6 @@ const {form} = $props();
                 padding-top: 0.5rem;
                 font-size: 2rem;
 
-                text-transform: uppercase;
 
                 color: #131313;
                 font-weight: bold;
