@@ -81,6 +81,9 @@
         background-color: rgba(0, 0, 0, 1);
         background-image: none;
 
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
         color: white;
 
         @media (max-width: 768px) {
@@ -103,6 +106,7 @@
 
         & .consecration-img {
             position: absolute;
+            user-select: none;
             top: 0;
             left: 50%;
             z-index: -1;
@@ -151,6 +155,9 @@
         background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20(8).svg");
         border: 1px solid black;
 
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
         @media (max-width: 768px) {
             background-image: url("https://ik.imagekit.io/maksiks/Lirith%20plug%20mobile%20(1).svg");
             filter: blur(0.1px);
@@ -173,8 +180,6 @@
 
     .email-box {
         box-sizing: border-box;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
         padding: 1rem;
         background-size: cover;
 
