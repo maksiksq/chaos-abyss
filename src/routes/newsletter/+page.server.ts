@@ -104,7 +104,7 @@ export const actions = {
                 }
 
                 if (data?.subscribed === false) {
-                    return {success: true, threat: 'Successfully signed you back up. Welcome back!.'};
+                    return {success: true, threat: 'Successfully signed you back up. Welcome back!'};
                 }
 
                 return fail(400, {success: false, threat: "You already signed up for it!"});
