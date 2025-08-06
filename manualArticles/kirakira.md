@@ -1,9 +1,3 @@
-[# The Final Boss of Japanese Names: Kirakira
-
-// Japanese names that have been made up to look unique ... often without an account of the actual meaning.
-
-// There is a kid named Pikachu out there.
-
 One of the interesting parts of Japanese society is naming. Their names use kanji (Chinese characters) which can carry different meanings and pronunciations.
 
 ## Japanese names
