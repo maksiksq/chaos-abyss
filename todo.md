@@ -132,6 +132,7 @@
 - [x] : prod: write readme
 - [ ] : prod: post to reddit
 - [ ] : prod: auto emails
+- [ ] : prod: mobile article title overlap
 - [ ] : prod: an article or two
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
