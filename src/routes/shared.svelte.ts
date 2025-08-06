@@ -103,10 +103,11 @@ export const md: MarkdownIt = markdownit({
         .use(reparseRubyInsideTables);
 
 
-type Details = {
+type CurrentDetails = {
     uuid: string,
     title: string,
     blurb: string,
+    metadesc: string,
     category: string,
     slug: string,
     fig: string,
@@ -119,6 +120,6 @@ type Details = {
     author: string,
 }
 
-export let currentDetails: { details: Details } | { details: null } = $state({ details: null});
+export let currentDetails: { details: CurrentDetails } | { details: null } = $state({ details: null});
 export let currentContent: { content: string } | { content: null } = $state({ content: null});
 export let currentDate: { date: string } | { date: null } = $state({ date: null});

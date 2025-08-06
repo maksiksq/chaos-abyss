@@ -17,12 +17,12 @@
             link: '/about',
         },
         {
-            text: 'Contact',
-            link: '/contact',
-        },
-        {
             text: 'Newsletter',
             link: '/newsletter',
+        },
+        {
+            text: 'Contact',
+            link: '/contact',
         }
     ]);
 
