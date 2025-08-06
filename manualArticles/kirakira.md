@@ -4,7 +4,7 @@ One of the interesting parts of Japanese society is naming. Their names use kanj
 
 So a typical Japanese name is, for example, {陽向|ひなた} (Hinata), consisting of two kanji, 陽 - meaning something like "sun", and 向 - "to face, to turn towards" so the name roughly translates as "Toward the sunlight". And the dynamic that most popular Japanese names follow is meaning something positive.
 
-Kanji can have a multitude of other readings, so the same {陽向|ひなた} if you stretch its readings can technically be pronounced as よんかい or ひく or ひむ or as basically anything if you get creative enough. But that would not **mean** the name, people just kind of agreed upon that certain characters are read in certain ways in names and outside of them. But the sheer possibility of a name being spelled however you wish and it representing a concept is enough to make some parents go wild anyway.
+Kanji can have a multitude of other readings, so the same {陽向|ひなた} if you stretch its readings can technically be pronounced as よんかい or ひく or ひむ or as basically anything if you get creative enough. But that would not *mean* the name, people just kind of agreed upon that certain characters are read in certain ways in names and outside of them. But the sheer possibility of a name being spelled however you wish and it representing a concept is enough to make some parents go wild anyway.
 
 ## Kirakira
 
@@ -13,7 +13,7 @@ These weird and unique names are called **キラキラ (kirakira)** names. The w
 ### Things you typically see in these names:
 
 - **Unusual readings for kanji:**<br>
-  <small class="desc">E.g. {紅葉|メイプル}　(Meipuru) - maple.</small>
+  <small class="desc">E.g. {紅葉|メイプル}　(Meipuru) - maple, written with the word for "red leaves" (e.g. in autumn) which is typically pronounced as "kouyou".</small>
 - **References:**<br>
   <small class="desc">For example {光宙|ピカチュ}　(Pikachu) - literally Pikachu, yes, the Pokémon. </small>
 - **Foreign words or names:**<br>
@@ -21,7 +21,7 @@ These weird and unique names are called **キラキラ (kirakira)** names. The w
 - **And just weird names:**<br>
   <small class="desc">Like {王子様|おうじさま}　(Oujisama) - Prince.</small>
 
-Their unusual writing makes them difficult to read for most people. {奇跡|ダイヤ} (Daiya) as in Diamond would typically be pronounced as kiseki, which is the usual usage of the kanji, the word means "miracle".
+Their unusual spelling makes them difficult to read for most people. {奇跡|ダイヤ} (Daiya) as in Diamond would typically be read as "kiseki", which is the usual usage of the kanji and what most people will first think of upon seeing it, the word means "miracle".
 
 This is, of course, problematic, and you probably would not want to be named one of these.
 
@@ -35,7 +35,7 @@ You might think that this is a modern thing with the rise of the fast-paced inte
 | Name                           | Origin           | Written as                    | Comment                                                                                                                               |
 |--------------------------------|------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | {主人公                           | ヒーイロ} (Hero)     | Main character                | main character                                                                                                                        | Isekai main character but in real life. |
-| {菜月                            | なつ} (Natsu)      | Word for summer               | vegetable + moon                                                                                                                      | Most people would read this as Natsuki; “Natsu” means summer but it is ignored here |
+| {菜月                            | なつ} (Natsu)      | Word for summer               | vegetable + moon                                                                                                                      | Most people would read this as Natsuki. 夏 (Natsu) means summer but it is ignored here. |
 | ギリシア & トリノ (Gurishia & Torino) | Greece & Turin   | Greece & Turin                | Children named by a cyclist after Greece & Turin because the summer Olympics were held there. And the mother is named Seiko after {聖火 |せいか} (seika) - which means olympic fire too. |
 | プリンサスキャンディ (Purinsasu Candy)   | ???              | Princess Candy                | Princess Candy? Ok what.                                                                                                              |
 | {今鹿                            | なうしか} (Naushika) | Nausicaä from the Ghibli film | now + deer                                                                                                                            | The sacrifice you have to make to be possibly read as Nausicaä instead of "Now deer". |
@@ -47,7 +47,7 @@ You might think that this is a modern thing with the rise of the fast-paced inte
 | {奇跡                            | ダイヤ} (Daiya)     | Diamond                       | miracle                                                                                                                               | This is just confusing.                                                |
 | {緑夢                            | グリム} (Gurimu)    | Possibly Grimm brothers       | green + dream                                                                                                                         | English “green” + Japanese “dream” combined.                           |
 | {七音                            | ドレミ} (Doremi)    | Musical notes                 | seven + sound                                                                                                                         | Do-re-mi ... I'd think of Ratatouille every time I'd speak to this person. |
-| {王子様                           | オウジサマ} (Ojisama) | -                             | prince                                                                                                                                | Cringey                                                                        |
+| {王子様                           | オウジサマ} (Ojisama) | -                             | prince                                                                                                                                | Cringey.                                                                        |
 
 Note: my sources for some of these are questionable at best, not to be used in anything serious.
 
@@ -81,7 +81,7 @@ People in Japan can change their name at the age of 15, but until they are 18, t
 
 ## Kirakira is cursed but less cursed than you'd think
 
-One thing that I feel like a lot of western articles skip that I could notice even with my mediocre Japanese is the fact that people call their children more normal but still キラキラ names, not something as obscene as Pyua but something like {空|そら} (sora) - meaning "sky" just because it sounds very anime, pretty sure it was キラキラ at some point.
+One thing that I feel like a lot of western articles skip that I could notice even with my mediocre Japanese is the fact that people call their children more normal but still キラキラ names, not something as obscene as Pyua but something like {空|そら} (sora) - meaning "sky" just because it sounds very anime, pretty sure it was キラキラ at some point long ago, but now it's one of the most popular names out there in Japan.
 
 It's really easy to point at a few completely outlandish examples, but the bigger problem is the names that are just unusual and end up getting children bullied and people trying to read their names confused.
 
