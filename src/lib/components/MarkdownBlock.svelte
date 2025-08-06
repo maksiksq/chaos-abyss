@@ -139,7 +139,7 @@
         }
 
         .article-content {
-            margin: 20px 0 0 0;
+            margin: 1.8rem 0 0 0;
 
             & ul {
                 list-style: none;
@@ -165,7 +165,7 @@
                 font-size: 1.7rem;
                 line-height: 1.4;
 
-                margin-top: 3rem;
+                margin-top: 2.6rem;
                 margin-bottom: 1rem;
                 border-bottom: 1px solid black;
             }

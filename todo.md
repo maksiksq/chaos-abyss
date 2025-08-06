@@ -100,6 +100,9 @@
 - [ ] : very later: search suggestions
 - [ ] : very later: add more text editing functions to editor (e.g. Word)
 - [ ] : very later: make header section plugin but with escaping
+- [ ] : very later: maybe makes drafts and stashed actually private in the db
+- [ ] : very later: one or another way to preview draft figs on article page
+- [ ] : fix: figure captions completely brokey right now
 
 <br>~~- [ ] : scrap: add burger for phone~~
 <br>~~- [ ] : scrap: make header capitalization optional~~ ; it matches the db now
@@ -133,6 +136,7 @@
 - [ ] : prod: post to reddit
 - [ ] : prod: auto emails
 - [ ] : prod: mobile article title overlap
+- [x] : prod: an article
 - [ ] : prod: an article or two
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
