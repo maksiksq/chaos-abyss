@@ -133,16 +133,16 @@
 - [x] : prod: umami analytics
 - [x] : prod: investigate sveltekit security bug i just discovered lol - ok no i think im just 1 am tripping and seeing ghosts here. NO IT IS REAL IF I GO THE CORRECT DEPLOYMENT. Whay? It's inconsistent tho
 - [x] : prod: write readme
-- [ ] : prod: post to reddit
-- [ ] : prod: auto emails
-- [ ] : prod: mobile article title overlap
+- [x] : prod: mobile article title overlap
 - [x] : prod: mobile tables are not scrollable
-- [ ] : prod: make self-made markdown-it plugins into packages because even
 - [x] : prod: an article
-- [ ] : prod: an article or two
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
-- [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for somer reason)
+- [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for some reason)
+- [ ] : prod: make self-made markdown-it plugins into packages because evil
+- [ ] : prod: auto emails
+- [ ] : prod: post to reddit
+- [ ] : prod: an article or two
 
 i should really use like Trello for this
 
