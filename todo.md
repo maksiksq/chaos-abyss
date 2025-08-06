@@ -139,8 +139,9 @@
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
 - [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for some reason)
-- [ ] : prod: make self-made markdown-it plugins into packages because evil
+- [ ] : prod: maybe make self-made markdown-it plugins into packages because evil
 - [ ] : prod: auto emails
+- [ ] : prod: separate articles desc too
 - [ ] : prod: post to reddit
 - [ ] : prod: an article or two
 
