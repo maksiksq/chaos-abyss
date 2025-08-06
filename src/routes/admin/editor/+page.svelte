@@ -199,7 +199,7 @@
     <textarea name="blurb" id="blurb" bind:value={blurb}></textarea>
 
     <label for="meatdesc">Meta description</label>
-    <small class="smol">Invisible to users, but visible to google.</small>
+    <small class="smol">Invisible on the site, but visible on google.</small>
     <textarea name="meatdesc" id="meatdesc" bind:value={metadesc}></textarea>
 
     <!-- the category select is moved to dashboard-->

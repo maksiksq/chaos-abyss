@@ -139,7 +139,7 @@
         }
 
         .article-content {
-            margin: 20px 0 0 0;
+            margin: 1.8rem 0 0 0;
 
             & ul {
                 list-style: none;
@@ -165,7 +165,7 @@
                 font-size: 1.7rem;
                 line-height: 1.4;
 
-                margin-top: 3rem;
+                margin-top: 2.6rem;
                 margin-bottom: 1rem;
                 border-bottom: 1px solid black;
             }
@@ -211,19 +211,30 @@
                 margin-top: 1rem;
             }
 
-            & table {
+            & .table-wrap {
                 width: 100%;
-
-                margin: 1vw 0 1vw 0;
-                border-spacing: 0;
-
-                & td, tr, th {
-                    padding: 10px;
-                    border: 1px solid black;
+                @media (max-width: 768px) {
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
                 }
+                & table {
+                    width: 100%;
 
-                border: 1px solid black;
+                    margin: 1vw 0 1vw 0;
+                    border: 1px solid black;
+                    border-spacing: 0;
+
+                    & td, tr, th {
+                        padding: 10px;
+                        border: 1px solid black;
+                    }
+
+                    @media (max-width: 768px) {
+                        min-width: max-content;
+                    }
+                }
             }
+
 
             & a {
                 text-decoration: underline;
