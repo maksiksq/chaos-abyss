@@ -74,17 +74,17 @@ export const load = async ({params}) => {
         title: article.title,
         canonUrl: `https://www.chaos-abyss.com/articles/${article.category}/${params.slug}`,
         metaNamed: [
-            {name: "description", content: escapeHTML(article.blurb)},
+            {name: "description", content: article.metadesc ?? article.blurb},
             {name: "twitter:card", content: "summary_large_image"},
-            {name: "twitter:title", content: escapeHTML(article.title)},
-            {name: "twitter:description", content: escapeHTML(article.blurb)},
+            {name: "twitter:title", content: article.title},
+            {name: "twitter:description", content: article.metadesc ?? article.blurb},
             {name: "twitter:image", content: article.fig}
         ],
         metaProperty: [
             {property: "og:type", content: "article"},
             {property: "og:locale", content: "en_US"},
             {property: "og:title", content: article.title},
-            {property: "og:description", content: escapeHTML(article.blurb)},
+            {property: "og:description", content: article.metadesc ?? article.blurb},
             {property: "og:url", content: `https://www.chaos-abyss.com/articles/${article.category}/${params.slug}`},
             {property: "og:image", content: article.fig}
         ],
@@ -113,7 +113,7 @@ export const load = async ({params}) => {
 
     // misc
 
-    const wordcount = article.contentmd.trim().replace(/\s+/g, ' ').split(' ').length;
+    const wordcount = article.contentmd?.trim().replace(/\s+/g, ' ').split(' ').length;
     const authorlink = authors.find(author => author.name === article.author)?.link;
 
     return {

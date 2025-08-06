@@ -62,6 +62,7 @@
         uuid: string,
         title: string,
         blurb: string,
+        metadesc: string,
         category: string,
         slug: string,
         fig: string,
@@ -80,6 +81,7 @@
     let uuid = $state(data.clean ? crypto.randomUUID() : localDetails.uuid ?? '00000000-0000-0000-0000-000000000000');
     let title = $state(localDetails.title ?? 'Oh no he forgot the title probably');
     let blurb = $state(localDetails.blurb ?? 'default');
+    let metadesc = $state(localDetails.metadesc ?? 'default');
     let category = $state(data.clean ? 'draft' : localDetails.category ?? 'draft');
     let slug = $state(localDetails.slug ?? 'default');
     let fig = $state(localDetails.fig ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTGoZWW-KsjKOKlnprtHNtxWr6rRvNM417dg&s');
@@ -105,6 +107,7 @@
             uuid = derivedDetails.uuid;
             title = derivedDetails.title;
             blurb = derivedDetails.blurb;
+            metadesc = derivedDetails.metadesc;
             category = derivedDetails.category;
             slug = derivedDetails.slug;
             fig = derivedDetails.fig;
@@ -124,6 +127,7 @@
         uuid: uuid,
         title: title,
         blurb: blurb,
+        metadesc: metadesc,
         category: category,
         slug: slug,
         fig: fig,
@@ -193,6 +197,10 @@
 
     <label for="blurb">Blurb</label>
     <textarea name="blurb" id="blurb" bind:value={blurb}></textarea>
+
+    <label for="meatdesc">Meta description</label>
+    <small class="smol">Invisible to users, but visible to google.</small>
+    <textarea name="meatdesc" id="meatdesc" bind:value={metadesc}></textarea>
 
     <!-- the category select is moved to dashboard-->
 
