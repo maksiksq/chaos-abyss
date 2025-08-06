@@ -60,6 +60,41 @@ const reparseRubyInsideTables = (md: MarkdownIt) => {
     });
 };
 
+// Plugin to wrap tables in a div, so I can make them responsive properly
+const wrapTablesInDiv = (md: MarkdownIt) => {
+    md.core.ruler.after('block', 'wrap-tables', (state) => {
+        const tokens = state.tokens;
+
+        for (let i = 0; i < tokens.length; i++) {
+            const token = tokens[i];
+
+            if (token.type === 'table_open') {
+                const openDiv = new state.Token('html_block', '', 0);
+                openDiv.content = '<div class="table-wrap">';
+                openDiv.block = true;
+
+                const closeDiv = new state.Token('html_block', '', 0);
+                closeDiv.content = '</div>';
+                closeDiv.block = true;
+
+                // Insert opening div before table_open
+                tokens.splice(i, 0, openDiv);
+                i += 1;
+
+                // Find corresponding table_close and insert closing div after it
+                while (i < tokens.length) {
+                    if (tokens[i].type === 'table_close') {
+                        tokens.splice(i + 1, 0, closeDiv);
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+    });
+};
+
+
 
 export const md: MarkdownIt = markdownit({
         highlight: function (str, lang) {
@@ -100,7 +135,8 @@ export const md: MarkdownIt = markdownit({
                 rel: "noopener",
             }
         })
-        .use(reparseRubyInsideTables);
+        .use(reparseRubyInsideTables)
+        .use(wrapTablesInDiv);
 
 
 type CurrentDetails = {

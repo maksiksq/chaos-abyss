@@ -136,6 +136,8 @@
 - [ ] : prod: post to reddit
 - [ ] : prod: auto emails
 - [ ] : prod: mobile article title overlap
+- [ ] : prod: mobile tables are not scrollable
+- [ ] : prod: make self-made markdown-it plugins into packages because even
 - [x] : prod: an article
 - [ ] : prod: an article or two
 - [x] : prod: swap out footer order
