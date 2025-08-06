@@ -69,7 +69,7 @@
 
                 @media (max-width: 768px) {
                     font-size: 1.6rem;
-                    line-height: 2.5rem;
+                    line-height: 3rem;
                 }
             }
         }
