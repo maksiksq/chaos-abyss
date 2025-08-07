@@ -84,12 +84,12 @@ export const actions = {
             return {
             from: 'Maksiks <newsletter@chaos-abyss.com>',
             to: [email],
-            subject: 'Chaos Abyss Newsletter',
+            subject: `Chaos Abyss Newsletter - ${new Date().toLocaleDateString()}`,
             html:
                 `
                 ${text}
                 <small style="color: gray">This one's no good for replies, contact me at maksiks.touch@gmail.com instead.</small><br>
-                <small><a style="color: gray" href="https://www.chaos-abyss.com/api/unsubscribe?jwt=${await createJWT(email)}&lirith=true">unsubscribe</a></small>
+                <small><a style="color: gray" href="https://www.chaos-abyss.com/api/unsubscribe?jwt=${await createJWT(email)}&lirith=false">unsubscribe</a></small>
                 `.trim()
         }}));
 

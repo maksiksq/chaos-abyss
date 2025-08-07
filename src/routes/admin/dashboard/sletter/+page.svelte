@@ -51,8 +51,11 @@
             return;
         }
 
-        confirm += 1;
-        if (confirm < 1) cancel();
+        if (confirm < 1) {
+            confirm += 1;
+            cancel();
+            return;
+        }
 
         return async ({ result, update }) => {
             if (result) {sent = true}
