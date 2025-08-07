@@ -7,10 +7,10 @@
 
     const title = data.title ?? "Title";
     const fig = data.fig ?? "https://ik.imagekit.io/maksiks/moth.png?tr=w-460";
-    const figalt = data.figalt ?? "https://ik.imagekit.io/maksiks/moth.png?tr=w-460";
+    const figalt = data.figalt ?? "An article figure";
     const INITIAL =
         `
-<p>This one's all shiny and glittery, to a scary degree. </p>
+<p>If you're seeing this, I forgot to add text to this one oh no </p>
 <p>A fresh, new article just came out on Chaos Abyss! Go check it out. 👀</p>
 <h2>${title}</h2>
 <img width="460" src="${fig}" alt="${figalt}">

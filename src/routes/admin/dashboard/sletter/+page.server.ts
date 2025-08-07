@@ -1,4 +1,3 @@
-import {fail} from "@sveltejs/kit";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {error as sverror} from "@sveltejs/kit";
 
@@ -14,8 +13,6 @@ export const load = async ({url}) => {
         .from('articles')
         .select('slug')
     ;
-
-    console.log(slugs)
 
     if (error) {
         console.error(error);
