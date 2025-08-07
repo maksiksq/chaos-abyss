@@ -1,8 +1,10 @@
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {type Actions, error as sverror} from "@sveltejs/kit";
 import { Resend } from 'resend';
-import {SECRET_RESEND_API_KEY, SECRET_UNSUBSCRIBE_SECRET} from "$env/static/private";
+import {SECRET_RESEND_API_KEY, SECRET_SUPABASE_SERVICE_ROLE_KEY, SECRET_UNSUBSCRIBE_SECRET} from "$env/static/private";
 import {SignJWT} from "jose";
+import {createClient} from "@supabase/supabase-js";
+import {PUBLIC_SUPABASE_URL} from "$env/static/public";
 
 export const prerender = false;
 
@@ -53,7 +55,7 @@ export const actions = {
 
         const resend = new Resend(SECRET_RESEND_API_KEY);
 
-        const supabase = getClient();
+        const supabase = createClient(PUBLIC_SUPABASE_URL, SECRET_SUPABASE_SERVICE_ROLE_KEY)
 
         const {data: emails, error: sberror} = await supabase
             .from('newsletter')
@@ -84,15 +86,30 @@ export const actions = {
                 <small style="color: gray">This one's no good for replies, contact me at maksiks.touch@gmail.com instead.</small><br>
                 <small><a style="color: gray" href="https://www.chaos-abyss.com/api/unsubscribe?jwt=${await createJWT(email)}&lirith=true">unsubscribe</a></small>
 
-                `
+                `.trim()
         }}));
 
         if (!emailsWithInfo) return;
         const batches = Array.from({ length: Math.ceil(emailsWithInfo.length / 50) }, (_, i) => emailsWithInfo.slice(i * 50, i * 50 + 50));
 
         for (const batch of batches) {
-            await resend.batch.send(batch);
+            try {
+                await resend.batch.send(batch);
+            } catch (error) {
+                console.error(error);
+                throw sverror(400, 'Oh no');
+            }
         }
 
+        // flip associate for article if successful
+        const {error: isberror} = await supabase
+            .from('articles')
+            .update({slettered: true})
+            .eq('slug', associate)
+
+        if (isberror) {
+            console.error(isberror);
+            throw sverror(400, 'Oh no');
+        }
     }
 } satisfies Actions;

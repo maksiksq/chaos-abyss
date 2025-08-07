@@ -30,6 +30,11 @@
         Whatever you write here will be sent to random people. Don't write anything weird.
     </p>
     <form method="POST" action="/admin/dashboard/sletter/send" use:enhance={({cancel}) => {
+         if (!text) {
+             console.warn('No text');
+            cancel();
+        }
+
         confirm += 1;
         if (confirm < 1) cancel();
 
@@ -44,8 +49,9 @@
         </textarea>
         <label>
             <select name="associate" id="associate" bind:value={associate}>
-                {#each data.slugs as slug (slug)}
-                    <option>{slug.slug}</option>
+                <option value="none" selected>None</option>
+                {#each data.slugs as {slug} (slug)}
+                    <option value={slug}>{slug}</option>
                 {/each}
             </select>
         </label>
