@@ -13,7 +13,11 @@ export const load = async ({url}) => {
     const fig = url.searchParams.get('fig');
     const figalt = url.searchParams.get('figalt');
     const associate = url.searchParams.get('associate');
+    const blurb = url.searchParams.get('blurb');
 
+    // making blurb shorter just in case
+
+    // getting slugs for associating
     const supabase = getClient();
 
     const {data: slugs, error} = await supabase
@@ -31,6 +35,7 @@ export const load = async ({url}) => {
         title,
         fig,
         figalt,
+        blurb,
         associate,
         slugs
     }
@@ -39,12 +44,12 @@ export const load = async ({url}) => {
 export const actions = {
     send: async ({ request }) => {
         const formData = await request.formData();
-        const text = formData.get('text');
-        const associate = formData.get('associate');
+        const text = formData.get('text') as string;
+        const associate = formData.get('associate') as string;
 
         if (!text || !associate) {
             console.error('oh no')
-            throw sverror(500, 'oh no')
+            return { success: false, threat: 'Oh no. Something went wrong!' };
         }
 
         // actual sending part
@@ -64,7 +69,7 @@ export const actions = {
 
         if (!emails || sberror) {
             console.error(sberror);
-            throw sverror(500, 'oh no')
+            return { success: false, threat: 'Oh no. Something went wrong!' };
         }
 
         const createJWT = async (email: string)=> {
@@ -85,7 +90,6 @@ export const actions = {
                 ${text}
                 <small style="color: gray">This one's no good for replies, contact me at maksiks.touch@gmail.com instead.</small><br>
                 <small><a style="color: gray" href="https://www.chaos-abyss.com/api/unsubscribe?jwt=${await createJWT(email)}&lirith=true">unsubscribe</a></small>
-
                 `.trim()
         }}));
 
@@ -97,8 +101,12 @@ export const actions = {
                 await resend.batch.send(batch);
             } catch (error) {
                 console.error(error);
-                throw sverror(400, 'Oh no');
+                return { success: false, threat: 'Oh no. Something went wrong!' };
             }
+        }
+
+        if (!associate) {
+            return { success: true, threat: 'Sent successfully! (Without association)' };
         }
 
         // flip associate for article if successful
@@ -109,7 +117,9 @@ export const actions = {
 
         if (isberror) {
             console.error(isberror);
-            throw sverror(400, 'Oh no');
+            return { success: false, threat: 'Oh no. Something went wrong!' };
         }
+
+        return { success: true, threat: 'Sent successfully!' };
     }
 } satisfies Actions;

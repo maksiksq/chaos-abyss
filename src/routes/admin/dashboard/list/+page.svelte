@@ -134,11 +134,12 @@
                             <!-- a request like this is good anyway universal reactivity is just fully on the client -->
                             <!-- and a bit less setup -->
                             <button class="slettered" name="slettered"
-                                    style={article.slettered ? 'background-color: #61ff5e' : 'background-color: #ff334b'}
+                                    style={article.slettered ? 'background-color: transparent' : 'background-color: #ff334b'}
                                     onclick={(e) => {e.preventDefault(); goto('/admin/dashboard/sletter' +
                                      `?title=${encodeURIComponent(article.title)}` +
                                      `&fig=${encodeURIComponent(article.fig)}` +
                                      `&figalt=${encodeURIComponent(article.figalt)}` +
+                                     `&blurb=${encodeURIComponent(article.blurb)}` +
                                      `&associate=${encodeURIComponent(article.slug)}`);
                                     }}
                             >{article.slettered ? 'Newslettered, we chilling.' : 'Not newslettered!!! Click here!'}</button>

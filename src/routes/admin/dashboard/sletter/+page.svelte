@@ -3,23 +3,28 @@
 
     let text = $state();
 
-    const { data } = $props();
+    const { data, form } = $props();
 
     let associate = $state(data.associate ?? '');
 
     const title = data.title ?? "Title";
     const fig = data.fig ?? "https://ik.imagekit.io/maksiks/moth.png?tr=w-460";
     const figalt = data.figalt ?? "An article figure";
+    const blurb = data.blurb ?? "Oh no";
     const INITIAL =
         `
 <p>If you're seeing this, I forgot to add text to this one oh no </p>
 <p>A fresh, new article just came out on Chaos Abyss! Go check it out. 👀</p>
 <h2>${title}</h2>
 <img width="460" src="${fig}" alt="${figalt}">
+<p>${blurb}</p>
         `
 
     let confirm = $state(0);
     let sent = $state(false);
+
+    // debounce
+    let lastSubmit = $state(0);
 </script>
 
 <main>
@@ -29,10 +34,21 @@
     <p>
         Whatever you write here will be sent to random people. Don't write anything weird.
     </p>
-    <form method="POST" action="/admin/dashboard/sletter/send" use:enhance={({cancel}) => {
+    <form method="POST" action="?/send" use:enhance={({cancel}) => {
+        const now = Date.now();
+
+        if (now - lastSubmit < 1000) {
+            console.warn('Debounced');
+            cancel();
+            return;
+        }
+
+        lastSubmit = now;
+
          if (!text) {
              console.warn('No text');
             cancel();
+            return;
         }
 
         confirm += 1;
@@ -63,10 +79,13 @@
         {/if}
         {#if sent}
             <p>
-                Sent!
+                Sent! On the client!
             </p>
         {/if}
-        <button type="submit">{confirm === 1 ? 'Yup!' : 'Send'}</button>
+        {#if form?.threat}
+            {form?.threat}
+        {/if}
+        <button type="submit" class={form?.success ? 'd-none' : ''}>{confirm === 1 ? 'Yup!' : 'Send'}</button>
     </form>
 </main>
 
