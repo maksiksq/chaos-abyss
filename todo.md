@@ -138,12 +138,15 @@
 - [x] : prod: an article
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
-- [ ] : prod: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for some reason)
-- [ ] : prod: maybe make self-made markdown-it plugins into packages because evil
-- [ ] : prod: auto emails
-- [ ] : prod: separate articles desc too
-- [ ] : prod: post to reddit
+- [x] : prod: auto emails
 - [ ] : prod: an article or two
+- [ ] : prod: typo and mistake check everything again
+- [ ] : prod: post to reddit
+
+- [ ] : maybe: maybe separate articles desc too
+- [ ] : maybe: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for some reason)
+- [ ] : maybe: maybe make self-made markdown-it plugins into packages because evil
+
 
 i should really use like Trello for this
 
