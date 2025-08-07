@@ -9,6 +9,7 @@ const { children } = $props();
     <a href="/admin/dashboard">Dashboard</a>
     <a href="/admin/dashboard/comments">Comments</a>
     <a href="/admin/dashboard/list">Edit/Publish</a>
+    <a href="/admin/dashboard/sletter">Newsletter</a>
 </header>
 
 {@render children()}

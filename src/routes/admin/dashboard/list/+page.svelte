@@ -129,6 +129,22 @@
                                 </button>
                             </form>
                         </div>
+                        <label>
+                            <!-- next time maybe better off with universal reactivity -->
+                            <!-- a request like this is good anyway universal reactivity is just fully on the client -->
+                            <!-- and a bit less setup -->
+                            <button class="slettered" name="slettered"
+                                    style={article.slettered ? 'background-color: transparent' : 'background-color: #ff334b'}
+                                    onclick={(e) => {e.preventDefault(); goto('/admin/dashboard/sletter' +
+                                     `?title=${encodeURIComponent(article.title)}` +
+                                     `&fig=${encodeURIComponent(article.fig)}` +
+                                     `&figalt=${encodeURIComponent(article.figalt)}` +
+                                     `&blurb=${encodeURIComponent(article.blurb)}` +
+                                     `&associate=${encodeURIComponent(article.slug)}`);
+                                    }}
+                            >{article.slettered ? 'Newslettered, we chilling.' : 'Not newslettered!!! Click here!'}</button>
+                        </label>
+
                     </div>
                 {/each}
             {/each}
@@ -291,6 +307,14 @@
                                 cursor: pointer;
                             }
                         }
+                    }
+
+                    & .slettered {
+                        all: unset;
+                        margin-top: 1rem;
+                        padding: 0.3rem 1.2rem;
+                        border: 1px solid black;
+                        cursor: pointer;
                     }
                 }
             }
