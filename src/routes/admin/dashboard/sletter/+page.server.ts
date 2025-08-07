@@ -1,6 +1,8 @@
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {type Actions, error as sverror} from "@sveltejs/kit";
 import { Resend } from 'resend';
+import {SECRET_RESEND_API_KEY, SECRET_UNSUBSCRIBE_SECRET} from "$env/static/private";
+import {SignJWT} from "jose";
 
 export const prerender = false;
 
@@ -20,7 +22,7 @@ export const load = async ({url}) => {
 
     if (error) {
         console.error(error);
-        sverror(500, "oh fuck")
+        throw sverror(500, "oh fuck")
     }
 
     return {
@@ -38,64 +40,59 @@ export const actions = {
         const text = formData.get('text');
         const associate = formData.get('associate');
 
-        if (!text && !associate) {
+        if (!text || !associate) {
             console.error('oh no')
-            sverror(500, 'oh no')
+            throw sverror(500, 'oh no')
         }
 
         // actual sending part
         // NOTE: maximum batch size for Resend is 50
+        // (handled below)
+        //
         // + the 100 a day email limit
-        // filter csv to only use the subscribed ones later
 
-        dotenv.config();
+        const resend = new Resend(SECRET_RESEND_API_KEY);
 
-        const resend = new Resend();
+        const supabase = getClient();
 
-        const getEmails = async () => {
-            try {
-                const response = await resend.contacts.list({
-                    audienceId: '2a9064d6-92c6-42c5-a9dc-85fd7b8eaf78',
-                });
+        const {data: emails, error: sberror} = await supabase
+            .from('newsletter')
+            .select('email')
+            .neq('subscribed', false)
 
-                return response?.data?.data.map(obj => obj.email);
-            } catch (error) {
-                console.log(error);
-            }
+        if (!emails || sberror) {
+            console.error(sberror);
+            throw sverror(500, 'oh no')
         }
 
-        const content =
-            `
-        <p>
-        Hey!
-        </p>
-        <p>
-        Just sending this automatic email as confirmation that you signed up to get occasional updates on Lirith. 
-        </p>
-        <img width="460" src="https://ik.imagekit.io/maksiks/moth.png?tr=w-460" alt="lirith logo">
-        <p>
-        Thanks!
-        </p>
-    `
+        const createJWT = async (email: string)=> {
+            return await new SignJWT({
+                email
+            }).setProtectedHeader({
+                alg: "HS256"
+            }).setIssuedAt().setExpirationTime("90d").sign(new TextEncoder().encode(SECRET_UNSUBSCRIBE_SECRET));
+        }
 
-        const emailsBatch = await getEmails();
-
-        const emailsWithInfo = emailsBatch.map((email) => ({
-            from: 'Maksiks <lirith@chaos-abyss.com>',
+        const emailsWithInfo = await Promise.all(emails?.map(async ({email}: {email: string}) => {
+            return {
+            from: 'Maksiks <newsletter@chaos-abyss.com>',
             to: [email],
-            subject: 'Lirith updates',
-            html: content
-        }))
+            subject: 'Chaos Abyss Newsletter',
+            html:
+                `
+                ${text}
+                <small style="color: gray">This one's no good for replies, contact me at maksiks.touch@gmail.com instead.</small><br>
+                <small><a style="color: gray" href="https://www.chaos-abyss.com/api/unsubscribe?jwt=${await createJWT(email)}&lirith=true">unsubscribe</a></small>
 
-        await resend.batch.send(emailsWithInfo);
+                `
+        }}));
 
-        await resend.emails.send([
-            {
-                from: 'Maksiks <lirith@chaos-abyss.com>',
-                to: [email],
-                subject: 'Lirith updates',
-                html: content
-            }
-        ]);
+        if (!emailsWithInfo) return;
+        const batches = Array.from({ length: Math.ceil(emailsWithInfo.length / 50) }, (_, i) => emailsWithInfo.slice(i * 50, i * 50 + 50));
+
+        for (const batch of batches) {
+            await resend.batch.send(batch);
+        }
+
     }
 } satisfies Actions;

@@ -18,10 +18,6 @@
 <img width="460" src="${fig}" alt="${figalt}">
         `
 
-    // TODO: HANDLE THE JWT FOR UNSUBSCRIBE
-    //     <small style="color: gray">This one's no good for replies, contact me at maksiks.touch@gmail.com instead.</small><br>
-    // <small><a style="color: gray" href="https://www.chaos-abyss.com/api/unsubscribe?jwt=${jwt}&lirith=true">unsubscribe</a></small>
-
     let confirm = $state(0);
     let sent = $state(false);
 </script>
