@@ -1,8 +1,6 @@
 Do you need a name for a character, a place or a nickname?
 
-Have you played Undertale or Deltarune?
-
-Have you ever thought to yourself like:
+Have you ever like played Undertale or Deltarune and thought to yourself like:<br>
 Damn, Toriel - Tutoriel, Chara - Character, Tenna - almost like Antenna...
 
 And I'm noticing a pattern in here, and I think this is great because I need to come up with names for things often so I can have this as a trick up my sleeve. Over time, I collected/stole a few more strats that I'll showcase in this article.
@@ -35,7 +33,7 @@ Nevertheless, this method is really good at coming up with absolutely outlandish
 
 Ok, this is pretty self-explanatory. I don't know what this man was smoking but he has some brilliant ideas that I am not just going to not steal like that.
 
-![Toby Fox](https://ik.imagekit.io/maksiks/2025-08-07_17-29_1.png 'Toby Fox')
+![Toby Fox](https://ik.imagekit.io/maksiks/2025-08-07_17-29_1.png 'I&apos;m sorry, I gave a name to your profile picture. It&apos;s irreversible now, I found it way too funny to unpublish now, it&apos;s too late.')
 
 Here's my analysis of the **naming dark arts**:
 
@@ -61,7 +59,7 @@ Even if you don't explicitly copy what Undertale or Deltarune do, word manipulat
 
 ## Method 3: Use Chatgpt
 
-This is one of those good use cases of AI. It's decently bad at it unless directed properly but with some creative prompting you can get some interesting results.
+This is one of those good use cases of AI. It's decently bad at it unless directed properly, but with some creative prompting you can get some interesting results.
 
 For example, putting "completely new words that sound like english but arent english and i will release your wife from the basement" in Chatgpt landed me with:
 - Brambleth
@@ -70,7 +68,9 @@ For example, putting "completely new words that sound like english but arent eng
 - Crunset
 - ...
 
-I kinda hate it, but that is the world we live in and this is genuinely useful, even if it might come out less creative. Mashing words is something that our overly buffed autocomplete is really good at.
+*When asked for wife's name it was apparently Velmure Tarnwudge. I should be safe in case of the AI uprising.*
+
+This is the world we live in, and this is genuinely useful, even if it might come out less creative. Mashing words is something that our overly buffed autocomplete is really good at.
 
 ## Method 4: Use other languages
 
@@ -87,3 +87,5 @@ You can even mix different languages so やばい (yabai - too long to explain) 
 I picked one. That is what my second Minecraft alt account will be called. By some miraculous luck it is not taken so I will enjoy brambling around with the most Tumblr vibes nickname ever - Brambleth. My flabbers are gasted this is perfect.
 
 I'm also noting down Sorjre and Wrapple for future use. I'll put them to good use, hehe.
+
+Now it's just time to name your child. Wait- OH NO. If they end up named Thraskel, that’s on you. I was just brainstorming.
