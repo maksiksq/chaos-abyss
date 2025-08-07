@@ -3,17 +3,17 @@
 
     const { data } = $props();
 
-    let associate = '';
+    let associate = $state(data.associate ?? '');
 
     const title = data.title ?? "Title";
     const fig = data.fig ?? "https://ik.imagekit.io/maksiks/moth.png?tr=w-460";
-    const imgalt = data.imgalt ?? "https://ik.imagekit.io/maksiks/moth.png?tr=w-460";
+    const figalt = data.figalt ?? "https://ik.imagekit.io/maksiks/moth.png?tr=w-460";
     const INITIAL =
         `
 <p>This one's all shiny and glittery, to a scary degree. </p>
 <p>A fresh, new article just came out on Chaos Abyss! Go check it out. 👀</p>
 <h2>${title}</h2>
-<img width="460" src="${fig}" alt="${imgalt}">
+<img width="460" src="${fig}" alt="${figalt}">
         `
 
     // TODO: HANDLE THE JWT FOR UNSUBSCRIBE
@@ -32,12 +32,14 @@
         <textarea name="text" id="text" bind:value={text}>
         {INITIAL}
         </textarea>
-        <label for="select"></label>
-        <select name="select" id="select" bind:value={associate}>
-            {#each data.titles as title (title)}
-                <option>{title}</option>
-            {/each}
-        </select>
+        <label>
+            <select name="select" id="select" bind:value={associate}>
+                {#each data.slugs as slug (slug)}
+                    <option>{slug.slug}</option>
+                {/each}
+            </select>
+        </label>
+        <p>Unsubscribe text and "contact me elsewhere" is handled in code-separately (it needs a jwt)</p>
         <button type="submit">Send</button>
     </form>
 </main>
@@ -46,7 +48,7 @@
     main {
         width: 100vw;
         margin-top: 2rem;
-        padding: 0 0 0 1rem;
+        padding: 0 0 1rem 1rem;
 
         & p {
             margin-top: 1rem;
@@ -60,7 +62,7 @@
 
             & textarea {
                 width: 50%;
-                height: 60vh;
+                height: 45vh;
             }
 
             & button {
@@ -71,6 +73,10 @@
                 padding: 0.4rem 4rem;
                 color: white;
                 background-color: black;
+            }
+
+            & select {
+                margin-top: 1rem;
             }
         }
     }
