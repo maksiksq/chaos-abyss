@@ -139,7 +139,8 @@
 - [x] : prod: swap out footer order
 - [x] : prod: maybe a real newsletter but later
 - [x] : prod: auto emails
-- [ ] : prod: an article or two
+- [x] : prod: an article or two
+- [x] : prod: an article or three
 - [ ] : prod: typo and mistake check everything again
 - [ ] : prod: post to reddit
 
