@@ -1,4 +1,4 @@
-*Note: This is inspired by this [video](https://www.youtube.com/watch?v=OKuhRoSVizs) by Mental Checkpoint, except about a different mechanic, go check it out after this.*
+*Note: This is kinda inspired by this [video](https://www.youtube.com/watch?v=OKuhRoSVizs) by Mental Checkpoint, except about a different mechanic, go check it out after this.*
 
 If you think about it. Think about it really hard. **Identification** as a main game mechanic is kind of underrated.
 
