@@ -21,7 +21,7 @@
 
     const DEFAULT_LIMIT = 3;
 
-    let localCategories = $state(categories.map((c: typeof categories[number]) => ({...c, page: 0})));
+    let localCategories = $state(categories.map((c: typeof categories[number]) => ({...c, page: 1})));
 
     const requestNewCatPage = async (cat: string, page: number) => {
         const supabase = getBrowserClient();
@@ -30,28 +30,22 @@
         const from = (page - 1) * pageLimit;
         const to = from + pageLimit - 1;
 
-        const {data: category, error} = await supabase
+        console.log('fromto', from, to);
+
+        const {data: newCategories, error} = await supabase
             .from('articles')
             .select('category, slug, title, fig, figalt, blurb, date, comment_count')
             .eq('category', cat)
             .order('date', {ascending: false})
             .range(from, to)
 
-        if (error || !category) {
+        if (error || !newCategories) {
             console.error(error);
             return;
         }
 
-        localCategories = localCategories.map((c: typeof localCategories[number]) => {
-            if (c.category === cat) {
-                return {
-                    ...c,
-                    summaries: category,
-                    page
-                };
-            }
-            return c;
-        });
+        const ix = localCategories.findIndex((category: typeof localCategories[number]) => category.db === cat);
+        localCategories[ix].summaries = newCategories;
     }
 
     // this thing makes the background change
@@ -65,7 +59,7 @@
         const HEADER_OFFSET = 60;
         const MAX_GLASS = 5;
 
-        const cardsHeight = cards.offsetHeight-HEADER_OFFSET;
+        const cardsHeight = cards.offsetHeight - HEADER_OFFSET;
 
         if (scroll < cardsHeight) {
             glass = 0;
@@ -76,10 +70,12 @@
         interval = 180;
 
 
-        glass = Math.floor((scroll-cardsHeight)/(interval));
+        glass = Math.floor((scroll - cardsHeight) / (interval));
 
-        if (glass>MAX_GLASS) glass = MAX_GLASS;
+        if (glass > MAX_GLASS) glass = MAX_GLASS;
     }
+    $inspect(localCategories)
+
 </script>
 
 <svelte:window onscroll={handleScroll} onresize={handleScroll}/>
@@ -97,16 +93,23 @@
                     <div class="pages">
 
                         <!-- TODO: Here -->
-                        <button onclick={() => category.page -= 1} style={category.summaries.length > 2 ? 'color: #191919;' : 'color: #666666; cursor: initial;'}>&lt;</button>
+                        <button onclick={async () => {const newPage = category.page - 1; await requestNewCatPage(category.db, newPage)}}
+                                style={category.summaries.length > 2 ? 'color: #191919;' : 'color: #666666; cursor: pointer;'}>
+                            &lt;
+                        </button>
                         <p>1/1</p>
-                        <button style={category.summaries.length > 2 ? 'color: #191919' : 'color: #666666; cursor: initial;'}>&gt;</button>
+                        <button onclick={async () => {{const newPage = category.page + 1; await requestNewCatPage(category.db, newPage)}}}
+                                style={category.summaries.length > 2 ? 'color: #191919' : 'color: #666666; cursor: pointer;'}>
+                            &gt;
+                        </button>
                     </div>
                 </div>
             {/each}
         </div>
     </div>
     <div class="glass-background">
-        <img src={`/img/glass/glass${glass}.svg`} style={glass ? `width: ${40+glass*10}%` : ''} alt="interesting background"/>
+        <img src={`/img/glass/glass${glass}.svg`} style={glass ? `width: ${40+glass*10}%` : ''}
+             alt="interesting background"/>
     </div>
 </section>
 
