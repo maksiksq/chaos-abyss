@@ -88,7 +88,6 @@
     const handleNewPage = async (page: number, cat: string, up: boolean) => {
         const newPage = page + (up ? 1 : -1);
        if (checkPage(newPage, cat)) {
-           console.log("page", newPage)
            await requestNewCatPage(cat, newPage)
        }
     }
@@ -110,12 +109,12 @@
 
                         <!-- TODO: Here -->
                         <button onclick={async () => await handleNewPage(category.page, category.db, false)}
-                                style={checkPage(category.page, category.category) ? 'color: #888888; cursor: initial;' :  'color: #191919'}>
+                                style={checkPage(category.page-1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;' }>
                             &lt;
                         </button>
-                        <p>1/1</p>
+                        <p>{category.page}/{categoryPages[category.db]}</p>
                         <button onclick={async () => await handleNewPage(category.page, category.db, true)}
-                                style={checkPage(category.page, category.category) ? 'color: #888888; cursor: initial;' :  'color: #191919'}>
+                                style={checkPage(category.page+1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;'}>
                             &gt;
                         </button>
                     </div>
