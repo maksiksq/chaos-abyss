@@ -1,5 +1,6 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
+    import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient.js";
 
     let {categories, mobile} = $props();
 
@@ -7,6 +8,51 @@
 
     let glass = $state(0);
     let cards = $state<HTMLElement | null>(null)
+
+    // pagination
+    // duplicated on the server
+    const CATEGORY_LIMITS: Record<string, number> = {
+        projects: 3,
+        miscellaneous: 4,
+        japanese: 2,
+        media: 3,
+        dev: 3
+    };
+
+    const DEFAULT_LIMIT = 3;
+
+    let localCategories = $state(categories.map((c: typeof categories[number]) => ({...c, page: 0})));
+
+    const requestNewCatPage = async (cat: string, page: number) => {
+        const supabase = getBrowserClient();
+
+        const pageLimit = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT
+        const from = (page - 1) * pageLimit;
+        const to = from + pageLimit - 1;
+
+        const {data: category, error} = await supabase
+            .from('articles')
+            .select('category, slug, title, fig, figalt, blurb, date, comment_count')
+            .eq('category', cat)
+            .order('date', {ascending: false})
+            .range(from, to)
+
+        if (error || !category) {
+            console.error(error);
+            return;
+        }
+
+        localCategories = localCategories.map((c: typeof localCategories[number]) => {
+            if (c.category === cat) {
+                return {
+                    ...c,
+                    summaries: category,
+                    page
+                };
+            }
+            return c;
+        });
+    }
 
     // this thing makes the background change
     const handleScroll = () => {
@@ -42,14 +88,16 @@
     <h2> Here, pick an article: </h2>
     <div class="cards-wrap">
         <div class="cards" bind:this={cards}>
-            {#each categories as category (category.db)}
+            {#each localCategories as category (category.db)}
                 <div class="card">
                     <h3>{category.human}</h3>
                     <ul class="search-summaries">
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
                     <div class="pages">
-                        <button style={category.summaries.length > 2 ? 'color: #191919;' : 'color: #666666; cursor: initial;'}>&lt;</button>
+
+                        <!-- TODO: Here -->
+                        <button onclick={() => category.page -= 1} style={category.summaries.length > 2 ? 'color: #191919;' : 'color: #666666; cursor: initial;'}>&lt;</button>
                         <p>1/1</p>
                         <button style={category.summaries.length > 2 ? 'color: #191919' : 'color: #666666; cursor: initial;'}>&gt;</button>
                     </div>

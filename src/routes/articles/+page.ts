@@ -39,7 +39,9 @@ export const load: PageLoad = async ({url}) => {
 
     // we only give the client the first few necessary articles
     // still getting the whole thing from the database tho because can't do it well in 1 request afaik
-    const categoryLimits: Record<string, number> = {
+    //
+    // also these are duplicated on the client for 0.00001s of performance
+    const CATEGORY_LIMITS: Record<string, number> = {
         projects: 3,
         miscellaneous: 4,
         japanese: 2,
@@ -47,7 +49,7 @@ export const load: PageLoad = async ({url}) => {
         dev: 3
     };
 
-    const defaultLimit = 3;
+    const DEFAULT_LIMIT = 3;
 
     const grouped: Record<string, Article[]> = {};
     for (const article of data) {
@@ -58,7 +60,7 @@ export const load: PageLoad = async ({url}) => {
 
     const summaries: Article[] = [];
     for (const [cat, articles] of Object.entries(grouped)) {
-        const limit = categoryLimits[cat] ?? defaultLimit;
+        const limit = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT;
         summaries.push(...articles.slice(0, limit));
     }
 

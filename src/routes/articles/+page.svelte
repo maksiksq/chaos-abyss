@@ -4,19 +4,10 @@
     import SearchLeftSearch from "./SearchLeftSearch.svelte";
     import {onMount} from "svelte";
 
-    type Summary = {
-        category: string;
-        slug: string;
-        title: string;
-        fig: string;
-        figalt: string;
-        blurb: string;
-        date: string;
-        comment_count: number;
-    }
+    type Summary = typeof data.summaries[number];
 
     let {data} = $props();
-    const grouped: Record<string, Summary> = data.summaries.reduce((acc: Record<string, Summary[]>, summary: Summary) => {
+    const grouped: Record<string, Summary[]> = data.summaries.reduce((acc: Record<string, Summary[]>, summary: Summary) => {
         if (!acc[summary.category]) {
             acc[summary.category] = [];
         }
