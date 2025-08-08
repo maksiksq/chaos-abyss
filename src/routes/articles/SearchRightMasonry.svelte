@@ -100,9 +100,10 @@
     <div class="cards-wrap">
         <div class="cards" bind:this={cards}>
             {#each localCategories as category (category.db)}
+                {@const paginated = categoryPages[category.db] !== 1}
                 <div class="card">
                     <h3>{category.human}</h3>
-                    <ul class="search-summaries">
+                    <ul  class={paginated ? 'paginated-search-summaries' : ''} style={paginated ? '' : ''}>
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
                     {#if categoryPages[category.db] !== 1}
@@ -130,7 +131,7 @@
 
 <style>
     :global {
-        .search-summaries {
+        .paginated-search-summaries {
             & li:last-child {
                 & article {
                     & a {
@@ -230,7 +231,7 @@
                 }
 
                 & ul {
-                    padding: 1rem 1rem 0 1rem;
+                    padding: 1rem 1rem 0.3rem 1rem;
                     list-style: none;
 
                     @media (max-width: 1023px) {
