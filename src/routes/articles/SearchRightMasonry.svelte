@@ -32,18 +32,12 @@
         const from = (page - 1) * pageLimit;
         const to = from + pageLimit - 1;
 
-        console.log("lims", from, to)
-        console.log("cat", cat)
-        console.log("page", page)
-
         const {data: newCategories, error} = await supabase
             .from('articles')
             .select('category, slug, title, fig, figalt, blurb, date, comment_count')
             .eq('category', cat)
             .order('date', {ascending: false})
             .range(from, to)
-
-        console.log(newCategories)
 
         if (error || !newCategories) {
             console.error(error);
@@ -81,8 +75,6 @@
 
         if (glass > MAX_GLASS) glass = MAX_GLASS;
     }
-
-    $inspect(localCategories)
 
     const checkPage = (page: number, cat: string) => {return (page > 0) && (page <= categoryPages[cat])}
     const handleNewPage = async (page: number, cat: string, up: boolean) => {

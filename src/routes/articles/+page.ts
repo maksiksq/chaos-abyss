@@ -361,8 +361,11 @@ export const load: PageLoad = async ({url}) => {
     meta.jsonLD.mainEntity.itemListElement = jsonLDArticles;
 
 
+    console.log('sum')
+    console.log(summaries)
     return {
         summaries,
+        categoryPages,
         results: sumResults,
         searchCount: catResults.length,
         fromSearch: fromSearch,
