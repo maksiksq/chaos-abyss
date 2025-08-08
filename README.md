@@ -1,5 +1,7 @@
 # 🪞 Chaos Abyss
 
+Man reinvents blog framework from scratch.
+
 It's a blog. I'd write a descriptive readme but checkmate, I explained it elsewhere, twice.
 
 ## Elsewheres in question: <br>

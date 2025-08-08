@@ -24,11 +24,14 @@ Because I can't think of anyone making this into a game yet. The closest thing I
 
 In my head this is definitely great for these store owner games, the aforementioned Strange Horiculture, stuff like [Potion Craft](https://store.steampowered.com/app/1210320/Potion_Craft_Alchemist_Simulator/), well that's because identifying plants fits the setting. But I can imagine this expanded to identifying items of any kind.
 
-Another interesting thing about those two is that when you give the customer an item, you don't actually know if that is what they wanted. Like in Potion craft if someone has their door jammed, 
+Another interesting thing about those two is that when you give the customer an item, you don't actually know if that is what they wanted. Like in Potion craft if someone has their door jammed, you can give them an acid potion, sure... or you could give them an explosion potion. *(Megumin is disappointed, the potion is too weak)*
+
+## Some ideas
 
 Just throwing out some ideas:
 - The world from the future and the past collided, and now you have to tell medieval peasants what to do with a washing machine they scavenged
 - Weapons, staffs, etc. have some idk gems embedded with them, by figuring out the combinations of them, with a complex magic system you try and find out what they do. And then sell them. Because stonks.
 - A difficult to pull off concept, but listen, what if the artstyle makes it difficult to figure out what an item is. You're a freaking colorblind person, and the world it too stylized to make out details, you have no bloody idea.
-![A thing, idk what it is](https://ik.imagekit.io/maksiks/idk.png 'Is it a ship? A prism? A pyramid on a piece of butter? You will never know.')
+  ![A thing, idk what it is](https://ik.imagekit.io/maksiks/idk(1).png 'Is it a ship? A prism? A pyramid on a piece of butter? You will never know.')
 
+It was originally meant to be an ambiguous tetrahedron, but I had a drawing skill issue midway and it came out even more ambiguous! 
