@@ -32,15 +32,8 @@ const reparseRubyInsideTables = (md: MarkdownIt) => {
     // Restoring pipe and reparsing only affected inline tokens
     md.core.ruler.after('inline', 'reparse-ruby-inline', (state) => {
         const tokens = state.tokens;
-        let insideTable = false;
 
         for (const token of tokens) {
-            if (token.type === 'table_open') {
-                insideTable = true;
-            } else if (token.type === 'table_close') {
-                insideTable = false;
-            }
-
             if (token.type !== 'inline') continue;
 
             // Only re-tokenize if there's a placeholder

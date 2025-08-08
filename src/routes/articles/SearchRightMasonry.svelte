@@ -1,12 +1,53 @@
 <script lang="ts">
     import SearchSummaries from "./SearchSummaries.svelte";
+    import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient.js";
 
-    let {categories, mobile} = $props();
+    let {categories, categoryPages, mobile} = $props();
+
+    $inspect("pages?", categoryPages)
 
     let interval = $state(1000);
 
     let glass = $state(0);
     let cards = $state<HTMLElement | null>(null)
+
+    // pagination
+    // duplicated on the server
+    const CATEGORY_LIMITS: Record<string, number> = {
+        projects: 3,
+        miscellaneous: 4,
+        japanese: 2,
+        media: 3,
+        dev: 3
+    };
+
+    const DEFAULT_LIMIT = 3;
+
+    let localCategories = $state(categories.map((c: typeof categories[number]) => ({...c, page: 1})));
+
+    const requestNewCatPage = async (cat: string, page: number) => {
+        const supabase = getBrowserClient();
+
+        const pageLimit = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT
+        const from = (page - 1) * pageLimit;
+        const to = from + pageLimit - 1;
+
+        const {data: newCategories, error} = await supabase
+            .from('articles')
+            .select('category, slug, title, fig, figalt, blurb, date, comment_count')
+            .eq('category', cat)
+            .order('date', {ascending: false})
+            .range(from, to)
+
+        if (error || !newCategories) {
+            console.error(error);
+            return;
+        }
+
+        const ix = localCategories.findIndex((category: typeof localCategories[number]) => category.db === cat);
+        localCategories[ix].summaries = newCategories;
+        localCategories[ix].page = page;
+    }
 
     // this thing makes the background change
     const handleScroll = () => {
@@ -19,7 +60,7 @@
         const HEADER_OFFSET = 60;
         const MAX_GLASS = 5;
 
-        const cardsHeight = cards.offsetHeight-HEADER_OFFSET;
+        const cardsHeight = cards.offsetHeight - HEADER_OFFSET;
 
         if (scroll < cardsHeight) {
             glass = 0;
@@ -27,12 +68,20 @@
             return;
         }
 
-        interval = 200;
+        interval = 180;
 
 
-        glass = Math.floor((scroll-cardsHeight)/(interval));
+        glass = Math.floor((scroll - cardsHeight) / (interval));
 
-        if (glass>MAX_GLASS) glass = MAX_GLASS;
+        if (glass > MAX_GLASS) glass = MAX_GLASS;
+    }
+
+    const checkPage = (page: number, cat: string) => {return (page > 0) && (page <= categoryPages[cat])}
+    const handleNewPage = async (page: number, cat: string, up: boolean) => {
+        const newPage = page + (up ? 1 : -1);
+       if (checkPage(newPage, cat)) {
+           await requestNewCatPage(cat, newPage)
+       }
     }
 </script>
 
@@ -42,22 +91,82 @@
     <h2> Here, pick an article: </h2>
     <div class="cards-wrap">
         <div class="cards" bind:this={cards}>
-            {#each categories as category (category.db)}
+            {#each localCategories as category (category.db)}
+                {@const paginated = categoryPages[category.db] !== 1}
                 <div class="card">
                     <h3>{category.human}</h3>
-                    <ul>
+                    <ul  class={paginated ? 'paginated-search-summaries' : ''} style={paginated ? '' : ''}>
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
+                    {#if categoryPages[category.db] !== 1}
+                        <div class="pages">
+                            <button onclick={async () => await handleNewPage(category.page, category.db, false)}
+                                    style={checkPage(category.page-1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;' }>
+                                &lt;
+                            </button>
+                            <p>{category.page}/{categoryPages[category.db]}</p>
+                            <button onclick={async () => await handleNewPage(category.page, category.db, true)}
+                                    style={checkPage(category.page+1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;'}>
+                                &gt;
+                            </button>
+                        </div>
+                    {/if}
                 </div>
             {/each}
         </div>
     </div>
     <div class="glass-background">
-        <img src={`/img/glass/glass${glass}.svg`} style={glass ? `width: ${40+glass*10}%` : ''} alt="interesting background"/>
+        <img src={`/img/glass/glass${glass}.svg`} style={glass ? `width: ${40+glass*10}%` : ''}
+             alt="interesting background"/>
     </div>
 </section>
 
 <style>
+    :global {
+        .paginated-search-summaries {
+            & li:last-child {
+                & article {
+                    & a {
+                        margin-bottom: 0.7rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .pages {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 0.4rem;
+        padding-right: 1rem;
+
+        font-size: 0.9rem;
+        font-family: monospace;
+        font-weight: bold;
+
+        button {
+            all: unset;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        button:nth-child(2) {
+            padding: 0.2rem 0.6rem 0.2rem 0.1rem;
+        }
+
+        button:nth-child(1) {
+            padding: 0.2rem 0.1rem 0.2rem 0.6rem;
+        }
+
+        p {
+            color: #191919;
+            display: inline-block;
+            font-family: monospace;
+            padding: 0.2rem 0.1rem;
+            font-weight: bold;
+        }
+    }
+
     .glass-background {
         position: fixed;
         z-index: -1;

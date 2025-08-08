@@ -1,6 +1,8 @@
 # 🪞 Chaos Abyss
 
-It's a blog. I'd write a descriptive readme but checkmate, I explained it elsewhere, twice.
+Man reinvents blog frameworks from scratch.
+
+It's a blog. I'd write a descriptive readme but checkmate, I explained it elsewhere, in detail, twice.
 
 ## Elsewheres in question: <br>
 > [The initial article](https://www.chaos-abyss.com/articles/projects/chaos-abyss) - the juicy details, the soul, the evil <br>
