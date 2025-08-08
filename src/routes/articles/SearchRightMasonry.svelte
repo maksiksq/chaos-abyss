@@ -24,6 +24,8 @@
     let localCategories = $state(categories.map((c: typeof categories[number]) => ({...c, page: 1})));
 
     const requestNewCatPage = async (cat: string, page: number) => {
+        console.log(page);
+
         const supabase = getBrowserClient();
 
         const pageLimit = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT
@@ -46,6 +48,7 @@
 
         const ix = localCategories.findIndex((category: typeof localCategories[number]) => category.db === cat);
         localCategories[ix].summaries = newCategories;
+        localCategories[ix].page = page;
     }
 
     // this thing makes the background change
