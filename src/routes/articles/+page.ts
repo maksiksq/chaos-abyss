@@ -30,7 +30,7 @@ export const load: PageLoad = async ({url}) => {
     const supabase = browser ? getBrowserClient() : getClient();
     const {data, error: artErr} = await supabase
         .from('articles')
-        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content_trim, accent, figcap')
+        .select('category, slug, title, fig, figalt, blurb, date, comment_count, content_trim, accent, figcap', { count: 'exact' })
         .not('category', 'in.("draft","stashed")')
         .order('date', {ascending: false});
     if (artErr || !data) {
@@ -51,6 +51,21 @@ export const load: PageLoad = async ({url}) => {
 
     const DEFAULT_LIMIT = 3;
 
+    const categoryCounts: Record<string, number> = {};
+
+    for (const article of data) {
+        const cat = article.category;
+        if (!categoryCounts[cat]) categoryCounts[cat] = 0;
+        categoryCounts[cat] += 1;
+    }
+
+    const categoryPages: Record<string, number> = {};
+
+    for (const cat in categoryCounts) {
+        const perPage = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT;
+        categoryPages[cat] = Math.ceil(categoryCounts[cat] / perPage);
+    }
+
     const grouped: Record<string, Article[]> = {};
     for (const article of data) {
         const cat = article.category;
@@ -58,11 +73,13 @@ export const load: PageLoad = async ({url}) => {
         grouped[cat].push(article);
     }
 
+
     const summaries: Article[] = [];
     for (const [cat, articles] of Object.entries(grouped)) {
         const limit = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT;
         summaries.push(...articles.slice(0, limit));
     }
+
 
     // seo
 
@@ -129,6 +146,7 @@ export const load: PageLoad = async ({url}) => {
     if (!query) {
         return {
             summaries,
+            categoryPages,
             results: null,
             searchCount: null,
             fromSearch: fromSearch,
@@ -303,7 +321,8 @@ export const load: PageLoad = async ({url}) => {
         // !!!
         meta.noindex = true
         return {
-            summaries: summaries,
+            summaries,
+            categoryPages,
             results: null,
             searchCount: null,
             fromSearch: Boolean(query),

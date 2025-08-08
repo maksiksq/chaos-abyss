@@ -2,7 +2,9 @@
     import SearchSummaries from "./SearchSummaries.svelte";
     import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient.js";
 
-    let {categories, mobile} = $props();
+    let {categories, categoryPages, mobile} = $props();
+
+    $inspect("pages?", categoryPages)
 
     let interval = $state(1000);
 
@@ -24,15 +26,15 @@
     let localCategories = $state(categories.map((c: typeof categories[number]) => ({...c, page: 1})));
 
     const requestNewCatPage = async (cat: string, page: number) => {
-        console.log(page);
-
         const supabase = getBrowserClient();
 
         const pageLimit = CATEGORY_LIMITS[cat] ?? DEFAULT_LIMIT
         const from = (page - 1) * pageLimit;
         const to = from + pageLimit - 1;
 
-        console.log('fromto', from, to);
+        console.log("lims", from, to)
+        console.log("cat", cat)
+        console.log("page", page)
 
         const {data: newCategories, error} = await supabase
             .from('articles')
@@ -40,6 +42,8 @@
             .eq('category', cat)
             .order('date', {ascending: false})
             .range(from, to)
+
+        console.log(newCategories)
 
         if (error || !newCategories) {
             console.error(error);
@@ -77,8 +81,17 @@
 
         if (glass > MAX_GLASS) glass = MAX_GLASS;
     }
+
     $inspect(localCategories)
 
+    const checkPage = (page: number, cat: string) => {return (page > 0) && (page <= categoryPages[cat])}
+    const handleNewPage = async (page: number, cat: string, up: boolean) => {
+        const newPage = page + (up ? 1 : -1);
+       if (checkPage(newPage, cat)) {
+           console.log("page", newPage)
+           await requestNewCatPage(cat, newPage)
+       }
+    }
 </script>
 
 <svelte:window onscroll={handleScroll} onresize={handleScroll}/>
@@ -96,13 +109,13 @@
                     <div class="pages">
 
                         <!-- TODO: Here -->
-                        <button onclick={async () => {const newPage = category.page - 1; await requestNewCatPage(category.db, newPage)}}
-                                style={category.summaries.length > 2 ? 'color: #191919;' : 'color: #666666; cursor: pointer;'}>
+                        <button onclick={async () => await handleNewPage(category.page, category.db, false)}
+                                style={checkPage(category.page, category.category) ? 'color: #888888; cursor: initial;' :  'color: #191919'}>
                             &lt;
                         </button>
                         <p>1/1</p>
-                        <button onclick={async () => {{const newPage = category.page + 1; await requestNewCatPage(category.db, newPage)}}}
-                                style={category.summaries.length > 2 ? 'color: #191919' : 'color: #666666; cursor: pointer;'}>
+                        <button onclick={async () => await handleNewPage(category.page, category.db, true)}
+                                style={checkPage(category.page, category.category) ? 'color: #888888; cursor: initial;' :  'color: #191919'}>
                             &gt;
                         </button>
                     </div>

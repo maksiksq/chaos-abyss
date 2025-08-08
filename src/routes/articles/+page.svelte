@@ -7,6 +7,8 @@
     type Summary = typeof data.summaries[number];
 
     let {data} = $props();
+    $inspect(data.categoryPages)
+
     const grouped: Record<string, Summary[]> = data.summaries.reduce((acc: Record<string, Summary[]>, summary: Summary) => {
         if (!acc[summary.category]) {
             acc[summary.category] = [];
@@ -97,7 +99,7 @@
             />
         </div>
         <div class={`search-right-masonry  noscript-mobile`}>
-            <SearchRightMasonry categories={sortedCategories} {mobile}/>
+            <SearchRightMasonry categories={sortedCategories} categoryPages={data.categoryPages} {mobile}/>
         </div>
     </noscript>
     <div class={`search-left-search mobile-none ${mobileSearchDerived === 'yes' ? 'mobile-block' : ''}`}>
@@ -113,7 +115,7 @@
         />
     </div>
     <div class={`search-right-masonry ${mobileSearchDerived === 'no' ? '' : 'mobile-none'}`}>
-        <SearchRightMasonry categories={sortedCategories} {mobile}/>
+        <SearchRightMasonry categories={sortedCategories} categoryPages={data.categoryPages} {mobile}/>
     </div>
 </main>
 <style>
