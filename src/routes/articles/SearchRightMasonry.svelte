@@ -45,13 +45,13 @@
             {#each categories as category (category.db)}
                 <div class="card">
                     <h3>{category.human}</h3>
-                    <ul>
+                    <ul class="search-summaries">
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
                     <div class="pages">
-                        <button>&lt;</button>
+                        <button style={category.summaries.length > 3 ? 'color: #191919;' : 'color: #666666; cursor: initial;'}>&lt;</button>
                         <p>1/1</p>
-                        <button>&gt;</button>
+                        <button style={category.summaries.length > 3 ? 'color: #191919' : 'color: #666666; cursor: initial;'}>&gt;</button>
                     </div>
                 </div>
             {/each}
@@ -63,6 +63,18 @@
 </section>
 
 <style>
+    :global {
+        .search-summaries {
+            & li:last-child {
+                & article {
+                    & a {
+                        margin-bottom: 0.7rem;
+                    }
+                }
+            }
+        }
+    }
+
     .pages {
         display: flex;
         justify-content: flex-end;
@@ -71,7 +83,7 @@
 
         font-size: 0.9rem;
         font-family: monospace;
-        color: #666666;
+        font-weight: bold;
 
         button {
             all: unset;
@@ -88,9 +100,11 @@
         }
 
         p {
+            color: #191919;
             display: inline-block;
             font-family: monospace;
             padding: 0.2rem 0.1rem;
+            font-weight: bold;
         }
     }
 
