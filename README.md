@@ -1,6 +1,6 @@
 # 🪞 Chaos Abyss
 
-Man reinvents blog framework from scratch.
+Man reinvents blog frameworks from scratch.
 
 It's a blog. I'd write a descriptive readme but checkmate, I explained it elsewhere, in detail, twice.
 
