@@ -49,9 +49,9 @@
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
                     <div class="pages">
-                        <button style={category.summaries.length > 3 ? 'color: #191919;' : 'color: #666666; cursor: initial;'}>&lt;</button>
+                        <button style={category.summaries.length > 2 ? 'color: #191919;' : 'color: #666666; cursor: initial;'}>&lt;</button>
                         <p>1/1</p>
-                        <button style={category.summaries.length > 3 ? 'color: #191919' : 'color: #666666; cursor: initial;'}>&gt;</button>
+                        <button style={category.summaries.length > 2 ? 'color: #191919' : 'color: #666666; cursor: initial;'}>&gt;</button>
                     </div>
                 </div>
             {/each}

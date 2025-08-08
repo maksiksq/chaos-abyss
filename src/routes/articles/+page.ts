@@ -6,6 +6,7 @@ import {getBrowserClient} from "$lib/utils/getSupabaseBrowserClient";
 import {getClient} from "$lib/utils/getSupabaseClient";
 import {browser} from "$app/environment";
 import type {PageLoad} from "../../../.svelte-kit/types/src/routes/articles/$types";
+
 const baseUrl = "https://www.chaos-abyss.com";
 
 type Article = {
@@ -23,15 +24,44 @@ type Article = {
 };
 
 export const load: PageLoad = async ({url}) => {
+    let query = url.searchParams.get("query");
+    let fromSearch = !!query;
+
     const supabase = browser ? getBrowserClient() : getClient();
-    const {data: summaries, error: artErr} = await supabase
+    const {data, error: artErr} = await supabase
         .from('articles')
         .select('category, slug, title, fig, figalt, blurb, date, comment_count, content_trim, accent, figcap')
         .not('category', 'in.("draft","stashed")')
-        .order('date', { ascending: false });
-    if (artErr || !summaries) {
+        .order('date', {ascending: false});
+    if (artErr || !data) {
         throw error(500, 'Failed to load articles');
     }
+
+    // we only give the client the first few necessary articles
+    // still getting the whole thing from the database tho because can't do it well in 1 request afaik
+    const categoryLimits: Record<string, number> = {
+        projects: 3,
+        miscellaneous: 4,
+        japanese: 2,
+        media: 3,
+        dev: 3
+    };
+
+    const defaultLimit = 3;
+
+    const grouped: Record<string, Article[]> = {};
+    for (const article of data) {
+        const cat = article.category;
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push(article);
+    }
+
+    const summaries: Article[] = [];
+    for (const [cat, articles] of Object.entries(grouped)) {
+        const limit = categoryLimits[cat] ?? defaultLimit;
+        summaries.push(...articles.slice(0, limit));
+    }
+
     // seo
 
     let jsonLDArticles = summaries.map((article: Article, index: number) => ({
@@ -88,18 +118,18 @@ export const load: PageLoad = async ({url}) => {
     }
 
     // search
-    let query = url.searchParams.get("query");
     let cat = url.searchParams.get("category") ?? 'any';
 
     const validCats = new Set(summaries.map((s: typeof summaries[number]) => s.category));
     if (!validCats.has(cat) && cat !== 'any') cat = 'any';
 
+    // if not from search, then we're out of here
     if (!query) {
         return {
             summaries,
             results: null,
             searchCount: null,
-            fromSearch: !!query,
+            fromSearch: fromSearch,
             noResultsTxt: 'The abyss gave no reply.',
             query,
             cat,
@@ -135,7 +165,7 @@ export const load: PageLoad = async ({url}) => {
     meta.canonUrl = `${baseUrl}/articles?${canonSearch.toString()}`;
     updateMeta(meta.metaProperty, 'property', 'og:url', meta.canonUrl);
 
-    let fuse = new Fuse(summaries, {
+    let fuse = new Fuse(data, {
         keys: [
             {name: 'title', weight: 0.4},
             {name: 'blurb', weight: 0.2},
@@ -167,7 +197,7 @@ export const load: PageLoad = async ({url}) => {
             a = a.toLowerCase()
             b = b.toLowerCase()
 
-            if (a===b) return true;
+            if (a === b) return true;
 
             const lenDiff = Math.abs(a.length - b.length);
             if (lenDiff > 1) return false;
@@ -254,7 +284,7 @@ export const load: PageLoad = async ({url}) => {
         easterEggs.push({
             // this number is always 1 more than the actual amount
             // because I am incredibly evil
-            "result": `And there's at least ${easterEggs.length+1} more.`,
+            "result": `And there's at least ${easterEggs.length + 1} more.`,
             "options": ["easter egg", "secrets"]
         })
 
@@ -303,16 +333,18 @@ export const load: PageLoad = async ({url}) => {
     jsonLDArticles = combinedArticles.map((article, index) => ({
         "@type": "BlogPosting",
         "headline": article.title,
+        "datePublished": timestamptzToISOtz(article.date),
         "url": `${baseUrl}/articles/${article.category}/${article.slug}`,
         "position": index + 1
     }));
     meta.jsonLD.mainEntity.itemListElement = jsonLDArticles;
 
+
     return {
         summaries,
         results: sumResults,
         searchCount: catResults.length,
-        fromSearch: Boolean(query),
+        fromSearch: fromSearch,
         query,
         noResultsTxt: 'Success.',
         cat,
