@@ -1,4 +1,4 @@
-import {type Actions, error, fail} from "@sveltejs/kit";
+import {type Actions, fail} from "@sveltejs/kit";
 import {SECRET_IP_HASH_SALT, SECRET_SUPABASE_SERVICE_ROLE_KEY} from "$env/static/private";
 import {createHash} from "node:crypto";
 import {PUBLIC_DEV, PUBLIC_SUPABASE_URL} from "$env/static/public";
@@ -7,6 +7,8 @@ import {createClient} from "@supabase/supabase-js";
 export const prerender = false;
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_UNKNOWN = 300;
+const MAX_IP = 6;
 
 export const actions = {
     consecrate: async ({request, getClientAddress}) => {
@@ -14,7 +16,7 @@ export const actions = {
 
         // fake invisible field to prevent spam bots
         const nickname = formData.get('nickname') as string;
-        if (nickname) return;
+        if (nickname) return fail(400, {success: false, threat: 'Likely spam detected'});
 
         let email = formData.get('email') as string;
         email = email.trim().toLowerCase();
@@ -36,7 +38,7 @@ export const actions = {
         const hashedIP = hashIP(clientIp);
 
         // checking if this is waitlist or consecrat- nevermind newsletter
-        const lirith = formData.get('lirith') as string === 'true';
+        const lirith = formData.get('lirith')?.toString() === 'true';
 
 
         const table = lirith ? 'waitlist' : 'newsletter';
@@ -50,25 +52,25 @@ export const actions = {
 
             const {count: unCount, error: selError} = await supabase
                 .from(table)
-                .select('*', {count: "exact", head: true})
+                .select('id', {count: "exact", head: true})
                 .eq('hashed_ip', 'unknown');
 
             if (selError) {
-                if (PUBLIC_DEV) {console.log(error)}
+                if (PUBLIC_DEV) {console.error(selError)}
 
                 return fail(400, {success: false, threat: 'Something went wrong!'});
             }
 
             const unCountZeroed = unCount || 0;
 
-            if (unCountZeroed > 300) {
+            if (unCountZeroed > MAX_UNKNOWN) {
                 return fail(400, {success: false, threat: 'Something went wrong? Are you per chance behind a proxy?'});
             }
         } else {
             // checking if IP was used more than 6 times
             const {count, error: selError} = await supabase
                 .from(table)
-                .select('*', {count: "exact", head: true})
+                .select('id', {count: "exact", head: true})
                 .eq('hashed_ip', hashedIP);
 
             if(selError) {
@@ -78,7 +80,7 @@ export const actions = {
 
             const ipCountZeroed = count ?? 0;
 
-            if (ipCountZeroed > 6) {
+            if (ipCountZeroed > MAX_IP) {
                 return fail(400, {success: false, threat: 'Oh no! something went wrong! (using a VPN?)'});
             }
         }
@@ -96,6 +98,7 @@ export const actions = {
                 const {data, error: selError} = await supabase
                     .from(table)
                     .select('subscribed')
+                    .eq('email', email)
                     .single();
 
                 if (selError) {

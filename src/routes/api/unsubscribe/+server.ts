@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({url}) => {
     const table = lirith ? 'waitlist' : 'newsletter';
 
     if (!jwt) {
-        sverror(400, 'Invalid token')
+        throw sverror(400, 'Invalid token')
     }
 
     try {
@@ -30,7 +30,7 @@ export const GET: RequestHandler = async ({url}) => {
             .update({subscribed: false})
             .eq('email', payload.email)
 
-        if (error) {
+        if (error || !payload.email) {
             if (PUBLIC_DEV) {
                 console.error(error)
             }
@@ -44,7 +44,7 @@ export const GET: RequestHandler = async ({url}) => {
         if (PUBLIC_DEV) {
             console.error("JWT verification failed:", err);
         }
-        sverror(401, 'Invalid token')
+        throw sverror(401, 'Invalid token')
     }
 
 };
