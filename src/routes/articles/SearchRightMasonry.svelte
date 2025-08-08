@@ -48,6 +48,11 @@
                     <ul>
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
+                    <div class="pages">
+                        <button>&lt;</button>
+                        <p>1/1</p>
+                        <button>&gt;</button>
+                    </div>
                 </div>
             {/each}
         </div>
@@ -58,6 +63,37 @@
 </section>
 
 <style>
+    .pages {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 0.4rem;
+        padding-right: 1rem;
+
+        font-size: 0.9rem;
+        font-family: monospace;
+        color: #666666;
+
+        button {
+            all: unset;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        button:nth-child(2) {
+            padding: 0.2rem 0.6rem 0.2rem 0.1rem;
+        }
+
+        button:nth-child(1) {
+            padding: 0.2rem 0.1rem 0.2rem 0.6rem;
+        }
+
+        p {
+            display: inline-block;
+            font-family: monospace;
+            padding: 0.2rem 0.1rem;
+        }
+    }
+
     .glass-background {
         position: fixed;
         z-index: -1;
@@ -114,7 +150,7 @@
                 }
 
                 & ul {
-                    padding: 1rem 1rem 0.3rem 1rem;
+                    padding: 1rem 1rem 0 1rem;
                     list-style: none;
 
                     @media (max-width: 1023px) {

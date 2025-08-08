@@ -141,6 +141,7 @@
 - [x] : prod: auto emails
 - [x] : prod: an article or two
 - [x] : prod: an article or three
+- [ ] : prod: pagination for articles and search
 - [ ] : prod: typo and mistake check everything again
 - [ ] : prod: post to reddit
 
