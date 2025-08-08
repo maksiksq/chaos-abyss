@@ -105,19 +105,19 @@
                     <ul class="search-summaries">
                         <SearchSummaries data={category} {mobile}/>
                     </ul>
-                    <div class="pages">
-
-                        <!-- TODO: Here -->
-                        <button onclick={async () => await handleNewPage(category.page, category.db, false)}
-                                style={checkPage(category.page-1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;' }>
-                            &lt;
-                        </button>
-                        <p>{category.page}/{categoryPages[category.db]}</p>
-                        <button onclick={async () => await handleNewPage(category.page, category.db, true)}
-                                style={checkPage(category.page+1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;'}>
-                            &gt;
-                        </button>
-                    </div>
+                    {#if categoryPages[category.db] !== 1}
+                        <div class="pages">
+                            <button onclick={async () => await handleNewPage(category.page, category.db, false)}
+                                    style={checkPage(category.page-1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;' }>
+                                &lt;
+                            </button>
+                            <p>{category.page}/{categoryPages[category.db]}</p>
+                            <button onclick={async () => await handleNewPage(category.page, category.db, true)}
+                                    style={checkPage(category.page+1, category.db) ? 'color: #191919' : 'color: #888888; cursor: initial;'}>
+                                &gt;
+                            </button>
+                        </div>
+                    {/if}
                 </div>
             {/each}
         </div>
