@@ -27,7 +27,7 @@
             return;
         }
 
-        interval = 190;
+        interval = 180;
 
 
         glass = Math.floor((scroll-cardsHeight)/(interval));
