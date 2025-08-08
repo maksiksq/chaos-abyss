@@ -141,11 +141,12 @@
 - [x] : prod: auto emails
 - [x] : prod: an article or two
 - [x] : prod: an article or three
-- [ ] : prod: pagination for articles and search
-- [ ] : prod: typo and mistake check everything again
+- [x] : prod: pagination for articles
+- [x] : prod: typo and mistake check everything again : almost
 - [ ] : prod: post to reddit
 
 - [ ] : maybe: maybe separate articles desc too
+- [ ] : maybe: maybe pagination for search
 - [ ] : maybe: maybe fix emailbox jank ; it's fixed already ; no it's still jank sometimes for some reason ; the lirith emailbox is jank because it reloads the whole component (for some reason)
 - [ ] : maybe: maybe make self-made markdown-it plugins into packages because evil
 
