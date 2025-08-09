@@ -101,7 +101,7 @@ It's the thing people are most excited about and I totally see why. It really fe
 - **Small Ecosystem:** People tend to put it as *small but growing*, and it is, but it's just not there yet.
 - **New and breaking:** Most things you find on Google about Svelte around are going to be about older versions before they added runes. And that's because it's new and fresh and changing fast, even if immensely powerful already.
 
-My main complaint is SEO, that's kinda pain in Svelte. But any issues right now are subject to change, aren't they?
+Just from making this website you're reading on right now: handling SEO is funny, auth is also funny - nothing pace-breaking or major but just some workarounds and figuring things out. That's kinda pain in Svelte as of right now, but any issues are subject to change, aren't they? I'll definitely keep using it, these are just minor things.
 
 ### So should you use/learn Svelte?
 #### Why yes?
@@ -118,7 +118,7 @@ My main complaint is SEO, that's kinda pain in Svelte. But any issues right now 
 - You don't like change ❌
 
 ## So which?
-Well it depends, of course. If you're learning, I'd go for either Vue or Svelte. I started with React and it was not fun. Svelte is the way for new things, but there are considerations to not use it because it's only growing.
+Well it depends, of course :idk:. If you're learning, I'd go for either Vue or Svelte. I started with React and it was not fun. Svelte is the way for new things, but there are considerations to not use it because it's only growing.
 
 And if you're looking for a UI framework, you should also consider a meta-framework. Usually for React it's Next.js, for Vue it's Nuxt.js, for Svelte it's SvelteKit. Those are essential in many cases.
 

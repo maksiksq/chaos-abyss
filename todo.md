@@ -102,7 +102,7 @@
 - [ ] : very later: make header section plugin but with escaping
 - [ ] : very later: maybe makes drafts and stashed actually private in the db
 - [ ] : very later: one or another way to preview draft figs on article page
-- [ ] : fix: figure captions completely brokey right now
+- [ ] : fix: main figure captions (from db) completely brokey right now
 
 <br>~~- [ ] : scrap: add burger for phone~~
 <br>~~- [ ] : scrap: make header capitalization optional~~ ; it matches the db now
