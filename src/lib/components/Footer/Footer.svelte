@@ -284,26 +284,29 @@
         }
     }
 
-    .hand-holder:after {
-        content: "";
-        position: absolute;
-        top: -3rem;
-        left: 70%;
-        width: 20%;
-        height: 1px;
-        background: #000000;
+    :global {
+        footer.hand-holder:after {
+            content: "";
+            position: absolute;
+            top: -3rem;
+            left: 70%;
+            width: 20%;
+            height: 1px;
+            background: #000000;
 
 
-        @media (max-width: 1279px) {
-            display: none;
-        }
+            @media (max-width: 1279px) {
+                display: none;
+            }
 
-        @media (max-width: 728px) {
-            top: -8.5rem;
-            width: 34%;
-            left: 42%;
+            @media (max-width: 728px) {
+                top: -8.5rem;
+                width: 34%;
+                left: 42%;
+            }
         }
     }
+
 
     footer {
         font-size: 1.1rem;
