@@ -298,12 +298,6 @@
             @media (max-width: 1279px) {
                 display: none;
             }
-
-            @media (max-width: 728px) {
-                top: -8.5rem;
-                width: 34%;
-                left: 42%;
-            }
         }
     }
 
