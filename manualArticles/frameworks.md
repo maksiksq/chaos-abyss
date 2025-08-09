@@ -65,7 +65,7 @@ Vue uses Template Syntax instead of JSX, in simpler terms, you write HTML and pu
 #### Cons:
 - **Fragmented Ecosystem:** Probably a temporary issue. There exists Composition and Options api, and Vue 3 and Vue 2, a lot of libraries or users never moved and it's kinda weird.
 
-There really isn't that much to hate here, but it still has some of the issues React does, just to a much more manageable degree. It's a very solid Framework, and if you prefer it, give it a shot.
+There really isn't that much to hate here, but it still has some of the issues React does, just to a much more manageable degree. It's a very solid framework, and if you prefer it, give it a shot.
 
 ### So should you partake in it?
 #### Here's what it's good for:
