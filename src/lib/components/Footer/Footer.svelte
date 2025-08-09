@@ -201,7 +201,7 @@
 
 <svelte:window onmousemove={handleDiamondAnim}/>
 
-<footer class="{home ? 'hand-buggy-holder' : ''}">
+<footer class="{home ? 'hand-holder' : ''}">
     <div class="footer-left">
         {#if !home}
             <img class="gem" src="/img/gem.svg" width="1325" height="2457" alt="A really cool gemstone encircled by magic tentacles or something">
@@ -286,7 +286,7 @@
 
     /* the media query here does not apply in production, why? */
     :global {
-        footer.hand-buggy-holder:after {
+        footer.hand-holder:after {
             content: "";
             position: absolute;
             top: -3rem;
@@ -297,8 +297,17 @@
         }
 
         @media (max-width: 1279px) {
-            footer.hand-buggy-holder:after {
+            footer.hand-holder:after {
                 display: none;
+            }
+        }
+
+        @media (max-width: 728px) {
+            footer.hand-holder:after {
+                display: initial;
+                top: -8.5rem;
+                width: 34%;
+                left: 42%;
             }
         }
     }
