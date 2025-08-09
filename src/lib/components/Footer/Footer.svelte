@@ -293,6 +293,7 @@
         height: 1px;
         background: #000000;
 
+
         @media (max-width: 1279px) {
             display: none;
         }
