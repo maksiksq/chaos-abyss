@@ -284,6 +284,7 @@
         }
     }
 
+    /* the media query here does not apply in production, why? */
     :global {
         footer.hand-holder:after {
             content: "";
@@ -293,13 +294,17 @@
             width: 20%;
             height: 1px;
             background: #000000;
+        }
 
-
-            @media (max-width: 1279px) {
+        @media (max-width: 1279px) {
+            footer.hand-holder:after {
                 display: none;
             }
+        }
 
-            @media (max-width: 728px) {
+        @media (max-width: 728px) {
+            footer.hand-holder:after {
+                display: initial;
                 top: -8.5rem;
                 width: 34%;
                 left: 42%;
