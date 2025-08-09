@@ -15,13 +15,84 @@ import mditsections from "markdown-it-header-sections";
 // @ts-ignore
 import mditrubyplugin from 'markdown-it-ruby';
 
+// Custom inline emotes (surely this doesn't break anything, right?)
+const emotesPlugin = (md: MarkdownIt) => {
+    const EMOTES: Record<string, string> = {
+        idk: "/img/emotes/idk-em.png",
+        atou: "https://emoji.slack-edge.com/T0266FRGM/atou-yess/b179ce3517795488.png"
+    };
+
+    const RE = /:([a-z0-9_]+):/gi;
+
+    // StateCore type except ts or ide is being weird so any instead
+    const emoteReplace = (state: any) => {
+        const tokens = state.tokens;
+
+        for (let i = 0; i < tokens.length; i++) {
+            const token = tokens[i];
+
+            if (token.type !== "inline") continue;
+
+            for (let j = 0; j < token.children.length; j++) {
+                const child = token.children[j];
+                if (child.type !== "text") continue;
+
+                const text = child.content;
+                let match;
+                let nodes = [];
+                let lastIndex = 0;
+
+                while ((match = RE.exec(text)) !== null) {
+                    const [full, name] = match;
+
+                    if (match.index > lastIndex) {
+                        const t = new state.Token("text", "", 0);
+                        t.content = text.slice(lastIndex, match.index);
+                        nodes.push(t);
+                    }
+
+                    if (EMOTES[name]) {
+                        const html = new state.Token("html_inline", "", 0);
+                        html.content = `<img src="${EMOTES[name]}" alt=":${name}:" class="emote" role="presentation">`;
+                        nodes.push(html);
+                    } else {
+                        // No emote found, keep original text
+                        const t = new state.Token("text", "", 0);
+                        t.content = full;
+                        nodes.push(t);
+                    }
+
+                    lastIndex = match.index + full.length;
+                }
+
+                if (lastIndex < text.length) {
+                    const t = new state.Token("text", "", 0);
+                    t.content = text.slice(lastIndex);
+                    nodes.push(t);
+                }
+
+                if (nodes.length) {
+                    token.children = [
+                        ...token.children.slice(0, j),
+                        ...nodes,
+                        ...token.children.slice(j + 1)
+                    ];
+                    j += nodes.length - 1;
+                }
+            }
+        }
+    }
+
+    md.core.ruler.after("inline", "emotes", emoteReplace);
+}
+
 // reparse inside tables, considering it uses pipe characters
 // (lazy as heck)
 const reparseRubyInsideTables = (md: MarkdownIt) => {
     // One thing for sure I'm not typing that! (right? ... right??(
     const PLACEHOLDER = '⸻';
 
-    // Preventing pipe inside ruby from breaking table parsing
+    // Preventing pipe char inside ruby from breaking table parsing
     md.core.ruler.before('block', 'preprocess-ruby', (state) => {
         state.src = state.src.replace(
             /\{([^{}|]+)\|([^{}|]+)}/g,
@@ -129,7 +200,8 @@ export const md: MarkdownIt = markdownit({
             }
         })
         .use(reparseRubyInsideTables)
-        .use(wrapTablesInDiv);
+        .use(wrapTablesInDiv)
+        .use(emotesPlugin);
 
 
 type CurrentDetails = {

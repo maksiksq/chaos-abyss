@@ -329,6 +329,14 @@
                 }
             }
 
+            & .emote {
+                display: inline-block;
+                height: 1.4rem;
+                width: auto;
+                vertical-align: -0.125rem;
+                margin: 0;
+            }
+
             & kbd {
                 color: white;
                 font-size: 0.7rem;
