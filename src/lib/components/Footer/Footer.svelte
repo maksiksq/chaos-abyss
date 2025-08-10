@@ -317,7 +317,7 @@
         font-size: 1.1rem;
         display: flex;
         flex-direction: row;
-        width: 100vw;
+        width: 100%;
         height: 68dvh;
         overflow-x: clip;
         overflow-y: visible;
@@ -533,6 +533,8 @@
                 align-items: center;
                 height: 30%;
                 width: 120%;
+                padding: 0.2rem;
+                box-sizing: border-box;
 
                 @media (max-width: 728px) {
                     justify-content: center;
@@ -553,6 +555,7 @@
                         width: 80%;
                         height: 3.7em;
                     }
+
 
                     &:hover {
                         transition: all 0.1s;
