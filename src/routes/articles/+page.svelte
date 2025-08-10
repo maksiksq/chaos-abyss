@@ -7,7 +7,6 @@
     type Summary = typeof data.summaries[number];
 
     let {data} = $props();
-    $inspect(data.categoryPages)
 
     const grouped: Record<string, Summary[]> = data.summaries.reduce((acc: Record<string, Summary[]>, summary: Summary) => {
         if (!acc[summary.category]) {
@@ -17,7 +16,7 @@
         return acc;
     }, {})
 
-    const order = ['projects', 'miscellaneous', 'japanese', 'media', 'dev'];
+    const order = ['japanese', 'miscellaneous', 'projects', 'media', 'dev'];
 
     const capitalize = (s: string) =>
         s.replace(/\b\w/g, (c: string) => c.toUpperCase());

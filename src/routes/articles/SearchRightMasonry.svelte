@@ -4,8 +4,6 @@
 
     let {categories, categoryPages, mobile} = $props();
 
-    $inspect("pages?", categoryPages)
-
     let interval = $state(1000);
 
     let glass = $state(0);

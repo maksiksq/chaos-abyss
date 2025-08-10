@@ -144,6 +144,7 @@
 - [x] : prod: pagination for articles
 - [x] : prod: typo and mistake check everything again : almost
 - [ ] : prod: post to reddit
+- 終わりです
 
 - [ ] : maybe: maybe separate articles desc too
 - [ ] : maybe: maybe pagination for search
