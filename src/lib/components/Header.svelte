@@ -12,9 +12,9 @@
             <img class="logo" src="/img/calogonotext.svg" alt="Chaos Abyss logo">
         </a>
         <form method="GET" action="/articles" autocomplete="off">
+            <input name="category" id="category" type="hidden" value={currentSearchCategory}/>
             <label for="query" class="sr-only">Search articles</label>
             <input name="query" id="query" class="search" type="text" autocomplete="off" placeholder="Search..."/>
-            <input name="category" id="category" type="hidden" value={currentSearchCategory}/>
             <button class="sr-only">Search</button>
         </form>
         {#if home}
