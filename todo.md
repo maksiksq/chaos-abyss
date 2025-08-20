@@ -112,6 +112,7 @@
 <br>~~- [x] : scrap: maybe make head fig shadow more intense (or keep it)~~
 
 - [x] : fix: no js articles don't scroll
+- [ ] : fix: PUBLIC_DEV variable is a string (idiot)
 - [ ] : minor fix: mobile articles page first contentful load lighthouse report is too long
 - [ ] : minor fix: lirith articles emailbox reloads the whole component for some reason so client side text only appears for a few seconds
 - [x] : right before prod: Zero edit dates and fix publish dates
@@ -143,7 +144,8 @@
 - [x] : prod: an article or three
 - [x] : prod: pagination for articles
 - [x] : prod: typo and mistake check everything again : almost
-- [ ] : prod: post to reddit
+- [x] : prod: post to reddit
+- [ ] : prod: sort to do list better
 - 終わりです
 
 - [ ] : maybe: maybe separate articles desc too

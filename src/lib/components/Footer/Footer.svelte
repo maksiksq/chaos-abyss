@@ -556,7 +556,6 @@
                         height: 3.7em;
                     }
 
-
                     &:hover {
                         transition: all 0.1s;
                         transform: scale(1.003);
