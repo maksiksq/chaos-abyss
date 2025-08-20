@@ -47,12 +47,6 @@
             flex-direction: row;
             align-items: center;
 
-            &:hover {
-                filter: blur(0.3px);
-                transition: all 0.1s;
-                transform: scale(1.003);
-            }
-
             & svg {
                 width: 1.2rem;
                 height: 1.2rem;
