@@ -63,7 +63,7 @@
         color: #190025;
 
         & .tooltip {
-            position: absolute;
+            position: fixed;
             pointer-events: none;
             transition: none;
             background: #666666;
